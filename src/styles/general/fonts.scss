@@ -1,0 +1,34 @@
+@font-face {
+    src:
+        local('Geologica'),
+        url('assets/fonts/Geologica/Geologica-Light.woff2') format('woff2'),
+        url('assets/fonts/Geologica/Geologica-Light.woff') format('woff'),
+        url('assets/fonts/Geologica/Geologica-Light.ttf') format('ttf');
+    font-family: 'Geologica';
+    font-weight: 300;
+}
+@font-face {
+    src:
+        local('Geologica'),
+        url('assets/fonts/Geologica/Geologica-Thin.woff2') format('woff2'),
+        url('assets/fonts/Geologica/Geologica-Thin.woff') format('woff'),
+        url('assets/fonts/Geologica/Geologica-Thin.ttf') format('ttf');
+    font-family: 'Geologica';
+    font-weight: 100;
+}
+@font-face {
+    src:
+        local('Forum'),
+        url('assets/fonts/Forum/Forum-Regular.woff2') format('woff2'),
+        url('assets/fonts/Forum/Forum-Regular.woff') format('woff'),
+        url('assets/fonts/Forum/Forum-Regular.ttf') format('ttf');
+    font-family: 'Forum';
+}
+@font-face {
+    src:
+        local('Gloria script'),
+        url('assets/fonts/Gloria script/gloriascript.woff2') format('woff2'),
+        url('assets/fonts/Gloria script/gloriascript.woff') format('woff'),
+        url('assets/fonts/Gloria script/gloriascript.ttf') format('ttf');
+    font-family: 'Gloria script';
+}

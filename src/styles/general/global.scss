@@ -6,10 +6,12 @@ html {
     font-size: 62.5%;
 }
 
+section {
+}
+
 .container {
     margin: 0 auto;
-    padding: 0 15px;
-    max-width: 1230px;
+    max-width: 1560px;
 }
 
 .main-wrapper {
@@ -30,6 +32,7 @@ html {
 
 body {
     overflow-x: clip;
+    background-color: var(--base_200);
 }
 
 html.disable-scroll {
@@ -53,7 +56,7 @@ html.disable-scroll {
 
     @media only screen and (max-width: utils.$tablet1200) {
         p + p {
-            margin-top: 12px;
+            margin-top: 24px;
         }
     }
 }
