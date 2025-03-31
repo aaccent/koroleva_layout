@@ -1,2 +1,61 @@
+include layout/utils
+
+-
+    var menu_left = [
+        {
+            title: 'Каталог',
+        },
+        {title: 'Новинки', link: '#'},
+        {title: 'Sale', link: '#'},
+        {title: 'Коллекции', link: '#'},
+    ]
+
+    var menu_right = [
+        {title: 'Бренды', link: '#'},
+        {title: 'Сертификаты', link: '#'},
+        {title: 'О нас', submenu: [
+            {name: 'Блог', link: '#'},
+            {name: 'О компании', link: '#'},
+            {name: 'Бонусная программа', link: '#'},
+            {name: 'Информация клиентам', link: '#'},
+            ]},
+        {title: 'Магазины', link: ''},
+    ]
+
 header.header
     .container
+        .header__geo-button Екатеринбург
+        .header-menu
+            ul.header-menu--left
+                each item in menu_left
+                    li.header-menu__item
+                        if item.submenu
+                            ul.header-menu__item-submenu
+                                each sub in item.submenu
+                                    li.header-menu__item-submenu-item
+                                        +anchor(sub.link)= sub.name
+                        else if item.link
+                            +anchor(item.link)= item.title
+                        else
+                            span= item.title
+            ul.header-menu--right
+                each item in menu_right
+                    if item.link
+                        li.header-menu__item
+                            +anchor(item.link)= item.title
+                    if item.submenu
+                        li.header-menu__item= item.title
+                            ul.header-menu__item-submenu
+                                each sub in item.submenu
+                                    li.header-menu__item-submenu-item
+                                        +anchor(sub.link)= sub.name
+                    else
+                        li.header-menu__item= item.title
+        +anchor('/').header__logo
+            +img(require('assets/icons/logo.svg'))
+        .header__buttons
+            +img(require('assets/icons/search.svg'))
+            +img(require('assets/icons/user.svg'))
+            +img(require('assets/icons/favorite.svg'))
+            +img(require('assets/icons/cart.svg'))
+    include layout/header/catalog/catalog

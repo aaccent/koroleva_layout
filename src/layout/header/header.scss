@@ -1,0 +1,84 @@
+@use 'styles/utils';
+@use 'layout/header/catalog/catalog';
+
+.header {
+    position: relative;
+    z-index: 1;
+    padding: 46px 0;
+    height: var(--header-height);
+    color: var(--base_400);
+    font: var(--text-lg_300);
+    letter-spacing: 0.01rem;
+    background-color: var(--base_200);
+    border-bottom: 1px solid hsl(7, 15%, 34%, 0.2);
+
+    &._active {
+        .header-catalog {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    .container {
+        display: flex;
+        align-items: center;
+    }
+
+    &-menu {
+        gap: 375px;
+        display: flex;
+        align-items: center;
+
+        &--left,
+        &--right {
+            gap: 30px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        &__item {
+            &:has(.header-menu__item-submenu) {
+                position: relative;
+            }
+            &-submenu {
+                position: absolute;
+                background: var(--base_100);
+            }
+        }
+    }
+
+    &__buttons {
+        gap: 18px;
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+
+        img {
+            cursor: pointer;
+        }
+    }
+
+    &__geo-button {
+        gap: 4px;
+        margin-right: auto;
+        display: flex;
+        align-items: center;
+
+        &::before {
+            content: '';
+            @include utils.square(24px);
+            @include utils.bg-defaults(cover);
+            background-image: url('assets/icons/geo.svg');
+        }
+    }
+
+    &__logo {
+        filter: var(--filter-base_400);
+        position: absolute;
+        z-index: 10;
+        top: 24px;
+        left: 50%;
+        translate: -50% 0;
+    }
+}
