@@ -11,7 +11,7 @@ html {
     max-width: 1560px;
 
     @media screen and (max-width: 1000px) {
-        max-width: 334px;
+        padding: 0 28px;
     }
 
     @media screen and (min-width: 1920px) {
@@ -43,13 +43,15 @@ body {
         .header {
             border-bottom: none;
 
-            &:not(._active) {
+            &:not(._active):not(._opened) {
                 color: var(--base_100);
                 background-color: transparent;
 
                 .header__geo-button,
                 .header__logo,
-                .header__buttons img {
+                .header__buttons button,
+                .header__mobile-search-button,
+                .header__mobile-burger {
                     filter: var(--filter-base_100);
                 }
             }

@@ -53,8 +53,9 @@ include layout/utils
                 },
                     {
                         type: 'video',
-                        link: '',
-                        title: 'как правильно снять замеры груди'
+                        link: 'https://rutube.ru/video/144e6966af5264dbc229d0ddcf656759/',
+                        title: 'как правильно снять замеры груди',
+                        dataContainer: 'video'
                     }
                 ]
             },
@@ -63,6 +64,7 @@ include layout/utils
                 icon: require('assets/icons/panties.svg'),
                 subcategories: [
                     {
+                        type: 'Тип модели',
                         list: [
                             { name: 'Категория', link: '' },
                             { name: 'Категория', link: '' },
@@ -81,6 +83,7 @@ include layout/utils
                 icon: require('assets/icons/lingerie.svg'),
                 subcategories: [
                     {
+                        type: 'Тип модели',
                         list: [
                             { name: 'Категория', link: '' },
                             { name: 'Категория', link: '' },
@@ -93,6 +96,7 @@ include layout/utils
                 icon: require('assets/icons/very sexy.svg'),
                 subcategories: [
                     {
+                        type: 'Тип модели',
                         list: [
                             { name: 'Категория', link: '' },
                             { name: 'Категория', link: '' },
@@ -109,6 +113,7 @@ include layout/utils
                 icon: require('assets/icons/home.svg'),
                 subcategories: [
                     {
+                        type: 'Тип модели',
                         list: [
                             { name: 'Категория', link: '' },
                             { name: 'Категория', link: '' },
@@ -122,6 +127,7 @@ include layout/utils
                 icon: require('assets/icons/collection.svg'),
                 subcategories: [
                     {
+                        type: 'Тип модели',
                         list: [
                             { name: 'Смотреть все', link: '' },
                             { name: 'Невидимые', link: '' },
@@ -137,51 +143,61 @@ include layout/utils
             {
                 image: require('assets/content/header-catalog/offers/1.png'),
                 title: 'Бюстгальтер бандо с тонкой чашкой и еще какое- то описание',
-                price: 4300
+                price: 4300,
+                link: '#'
             }, {
                 image: require('assets/content/header-catalog/offers/2.png'),
                 title: 'Бюстгальтер бандо с тонкой чашкой и еще какое- то описание',
-                price: 4300
+                price: 4300,
+                link: '#'
             }, {
                 image: require('assets/content/header-catalog/offers/3.png'),
                 title: 'Бюстгальтер бандо с тонкой чашкой и еще какое- то описание',
-                price: 4300
+                price: 4300,
+                link: '#'
             }, {
                 image: require('assets/content/header-catalog/offers/4.png'),
                 title: 'Бюстгальтер бандо с тонкой чашкой и еще какое- то описание',
-                price: 4300
+                price: 4300,
+                link: '#'
             }, {
                 image: require('assets/content/header-catalog/offers/5.png'),
                 title: 'Бюстгальтер бандо с тонкой чашкой и еще какое- то описание',
-                price: 4300
+                price: 4300,
+                link: '#'
             },
         ]
     }
 
 
 .header-catalog
-    .container
-        ul.header-catalog__list
-            each category in catalog.categoriesList
-                li.header-catalog__item= category.name
-                    +img(category.icon).header-catalog__item-icon
-                    .header-catalog__item-content
-                        each list in category.subcategories
-                            if list.type
-                                ul.header-catalog__item-subcategory-list
-                                    li.header-catalog__item-subcategory-type= list.type
-                                    each item in list.list
-                                        li.header-catalog__item-subcategory-item
-                                            +anchor(item.link)= item.name
-                            else
-                                ul.header-catalog__item-subcategory-list
-                                    each item in list.list
-                                        li.header-catalog__item-subcategory-item
-                                            +anchor(item.link)= item.name
-                        .header-catalog__item-media
-                            if category.media
-                                each media in category.media
-                                    .header-catalog__item-media-container
+    .header-catalog__back Каталог
+    ul.header-catalog__list
+        each category, index in catalog.categoriesList
+            li.header-catalog__item(data-name=`${category.name}`)= category.name
+                +img(category.icon).header-catalog__item-icon
+                .header-catalog__item-content
+                    each list in category.subcategories
+                        .header-catalog__item-subcategory
+                            .header-catalog__item-subcategory-type= list.type
+                            ul.header-catalog__item-subcategory-list
+                                each item in list.list
+                                    li.header-catalog__item-subcategory-item
+                                        +anchor(item.link)= item.name
+                    .header-catalog__item-media
+                        if category.media
+                            each media in category.media
+                                if media.type === 'video'
+                                    .header-catalog__item-media-container(data-video=media.link)
+                                        +img(media.image || require('assets/static/video-preview.png'))
+                                        .header-catalog__item-media-title= media.title
+                                else
+                                    +anchor(media.link).header-catalog__item-media-container
                                         +img(media.image)
-                                        +anchor(media.link)
-                                        .header-catalog__item-media-title
+                                        .header-catalog__item-media-title= media.title
+    .header-catalog__offers
+        each offer in catalog.offers
+            +anchor(offer.link).header-catalog__offers-item
+                +img(offer.image).header-catalog__offers-item-image
+                .header-catalog__offers-item-title= offer.title
+                .header-catalog__offers-item-price= offer.price

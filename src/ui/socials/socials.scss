@@ -1,0 +1,14 @@
+@use 'styles/utils';
+
+.socials {
+    gap: 8px;
+    display: flex;
+
+    &__item {
+        @include utils.circle(40px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid hsla(7, 15%, 34%, 0.2);
+    }
+}

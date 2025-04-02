@@ -1,0 +1,26 @@
+include layout/utils
+
+mixin socials(props)
+    -
+        props = props || [
+            {
+                icon: require('assets/icons/tg.svg'),
+                link: ''
+            },
+            {
+                icon: require('assets/icons/vk.svg'),
+                link: ''
+            },
+            {
+                icon: require('assets/icons/ok.svg'),
+                link: ''
+            },
+            {
+                icon: require('assets/icons/youtube.svg'),
+                link: ''
+            },
+        ]
+    .socials&attributes(attributes)
+        each item in props
+            +anchor(item.link).socials__item
+                +img(item.icon)
