@@ -142,6 +142,7 @@
 
         &._opened {
             .header-menu {
+                overflow-y: scroll;
                 opacity: 1;
                 visibility: visible;
             }
@@ -215,6 +216,7 @@
             }
             &-tel {
                 margin-top: 32px;
+                margin-bottom: 24px;
                 display: block;
                 font: var(--text-lg_200);
             }

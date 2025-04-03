@@ -22,7 +22,7 @@ export interface VideoPopup extends HTMLElement {
 }
 
 void (function () {
-    const header = document.querySelector('.header')
+    const header = document.querySelector<HTMLElement>('.header')
     const openCatalogMenuItem = document.querySelector('.header-menu__item[data-id="catalog"]')
     const menuItemWithSubMenu = document.querySelectorAll('.header-menu__item:has(.header-menu__item-submenu)')
 
@@ -89,6 +89,15 @@ void (function () {
             })
         })
     }
+
+    function setHeaderHeight() {
+        if (!header) return
+
+        const height = `${header.offsetHeight}px`
+        document.documentElement.style.setProperty('--header-height', height)
+    }
+    setHeaderHeight()
+    window.addEventListener('resize', setHeaderHeight)
 
     const videoPreViews = document.querySelectorAll<VideoPreview>('.header-catalog__item-media-container[data-video]')
     videoPreViews.forEach((preview) => {

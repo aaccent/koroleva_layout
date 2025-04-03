@@ -6,138 +6,27 @@ include layout/utils
             {
                 name: 'Бюстгальтеры',
                 icon: require('assets/icons/bra.svg'),
-                subcategories: [
-                    {
-                        type: 'Тип модели',
-                        list: [
-                            { name: 'Смотреть все', link: '' },
-                            { name: 'Балконет', link: '' },
-                            { name: 'Треугольник', link: '' },
-                            { name: 'Пуш-ап', link: '' },
-                            { name: 'Бандо', link: '' },
-                            { name: 'Без косточек', link: '' },
-                            { name: 'C подкладкой', link: '' },
-                            { name: 'Sale', link: '' }
-                        ]
-                    },
-                    {
-                        type: 'По чашечке',
-                        list: [
-                            { name: 'Смотреть все', link: '' },
-                            { name: 'Чашки А', link: '' },
-                            { name: 'Чашки B', link: '' },
-                            { name: 'Чашки C', link: '' },
-                            { name: 'Чашки D', link: '' },
-                            { name: 'Чашки E', link: '' },
-                            { name: 'Чашки F', link: '' },
-                        ]
-                    },
-                    {
-                        type: 'Коллекции',
-                        list: [
-                            { name: 'Смотреть все', link: '' },
-                            { name: 'Невидимые', link: '' },
-                            { name: 'Базовые', link: '' },
-                            { name: 'Для невесты', link: '' },
-                            { name: 'Для спорта', link: '' },
-                            { name: 'Аксессуары', link: '' },
-                        ]
-                    }
-                ],
-                media: [{
-                    type: 'article',
-                    image: require('assets/content/header-catalog/media/article.png'),
-                    title: 'Как подобрать размер бюстгальтера?',
-                    link: ''
 
-                },
-                    {
-                        type: 'video',
-                        link: 'https://rutube.ru/video/144e6966af5264dbc229d0ddcf656759/',
-                        title: 'как правильно снять замеры груди',
-                        dataContainer: 'video'
-                    }
-                ]
             },
             {
                 name: 'Трусики',
                 icon: require('assets/icons/panties.svg'),
-                subcategories: [
-                    {
-                        type: 'Тип модели',
-                        list: [
-                            { name: 'Категория', link: '' },
-                            { name: 'Категория', link: '' },
-                            { name: 'Категория', link: '' },
-                            { name: 'Категория', link: '' },
-                            { name: 'Категория', link: '' },
-                            { name: 'Категория', link: '' },
-                            { name: 'Категория', link: '' },
-                            { name: 'Категория', link: '' },
-                        ]
-                    },
-                ]
             },
             {
                 name: 'Нижнее белье',
                 icon: require('assets/icons/lingerie.svg'),
-                subcategories: [
-                    {
-                        type: 'Тип модели',
-                        list: [
-                            { name: 'Категория', link: '' },
-                            { name: 'Категория', link: '' },
-                        ]
-                    },
-                ]
             },
             {
                 name: 'Very sexy',
                 icon: require('assets/icons/very sexy.svg'),
-                subcategories: [
-                    {
-                        type: 'Тип модели',
-                        list: [
-                            { name: 'Категория', link: '' },
-                            { name: 'Категория', link: '' },
-                            { name: 'Категория', link: '' },
-                            { name: 'Категория', link: '' },
-                            { name: 'Категория', link: '' },
-                            { name: 'Категория', link: '' },
-                        ]
-                    },
-                ]
             },
             {
                 name: 'Домашняя одежда',
                 icon: require('assets/icons/home.svg'),
-                subcategories: [
-                    {
-                        type: 'Тип модели',
-                        list: [
-                            { name: 'Категория', link: '' },
-                            { name: 'Категория', link: '' },
-                            { name: 'Категория', link: '' },
-                        ]
-                    },
-                ]
             },
             {
                 name: 'Коллекции',
                 icon: require('assets/icons/collection.svg'),
-                subcategories: [
-                    {
-                        type: 'Тип модели',
-                        list: [
-                            { name: 'Смотреть все', link: '' },
-                            { name: 'Невидимые', link: '' },
-                            { name: 'Базовые', link: '' },
-                            { name: 'Для невесты', link: '' },
-                            { name: 'Для спорта', link: '' },
-                            { name: 'Аксессуары', link: '' },
-                        ]
-                    },
-                ]
             },],
         offers: [
             {
@@ -169,6 +58,61 @@ include layout/utils
         ]
     }
 
+    var subcategories = [
+                {
+                    type: 'Тип модели',
+                    list: [
+                        { name: 'Смотреть все', link: '' },
+                        { name: 'Балконет', link: '' },
+                        { name: 'Треугольник', link: '' },
+                        { name: 'Пуш-ап', link: '' },
+                        { name: 'Бандо', link: '' },
+                        { name: 'Без косточек', link: '' },
+                        { name: 'C подкладкой', link: '' },
+                        { name: 'Sale', link: '' }
+                    ]
+                },
+                {
+                    type: 'По чашечке',
+                    list: [
+                        { name: 'Смотреть все', link: '' },
+                        { name: 'Чашки А', link: '' },
+                        { name: 'Чашки B', link: '' },
+                        { name: 'Чашки C', link: '' },
+                        { name: 'Чашки D', link: '' },
+                        { name: 'Чашки E', link: '' },
+                        { name: 'Чашки F', link: '' },
+                    ]
+                },
+                {
+                    type: 'Коллекции',
+                    list: [
+                        { name: 'Смотреть все', link: '' },
+                        { name: 'Невидимые', link: '' },
+                        { name: 'Базовые', link: '' },
+                        { name: 'Для невесты', link: '' },
+                        { name: 'Для спорта', link: '' },
+                        { name: 'Аксессуары', link: '' },
+                    ]
+                }
+            ]
+
+    var media = [
+        {
+            type: 'article',
+            image: require('assets/content/header-catalog/media/article.png'),
+            title: 'Как подобрать размер бюстгальтера?',
+            link: ''
+
+        },
+        {
+            type: 'video',
+            link: 'https://rutube.ru/video/144e6966af5264dbc229d0ddcf656759/',
+            title: 'как правильно снять замеры груди',
+            dataContainer: 'video'
+        }
+    ]
+
 
 .header-catalog
     .header-catalog__back Каталог
@@ -177,24 +121,23 @@ include layout/utils
             li.header-catalog__item(data-name=`${category.name}`)= category.name
                 +img(category.icon).header-catalog__item-icon
                 .header-catalog__item-content
-                    each list in category.subcategories
+                    each subcategory in subcategories
                         .header-catalog__item-subcategory
-                            .header-catalog__item-subcategory-type= list.type
+                            .header-catalog__item-subcategory-type= subcategory.type
                             ul.header-catalog__item-subcategory-list
-                                each item in list.list
+                                each item in subcategory.list
                                     li.header-catalog__item-subcategory-item
                                         +anchor(item.link)= item.name
                     .header-catalog__item-media
-                        if category.media
-                            each media in category.media
-                                if media.type === 'video'
-                                    .header-catalog__item-media-container(data-video=media.link)
-                                        +img(media.image || require('assets/static/video-preview.png'))
-                                        .header-catalog__item-media-title= media.title
-                                else
-                                    +anchor(media.link).header-catalog__item-media-container
-                                        +img(media.image)
-                                        .header-catalog__item-media-title= media.title
+                        each item in media
+                            if item.type === 'video'
+                                .header-catalog__item-media-container(data-video=item.link)
+                                    +img(item.image || require('assets/static/video-preview.png'))
+                                    .header-catalog__item-media-title= item.title
+                            else
+                                +anchor(item.link).header-catalog__item-media-container
+                                    +img(item.image)
+                                    .header-catalog__item-media-title= item.title
     .header-catalog__offers
         each offer in catalog.offers
             +anchor(offer.link).header-catalog__offers-item
