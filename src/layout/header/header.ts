@@ -75,13 +75,4 @@ void (function () {
             })
         })
     }
-
-    function setHeaderHeight() {
-        if (!header) return
-
-        const height = `${header.offsetHeight}px`
-        document.documentElement.style.setProperty('--header-height', height)
-    }
-    setHeaderHeight()
-    window.addEventListener('resize', setHeaderHeight)
 })()

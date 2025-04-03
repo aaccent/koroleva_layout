@@ -66,22 +66,22 @@
 
         &-subcategory {
             margin-right: 56px;
+        }
 
-            &-list {
-                width: fit-content;
-                min-width: 104px;
+        &-subcategory-list {
+            width: fit-content;
+            min-width: 104px;
 
-                &:last-of-type {
-                    margin-right: 0;
-                }
+            &:last-of-type {
+                margin-right: 0;
             }
+        }
 
-            &-type {
-                margin-bottom: 10px;
-                letter-spacing: 0.02rem;
-                text-transform: uppercase;
-                opacity: 0.5;
-            }
+        &-subcategory-type {
+            margin-bottom: 10px;
+            letter-spacing: 0.02rem;
+            text-transform: uppercase;
+            opacity: 0.5;
 
             &-item {
                 margin-top: 8px;

@@ -1,5 +1,24 @@
 @use 'styles/utils';
-@use 'layout/header/catalog/catalog';
+@use 'layout/header/header-catalog/header-catalog';
+
+body:has(.main-hero) {
+    .header {
+        border-bottom: none;
+
+        &:not(._active):not(._opened) {
+            color: var(--base_100);
+            background-color: transparent;
+
+            .header__geo-button,
+            .header__logo,
+            .header__buttons button,
+            .header__mobile-search-button,
+            .header__mobile-burger {
+                filter: var(--filter-base_100);
+            }
+        }
+    }
+}
 
 .header {
     position: relative;
@@ -89,19 +108,6 @@
         button {
             @include utils.square(24px);
             @include utils.bg-defaults(cover);
-        }
-
-        &-search {
-            background-image: url('assets/icons/search.svg');
-        }
-        &-user {
-            background-image: url('assets/icons/user.svg');
-        }
-        &-favorite {
-            background-image: url('assets/icons/favorite.svg');
-        }
-        &-cart {
-            background-image: url('assets/icons/cart.svg');
         }
     }
 

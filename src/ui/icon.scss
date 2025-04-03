@@ -1,0 +1,19 @@
+@use 'styles/utils';
+
+.icon {
+    &-search {
+        background-image: url('assets/icons/search.svg');
+    }
+    &-user {
+        background-image: url('assets/icons/user.svg');
+    }
+    &-favorire {
+        background-image: url('assets/icons/favorite.svg');
+    }
+    &-cart {
+        background-image: url('assets/icons/cart.svg');
+    }
+    &-geo {
+        background-image: url('assets/icons/geo.svg');
+    }
+}

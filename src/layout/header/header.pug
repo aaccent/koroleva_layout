@@ -25,14 +25,14 @@ include layout/utils
 header.header
     .container
         button.header__mobile-burger
-        button.header__mobile-search-button
-        .header__geo-button Екатеринбург
+        button.header__mobile-search-button.icon-search
+        button.header__geo-button Екатеринбург
         nav.header-menu
             ul.header-menu--left
                 each item in menu_left
                     if item.catalog
                         li.header-menu__item(data-id='catalog')= item.title
-                            include layout/header/catalog/catalog
+                            include header-catalog/header-catalog
                     if item.submenu
                         li.header-menu__item= item.title
                             ul.header-menu__item-submenu
@@ -58,14 +58,14 @@ header.header
             .header__mobile-buttons
                 button.header__mobile-buttons-geo г.Екатеринбург
                 button.header__mobile-buttons-user Войти в ЛК
-            .header__mobile-tel 8 (800) 000-00-00
+            +anchor('tel:88000000000').header__mobile-tel 8 (800) 000-00-00
                 .header__mobile-work-hours Пн-Сб: c 8:00 до 20:00
             include ui/socials/socials
             +socials.header__mobile-socials
         +anchor('/').header__logo
             +img(require('assets/icons/logo.svg'))
         .header__buttons
-            button.header__buttons-search
-            button.header__buttons-user
-            button.header__buttons-favorite
-            button.header__buttons-cart
+            button.header__buttons-search.icon-search
+            button.header__buttons-user.icon-user
+            button.header__buttons-favorite.icon-favorire
+            button.header__buttons-cart.icon-cart
