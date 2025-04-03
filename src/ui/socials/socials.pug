@@ -1,0 +1,31 @@
+include layout/utils
+
+mixin socials(props)
+    -
+        props = props || [
+            {
+                icon: require('assets/icons/tg.svg'),
+                link: '',
+                name:'Telegram'
+            },
+            {
+                icon: require('assets/icons/vk.svg'),
+                link: '',
+                name: 'Вконтакте'
+            },
+            {
+                icon: require('assets/icons/ok.svg'),
+                link: '',
+                name: 'Одноклассники'
+            },
+            {
+                icon: require('assets/icons/youtube.svg'),
+                link: '',
+                name: 'Youtube'
+            },
+        ]
+    .socials&attributes(attributes)
+        each item in props
+            +anchor(item.link).socials__item
+                +img(item.icon)
+                span.socials__item-name= item.name
