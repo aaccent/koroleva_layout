@@ -1,23 +1,9 @@
 import { isDesktop, isMobile } from 'globals/adaptive'
 import { disableScroll, enableScroll, toggleScroll } from 'features/scroll'
-import { openPopup } from 'features/popup/popup'
-import { createIframe } from 'features/video'
 
 interface CatalogItem extends HTMLElement {
     dataset: {
         name: string
-    }
-}
-
-interface VideoPreview extends HTMLElement {
-    dataset: {
-        video: string
-    }
-}
-
-export interface VideoPopup extends HTMLElement {
-    dataset: {
-        link: string
     }
 }
 
@@ -98,18 +84,4 @@ void (function () {
     }
     setHeaderHeight()
     window.addEventListener('resize', setHeaderHeight)
-
-    const videoPreViews = document.querySelectorAll<VideoPreview>('.header-catalog__item-media-container[data-video]')
-    videoPreViews.forEach((preview) => {
-        preview.addEventListener('click', () => {
-            const videoPopup = document.querySelector<VideoPopup>('.video-popup')
-            const inner = videoPopup?.querySelector<HTMLElement>('.video-popup__inner')
-            if (!videoPopup || !inner) return
-            const link = preview.dataset.video
-
-            openPopup('video-popup')
-            createIframe(inner, link)
-            /** TODO: убирать видео при закрытии попапа */
-        })
-    })
 })()

@@ -128,7 +128,7 @@
                     background-image: url('assets/icons/arrow-right.svg');
                 }
 
-                &[data-video]:before {
+                &[data-fancybox='video']:before {
                     width: 66px;
                     height: 48px;
                     background-image: url('assets/icons/play.svg');

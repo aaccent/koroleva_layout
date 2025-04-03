@@ -6,27 +6,115 @@ include layout/utils
             {
                 name: 'Бюстгальтеры',
                 icon: require('assets/icons/bra.svg'),
+                media: [
+                    {
+                        type: 'article',
+                        image: require('assets/content/header-catalog/media/article.png'),
+                        title: 'Как подобрать размер бюстгальтера?',
+                        link: ''
+
+                    },
+                    {
+                        type: 'video',
+                        title: 'как правильно снять замеры груди',
+                    }
+                ]
 
             },
             {
                 name: 'Трусики',
                 icon: require('assets/icons/panties.svg'),
+                media: [
+                    {
+                        type: 'article',
+                        image: require('assets/content/header-catalog/media/article.png'),
+                        title: 'Как подобрать размер бюстгальтера?',
+                        link: ''
+
+                    },
+                    {
+                        type: 'video',
+                        link: 'https://vkvideo.ru/video-60998253_456240606',
+                        title: 'как правильно снять замеры груди',
+                        dataContainer: 'video'
+                    }
+                ]
             },
             {
                 name: 'Нижнее белье',
                 icon: require('assets/icons/lingerie.svg'),
+                media: [
+                    {
+                        type: 'article',
+                        image: require('assets/content/header-catalog/media/article.png'),
+                        title: 'Как подобрать размер бюстгальтера?',
+                        link: ''
+
+                    },
+                    {
+                        type: 'video',
+                        link: 'https://vkvideo.ru/video-60998253_456240606',
+                        title: 'как правильно снять замеры груди',
+                        dataContainer: 'video'
+                    }
+                ]
             },
             {
                 name: 'Very sexy',
                 icon: require('assets/icons/very sexy.svg'),
+                media: [
+                    {
+                        type: 'article',
+                        image: require('assets/content/header-catalog/media/article.png'),
+                        title: 'Как подобрать размер бюстгальтера?',
+                        link: ''
+
+                    },
+                    {
+                        type: 'video',
+                        link: 'https://vkvideo.ru/video-60998253_456240606',
+                        title: 'как правильно снять замеры груди',
+                        dataContainer: 'video'
+                    }
+                ]
             },
             {
                 name: 'Домашняя одежда',
                 icon: require('assets/icons/home.svg'),
+                media: [
+                    {
+                        type: 'article',
+                        image: require('assets/content/header-catalog/media/article.png'),
+                        title: 'Как подобрать размер бюстгальтера?',
+                        link: ''
+
+                    },
+                    {
+                        type: 'video',
+                        link: 'https://vkvideo.ru/video-60998253_456240606',
+                        title: 'как правильно снять замеры груди',
+                        dataContainer: 'video'
+                    }
+                ]
             },
             {
                 name: 'Коллекции',
                 icon: require('assets/icons/collection.svg'),
+                media: [
+                    {
+                        type: 'article',
+                        image: require('assets/content/header-catalog/media/article.png'),
+                        title: 'Как подобрать размер бюстгальтера?',
+                        link: ''
+
+                    },
+                    {
+                        type: 'video',
+                        link: 'https://vkvideo.ru/video-60998253_456240606',
+                        title: 'как правильно снять замеры груди',
+                        dataContainer: 'video'
+                    }
+                ]
             },],
         offers: [
             {
@@ -97,22 +185,6 @@ include layout/utils
                 }
             ]
 
-    var media = [
-        {
-            type: 'article',
-            image: require('assets/content/header-catalog/media/article.png'),
-            title: 'Как подобрать размер бюстгальтера?',
-            link: ''
-
-        },
-        {
-            type: 'video',
-            link: 'https://rutube.ru/video/144e6966af5264dbc229d0ddcf656759/',
-            title: 'как правильно снять замеры груди',
-            dataContainer: 'video'
-        }
-    ]
-
 
 .header-catalog
     .header-catalog__back Каталог
@@ -128,16 +200,19 @@ include layout/utils
                                 each item in subcategory.list
                                     li.header-catalog__item-subcategory-item
                                         +anchor(item.link)= item.name
-                    .header-catalog__item-media
-                        each item in media
-                            if item.type === 'video'
-                                .header-catalog__item-media-container(data-video=item.link)
-                                    +img(item.image || require('assets/static/video-preview.png'))
-                                    .header-catalog__item-media-title= item.title
-                            else
-                                +anchor(item.link).header-catalog__item-media-container
-                                    +img(item.image)
-                                    .header-catalog__item-media-title= item.title
+                    if category.media
+                        .header-catalog__item-media
+                            each item in category.media
+                                if item.type === 'video'
+                                    +anchor(item.link || 'https://www.youtube.com/watch?v=LAM1mtphC-k').header-catalog__item-media-container(
+                                        data-fancybox='video'
+                                    )
+                                        +img(item.image || require('assets/static/video-preview.png'))
+                                        .header-catalog__item-media-title= item.title
+                                else
+                                    +anchor(item.link).header-catalog__item-media-container
+                                        +img(item.image)
+                                        .header-catalog__item-media-title= item.title
     .header-catalog__offers
         each offer in catalog.offers
             +anchor(offer.link).header-catalog__offers-item
