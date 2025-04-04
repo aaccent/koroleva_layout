@@ -38,24 +38,8 @@ html {
 
 body {
     overflow-x: clip;
+    color: var(--base_400);
     background-color: var(--base_200);
-
-    &:has(.main-hero) {
-        .header {
-            border-bottom: none;
-
-            &:not(._active) {
-                color: var(--base_100);
-                background-color: transparent;
-
-                .header__geo-button,
-                .header__logo,
-                .header__buttons img {
-                    filter: var(--filter-base_100);
-                }
-            }
-        }
-    }
 }
 
 html.disable-scroll {
