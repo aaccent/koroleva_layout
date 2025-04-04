@@ -3,7 +3,7 @@ include layout/utils
 -
     var menu_left = [
         {
-            title: 'Каталог',
+            title: 'Каталог', dataId: 'catalog', catalog: true
         },
         {title: 'Новинки', link: '#'},
         {title: 'Sale', link: '#'},
@@ -24,26 +24,30 @@ include layout/utils
 
 header.header
     .container
-        .header__geo-button Екатеринбург
-        .header-menu
+        button.header__mobile-burger
+        button.header__mobile-search-button.icon-search
+        button.header__geo-button Екатеринбург
+        nav.header-menu
             ul.header-menu--left
                 each item in menu_left
-                    li.header-menu__item
-                        if item.submenu
+                    if item.catalog
+                        li.header-menu__item(data-id='catalog')= item.title
+                            include header-catalog/header-catalog
+                    if item.submenu
+                        li.header-menu__item= item.title
                             ul.header-menu__item-submenu
                                 each sub in item.submenu
                                     li.header-menu__item-submenu-item
                                         +anchor(sub.link)= sub.name
-                        else if item.link
+                    else if item.link
+                        li.header-menu__item
                             +anchor(item.link)= item.title
-                        else
-                            span= item.title
             ul.header-menu--right
                 each item in menu_right
                     if item.link
                         li.header-menu__item
                             +anchor(item.link)= item.title
-                    if item.submenu
+                    else if item.submenu
                         li.header-menu__item= item.title
                             ul.header-menu__item-submenu
                                 each sub in item.submenu
@@ -51,11 +55,17 @@ header.header
                                         +anchor(sub.link)= sub.name
                     else
                         li.header-menu__item= item.title
+            .header__mobile-buttons
+                button.header__mobile-buttons-geo г.Екатеринбург
+                button.header__mobile-buttons-user Войти в ЛК
+            +anchor('tel:88000000000').header__mobile-tel 8 (800) 000-00-00
+                .header__mobile-work-hours Пн-Сб: c 8:00 до 20:00
+            include ui/socials/socials
+            +socials.header__mobile-socials
         +anchor('/').header__logo
             +img(require('assets/icons/logo.svg'))
         .header__buttons
-            +img(require('assets/icons/search.svg'))
-            +img(require('assets/icons/user.svg'))
-            +img(require('assets/icons/favorite.svg'))
-            +img(require('assets/icons/cart.svg'))
-    include layout/header/catalog/catalog
+            button.header__buttons-search.icon.icon--search
+            button.header__buttons-user.icon.icon--user
+            button.header__buttons-favorite.icon.icon--favorire
+            button.header__buttons-cart.icon.icon--cart

@@ -3,13 +3,17 @@
 @use 'general/variables';
 @use 'general/fonts';
 @use 'general/global';
+@use '@fancyapps/ui/dist/fancybox.css';
 
 // Popup
 @use 'features/popup/popup';
 
 // Ui
+@use 'ui/icon';
 @use 'ui/tag';
 @use 'ui/buttons/close-btn';
+@use 'ui/socials/socials';
+@use 'ui/popups/video/video';
 @use 'ui/buttons/circle-button';
 @use 'ui/cards/product-card';
 

@@ -30,6 +30,7 @@ const longHandProps = [
     'row-gap',
     '--diameter',
     '--size',
+    '--header-height',
     '--padding',
 ]
 
