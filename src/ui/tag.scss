@@ -1,8 +1,10 @@
 @use 'styles/utils';
 
 .tag {
+    position: relative;
     width: 51px;
     height: 34px;
+    display: inline-block;
     align-content: center;
     color: white;
     font: var(--text-lg_500);
@@ -32,5 +34,7 @@
 
 @media only screen and (max-width: utils.$tablet1000) {
     .tag {
+        width: 42px;
+        height: 28px;
     }
 }
