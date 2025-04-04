@@ -30,6 +30,8 @@ const longHandProps = [
     'row-gap',
     '--diameter',
     '--size',
+    '--main-hero-thumb-size',
+    '--main-hero-thumb-circle-length',
     '--header-height',
     '--padding',
 ]
