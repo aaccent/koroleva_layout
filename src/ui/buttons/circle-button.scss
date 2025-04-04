@@ -2,6 +2,7 @@
 
 .circle-button {
     aspect-ratio: 1;
+    justify-items: center;
     width: 64px;
     flex-shrink: 0;
     border-radius: 50%;
@@ -9,7 +10,7 @@
     .icon {
         aspect-ratio: 1;
         filter: var(--filter-base_400);
-        width: 30%;
+        width: 24px;
     }
 
     &--outlined {
@@ -27,8 +28,10 @@
 
 @media only screen and (max-width: utils.$tablet1000) {
     .circle-button {
-        &--medium {
-            width: 48px;
+        width: 48px;
+
+        .icon {
+            width: 20px;
         }
     }
 }
