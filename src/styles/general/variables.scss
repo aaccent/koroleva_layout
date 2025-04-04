@@ -6,9 +6,9 @@
 
 // Fonts
 :root {
-    --forum: 'Forum';
-    --geologica: 'Geologica';
-    --gloria-script: 'Gloria script';
+    --forum: 'Forum', var(--sans);
+    --geologica: 'Geologica', var(--sans);
+    --gloria-script: 'Gloria script', sans-serif;
 
     --hero: 10rem/1.5 var(--forum);
     --header_100: 7.2rem/1.05 var(--forum);
