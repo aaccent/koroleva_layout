@@ -1,19 +1,22 @@
 @use 'styles/utils';
 
 .icon {
-    &-search {
+    @include utils.square(24px);
+    @include utils.bg-defaults(cover);
+
+    &--search {
         background-image: url('assets/icons/search.svg');
     }
-    &-user {
+    &--user {
         background-image: url('assets/icons/user.svg');
     }
-    &-favorire {
+    &--favorire {
         background-image: url('assets/icons/favorite.svg');
     }
-    &-cart {
+    &--cart {
         background-image: url('assets/icons/cart.svg');
     }
-    &-geo {
+    &--geo {
         background-image: url('assets/icons/geo.svg');
     }
 }

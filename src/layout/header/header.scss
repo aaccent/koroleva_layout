@@ -104,11 +104,6 @@ body:has(.main-hero) {
         margin-left: auto;
         display: flex;
         align-items: center;
-
-        button {
-            @include utils.square(24px);
-            @include utils.bg-defaults(cover);
-        }
     }
 
     &__geo-button {
