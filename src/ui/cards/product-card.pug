@@ -1,0 +1,59 @@
+include layout/utils
+
+mixin product-card(props)
+    -
+        props = Object.assign({
+            images: [
+                require('assets/content/products/card-1.jpg'),
+                require('assets/content/products/card-2.jpg'),
+                require('assets/content/products/card-3.jpg'),
+                require('assets/content/products/card-4.jpg'),
+            ],
+            isNew: false,
+            isSale: false,
+            colors: true,
+            title: 'Бюстгальтер бандо с тонкой чашкой и съемными бретелями',
+            brand: 'PANAMA',
+            currentPrice: '4300',
+            previousPrice: '5000',
+        }, props || {})
+
+    .product-card
+        .product-card__top
+            +anchor.product-card__images-list
+                each img in props.images
+                    +img(img).product-card__images-list-item
+            .product-card__top-actions
+                .product-card__tags-list
+                    if props.isNew
+                        span.product-card__tag.tag.tag--light NEW
+                    if props.isSale
+                        span.product-card__tag.tag SALE
+                button.product-card__favorite-button.icon.icon--favorite(data-action='favorite')
+            button.product-card__cart-button.circle-button.circle-button--filled: .icon.icon--cart(data-action='cart')
+            button.product-card__slide-button.product-card__slide-button--prev: .icon.icon--arrow-short-left
+            button.product-card__slide-button.product-card__slide-button--next: .icon.icon--arrow-short-right
+        +anchor.product-card__body
+            .product-card__brand-wrapper
+                span.product-card__brand-text= props.brand
+                if props.colors
+                    .product-card__colors-list
+                        // Для легкого позиционирования как в макете нужно добавить z-index в отрицательном значении по возрастанию
+                        span.product-card__colors-list-item(
+                            data-color='#e597c6',
+                            style='background-color: #e597c6; z-index: -1'
+                        )
+                        span.product-card__colors-list-item(
+                            data-color='#ce5d5d',
+                            style='background-color: #ce5d5d; z-index: -2'
+                        )
+                        // Если цветов несколько, то выводить нужно через запятую, а в `style` только первый цвет
+                        span.product-card__colors-list-item(
+                            data-color='#4e4e4e,#000000,#f3000d',
+                            style='background-color: #4e4e4e; z-index: -3'
+                        )
+                        span.product-card__colors-list-text +3
+            .product-card__title= props.title
+            .product-card__price-wrapper
+                .product-card__price.product-card__price--current= props.currentPrice + '₽'
+                .product-card__price.product-card__price--previous= props.previousPrice + '₽'

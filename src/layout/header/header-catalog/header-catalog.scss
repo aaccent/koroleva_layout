@@ -248,7 +248,7 @@
                 @include utils.square(20px);
                 @include utils.bg-defaults(cover);
                 margin-left: auto;
-                background-image: url('assets/icons/slider arrow-right.svg');
+                background-image: url('assets/icons/arrow-short-right.svg');
             }
 
             &-content {
@@ -290,7 +290,7 @@
                         content: '';
                         @include utils.square(20px);
                         @include utils.bg-defaults(cover);
-                        background-image: url('assets/icons/arrow-down.svg');
+                        background-image: url('assets/icons/arrow-short-down.svg');
                     }
                 }
                 &-list {
