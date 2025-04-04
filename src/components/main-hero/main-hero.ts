@@ -9,7 +9,7 @@ interface SwiperSlideElement extends HTMLElement {
 
 function createSVGCircle(container: Element) {
     const innerSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
-    innerSvg.setAttribute('viewBox', '0 0 100 100')
+    innerSvg.setAttribute('viewBox', '0 0 85 85')
     innerSvg.classList.add('inner')
 
     const innerCircle = document.createElementNS('http://www.w3.org/2000/svg', 'circle')
@@ -33,53 +33,59 @@ function createSVGCircle(container: Element) {
 }
 
 void (function () {
-    const thumbs = document.querySelectorAll<HTMLElement>('.main-hero__thumbs-slide')
-    thumbs[0].classList.add('_active')
-
     const mainHeroSlider = document.querySelector<HTMLElement>('.main-hero__slider')
     if (!mainHeroSlider) return
 
     const mainSwiper = new Swiper(mainHeroSlider, {
-        modules: [Navigation, Pagination, Autoplay, EffectFade],
+        modules: [Autoplay, EffectFade],
         effect: 'fade',
+        slidesPerView: 1,
+        loop: true,
         fadeEffect: {
             crossFade: true,
         },
-        slidesPerView: 1,
-        loop: true,
         autoplay: {
             delay: 3000,
         },
-        allowTouchMove: false,
-        pagination: {
-            el: '.main-hero__slider-pagination',
-            type: 'fraction',
-        },
-        navigation: {
-            prevEl: '.main-hero__slide-navigation-prev',
-            nextEl: '.main-hero__slide-navigation-next',
+        breakpoints: {
+            1000: {
+                modules: [Navigation, Pagination],
+                allowTouchMove: false,
+                pagination: {
+                    el: '.main-hero__slider-pagination',
+                    type: 'fraction',
+                },
+                navigation: {
+                    prevEl: '.main-hero__slider-navigation-prev',
+                    nextEl: '.main-hero__slider-navigation-next',
+                },
+            },
         },
     })
 
-    function activateThumb() {
-        const activeSlide = document.querySelector('.swiper-slide-active') as SwiperSlideElement
-        const activeIndex = parseInt(activeSlide.dataset.swiperSlideIndex)
+    const circlesPreview = document.querySelectorAll<HTMLElement>('.main-hero__thumbs-slide')
+    circlesPreview[0].classList.add('_active')
 
-        const activeThumb = thumbs[activeIndex]
-        const currentActiveThumb = document.querySelector('.main-hero__thumbs-slide._active') as HTMLElement
-        currentActiveThumb.classList.remove('_active')
-        activeThumb.classList.add('_active')
-        activeThumb.style.zIndex = `${activeIndex}`
-        currentActiveThumb.style.zIndex = `${-activeIndex}`
-    }
-
-    mainSwiper.on('slideChangeTransitionStart', activateThumb)
-
-    // расположить кружки с изображениями
-    thumbs.forEach((item, index) => {
+    /** Позиционирует круглые превью и создает SVG вокруг них */
+    circlesPreview.forEach((item, index) => {
         const translate = index * 50
         item.style.translate = `-${translate}%`
         item.style.zIndex = `-${index}`
         createSVGCircle(item)
     })
+
+    function activateCirclePreview() {
+        const activeSlide = document.querySelector('.swiper-slide-active') as SwiperSlideElement
+        const activeIndex = parseInt(activeSlide.dataset.swiperSlideIndex)
+
+        const activeCircle = circlesPreview[activeIndex]
+        const currentActiveCircle = document.querySelector('.main-hero__thumbs-slide._active') as HTMLElement
+
+        currentActiveCircle.classList.remove('_active')
+        activeCircle.classList.add('_active')
+        activeCircle.style.zIndex = `${activeIndex}`
+        currentActiveCircle.style.zIndex = `${-activeIndex}`
+    }
+
+    mainSwiper.on('slideChangeTransitionStart', activateCirclePreview)
 })()

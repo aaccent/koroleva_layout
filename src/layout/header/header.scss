@@ -23,7 +23,6 @@ body:has(.main-hero) {
 .header {
     position: relative;
     z-index: 10;
-    padding: 46px 0;
     height: var(--header-height);
     color: var(--base_400);
     font: var(--text-lg_300);
