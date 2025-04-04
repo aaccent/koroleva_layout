@@ -1,0 +1,26 @@
+@use 'styles/utils';
+
+.socials {
+    gap: 8px;
+    display: flex;
+
+    &__item {
+        display: flex;
+        align-items: center;
+
+        img {
+            @include utils.circle(40px);
+            padding: 7px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid hsla(7, 15%, 34%, 0.2);
+        }
+
+        &-name {
+            margin-left: 10px;
+            display: none;
+            font: var(--text_300);
+        }
+    }
+}

@@ -1,9 +1,9 @@
 :root {
     --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif,
         'Apple Color Emoji', 'Segoe UI Emoji';
-    --header-height: 114px;
     --main-hero-thumb-size: 85px;
     --main-hero-thumb-circle-length: calc(2 * 3.14 * var(--main-hero-thumb-size));
+    --header-height: 111px;
 }
 
 // Fonts
@@ -48,6 +48,8 @@
     --base_200: hsl(35, 33%, 93%);
     --base_300: hsl(15, 9%, 57%);
     --base_400: hsl(7, 15%, 34%);
+    --base_400_20: hsl(7, 15%, 34%, 0.2);
+    --base_400_50: hsl(7, 15%, 34%, 0.5);
     --primary: hsl(7, 10%, 34%);
     --system_red: hsl(11, 86%, 39%);
     --system_green: hsl(126, 73%, 26%);

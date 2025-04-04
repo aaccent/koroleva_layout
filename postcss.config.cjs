@@ -12,12 +12,13 @@ module.exports = {
                 { type: 'includes', value: 'fancybox' },
                 { type: 'includes', value: 'aos' },
             ],
+            fontSizeMod: 10,
             limitMediaWidth: false,
             initWidth: [
                 // prettier-ignore
                 { width: 1680 },
                 { width: 2560, mediaQuery: 'only screen and (min-width: 1920px)' },
-                { width: 700, mediaQuery: 'only screen and (max-width: 1000px)' },
+                { width: 390, mediaQuery: 'only screen and (max-width: 1000px)' },
             ],
         }),
     ],

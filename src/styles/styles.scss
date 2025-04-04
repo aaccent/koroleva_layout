@@ -1,3 +1,4 @@
+@use '@fancyapps/ui/dist/fancybox.css';
 @use 'general/_preflight.css';
 @use 'general/reset';
 @use 'general/variables';
@@ -15,7 +16,13 @@
 @use 'features/popup/popup';
 
 // Ui
+@use 'ui/icon';
+@use 'ui/tag';
 @use 'ui/buttons/close-btn';
+@use 'ui/socials/socials';
+@use 'ui/popups/video/video';
+@use 'ui/buttons/circle-button';
+@use 'ui/cards/product-card';
 
 // Page
 @use 'layout/header/header';

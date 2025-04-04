@@ -34,22 +34,22 @@
     "postcss-loader": "^8.1.1",
     "prettier": "^3.4.2",
     "prettier-plugin-css-order": "^2.1.2",
-    "pug-plugin": "^5.3.0",
-    "sass": "^1.83.0",
+    "pug-plugin": "^6.0.0",
+    "sass": "^1.86.2",
     "sass-loader": "^16.0.5",
     "sharp": "^0.33.5",
     "simple-git": "^3.27.0",
     "swiper": "^11.1.15",
     "ts-loader": "^9.5.1",
     "typescript": "^5.7.2",
-    "webpack": "^5.97.1",
-    "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^5.2.0"
+    "webpack": "^5.98.0",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.1"
   },
   "engines": {
     "node": ">=17"
   },
-  "packageManager": "pnpm@9.15.0+sha512.76e2379760a4328ec4415815bcd6628dee727af3779aaa4c914e3944156c4299921a89f976381ee107d41f12cfa4b66681ca9c718f0668fa0831ed4c6d8ba56c",
+  "packageManager": "pnpm@10.7.1+sha512.2d92c86b7928dc8284f53494fb4201f983da65f0fb4f0d40baafa5cf628fa31dae3e5968f12466f17df7e97310e30f343a648baea1b9b350685dafafffdf5808",
   "dependencies": {
     "@dotenvx/dotenvx": "^1.31.0"
   }

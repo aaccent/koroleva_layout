@@ -15,7 +15,9 @@ html(lang='ru')
                 block main
 
             include footer/footer
+            include ui/popups/video/video
 
         block scripts
             script(src=require('scripts/main.ts'), type='module')
             script(src=require('layout/header/header.ts'), type='module')
+            script(src=require('layout/footer/footer.ts'), type='module')

@@ -1,5 +1,13 @@
 import { disableScroll, enableScroll } from '@/features/scroll'
 
+interface PopupOpenedDetail {
+    trigger: HTMLElement | null
+}
+
+export interface PopupOpenedCustomEvent extends CustomEvent {
+    detail: PopupOpenedDetail
+}
+
 const popupBtns = document.querySelectorAll<HTMLButtonElement>('button[data-action="popup"]')
 const popups = document.querySelectorAll('.popup')
 
@@ -26,7 +34,6 @@ closePopupBtns.forEach((btn) => {
     btn.addEventListener('click', closeActivePopup)
 })
 
-const openedPopupEvent = new CustomEvent('opened')
 const closedPopupEvent = new CustomEvent('closed')
 
 function popupBtnHandler(e: MouseEvent) {
@@ -51,7 +58,7 @@ function escKeyHandler(e: KeyboardEvent) {
  *
  * Если есть открытый попап, то закрывает его.
  * */
-export function openPopup(name: string) {
+export function openPopup(name: string, target: HTMLElement | null = null) {
     const activeHeader = document.querySelector('.header.active')
     const targetPopup = document.querySelector<HTMLDivElement>(`.popup[data-popup="${name}"]`)
 
@@ -60,6 +67,10 @@ export function openPopup(name: string) {
     // process нужен для того, чтобы при закрытии и
     // открытии попапа пользователь не мог лишний раз скролить
     closeActivePopup('process')
+
+    const openedPopupEvent = new CustomEvent('opened', {
+        detail: target,
+    })
     targetPopup.classList.add('opened')
     targetPopup.dispatchEvent(openedPopupEvent)
 
