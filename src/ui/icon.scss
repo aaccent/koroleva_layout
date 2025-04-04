@@ -2,7 +2,7 @@
 
 .icon {
     @include utils.square(24px);
-    @include utils.bg-defaults(cover);
+    @include utils.bg-defaults;
 
     &--search {
         background-image: url('assets/icons/search.svg');
