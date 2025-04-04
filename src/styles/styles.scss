@@ -8,7 +8,9 @@
 @use 'features/popup/popup';
 
 // Ui
+@use 'ui/tag';
 @use 'ui/buttons/close-btn';
+@use 'ui/buttons/circle-button';
 
 // Page
 @use 'layout/header/header';
