@@ -1,0 +1,197 @@
+@use 'styles/utils';
+
+.footer {
+    padding: 60px 0 10px;
+    color: var(--base_100);
+    background-color: var(--base_400);
+
+    .container {
+        display: flex;
+    }
+
+    &__content {
+        gap: 56px;
+        margin-bottom: 56px;
+        margin-left: auto;
+        display: flex;
+    }
+
+    &__list {
+        &-title {
+            margin-bottom: 15px;
+            font: var(--text_200);
+            opacity: 0.5;
+        }
+
+        &-item {
+            margin-top: 8px;
+            font: var(--text_300);
+            opacity: 1;
+        }
+    }
+
+    &__socials {
+        margin-right: 17px;
+        flex-direction: column;
+
+        .socials__item {
+            border-color: var(--base_100);
+            img {
+                filter: var(--filter-base_100);
+            }
+            &-name {
+                display: block;
+            }
+        }
+    }
+
+    &__logo {
+        margin-bottom: 24px;
+        width: 167px;
+        height: 85px;
+    }
+
+    &__mail {
+        margin-bottom: 16px;
+        font: var(--text_200);
+    }
+
+    &__tel {
+        margin-bottom: 6px;
+        font: var(--text-lg_200);
+    }
+
+    &__work-hours {
+        font: var(--text_400);
+        opacity: 0.5;
+    }
+
+    &__privacy {
+        padding-top: 10px;
+        align-items: center;
+        font: var(--text-lg_500);
+        text-transform: uppercase;
+        border-top: 1px solid hsl(0, 0%, 100%, 0.2);
+        span {
+            opacity: 0.5;
+        }
+
+        &-links {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            opacity: 0.5;
+
+            a:first-child {
+                margin-right: 88px;
+            }
+        }
+    }
+
+    &__aaccent-logo {
+        margin-left: 269px;
+        opacity: 1;
+
+        img {
+            object-position: center;
+            object-fit: cover;
+            filter: var(--filter-base_100);
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .footer {
+        padding: 32px 0;
+
+        &__logo {
+            width: 123px;
+        }
+
+        &__socials {
+            margin-bottom: 40px;
+            flex-direction: row;
+            order: -1;
+
+            .socials__item-name {
+                display: none;
+            }
+        }
+
+        .container {
+            flex-direction: column;
+        }
+
+        &__list {
+            padding: 17px 0;
+            border-bottom: 1px dashed hsl(0, 0%, 100%, 0.2);
+
+            &._opened {
+                .footer__list-title::after {
+                    rotate: 180deg;
+                }
+
+                ul {
+                    margin-top: 10px;
+                    height: fit-content;
+                    opacity: 0.5;
+                }
+            }
+            &:first-child {
+                border-top: 1px dashed hsl(0, 0%, 100%, 0.2);
+            }
+            &-title {
+                margin: 0;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                opacity: 1;
+
+                &::after {
+                    content: '';
+                    @include utils.square(20px);
+                    @include utils.bg-defaults(cover);
+                    filter: var(--filter-base_100);
+                    background-image: url('assets/icons/arrow-short-down.svg');
+                }
+            }
+
+            ul {
+                height: 0;
+                overflow: hidden;
+            }
+        }
+
+        &__content {
+            gap: 0;
+            margin-top: 24px;
+            margin-bottom: 32px;
+            margin-left: 0;
+            flex-direction: column;
+        }
+
+        &__privacy {
+            align-items: flex-start;
+            border-top: none;
+            &-links {
+                gap: 9px;
+                margin: 9px 0 0;
+                flex-direction: column;
+                align-items: flex-start;
+                a,
+                a:first-child {
+                    margin: 0;
+                }
+            }
+        }
+
+        &__aaccent-logo {
+            margin-top: 23px;
+            margin-left: 0;
+            width: 139px;
+            height: 38px;
+        }
+    }
+}

@@ -1,2 +1,58 @@
+include layout/utils
+include ui/socials/socials
+
+-
+    var footer = [
+        {
+            title: 'Каталог',
+            list : ['Новинки',
+                'Бюстгальтеры',
+                'Трусики',
+                'Нижнее белье',
+                'Very sexy',
+                'Домашняя одежда',
+                'Аксессуары',
+                'Коллекции',
+                'Sale']
+        },{
+            title: 'Покупателям',
+            list : [
+                'Подарочные карты',
+                'Таблица размеров',
+                'Оплата',
+                'Доставка',
+                'Возврат',
+                'Бонусная программа']
+        },{
+            title: 'О компании',
+            list : [
+                'О нас',
+                'Блог',
+                'Магазины']
+        }
+    ]
+
+
 footer.footer
     .container
+        .footer__main-info
+            +img(require('assets/icons/logo.svg')).footer__logo
+            .footer__mail mail@bikini-lingerie.ru
+            .footer__tel 8 (800) 000-00-00
+            .footer__work-hours Пн-Сб: c 8:00 до 20:00
+        .footer__content
+            each item in footer
+                .footer__list
+                    .footer__list-title= item.title
+                    ul
+                        each name in item.list
+                            li.footer__list-item
+                                +anchor('#')= name
+            +socials.footer__socials
+    .footer__privacy.container
+        span © 2025 ООО «Бикини»
+        .footer__privacy-links
+            +anchor Публичная оферта
+            +anchor Политика обработки данных
+        +anchor('https://www.aaccent.ru/').footer__aaccent-logo
+            +img(require('assets/icons/aaccent-logo.svg'))

@@ -1,9 +1,9 @@
+@use '@fancyapps/ui/dist/fancybox.css';
 @use 'general/_preflight.css';
 @use 'general/reset';
 @use 'general/variables';
 @use 'general/fonts';
 @use 'general/global';
-@use '@fancyapps/ui/dist/fancybox.css';
 
 // Popup
 @use 'features/popup/popup';

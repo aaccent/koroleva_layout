@@ -5,10 +5,22 @@
     display: flex;
 
     &__item {
-        @include utils.circle(40px);
         display: flex;
-        justify-content: center;
         align-items: center;
-        border: 1px solid hsla(7, 15%, 34%, 0.2);
+
+        img {
+            @include utils.circle(40px);
+            padding: 7px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid hsla(7, 15%, 34%, 0.2);
+        }
+
+        &-name {
+            margin-left: 10px;
+            display: none;
+            font: var(--text_300);
+        }
     }
 }
