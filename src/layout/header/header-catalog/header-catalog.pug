@@ -1,0 +1,221 @@
+include layout/utils
+
+-
+    var catalog = {
+        categoriesList: [
+            {
+                name: 'Бюстгальтеры',
+                icon: require('assets/icons/bra.svg'),
+                media: [
+                    {
+                        type: 'article',
+                        image: require('assets/content/header-catalog/media/article.png'),
+                        title: 'Как подобрать размер бюстгальтера?',
+                        link: ''
+
+                    },
+                    {
+                        type: 'video',
+                        title: 'как правильно снять замеры груди',
+                    }
+                ]
+
+            },
+            {
+                name: 'Трусики',
+                icon: require('assets/icons/panties.svg'),
+                media: [
+                    {
+                        type: 'article',
+                        image: require('assets/content/header-catalog/media/article.png'),
+                        title: 'Как подобрать размер бюстгальтера?',
+                        link: ''
+
+                    },
+                    {
+                        type: 'video',
+                        link: 'https://vkvideo.ru/video-60998253_456240606',
+                        title: 'как правильно снять замеры груди',
+                        dataContainer: 'video'
+                    }
+                ]
+            },
+            {
+                name: 'Нижнее белье',
+                icon: require('assets/icons/lingerie.svg'),
+                media: [
+                    {
+                        type: 'article',
+                        image: require('assets/content/header-catalog/media/article.png'),
+                        title: 'Как подобрать размер бюстгальтера?',
+                        link: ''
+
+                    },
+                    {
+                        type: 'video',
+                        link: 'https://vkvideo.ru/video-60998253_456240606',
+                        title: 'как правильно снять замеры груди',
+                        dataContainer: 'video'
+                    }
+                ]
+            },
+            {
+                name: 'Very sexy',
+                icon: require('assets/icons/very sexy.svg'),
+                media: [
+                    {
+                        type: 'article',
+                        image: require('assets/content/header-catalog/media/article.png'),
+                        title: 'Как подобрать размер бюстгальтера?',
+                        link: ''
+
+                    },
+                    {
+                        type: 'video',
+                        link: 'https://vkvideo.ru/video-60998253_456240606',
+                        title: 'как правильно снять замеры груди',
+                        dataContainer: 'video'
+                    }
+                ]
+            },
+            {
+                name: 'Домашняя одежда',
+                icon: require('assets/icons/home.svg'),
+                media: [
+                    {
+                        type: 'article',
+                        image: require('assets/content/header-catalog/media/article.png'),
+                        title: 'Как подобрать размер бюстгальтера?',
+                        link: ''
+
+                    },
+                    {
+                        type: 'video',
+                        link: 'https://vkvideo.ru/video-60998253_456240606',
+                        title: 'как правильно снять замеры груди',
+                        dataContainer: 'video'
+                    }
+                ]
+            },
+            {
+                name: 'Коллекции',
+                icon: require('assets/icons/collection.svg'),
+                media: [
+                    {
+                        type: 'article',
+                        image: require('assets/content/header-catalog/media/article.png'),
+                        title: 'Как подобрать размер бюстгальтера?',
+                        link: ''
+
+                    },
+                    {
+                        type: 'video',
+                        link: 'https://vkvideo.ru/video-60998253_456240606',
+                        title: 'как правильно снять замеры груди',
+                        dataContainer: 'video'
+                    }
+                ]
+            },],
+        offers: [
+            {
+                image: require('assets/content/header-catalog/offers/1.png'),
+                title: 'Бюстгальтер бандо с тонкой чашкой и еще какое- то описание',
+                price: 4300,
+                link: '#'
+            }, {
+                image: require('assets/content/header-catalog/offers/2.png'),
+                title: 'Бюстгальтер бандо с тонкой чашкой и еще какое- то описание',
+                price: 4300,
+                link: '#'
+            }, {
+                image: require('assets/content/header-catalog/offers/3.png'),
+                title: 'Бюстгальтер бандо с тонкой чашкой и еще какое- то описание',
+                price: 4300,
+                link: '#'
+            }, {
+                image: require('assets/content/header-catalog/offers/4.png'),
+                title: 'Бюстгальтер бандо с тонкой чашкой и еще какое- то описание',
+                price: 4300,
+                link: '#'
+            }, {
+                image: require('assets/content/header-catalog/offers/5.png'),
+                title: 'Бюстгальтер бандо с тонкой чашкой и еще какое- то описание',
+                price: 4300,
+                link: '#'
+            },
+        ]
+    }
+
+    var subcategories = [
+                {
+                    type: 'Тип модели',
+                    list: [
+                        { name: 'Смотреть все', link: '' },
+                        { name: 'Балконет', link: '' },
+                        { name: 'Треугольник', link: '' },
+                        { name: 'Пуш-ап', link: '' },
+                        { name: 'Бандо', link: '' },
+                        { name: 'Без косточек', link: '' },
+                        { name: 'C подкладкой', link: '' },
+                        { name: 'Sale', link: '' }
+                    ]
+                },
+                {
+                    type: 'По чашечке',
+                    list: [
+                        { name: 'Смотреть все', link: '' },
+                        { name: 'Чашки А', link: '' },
+                        { name: 'Чашки B', link: '' },
+                        { name: 'Чашки C', link: '' },
+                        { name: 'Чашки D', link: '' },
+                        { name: 'Чашки E', link: '' },
+                        { name: 'Чашки F', link: '' },
+                    ]
+                },
+                {
+                    type: 'Коллекции',
+                    list: [
+                        { name: 'Смотреть все', link: '' },
+                        { name: 'Невидимые', link: '' },
+                        { name: 'Базовые', link: '' },
+                        { name: 'Для невесты', link: '' },
+                        { name: 'Для спорта', link: '' },
+                        { name: 'Аксессуары', link: '' },
+                    ]
+                }
+            ]
+
+
+.header-catalog
+    .header-catalog__back Каталог
+    ul.header-catalog__list
+        each category, index in catalog.categoriesList
+            li.header-catalog__item(data-name=`${category.name}`)= category.name
+                +img(category.icon).header-catalog__item-icon
+                .header-catalog__item-content
+                    each subcategory in subcategories
+                        .header-catalog__item-subcategory
+                            .header-catalog__item-subcategory-type= subcategory.type
+                            ul.header-catalog__item-subcategory-list
+                                each item in subcategory.list
+                                    li.header-catalog__item-subcategory-item
+                                        +anchor(item.link)= item.name
+                    if category.media
+                        .header-catalog__item-media
+                            each item in category.media
+                                if item.type === 'video'
+                                    +anchor(item.link || 'https://www.youtube.com/watch?v=LAM1mtphC-k').header-catalog__item-media-container(
+                                        data-fancybox='video'
+                                    )
+                                        +img(item.image || require('assets/static/video-preview.png'))
+                                        .header-catalog__item-media-title= item.title
+                                else
+                                    +anchor(item.link).header-catalog__item-media-container
+                                        +img(item.image)
+                                        .header-catalog__item-media-title= item.title
+    .header-catalog__offers
+        each offer in catalog.offers
+            +anchor(offer.link).header-catalog__offers-item
+                +img(offer.image).header-catalog__offers-item-image
+                .header-catalog__offers-item-title= offer.title
+                .header-catalog__offers-item-price= offer.price
