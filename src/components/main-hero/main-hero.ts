@@ -37,7 +37,7 @@ void (function () {
     if (!mainHeroSlider) return
 
     const mainSwiper = new Swiper(mainHeroSlider, {
-        modules: [Autoplay, EffectFade],
+        modules: [Autoplay, EffectFade, Navigation, Pagination],
         effect: 'fade',
         slidesPerView: 1,
         loop: true,
@@ -47,19 +47,15 @@ void (function () {
         autoplay: {
             delay: 3000,
         },
-        breakpoints: {
-            1000: {
-                modules: [Navigation, Pagination],
-                allowTouchMove: false,
-                pagination: {
-                    el: '.main-hero__slider-pagination',
-                    type: 'fraction',
-                },
-                navigation: {
-                    prevEl: '.main-hero__slider-navigation-prev',
-                    nextEl: '.main-hero__slider-navigation-next',
-                },
-            },
+
+        allowTouchMove: false,
+        pagination: {
+            el: '.main-hero__slider-pagination',
+            type: 'fraction',
+        },
+        navigation: {
+            prevEl: '.main-hero__slider-navigation-prev',
+            nextEl: '.main-hero__slider-navigation-next',
         },
     })
 
