@@ -1,0 +1,122 @@
+@use 'styles/utils';
+
+.gift-card {
+    height: 750px;
+    .container {
+        position: relative;
+        padding: 0 0 64px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        color: var(--base_100);
+        background-color: var(--base_400);
+        border-radius: 8px;
+    }
+
+    &__header {
+        border-bottom: 1px dashed hsl(0, 0%, 100%, 0.2);
+    }
+
+    &__scroll {
+        gap: 60px;
+        position: relative;
+        height: 232px;
+        display: flex;
+        align-items: center;
+        transition: transform 1s linear;
+
+        &-content {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            transition: translate 1000ms linear;
+        }
+    }
+
+    &__title {
+        margin-right: 60px;
+        font: var(--hero);
+        letter-spacing: 0.02rem;
+        text-transform: uppercase;
+        text-wrap: nowrap;
+
+        &:first-letter {
+            font-family: var(--glorai-script);
+            font-size: 15rem;
+            letter-spacing: 0.05rem;
+            line-height: 105%;
+        }
+    }
+
+    .icon {
+        filter: var(--filter-base_100);
+        min-width: 150px;
+        height: 75px;
+    }
+
+    &__image {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+    }
+
+    &__details {
+        margin-top: auto;
+        padding: 0 64px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+    }
+
+    &__list {
+        &-title {
+            margin-bottom: 24px;
+            font: var(--text_400);
+            letter-spacing: 0.02rem;
+            text-transform: uppercase;
+            opacity: 0.5;
+        }
+        ul {
+            gap: 8px;
+            display: flex;
+            align-items: center;
+            font: var(--text-lg_300);
+            letter-spacing: 0.01rem;
+        }
+
+        &-item {
+            @include utils.circle(103px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            border: 1px solid var(--base_100);
+
+            &:hover {
+                background-color: hsl(0, 0%, 100%, 0.15);
+                border-color: hsl(0, 0%, 100%, 0.15);
+            }
+        }
+    }
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(calc(-100% - 120px));
+    }
+}
+
+@keyframes scrollClone {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(calc(-200% - 120px));
+    }
+}

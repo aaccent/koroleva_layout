@@ -42,6 +42,7 @@
         &:hover {
             color: var(--base_100);
             background-color: var(--base_400);
+            border-color: var(--base_100);
 
             &::after {
                 filter: var(--filter-base_100);
