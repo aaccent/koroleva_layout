@@ -1,0 +1,25 @@
+include layout/utils
+include features/popup/popup
+
++popup('card-popup', 'card-popup')
+    form.card-popup__form(novalidate)
+        .card-popup__title Подарочная карта
+        .card-popup__values
+            .card-popup__values-title
+            ul.card-popup__values-list
+                li.card-popup__values-item
+                li.card-popup__values-item
+                li.card-popup__values-item
+                li.card-popup__values-item
+        .card-popup__input.input
+            .input__placeholder Имя получателя*
+            input(name='name', type='text', required)
+        .card-popup__input.input
+            .input__placeholder E-mail получателя*
+            input(name='name', type='email', required)
+        .card-popup__input.input
+            .input__placeholder Сообщение или поздравление
+            input(name='name', type='text')
+        +anchor('#').card-popup__link
+        .card-popup__button.button добавить в корзину
+        .card-popup__policy Нажимая на кнопку, вы подтверждаете свое согласие с публичной офертой и политикой конфиденциальности
