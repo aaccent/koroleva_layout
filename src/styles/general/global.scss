@@ -20,6 +20,14 @@ html {
     }
 }
 
+.section {
+    margin: 180px 0;
+
+    @media screen and (max-width: 1000px) {
+        margin: 80px 0;
+    }
+}
+
 .main-wrapper {
     position: relative;
     min-height: 100vh;
