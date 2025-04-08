@@ -1,4 +1,5 @@
 extends layout/page
+include ui/slider/slider
 
 block append head
     link(href=require('./main-page.styles.scss'), rel='stylesheet')
@@ -6,6 +7,7 @@ block append head
 block append main
     include components/main-hero/main-hero
     include components/categories-list/categories
+    +slider({title: 'Новинки', cards: 'product-card'})
 
 block append scripts
     script(src=require('./main-page.ts'))
