@@ -1,8 +1,7 @@
-function convertToPercents(hundredPerInPx: number, valueInPx: number) {
-    return Math.round((valueInPx * 100) / hundredPerInPx)
-}
+import { openPopup } from 'features/popup/popup'
 
 void (function () {
+    /** TODO: довести до ума бесконечню строку*/
     const scrollContainer = document.querySelector<HTMLElement>('.gift-card__scroll')
     const container = document.querySelector<HTMLElement>('.gift-card .container')
     const initialScrollContent = document.querySelector<HTMLElement>('.gift-card__scroll-content')
@@ -14,7 +13,6 @@ void (function () {
     const margin = containerWidth - scrollContentWidth
 
     const addTitle = (translate: number) => {
-        console.log(translate)
         const scrollContent = document.createElement('div')
         scrollContent.classList.add('gift-card__scroll-content')
 
@@ -64,7 +62,22 @@ void (function () {
         }
     }
 
-    checkWidth()
-})()
+    /** Выбор номинала карты */
+    const cardValues = document.querySelectorAll('.gift-card__list-item')
+    cardValues.forEach((value) => {
+        value.addEventListener('click', () => {
+            const currentValue = document.querySelector('.gift-card__list-item._active')
+            currentValue?.classList.remove('_active')
+            value.classList.add('_active')
+        })
+    })
 
-function initTitleScroll() {}
+    const openGiftCardPopup = document.querySelector<HTMLButtonElement>('.gift-card__button')
+    openGiftCardPopup?.addEventListener('click', () => {
+        const activeValue = document.querySelector<HTMLElement>('.gift-card__list-item._active')
+
+        if (!activeValue) return
+
+        openPopup('card-popup', activeValue)
+    })
+})()

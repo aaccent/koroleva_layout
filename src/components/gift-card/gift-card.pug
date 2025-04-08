@@ -11,8 +11,8 @@ include layout/utils
         .gift-card__list
             .gift-card__list-title Выберите номинал:
             ul
-                li.gift-card__list-item 1000 ₽
-                li.gift-card__list-item 2000 ₽
-                li.gift-card__list-item 3500 ₽
-                li.gift-card__list-item 5000 ₽
-        button.gift-card__button.button.button--light Оформить карту
+                li.gift-card__list-item(data-value='1000') 1000 ₽
+                li.gift-card__list-item(data-value='2000') 2000 ₽
+                li.gift-card__list-item(data-value='3500') 3500 ₽
+                li.gift-card__list-item(data-value='5000') 5000 ₽
+        button.gift-card__button.button.button--light(data-popup='card-popup') Оформить карту
