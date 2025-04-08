@@ -1,0 +1,22 @@
+include layout/utils
+include ui/cards/product-card
+
+mixin slider(props)
+    -
+        props = Object.assign({
+            title: 'Новинки',
+            cards: 'product-card'|| 'sales-card'|| 'article-card'
+        },props || {})
+    +section.slider
+        h2.slider__title= props.title
+        .swiper.slider__swiper
+            .swiper-wrapper
+                each item in Array(10)
+                    .slider__slide.swiper-slide
+                        if props.cards==='product-card'
+                            +product-card
+            .slider__navigation
+                .slider__navigation-prev
+                    .icon.icon--arrow-right
+                .slider__navigation-next
+                    .icon.icon--arrow-right

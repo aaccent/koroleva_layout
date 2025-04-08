@@ -1,0 +1,58 @@
+@use 'styles/utils';
+
+.slider {
+    &__title {
+        margin-bottom: 32px;
+        font: var(--header_200);
+        letter-spacing: 0.02rem;
+        text-transform: uppercase;
+    }
+
+    &__swiper {
+        top: -88px;
+        padding-top: 88px;
+    }
+
+    &__navigation {
+        gap: 8px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: flex;
+
+        &-prev,
+        &-next {
+            padding: 12px;
+            border-radius: 100%;
+            border: 1px solid var(--base_400);
+
+            .icon {
+                width: 44px;
+                height: 22px;
+            }
+        }
+
+        &-prev {
+            rotate: 180deg;
+        }
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .slider {
+        .container {
+            padding-right: 0;
+        }
+        &__title {
+            margin-bottom: 24px;
+        }
+        &__navigation {
+            display: none;
+        }
+
+        &__swiper {
+            top: 0;
+            padding-top: 0;
+        }
+    }
+}
