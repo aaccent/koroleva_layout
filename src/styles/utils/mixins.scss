@@ -68,3 +68,17 @@
     background-position: center;
     background-size: #{$size};
 }
+
+@mixin only-mobile($display: block) {
+    display: none;
+
+    @media only screen and (max-width: $tablet1000) {
+        display: $display;
+    }
+}
+
+@mixin only-desktop($display: block) {
+    @media only screen and (max-width: $tablet1000) {
+        display: none;
+    }
+}

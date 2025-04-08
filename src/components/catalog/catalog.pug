@@ -1,0 +1,8 @@
+include layout/utils
+include parts
+
+section.section.catalog: .container
+    +catalog-title
+    +catalog-subcategories
+    include filter/filter
+    +products(data-view='grid')

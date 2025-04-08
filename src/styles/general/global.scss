@@ -7,16 +7,35 @@ html {
 }
 
 .container {
+    --container-mx: 60px;
+    --negative-container-mx: -60px;
     margin: 0 auto;
-    max-width: 1560px;
+    padding: 0 var(--container-mx);
+    max-width: 1680px;
 
     @media screen and (max-width: 1000px) {
-        padding: 0 28px;
-        max-width: 100%;
+        --container-mx: 28px;
+        --negative-container-mx: -28px;
+        padding: 0 var(--container-mx);
     }
 
     @media screen and (min-width: 1920px) {
-        max-width: 90%;
+    }
+}
+
+.section {
+    margin: 160px 0;
+
+    &:first-child {
+        margin-top: 35px;
+    }
+
+    &:not(:first-child):first-of-type {
+        margin-top: 0;
+    }
+
+    @media only screen and (max-width: utils.$tablet1000) {
+        margin: 80px 0;
     }
 }
 

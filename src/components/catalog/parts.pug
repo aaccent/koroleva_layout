@@ -1,0 +1,42 @@
+include ui/cards/product-card
+
+mixin catalog-title(props)
+    -
+        props = Object.assign({
+            amount: '223 найдено',
+            title: 'Бюстгальтеры',
+            text: 'Отличный выбор, чтобы подчеркнуть свою фигуру и добавить комфорт в повседневность',
+        }, props || {})
+
+    .catalog__title-block
+        .catalog__amount= props.amount
+        h1.catalog__title.page-title= props.title
+        if props.text
+            .catalog__text.content: p= props.text
+
+-
+    var subcategories = [
+        { title: 'Треугольник', img: require('assets/content/catalog/subcategory-1.jpg') },
+        { title: 'Пуш-ап', img: require('assets/content/catalog/subcategory-2.jpg') },
+        { title: 'Бандо', img: require('assets/content/catalog/subcategory-3.jpg') },
+        { title: 'балконет', img: require('assets/content/catalog/subcategory-4.jpg') },
+        { title: 'бралетт', img: require('assets/content/catalog/subcategory-5.jpg') },
+        { title: 'без косточек', img: require('assets/content/catalog/subcategory-6.jpg') },
+        { title: 'с косточкой', img: require('assets/content/catalog/subcategory-7.jpg') },
+    ]
+
+mixin catalog-subcategories
+    ul.catalog__subcategories-list
+        each category in subcategories
+            li: +anchor.catalog__subcategories-list-item
+                .catalog__subcategories-list-item-img-wrapper
+                    +img(category.img).catalog__subcategories-list-item-img
+                span.catalog__subcategories-list-item-text= category.title
+
+mixin products
+    .catalog__products-list&attributes(attributes)
+        if block
+            block
+        else
+            each _ in Array(18)
+                +product-card.catalog__products-list-item
