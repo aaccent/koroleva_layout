@@ -9,8 +9,8 @@
 
     &__input {
         appearance: none;
-        aspect-ratio: 1;
         position: relative;
+        aspect-ratio: 1;
         width: 20px;
         display: flex;
         flex-shrink: 0;
@@ -22,12 +22,12 @@
         @include utils.transition(border-color);
 
         &::after {
-            filter: var(--filter-base_100);
-            aspect-ratio: 1;
             content: '';
             position: absolute;
+            aspect-ratio: 1;
             width: 65%;
             opacity: 0;
+            filter: var(--filter-base_100);
             background-image: url('assets/icons/checkmark.svg');
             @include utils.bg-defaults;
             @include utils.transition(opacity);
