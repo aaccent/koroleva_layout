@@ -4,6 +4,7 @@
     position: relative;
     height: 530px;
     display: block;
+    overflow: hidden;
     border-radius: 8px;
     &__image {
         object-fit: cover;
@@ -55,7 +56,6 @@
 @media only screen and (max-width: 1000px) {
     .sale-card {
         height: 204px;
-        overflow: hidden;
         border-radius: 4px;
 
         &__container {
