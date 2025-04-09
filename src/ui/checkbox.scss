@@ -1,0 +1,52 @@
+@use 'styles/utils';
+
+.checkbox {
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    font: var(--text-lg_400);
+    cursor: pointer;
+
+    &__input {
+        appearance: none;
+        aspect-ratio: 1;
+        position: relative;
+        width: 20px;
+        display: flex;
+        flex-shrink: 0;
+        justify-content: center;
+        align-items: center;
+        background: transparent;
+        border-radius: 2px;
+        border: 1px solid var(--base_400_30);
+        @include utils.transition(border-color);
+
+        &::after {
+            filter: var(--filter-base_100);
+            aspect-ratio: 1;
+            content: '';
+            position: absolute;
+            width: 65%;
+            opacity: 0;
+            background-image: url('assets/icons/checkmark.svg');
+            @include utils.bg-defaults;
+            @include utils.transition(opacity);
+        }
+
+        &:checked {
+            border-color: var(--base_400);
+
+            &::after {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: utils.$tablet1000) {
+    .checkbox {
+        &__input {
+            width: 20px;
+        }
+    }
+}
