@@ -8,6 +8,7 @@ block append main
     include components/main-hero/main-hero
     include components/categories-list/categories
     +slider({title: 'Новинки', cards: 'product-card', tag: 'new'})
+    include components/size/size
     +slider({title: 'Хиты продаж', cards: 'product-card', tag: 'best'})
 
 block append scripts
