@@ -11,6 +11,7 @@ mixin product-card(props)
             ],
             isNew: false,
             isSale: false,
+            isBest: false,
             colors: true,
             title: 'Бюстгальтер бандо с тонкой чашкой и съемными бретелями',
             brand: 'PANAMA',
@@ -29,6 +30,8 @@ mixin product-card(props)
                         span.product-card__tag.tag.tag--light NEW
                     if props.isSale
                         span.product-card__tag.tag SALE
+                    if props.isBest
+                        span.product-card__tag.tag BEST
                 button.product-card__favorite-button.icon.icon--favorite(data-action='favorite')
             button.product-card__cart-button.circle-button.circle-button--filled: .icon.icon--cart(data-action='cart')
             button.product-card__slide-button.product-card__slide-button--prev: .icon.icon--arrow-short-left

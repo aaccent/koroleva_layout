@@ -5,7 +5,9 @@ mixin slider(props)
     -
         props = Object.assign({
             title: 'Новинки',
-            cards: 'product-card'|| 'sales-card'|| 'article-card'
+            cards: 'product-card'|| 'sales-card'|| 'article-card',
+            tag: 'best' || 'sale' || 'new'
+
         },props || {})
     +section.slider
         h2.slider__title= props.title
@@ -14,7 +16,14 @@ mixin slider(props)
                 each item in Array(10)
                     .slider__slide.swiper-slide
                         if props.cards==='product-card'
-                            +product-card
+                            if props.tag === 'best'
+                                +product-card({isBest: true})
+                            else if props.tag === 'sale'
+                                +product-card({isSale: true})
+                            else if props.tag === 'new'
+                                +product-card({isNew: true})
+                            else
+                                +product-card
             .slider__navigation
                 .slider__navigation-prev
                     .icon.icon--arrow-right
