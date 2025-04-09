@@ -5,7 +5,9 @@ void (function () {
     const sliders = document.querySelectorAll<HTMLElement>('.slider__swiper')
 
     sliders.forEach((slider) => {
+        const articleSlider = !!slider.closest('.articles')
         const salesSlider = !!slider.closest('.sales')
+        const slidesPerView = articleSlider ? 4 : salesSlider ? 2 : 3
         new Swiper(slider, {
             modules: [Navigation],
             slidesPerView: 1.2,
@@ -17,7 +19,7 @@ void (function () {
 
             breakpoints: {
                 1000: {
-                    slidesPerView: salesSlider ? 2 : 3,
+                    slidesPerView,
                     spaceBetween: 24,
                 },
             },

@@ -13,6 +13,7 @@ block append main
     +slider({title: 'Акции', cards:'sale-card', className: 'sales'})
     include components/about-block/about-block
     include components/gift-card/gift-card
+    +slider({title: 'Полезные статьи', cards:'article-card', className: 'articles'})
 
 block append scripts
     script(src=require('./main-page.ts'))

@@ -1,6 +1,7 @@
 include layout/utils
 include ui/cards/product-card
 include ui/cards/sale-card/sale-card
+include ui/cards/article-card/article-card
 
 mixin slider(props)
     -
@@ -27,6 +28,36 @@ mixin slider(props)
                 title: '-50% на вторые трусики ',
                 dates: '20 мая — 15 июня'
             }]
+
+        var articles = [
+            {
+                image: require('assets/content/articles/1.png'),
+                title: 'Как подобрать свой размер бюстгальтера?',
+                date: '12 октября 2023',
+                tag: 'МОДА'
+            },{
+                image: require('assets/content/articles/2.png'),
+                title: 'Как подобрать свой размер бюстгальтера?',
+                date: '12 октября 2023',
+                tag: 'нижнее белье'
+            },{
+                image: require('assets/content/articles/3.png'),
+                title: 'Как подобрать свой размер бюстгальтера?',
+                date: '12 октября 2023',
+                tag: 'МОДА'
+            },{
+                image: require('assets/content/articles/4.png'),
+                title: 'Как подобрать свой размер бюстгальтера?',
+                date: '12 октября 2023',
+                tag: 'нижнее белье'
+            },{
+                image: require('assets/content/articles/1.png'),
+                title: 'Как подобрать свой размер бюстгальтера?',
+                date: '12 октября 2023',
+                tag: 'МОДА'
+            },
+
+        ]
     +section.slider(class=props.className)
         .swiper.slider__swiper
             h2.slider__title.section-title= props.title
@@ -46,6 +77,10 @@ mixin slider(props)
                     each card in sales
                         .slider__slide.swiper-slide
                             +sale-card(card)
+                else if props.cards === 'article-card'
+                    each article in articles
+                        .slider__slide.swiper-slide
+                            +article-card(article)
             .slider__navigation
                 .slider__navigation-prev
                     .icon.icon--arrow-right
