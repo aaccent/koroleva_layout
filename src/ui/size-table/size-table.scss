@@ -1,0 +1,61 @@
+@use 'styles/utils';
+
+.size-table {
+    &__popup-button {
+        gap: 4px;
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        font: var(--text_400);
+        opacity: 0.7;
+
+        &::before {
+            content: '';
+            aspect-ratio: 1;
+            width: 24px;
+            background-image: url('assets/icons/rule.svg');
+            @include utils.bg-defaults;
+        }
+    }
+
+    &__tabs-list {
+        gap: 16px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__tab {
+        gap: 16px;
+        display: flex;
+        flex-direction: column;
+
+        &.opened &-body::before {
+            background-image: url('assets/icons/minus.svg');
+        }
+
+        &-title {
+            gap: 6px;
+            display: flex;
+            font: var(--text-lg_400);
+            text-transform: uppercase;
+
+            &::before {
+                content: '';
+                aspect-ratio: 1;
+                width: 20px;
+                background-image: url('assets/icons/plus.svg');
+                @include utils.bg-defaults;
+            }
+        }
+
+        &.opened &-body {
+            display: flex;
+        }
+
+        &-body {
+            gap: 8px;
+            display: none;
+            flex-wrap: wrap;
+        }
+    }
+}

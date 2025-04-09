@@ -1,0 +1,60 @@
+@use 'styles/utils';
+
+.rounded-checkbox {
+    gap: 10px;
+    padding: 11.5px 16px;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    border-radius: 50px;
+    border: 1px solid var(--base_400_20);
+    @include utils.transition((border-color, background-color, color));
+
+    &:has(input[type='checkbox']:checked) {
+        color: var(--base_100);
+        background-color: var(--base_400);
+        border-color: var(--base_400);
+    }
+
+    input[type='checkbox'] {
+        position: absolute;
+        visibility: hidden;
+    }
+
+    &--size {
+        padding-right: 0;
+        padding-left: 0;
+        width: 60px;
+    }
+
+    &--notification {
+        position: relative;
+        color: var(--base_400_35);
+        border-color: var(--base_400_35);
+
+        &::after {
+            content: '';
+            position: absolute;
+            z-index: 1;
+            top: -8.35%;
+            right: 8.35%;
+            aspect-ratio: 1;
+            width: 17px;
+            background-image: url('assets/icons/bell.svg');
+            @include utils.bg-defaults;
+        }
+    }
+
+    &__color {
+        aspect-ratio: 1;
+        width: 11px;
+        border-radius: 50%;
+    }
+}
+
+@media only screen and (max-width: utils.$tablet1000) {
+    .rounded-checkbox {
+        padding-top: 13px;
+        padding-bottom: 13px;
+    }
+}
