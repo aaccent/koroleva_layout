@@ -20,9 +20,14 @@
         background-image: url('assets/icons/geo.svg');
     }
     &--arrow-short-left {
-        background-image: url('assets/icons/arrow-short-left.svg');
+        rotate: -180deg;
+        background-image: url('assets/icons/arrow-short-right.svg');
     }
     &--arrow-short-right {
+        background-image: url('assets/icons/arrow-short-right.svg');
+    }
+    &--arrow-short-bottom {
+        rotate: 90deg;
         background-image: url('assets/icons/arrow-short-right.svg');
     }
     &--filter {

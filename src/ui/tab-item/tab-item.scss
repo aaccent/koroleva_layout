@@ -1,0 +1,49 @@
+@use 'styles/utils';
+
+.tab-item {
+    gap: 24px;
+    display: flex;
+    flex-direction: column;
+
+    &::after {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        /* @skip-scaling */
+        height: 1px;
+        background-image: var(--dashed-line);
+        @include utils.bg-defaults;
+    }
+
+    &.opened:not(&--not-interactive) &__title-wrapper {
+        padding-bottom: 24px;
+
+        .icon {
+            rotate: -90deg;
+        }
+    }
+
+    &__title-wrapper {
+        gap: 20px;
+        padding: 18px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__title {
+        gap: 8px;
+        display: flex;
+        align-items: center;
+        font: var(--text-lg_200);
+    }
+
+    &.opened &__body {
+        display: block;
+    }
+
+    &__body {
+        display: none;
+    }
+}

@@ -58,6 +58,10 @@
 :root {
     --filter-base_400: brightness(0) saturate(100%) invert(27%) sepia(5%) saturate(2273%) hue-rotate(319deg)
         brightness(100%) contrast(80%);
-    --filter-base_100: brightness(0) saturate(100%) invert(100%) sepia(3%) saturate(556%) hue-rotate(209deg)
-        brightness(116%) contrast(100%);
+    --filter-base_100: brightness(0) saturate(100%) invert(100%);
+}
+
+// Others
+:root {
+    --dashed-line: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><line x1="0" y1="1" x2="100%" y2="1" stroke="%23624C49" stroke-dasharray="6,6" /></svg>');
 }
