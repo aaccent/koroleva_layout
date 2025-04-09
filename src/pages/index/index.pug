@@ -9,6 +9,7 @@ block append main
     include components/categories-list/categories
     +slider({title: 'Новинки', cards: 'product-card', tag: 'new'})
     +slider({title: 'Хиты продаж', cards: 'product-card', tag: 'best'})
+    include components/about-block/about-block
 
 block append scripts
     script(src=require('./main-page.ts'))
