@@ -2,22 +2,21 @@
 
 .close-btn {
     position: absolute;
-    top: 0;
-    right: 0;
-    width: 40px;
-    height: 40px;
+    padding-left: 50px;
+    width: 136px;
+    height: 80px;
     display: flex;
-    justify-content: center;
     align-items: center;
+    background-color: var(--base_300);
+    border-radius: 50px;
 
     &::before,
     &::after {
         content: '';
         position: absolute;
-        width: 2.6px;
-        height: 26px;
-        background-color: #909090;
-        border-radius: 4px;
+        width: 1px;
+        height: 32px;
+        background-color: var(--base_100);
         @include utils.transition(background-color);
     }
 
@@ -32,7 +31,7 @@
     &:hover {
         &::before,
         &::after {
-            background-color: var(--green-light_color);
+            background-color: var(--base_100);
         }
     }
 }
@@ -52,14 +51,16 @@
     }
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 1000px) {
     .close-btn {
-        width: 35px;
-        height: 35px;
+        padding-left: 28px;
+        width: 104px;
+        height: 72px;
+        justify-content: start;
 
-        &::after,
-        &::before {
-            height: 20px;
+        &::before,
+        &::after {
+            height: 24px;
         }
     }
 }
