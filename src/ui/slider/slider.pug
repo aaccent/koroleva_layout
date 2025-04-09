@@ -1,21 +1,53 @@
 include layout/utils
 include ui/cards/product-card
+include ui/cards/article-card/article-card
 
 mixin slider(props)
     -
         props = Object.assign({
             title: 'Новинки',
             cards: 'product-card'|| 'sales-card'|| 'article-card',
-            tag: 'best' || 'sale' || 'new'
+            tag: 'best' || 'sale' || 'new',
+            className: ''
 
         },props || {})
-    +section.slider
+
+        var articles = [
+            {
+                image: require('assets/content/articles/1.png'),
+                title: 'Как подобрать свой размер бюстгальтера?',
+                date: '12 октября 2023',
+                tag: 'МОДА'
+            },{
+                image: require('assets/content/articles/2.png'),
+                title: 'Как подобрать свой размер бюстгальтера?',
+                date: '12 октября 2023',
+                tag: 'нижнее белье'
+            },{
+                image: require('assets/content/articles/3.png'),
+                title: 'Как подобрать свой размер бюстгальтера?',
+                date: '12 октября 2023',
+                tag: 'МОДА'
+            },{
+                image: require('assets/content/articles/4.png'),
+                title: 'Как подобрать свой размер бюстгальтера?',
+                date: '12 октября 2023',
+                tag: 'нижнее белье'
+            },{
+                image: require('assets/content/articles/1.png'),
+                title: 'Как подобрать свой размер бюстгальтера?',
+                date: '12 октября 2023',
+                tag: 'МОДА'
+            },
+
+        ]
+    +section.slider(class=props.className)
         h2.slider__title= props.title
         .swiper.slider__swiper
             .swiper-wrapper
-                each item in Array(10)
-                    .slider__slide.swiper-slide
-                        if props.cards==='product-card'
+                if props.cards==='product-card'
+                    each item in Array(10)
+                        .slider__slide.swiper-slide
                             if props.tag === 'best'
                                 +product-card({isBest: true})
                             else if props.tag === 'sale'
@@ -24,6 +56,10 @@ mixin slider(props)
                                 +product-card({isNew: true})
                             else
                                 +product-card
+                else if props.cards === 'article-card'
+                    each article in articles
+                        .slider__slide.swiper-slide
+                            +article-card(article)
             .slider__navigation
                 .slider__navigation-prev
                     .icon.icon--arrow-right

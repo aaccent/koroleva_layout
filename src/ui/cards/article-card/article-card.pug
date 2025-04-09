@@ -1,0 +1,15 @@
+include layout/utils
+
+mixin article-card(props)
+    -
+        props = Object.assign({
+            image: require('assets/content/articles/1.png'),
+            title: 'Как подобрать свой размер бюстгальтера?',
+            date: '12 октября 2023',
+            tag: 'МОДА'
+        }, props || {})
+    .article-card
+        +img(props.image).article-card__image
+        .article-card__tag= props.tag
+        .article-card__title= props.title
+        .article-card__date= props.date
