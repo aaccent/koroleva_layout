@@ -1,0 +1,15 @@
+include layout/utils
+
+mixin sale-card(props)
+    -
+        props = Object.assign({
+            image: require('assets/content/main-hero/2.png'),
+            title: '-50% на вторые трусики',
+            dates: '20 мая — 15 июня'
+        }, props || {})
+    +anchor.sale-card
+        +img(props.image).sale-card__image
+        .sale-card__container
+            .sale-card__dates= props.dates
+            .sale-card__title= props.title
+            .icon.icon--arrow-right

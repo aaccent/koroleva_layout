@@ -10,6 +10,7 @@ block append main
     +slider({title: 'Новинки', cards: 'product-card', tag: 'new'})
     include components/size/size
     +slider({title: 'Хиты продаж', cards: 'product-card', tag: 'best'})
+    +slider({title: 'Акции', cards:'sale-card', className: 'sales'})
 
 block append scripts
     script(src=require('./main-page.ts'))

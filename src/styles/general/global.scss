@@ -28,6 +28,12 @@ html {
     }
 }
 
+.section-title {
+    font: var(--header_200);
+    letter-spacing: 0.02rem;
+    text-transform: uppercase;
+}
+
 .main-wrapper {
     position: relative;
     min-height: 100vh;

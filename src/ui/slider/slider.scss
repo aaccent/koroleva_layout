@@ -3,14 +3,9 @@
 .slider {
     &__title {
         margin-bottom: 32px;
-        font: var(--header_200);
-        letter-spacing: 0.02rem;
-        text-transform: uppercase;
     }
 
     &__swiper {
-        top: -88px;
-        padding-top: 88px;
     }
 
     &__navigation {
