@@ -1,8 +1,9 @@
 include layout/utils
 
-mixin popup(name, className)
+mixin popup(name)
+    - var className = `${name}-popup`
+
     .popup(class=className, data-popup=name)&attributes(attributes)
-        - var bodyClass = className ? ` ${className}__inner` : ''
-        div(class=`popup__inner` + bodyClass)
-            +btn('close-popup').close-btn
+        +btn('close-popup').close-btn
+        div(class={ popup__inner: true, [`${className}__inner`]: true })
             block
