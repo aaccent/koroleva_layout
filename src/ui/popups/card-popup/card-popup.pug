@@ -1,0 +1,25 @@
+include layout/utils
+include features/popup/popup
+include ui/input/input
+
++popup('card-popup', 'card-popup')
+    form.card-popup__form(novalidate, data-handler='path.php')
+        .card-popup__title Подарочная карта
+        .card-popup__values
+            .card-popup__values-title выберите номинал:
+            .card-popup__values-list
+                label.card-popup__values-item
+                    input(type='radio', name='card-value')
+                label.card-popup__values-item
+                    input(type='radio', name='card-value')
+                label.card-popup__values-item
+                    input(type='radio', name='card-value')
+                label.card-popup__values-item
+                    input(type='radio', name='card-value')
+            +input(name='name', type='text', placeholder='Имя получателя*', required)
+            +input(name='email', type='email', placeholder='E-mail получателя*', required)
+            +input(name='message', type='text', placeholder='Сообщение или поздравление')
+        +anchor('#').card-popup__link инструкция по применению
+            .icon.icon--doc
+        button.card-popup__button.button добавить в корзину
+        .card-popup__policy!= 'Нажимая на кнопку, вы подтверждаете свое согласие с <a href="#">публичной офертой</a> и <a href="#">политикой конфиденциальности</a>'

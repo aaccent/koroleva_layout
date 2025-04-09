@@ -26,27 +26,40 @@
 
     &__inner {
         position: relative;
-        margin: auto;
+        margin-left: auto;
+        padding: 48px 48px 38px;
+        width: 546px;
+        background-color: var(--base_200);
+        border-radius: 8px;
+        border-top-left-radius: 0;
     }
 
     .close-btn {
-        z-index: 30;
-        top: 20px;
-        right: 20px;
+        z-index: -1;
+        top: 0;
+        left: -101px;
     }
 }
 
-@media only screen and (max-width: 1100px) {
+@media only screen and (max-width: 1000px) {
     .popup {
-        width: 100vw;
-    }
-}
+        padding: 0;
+        width: 100%;
 
-@media only screen and (max-width: 450px) {
-    .popup {
+        &__inner {
+            margin-top: auto;
+            height: fit-content;
+            min-height: 390px;
+            border-top-left-radius: 8px;
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
         .close-btn {
-            top: 5px;
-            right: 5px;
+            top: -50px;
+            right: 0;
+            left: auto;
+            rotate: 90deg;
         }
     }
 }

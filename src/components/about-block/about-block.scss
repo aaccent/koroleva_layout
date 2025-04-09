@@ -1,0 +1,73 @@
+@use 'styles/utils';
+
+.about-block {
+    margin: 220px 0 224px;
+    .container {
+        max-width: 1097px;
+    }
+
+    &__text {
+        font-family: var(--forum);
+        font-size: 7.2rem;
+        letter-spacing: 0.02rem;
+        line-height: 115%;
+        text-align: center;
+        text-transform: uppercase;
+
+        &::first-letter {
+            font-family: var(--glorai-script);
+            font-size: 10.5rem;
+            letter-spacing: 1.5rem;
+            line-height: 115%;
+            text-transform: uppercase;
+        }
+    }
+
+    &__image {
+        object-fit: cover;
+        object-position: center;
+        width: 136px;
+        height: 75px;
+        display: inline;
+        overflow: hidden;
+        vertical-align: text-top;
+        border-radius: 50px;
+    }
+
+    &__link {
+        margin: 56px auto 0;
+        display: block;
+        font: var(--text_400);
+        letter-spacing: 0.02rem;
+        text-align: center;
+        text-decoration: underline;
+        text-transform: uppercase;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .about-block {
+        .container {
+            padding: 0;
+            max-width: 326px;
+        }
+
+        &__text {
+            font-size: 3.2rem;
+
+            &::first-letter {
+                font-size: 6.4rem;
+                letter-spacing: 0.05rem;
+            }
+        }
+
+        &__image {
+            width: 50px;
+            height: 27px;
+        }
+
+        &__link {
+            margin-top: 32px;
+        }
+    }
+}

@@ -1,0 +1,18 @@
+include layout/utils
+
++section.gift-card
+    .gift-card__header
+        .gift-card__scroll
+            .gift-card__scroll-content
+                h2.gift-card__title Подарочная карта
+                .icon.icon--arrow-right
+    +img(require('assets/static/gift-card.png')).gift-card__image
+    .gift-card__details
+        .gift-card__list
+            .gift-card__list-title Выберите номинал:
+            ul
+                li.gift-card__list-item(data-value='1000') 1000 ₽
+                li.gift-card__list-item(data-value='2000') 2000 ₽
+                li.gift-card__list-item(data-value='3500') 3500 ₽
+                li.gift-card__list-item(data-value='5000') 5000 ₽
+        button.gift-card__button.button.button--light(data-popup='card-popup') Оформить карту

@@ -23,7 +23,11 @@
 @use 'ui/popups/video/video';
 @use 'ui/buttons/circle-button';
 @use 'ui/cards/product-card';
+@use 'ui/cards/article-card/article-card';
+@use 'ui/cards/sale-card/sale-card';
 @use 'ui/slider/slider';
+@use 'ui/buttons/button';
+@use 'ui/input/input';
 
 // Page
 @use 'layout/header/header';

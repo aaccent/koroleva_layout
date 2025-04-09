@@ -1,0 +1,17 @@
+include layout/utils
+
++section.size
+    +img(require('assets/static/size-image.png')).size__image
+    .size__content
+        h2.size__title найти бюстгальтер по чашке
+        +img(require('assets/static/size-mini-image.png')).size__mini-image
+        .size__list
+            .swiper
+                .swiper-wrapper
+                    each size in ['А', 'B', 'C', 'D', 'E', 'F']
+                        .swiper-slide.size__item= size
+                button.size__list-navigation-prev
+                    .icon.icon--arrow-short-left
+                button.size__list-navigation-next
+                    .icon.icon--arrow-short-left
+        +anchor.size__link показать в каталоге

@@ -1,0 +1,68 @@
+@use 'styles/utils';
+
+.button {
+    gap: 16px;
+    padding: 22px 32px 20px 32px;
+    display: flex;
+    align-items: center;
+    color: var(--base_100);
+    font: var(--text_200);
+    letter-spacing: 0.02rem;
+    text-transform: uppercase;
+    background-color: var(--base_400);
+    border-radius: 50px;
+    border: 1px solid var(--base_400);
+
+    &::after {
+        content: '';
+        width: 76px;
+        height: 38px;
+        @include utils.bg-defaults;
+        filter: var(--filter-base_100);
+        background-image: url('assets/icons/arrow-right.svg');
+    }
+
+    &:hover {
+        color: var(--base_400);
+        background-color: var(--base_100);
+
+        &::after {
+            filter: var(--filter-base_400);
+        }
+    }
+
+    &--light {
+        color: var(--base_400);
+        background-color: var(--base_100);
+
+        &::after {
+            filter: var(--filter-base_400);
+        }
+
+        &:hover {
+            color: var(--base_100);
+            background-color: var(--base_400);
+            border-color: var(--base_100);
+
+            &::after {
+                filter: var(--filter-base_100);
+            }
+        }
+    }
+
+    &--transparent {
+        background-color: transparent;
+        border-color: var(--base_100);
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .button {
+        padding: 16px 32px;
+
+        &::after {
+            width: 52px;
+            height: 26px;
+        }
+    }
+}

@@ -69,8 +69,9 @@ export function openPopup(name: string, target: HTMLElement | null = null) {
     closeActivePopup('process')
 
     const openedPopupEvent = new CustomEvent('opened', {
-        detail: target,
-    })
+        detail: { trigger: target },
+    }) as PopupOpenedCustomEvent
+
     targetPopup.classList.add('opened')
     targetPopup.dispatchEvent(openedPopupEvent)
 
