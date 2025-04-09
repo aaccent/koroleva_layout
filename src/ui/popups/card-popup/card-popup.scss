@@ -1,0 +1,51 @@
+.card-popup {
+    &__title {
+        margin-bottom: 40px;
+        font: var(--header_300);
+        letter-spacing: 0.02rem;
+        text-transform: uppercase;
+    }
+
+    &__values {
+        &-title {
+            margin-bottom: 16px;
+            font: var(--text_400);
+            letter-spacing: 0.02rem;
+            text-transform: uppercase;
+        }
+        &-list {
+            padding: 10px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            border-radius: 50px;
+            border: 1px solid hsla(7, 15%, 34%, 0.3);
+        }
+
+        &-item {
+            position: relative;
+            padding: 12.5px 24px;
+            color: var(--base_400);
+            font: var(--text-lg_300);
+            letter-spacing: 0.01rem;
+            text-wrap: nowrap;
+            border-radius: 50px;
+
+            &:not(:last-child)::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                right: -3px;
+                transform: translateY(-50%);
+                width: 1px;
+                height: 16px;
+                background-color: hsl(7, 15%, 34%, 0.3);
+            }
+
+            &._active {
+                color: var(--base_100);
+                background-color: var(--base_400);
+            }
+        }
+    }
+}

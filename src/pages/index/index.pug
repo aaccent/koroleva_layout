@@ -15,5 +15,7 @@ block append main
     include components/gift-card/gift-card
     +slider({title: 'Полезные статьи', cards:'article-card', className: 'articles'})
 
+    include ui/popups/card-popup/card-popup
+
 block append scripts
     script(src=require('./main-page.ts'))
