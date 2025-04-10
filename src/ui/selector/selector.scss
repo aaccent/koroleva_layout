@@ -21,8 +21,8 @@
         font: var(--text-lg_300);
 
         &::after {
-            filter: var(--filter-base_400);
             content: '';
+            filter: var(--filter-base_400);
             @include utils.square(20px);
             background-image: url('assets/icons/arrow-short-down.svg');
             @include utils.bg-defaults;
@@ -60,16 +60,18 @@
         display: none;
     }
 
-    &__list {
+    &__list,
+    &--list {
         gap: 18px;
         display: flex;
         flex-direction: column;
     }
 
     &__item {
-        gap: 14px;
+        gap: 10px;
         display: flex;
         align-items: center;
+        text-transform: uppercase;
     }
 
     &__item-input {
@@ -77,29 +79,30 @@
     }
 
     &__item-circle {
-        @include utils.square(28px);
+        @include utils.square(20px);
         position: relative;
         display: flex;
         flex-shrink: 0;
         justify-content: center;
         align-items: center;
         border-radius: 50%;
-        border: 1px solid hsl(28, 38%, 31%, 0.2);
-        @include utils.transition(border-color);
+        border: 1px solid var(--base_400_20);
+        @include utils.transition((border-color, background-color));
 
         &::after {
             content: '';
             position: absolute;
-            @include utils.square(39%);
+            @include utils.square(30%);
             flex-shrink: 0;
             opacity: 0;
-            background-color: var(--base_400);
+            background-color: var(--base_100);
             border-radius: 50%;
             @include utils.transition(opacity);
         }
     }
 
     &__item-input:checked + &__item-circle {
+        background-color: var(--base_400);
         border-color: var(--base_400);
 
         &::after {
@@ -113,10 +116,10 @@
         position: static;
 
         &::before {
-            inset: 0;
             content: '';
             position: fixed;
             z-index: 11;
+            inset: 0;
             width: 100vw;
             height: 100vh;
             opacity: 0;
@@ -138,10 +141,15 @@
             bottom: 0;
             left: 0;
             width: 100%;
+            font: var(--text-lg_400);
 
             &::after {
                 display: none;
             }
+        }
+
+        &__list {
+            gap: 12px;
         }
 
         &__mobile-top {
@@ -150,9 +158,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
-
-        &__mobile-title {
         }
     }
 }

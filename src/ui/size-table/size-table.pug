@@ -9,7 +9,7 @@ include layout/utils
     .size-table__tabs-list
         each size in sizes
             .size-table__tab
-                button.size-table__tab-title чашка #{ size }
+                button.size-table__tab-title(type='button') чашка #{ size }
                 .size-table__tab-body
                     each num in sizesNumber
                         - var sizeText = `${num}${size}`

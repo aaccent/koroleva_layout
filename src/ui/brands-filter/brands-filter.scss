@@ -7,8 +7,11 @@
 
     &__body {
         gap: 24px;
+        height: 236px;
         display: flex;
         flex-direction: column;
+        overflow-y: auto;
+        @include utils.styled-scroll;
 
         &-item {
             gap: 16px;
@@ -17,8 +20,27 @@
         }
 
         &-item-title {
+            position: sticky;
+            z-index: 1;
+            top: 0;
             font: var(--text_200);
             text-transform: uppercase;
+            background-color: var(--base_200);
         }
+    }
+}
+
+@media only screen and (max-width: utils.$tablet1000) {
+    .brands-filter {
+        height: 100%;
+
+        &__body {
+            height: 100%;
+        }
+    }
+
+    .tab-item .brands-filter__body {
+        margin-bottom: -24px;
+        padding-bottom: 24px;
     }
 }

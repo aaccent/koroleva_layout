@@ -28,3 +28,16 @@ document.querySelectorAll('.selector').forEach((selector) => {
         })
     })
 })
+
+document.querySelectorAll('.selector-list').forEach((selectorList) => {
+    const chosenText = selectorList.closest('.tab-item')?.querySelector<HTMLElement>('.tab-item__title span')
+    const itemInputs = selectorList.querySelectorAll<HTMLInputElement>('.selector__item-input')
+
+    if (!chosenText) return
+
+    itemInputs.forEach((input) => {
+        input.addEventListener('change', () => {
+            chosenText.innerText = input.dataset.showValue || ''
+        })
+    })
+})

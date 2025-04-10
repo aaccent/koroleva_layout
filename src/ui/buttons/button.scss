@@ -50,5 +50,10 @@
 @media only screen and (max-width: utils.$tablet1000) {
     .button {
         height: 60px;
+
+        &--arrow::after {
+            width: 53px;
+            height: 27px;
+        }
     }
 }

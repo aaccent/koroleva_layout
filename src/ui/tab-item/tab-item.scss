@@ -1,15 +1,10 @@
 @use 'styles/utils';
 
 .tab-item {
-    position: relative;
     display: flex;
     flex-direction: column;
 
-    &::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
+    &__line {
         width: 100%;
         /* @skip-scaling */
         height: 1px;
@@ -31,11 +26,23 @@
         display: flex;
         align-items: center;
         font: var(--text-lg_200);
+
+        span {
+            opacity: 0.6;
+        }
+    }
+
+    &__body-wrapper {
+        display: none;
+        flex-direction: column;
     }
 
     &__body {
         padding-bottom: 24px;
-        display: none;
+    }
+
+    &__mobile-title {
+        @include utils.only-mobile(flex);
     }
 }
 
@@ -48,11 +55,75 @@
         }
     }
 
-    &__body {
-        display: block;
+    &__body-wrapper {
+        display: flex;
+    }
+
+    &__mobile-title {
+        margin-bottom: 40px;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__mobile-back-button {
+        gap: 12px;
+        display: flex;
+        align-items: center;
+        font: var(--header_300);
+        text-transform: uppercase;
+
+        &::before {
+            content: '';
+            width: 20px;
+            height: 9px;
+            background-image: url('assets/icons/arrow-left.svg');
+            @include utils.bg-defaults;
+        }
+    }
+
+    &__mobile-reset-button {
+        gap: 4px;
+        display: flex;
+        align-items: center;
+        font: var(--text_400);
+        text-transform: uppercase;
+        opacity: 0.7;
+
+        &::before {
+            content: '';
+            aspect-ratio: 1;
+            width: 20px;
+            background-image: url('assets/icons/update.svg');
+            @include utils.bg-defaults;
+        }
     }
 }
 
 .tab-item--not-interactive {
-    padding: 18px 0;
+    .tab-item__body {
+        padding: 18px 0;
+    }
+}
+
+@media only screen and (max-width: utils.$tablet1000) {
+    .tab-item:not(.tab-item--not-interactive) .tab-item {
+        &__title-wrapper {
+            .icon {
+                rotate: 0deg;
+            }
+        }
+
+        &__body-wrapper {
+            position: absolute;
+            z-index: 1;
+            inset: 0;
+            background-color: var(--base_200);
+        }
+
+        &__body {
+            height: 1px;
+            flex-grow: 1;
+            overflow-y: auto;
+        }
+    }
 }

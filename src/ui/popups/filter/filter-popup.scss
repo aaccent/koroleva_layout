@@ -19,4 +19,16 @@
     &__price-slider {
         margin-bottom: 14px;
     }
+
+    &__sort-selector {
+        @include utils.only-mobile(flex);
+    }
+}
+
+@media only screen and (max-width: utils.$tablet1000) {
+    .filter-popup {
+        &__inner {
+            height: 100%;
+        }
+    }
 }

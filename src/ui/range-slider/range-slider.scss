@@ -14,7 +14,7 @@
     }
 
     &__inputs-wrapper {
-        margin-bottom: 24px;
+        margin-bottom: 10px;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -62,10 +62,11 @@
         top: 50%;
         translate: 0 -50%;
         /* @skip-scaling */
-        width: 6px;
+        width: 13px;
         /* @skip-scaling */
-        height: 16px;
+        height: 13px;
         background-color: var(--base_400);
+        border-radius: 50%;
 
         &:hover {
             cursor: grab;
@@ -86,7 +87,6 @@
         }
 
         &__input {
-            padding: 17px;
             width: 110px;
         }
     }
