@@ -19,7 +19,7 @@
         background: transparent;
         border-radius: 2px;
         border: 1px solid var(--base_400_30);
-        @include utils.transition(border-color);
+        @include utils.transition((border-color, background-color));
 
         &::after {
             content: '';
@@ -34,6 +34,7 @@
         }
 
         &:checked {
+            background-color: var(--base_400);
             border-color: var(--base_400);
 
             &::after {
