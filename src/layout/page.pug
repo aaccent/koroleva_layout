@@ -13,9 +13,9 @@ html(lang='ru')
         .main-wrapper
             main.main
                 block main
+                block popups
 
             include footer/footer
-            include ui/popups/video/video
 
         block scripts
             script(src=require('scripts/main.ts'), type='module')

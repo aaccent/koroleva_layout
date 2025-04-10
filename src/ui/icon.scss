@@ -39,6 +39,9 @@
     &--columns-view {
         background-image: url('assets/icons/columns-view.svg');
     }
+    &--reset {
+        background-image: url('assets/icons/update.svg');
+    }
 }
 
 @media only screen and (max-width: utils.$tablet1000) {

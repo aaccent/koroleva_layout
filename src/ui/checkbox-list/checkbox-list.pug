@@ -7,7 +7,7 @@ mixin checkbox-list(props)
             list: [''],
         }, props || {})
 
-    ul.checkbox-list
+    ul.checkbox-list&attributes(attributes)
         each item in props.list
             li: label.checkbox-list__item-label.checkbox
                 input.checkbox-list__item-input.checkbox__input(type='checkbox', name='name')

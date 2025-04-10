@@ -1,0 +1,49 @@
+include layout/utils
+include features/popup/popup
+include ui/range-slider/range-slider
+include ui/switch/switch
+include ui/tab-item/tab-item
+include ui/checkbox-list/checkbox-list
+
+-
+    var typeList = [
+        'Треугольник',
+        'Пуш-ап',
+        'Бандо',
+        'балконет',
+        'бралетт',
+        'без косточек',
+        'с косточкой',
+    ]
+
+    var colors = [
+        {title: 'черный', hex: ['#404040']},
+        {title: 'бежевый', hex: ['#DFBD93']},
+        {title: 'бирюзовый', hex: ['#38E2DA']},
+        {title: 'бордово-красный', hex: ['#932035','#D31919']},
+        {title: 'голубой', hex: ['#8BCDFF']},
+    ]
+
++popup('filter')
+    .popup__top
+        .popup__title фильтр
+        button.filter-popup__reset-button
+            .icon.icon--reset
+            | сбросить всё
+    .popup__body
+        +range-slider({name: 'price', min: 1000, max: 25000}).filter-popup__price-slider
+        +tab-item--not-interactive: +switch({name: 'new', title: 'Новинка'})
+        +tab-item--not-interactive: +switch({name: 'sale', title: 'Sale'})
+        +tab-item('Тип изделия'): +checkbox-list({ name: 'type', list: typeList })
+        +tab-item('Размер'): include ui/size-table/size-table
+        +tab-item('Цвет'): .checkbox-list--color
+            each color in colors
+                label.rounded-checkbox
+                    input.rounded-checkbox__input(type='checkbox', name='color', value=color.title)
+                    // Если цветов несколько, то выводить нужно через запятую, а в `style` только первый цвет
+                    span.rounded-checkbox__color(data-color=color.hex.join(','), style=`background-color:${color.hex[0]}`)
+                    | #{ color.title }
+        +tab-item('Бренды'): include ui/brands-filter/brands-filter
+        +tab-item('Материал'): +checkbox-list({ name: 'type', list: typeList })
+    .popup__bottom
+        button.button.button--arrow показать 56 товаров

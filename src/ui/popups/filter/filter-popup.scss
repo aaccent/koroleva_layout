@@ -1,0 +1,22 @@
+@use 'styles/utils';
+
+.filter-popup {
+    &__inner {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__reset-button {
+        gap: 4px;
+        height: fit-content;
+        display: flex;
+        align-items: center;
+        font: var(--text_400);
+        text-transform: uppercase;
+        opacity: 0.7;
+    }
+
+    &__price-slider {
+        margin-bottom: 14px;
+    }
+}

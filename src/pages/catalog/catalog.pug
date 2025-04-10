@@ -6,5 +6,8 @@ block append head
 block main
     include components/catalog/catalog
 
+block popups
+    include ui/popups/filter/filter
+
 block append scripts
     script(src=require('scripts/catalog.ts'))
