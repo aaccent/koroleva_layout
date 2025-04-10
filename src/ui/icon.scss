@@ -20,15 +20,13 @@
         background-image: url('assets/icons/geo.svg');
     }
     &--arrow-short-left {
-        rotate: -180deg;
-        background-image: url('assets/icons/arrow-short-right.svg');
+        background-image: url('assets/icons/arrow-short-left.svg');
     }
     &--arrow-short-right {
         background-image: url('assets/icons/arrow-short-right.svg');
     }
     &--arrow-short-bottom {
-        rotate: 90deg;
-        background-image: url('assets/icons/arrow-short-right.svg');
+        background-image: url('assets/icons/arrow-short-down.svg');
     }
     &--filter {
         background-image: url('assets/icons/filter.svg');

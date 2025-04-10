@@ -51,7 +51,7 @@
         padding-bottom: 24px;
 
         .icon {
-            rotate: -90deg;
+            rotate: -180deg;
         }
     }
 
@@ -109,7 +109,7 @@
     .tab-item:not(.tab-item--not-interactive) .tab-item {
         &__title-wrapper {
             .icon {
-                rotate: 0deg;
+                rotate: -90deg;
             }
         }
 
