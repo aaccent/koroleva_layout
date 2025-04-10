@@ -26,9 +26,9 @@ mixin catalog-title(props)
     ]
 
 mixin catalog-subcategories
-    ul.catalog__subcategories-list
+    .swiper.catalog__subcategories-list-wrapper: ul.catalog__subcategories-list.swiper-wrapper
         each category in subcategories
-            li: +anchor.catalog__subcategories-list-item
+            li.swiper-slide: +anchor.catalog__subcategories-list-item
                 .catalog__subcategories-list-item-img-wrapper
                     +img(category.img).catalog__subcategories-list-item-img
                 span.catalog__subcategories-list-item-text= category.title

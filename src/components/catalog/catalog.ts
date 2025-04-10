@@ -1,3 +1,6 @@
+import Swiper from 'swiper'
+import { FreeMode } from 'swiper/modules'
+
 interface ViewPartElement extends HTMLElement {
     dataset: {
         view: string
@@ -14,4 +17,17 @@ document.querySelectorAll<ViewPartElement>('[data-action="view"]').forEach((view
         viewButton.classList.add('active')
         catalogList.dataset.view = viewButton.dataset.view
     })
+})
+
+new Swiper('.catalog__subcategories-list-wrapper', {
+    freeMode: true,
+    slidesPerView: 'auto',
+    spaceBetween: 8,
+    centerInsufficientSlides: true,
+    modules: [FreeMode],
+    breakpoints: {
+        1000: {
+            spaceBetween: 16,
+        },
+    },
 })
