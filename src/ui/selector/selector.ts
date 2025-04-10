@@ -13,7 +13,6 @@ document.querySelectorAll('.selector').forEach((selector) => {
     })
 
     if (itemInputs.length) {
-        button.innerText = itemInputs[0].dataset.showValue || ''
         itemInputs[0].checked = true
     } else {
         const firstItem = selector.querySelector('.selector__item')
@@ -21,12 +20,6 @@ document.querySelectorAll('.selector').forEach((selector) => {
 
         button.innerText = firstItem.textContent || ''
     }
-
-    itemInputs.forEach((input) => {
-        input.addEventListener('change', () => {
-            button.innerText = input.dataset.showValue || ''
-        })
-    })
 })
 
 document.querySelectorAll('.selector-list').forEach((selectorList) => {

@@ -25,12 +25,6 @@ include ui/selector/selector
         {title: 'голубой', hex: ['#8BCDFF']},
     ]
 
-    var sortList = [
-        { title: 'Cначала популярные', value: 'popular', shownValue: 'По популярности' },
-        { title: 'По возрастанию цены', value: 'price-incr', shownValue: 'Сначала дешевые' },
-        { title: 'По убыванию цены', value: 'price-decr', shownValue: 'Сначала дорогие' },
-    ]
-
 +popup('filter')
     .popup__body-wrapper
         .popup__top
@@ -40,7 +34,7 @@ include ui/selector/selector
                 | сбросить всё
         .popup__body
             +range-slider({ name: 'price', min: 1000, max: 25000 }).filter-popup__price-slider
-            +tab-item-selector.filter-popup__sort-selector: +selector-list({name: 'sort', list: sortList})
+            +tab-item-selector.filter-popup__sort-selector: +sort-selector
             +tab-item--not-interactive: +switch({ name: 'new', title: 'Новинка' })
             +tab-item--not-interactive: +switch({ name: 'sale', title: 'Sale' })
             +tab-item('Тип изделия'): +checkbox-list({ name: 'type', list: typeList })

@@ -12,9 +12,13 @@ const catalogList = document.querySelector<ViewPartElement>('.catalog__products-
 document.querySelectorAll<ViewPartElement>('[data-action="view"]').forEach((viewButton) => {
     viewButton.addEventListener('click', () => {
         if (!catalogList || !viewButton.dataset.view) return
+        const allActiveSwitchers = document.querySelectorAll('[data-action="view"].active')
+        const allSameSwitchers = document.querySelectorAll(
+            `[data-action="view"][data-view="${viewButton.dataset.view}"]`,
+        )
 
-        document.querySelector('[data-action="view"].active')?.classList.remove('active')
-        viewButton.classList.add('active')
+        allActiveSwitchers.forEach((i) => i.classList.remove('active'))
+        allSameSwitchers.forEach((i) => i.classList.add('active'))
         catalogList.dataset.view = viewButton.dataset.view
     })
 })

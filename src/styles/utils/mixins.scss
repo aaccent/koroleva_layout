@@ -98,6 +98,8 @@
 }
 
 @mixin only-desktop($display: block) {
+    display: $display;
+
     @media only screen and (max-width: $tablet1000) {
         display: none;
     }

@@ -9,12 +9,9 @@ mixin selector(props)
             ]
         })
 
-    .selector
-        +wrapBreak: button.selector__button
+    .selector&attributes(attributes)
+        +wrapBreak: button.selector__button Сортировка
         .selector__list-wrapper
-            .selector__mobile-top
-                .selector__mobile-title Сортировка
-                +wrapBreak: button.close-btn
             ul.selector__list
                 each item in props.list
                     li: label.selector__item
@@ -47,3 +44,13 @@ mixin selector-list(props)
                 )
                 +wrapBreak: span.selector__item-circle
                 | #{ item.title }
+
+-
+    var sortList = [
+        { title: 'Cначала популярные', value: 'popular', shownValue: 'По популярности' },
+        { title: 'По возрастанию цены', value: 'price-incr', shownValue: 'Сначала дешевые' },
+        { title: 'По убыванию цены', value: 'price-decr', shownValue: 'Сначала дорогие' },
+    ]
+
+mixin sort-selector
+    +selector({ name: 'sorting', list: sortList }).selector--sort

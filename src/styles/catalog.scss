@@ -1,6 +1,3 @@
-@use 'components/catalog/filter/filter';
-@use 'components/catalog/catalog';
-
 @use 'ui/range-slider/range-slider';
 @use 'ui/switch/switch';
 @use 'ui/checkbox/checkbox';
@@ -8,5 +5,13 @@
 @use 'ui/checkbox-list/checkbox-list';
 @use 'ui/brands-filter/brands-filter';
 @use 'ui/rounded-input';
+@use 'ui/buttons/filter-button/filter-button';
+@use 'ui/buttons/scroll-top-button';
+@use 'ui/buttons/view-switcher/view-switcher';
+@use 'ui/texts/text-amount';
 
 @use 'ui/popups/filter/filter-popup';
+
+@use 'components/catalog/filter/filter';
+@use 'components/catalog/catalog';
+@use 'components/catalog/catalog-header';

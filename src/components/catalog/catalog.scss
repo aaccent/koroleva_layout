@@ -2,24 +2,8 @@
 
 .catalog {
     &__amount {
-        gap: 8px;
         margin-bottom: 20px;
-        display: flex;
-        align-items: center;
-        opacity: 0.7;
-
-        &::before {
-            content: '';
-            aspect-ratio: 1;
-            width: 12px;
-            flex-shrink: 0;
-            background-image: url('assets/icons/star.svg');
-            @include utils.bg-defaults;
-        }
-
-        &.filter__result-number {
-            @include utils.only-mobile;
-        }
+        @include utils.only-desktop;
     }
 
     &__title-block {
@@ -116,14 +100,6 @@
 
 @media only screen and (max-width: utils.$tablet1000) {
     .catalog {
-        &__amount {
-            margin-bottom: 0;
-        }
-
-        &__amount:not(.filter__result-number) {
-            display: none;
-        }
-
         &__text {
             max-width: 100%;
             font: var(--text_300);

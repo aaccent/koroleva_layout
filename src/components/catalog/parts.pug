@@ -9,7 +9,7 @@ mixin catalog-title(props)
         }, props || {})
 
     .catalog__title-block
-        .catalog__amount= props.amount
+        .catalog__amount.text-amount= props.amount
         h1.catalog__title.page-title= props.title
         if props.text
             .catalog__text.content: p= props.text
