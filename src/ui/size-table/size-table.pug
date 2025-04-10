@@ -5,7 +5,7 @@ include layout/utils
     var sizesNumber = ['70', '75', '85', '90', '95', '100', '105', '110', '115', '120', '125']
 
 .size-table
-    +popupBtn('size-table').size-table__popup-button
+    +popupBtn('size-table').size-table__popup-button таблица размеров
     .size-table__tabs-list
         each size in sizes
             .size-table__tab
@@ -14,8 +14,8 @@ include layout/utils
                     each num in sizesNumber
                         - var sizeText = `${num}${size}`
                         if ['85', '90'].includes(num)
-                            +popupBtn('size-notification').rounded-checkbox.rounded-checkbox--notification= sizeText
+                            +popupBtn('size-notification').rounded-checkbox.rounded-checkbox--notification.rounded-checkbox--size= sizeText
                         else
-                            label.rounded-checkbox
-                                input(type='checkbox', name='size', value=sizeText)
+                            label.rounded-checkbox.rounded-checkbox--size
+                                input.rounded-checkbox__input(type='checkbox', name='size', value=sizeText)
                                 | #{ sizeText }
