@@ -11,7 +11,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    opacity: 0;
+    visibility: hidden;
     background-color: var(--base_100);
+    @include utils.transition((opacity, visibility));
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+    }
 
     .filter-button,
     .selector {

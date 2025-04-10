@@ -2,7 +2,7 @@ include layout/utils
 include parts
 include ui/selector/selector
 
-.catalog-header.container
+div.catalog-header.container(data-show-on-scroll='')
     include ui/buttons/filter-button/filter-button
     button.catalog-header__scroll-top-button(type='button', data-action='scroll-top')
         .icon.icon--arrow-short-top
@@ -11,7 +11,7 @@ include ui/selector/selector
     +sort-selector
     include ui/buttons/view-switcher/view-switcher
 
-button.scroll-top-button(type='button', data-action='scroll-top')
+button.scroll-top-button(type='button', data-action='scroll-top', data-show-on-scroll='')
 
 section.section.catalog: .container
     +catalog-title

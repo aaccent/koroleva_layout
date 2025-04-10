@@ -9,9 +9,17 @@
     width: 56px;
     justify-content: center;
     align-items: center;
+    opacity: 0;
+    visibility: hidden;
     background-color: var(--base_300);
     border-radius: 50%;
+    @include utils.transition((opacity, visibility));
     @include utils.only-mobile(flex);
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+    }
 
     &::after {
         content: '';

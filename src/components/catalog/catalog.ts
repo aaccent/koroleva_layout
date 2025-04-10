@@ -35,3 +35,26 @@ new Swiper('.catalog__subcategories-list-wrapper', {
         },
     },
 })
+
+void (function () {
+    const filter = document.querySelector('.filter')
+    const showElements = document.querySelectorAll('[data-show-on-scroll]')
+
+    if (!filter) return
+
+    const observer = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+            showElements.forEach((i) => i.classList.remove('active'))
+        } else {
+            showElements.forEach((i) => i.classList.add('active'))
+        }
+    })
+
+    observer.observe(filter)
+})()
+
+document.querySelectorAll('[data-action="scroll-top"]').forEach((button) => {
+    button.addEventListener('click', () => {
+        scrollTo(0, 0)
+    })
+})
