@@ -1,27 +1,21 @@
 @use 'styles/utils';
 
 .tab-item {
-    gap: 24px;
+    position: relative;
     display: flex;
     flex-direction: column;
 
     &::after {
+        content: '';
         position: absolute;
         bottom: 0;
         left: 0;
         width: 100%;
         /* @skip-scaling */
         height: 1px;
+        opacity: 0.25;
         background-image: var(--dashed-line);
         @include utils.bg-defaults;
-    }
-
-    &.opened:not(&--not-interactive) &__title-wrapper {
-        padding-bottom: 24px;
-
-        .icon {
-            rotate: -90deg;
-        }
     }
 
     &__title-wrapper {
@@ -39,11 +33,26 @@
         font: var(--text-lg_200);
     }
 
-    &.opened &__body {
-        display: block;
+    &__body {
+        padding-bottom: 24px;
+        display: none;
+    }
+}
+
+.tab-item.opened:not(.tab-item--not-interactive) .tab-item {
+    &__title-wrapper {
+        padding-bottom: 24px;
+
+        .icon {
+            rotate: -90deg;
+        }
     }
 
     &__body {
-        display: none;
+        display: block;
     }
+}
+
+.tab-item--not-interactive {
+    padding: 18px 0;
 }
