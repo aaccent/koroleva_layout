@@ -1,6 +1,6 @@
 import '@/features/popup/popup'
 import '@/features/fancybox'
-import '@/features/check-submit'
+import 'features/check-fill'
 
 import '@/ui/selector/selector'
 import '@/ui/size-table/size-table'

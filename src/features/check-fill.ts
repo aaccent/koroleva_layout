@@ -20,7 +20,7 @@ function checkFormFilling(
     submitButton.disabled = disable
 }
 
-document.querySelectorAll<HTMLFormElement>('form[data-check-submit]').forEach((form) => {
+document.querySelectorAll<HTMLFormElement>('form[data-check-fill]').forEach((form) => {
     const submitButton = form.querySelector<HTMLButtonElement>('button[type="submit"],[data-submit-button]')
 
     if (!submitButton) return
