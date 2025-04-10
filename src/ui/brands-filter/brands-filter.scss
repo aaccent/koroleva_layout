@@ -1,0 +1,24 @@
+@use 'styles/utils';
+
+.brands-filter {
+    gap: 24px;
+    display: flex;
+    flex-direction: column;
+
+    &__body {
+        gap: 24px;
+        display: flex;
+        flex-direction: column;
+
+        &-item {
+            gap: 16px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        &-item-title {
+            font: var(--text_200);
+            text-transform: uppercase;
+        }
+    }
+}
