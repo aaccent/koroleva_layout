@@ -30,7 +30,7 @@ mixin product-card(props)
                     if props.isSale
                         span.product-card__tag.tag SALE
                 button.product-card__favorite-button.icon.icon--favorite(data-action='favorite')
-            button.product-card__cart-button.circle-button.circle-button--filled: .icon.icon--cart(data-action='cart')
+            button.product-card__cart-button.circle-button.circle-button--filled(data-action='cart'): .icon.icon--cart
             button.product-card__slide-button.product-card__slide-button--prev: .icon.icon--arrow-short-left
             button.product-card__slide-button.product-card__slide-button--next: .icon.icon--arrow-short-right
         +anchor.product-card__body
