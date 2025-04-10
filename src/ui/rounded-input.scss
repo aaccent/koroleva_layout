@@ -1,0 +1,36 @@
+@use 'styles/utils';
+
+.rounded-input {
+    gap: 20px;
+    padding: 17px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 50px;
+    border: 1px solid var(--base_400_30);
+
+    input {
+        font: var(--text_400);
+        text-transform: uppercase;
+
+        &::placeholder {
+            color: var(--base_400_50);
+        }
+    }
+
+    .icon {
+        --size: 18px;
+    }
+
+    &--big {
+        padding: 28px;
+
+        input {
+            font: var(--text_300);
+        }
+
+        .icon {
+            --size: 24px;
+        }
+    }
+}
