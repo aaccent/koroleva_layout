@@ -12,3 +12,21 @@ mixin checkbox-list(props)
             li: label.checkbox-list__item-label.checkbox
                 input.checkbox-list__item-input.checkbox__input(type='checkbox', name='name')
                 | #{ item }
+
+-
+    var colors = [
+        { title: 'черный', hex: ['#404040'] },
+        { title: 'бежевый', hex: ['#DFBD93'] },
+        { title: 'бирюзовый', hex: ['#38E2DA'] },
+        { title: 'бордово-красный', hex: ['#932035', '#D31919'] },
+        { title: 'голубой', hex: ['#8BCDFF'] },
+    ]
+    
+mixin checkbox-list--colors
+    .checkbox-list--color
+        each color in colors
+            label.rounded-checkbox
+                input.rounded-checkbox__input(type='checkbox', name='color', value=color.title, required)
+                // Если цветов несколько, то выводить нужно через запятую, а в `style` только первый цвет
+                span.rounded-checkbox__color(data-color=color.hex.join(','), style=`background-color:${color.hex[0]}`)
+                | #{ color.title }

@@ -17,14 +17,6 @@ include ui/selector/selector
         'с косточкой',
     ]
 
-    var colors = [
-        {title: 'черный', hex: ['#404040']},
-        {title: 'бежевый', hex: ['#DFBD93']},
-        {title: 'бирюзовый', hex: ['#38E2DA']},
-        {title: 'бордово-красный', hex: ['#932035','#D31919']},
-        {title: 'голубой', hex: ['#8BCDFF']},
-    ]
-
 +popup('filter')
     .popup__body-wrapper
         .popup__top
@@ -39,16 +31,7 @@ include ui/selector/selector
             +tab-item--not-interactive: +switch({ name: 'sale', title: 'Sale' })
             +tab-item('Тип изделия'): +checkbox-list({ name: 'type', list: typeList })
             +tab-item('Размер'): include ui/size-table/size-table
-            +tab-item('Цвет'): .checkbox-list--color
-                each color in colors
-                    label.rounded-checkbox
-                        input.rounded-checkbox__input(type='checkbox', name='color', value=color.title)
-                        // Если цветов несколько, то выводить нужно через запятую, а в `style` только первый цвет
-                        span.rounded-checkbox__color(
-                            data-color=color.hex.join(','),
-                            style=`background-color:${color.hex[0]}`
-                        )
-                        | #{ color.title }
+            +tab-item('Цвет'): +checkbox-list--colors
             +tab-item('Бренды'): include ui/brands-filter/brands-filter
             +tab-item('Материал'): +checkbox-list({ name: 'type', list: typeList })
     .popup__bottom

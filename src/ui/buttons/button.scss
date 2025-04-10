@@ -15,6 +15,10 @@
     border-radius: 50px;
     border-color: var(--base_100);
 
+    &:disabled {
+        background-color: var(--base_300);
+    }
+
     &--arrow {
         &::after {
             content: '';

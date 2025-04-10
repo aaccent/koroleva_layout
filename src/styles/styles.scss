@@ -10,6 +10,7 @@
 
 // Popup
 @use 'features/popup/popup';
+@use 'ui/popups/fast-cart/fast-cart-popup';
 
 // Ui
 @use 'ui/icon';
@@ -23,6 +24,8 @@
 @use 'ui/selector/selector';
 @use 'ui/tab-item/tab-item';
 @use 'ui/size-table/size-table';
+@use 'ui/checkbox-list/checkbox-list';
+@use 'ui/buttons/size-table-button';
 
 // Page
 @use 'layout/header/header';
