@@ -6,17 +6,18 @@
     display: flex;
     align-items: center;
     text-transform: uppercase;
+    cursor: pointer;
     border-radius: 50px;
     border: 1px solid var(--base_400_20);
     @include utils.transition((border-color, background-color, color));
 
-    &:has(input[type='checkbox']:checked) {
+    &:has(&__input:checked) {
         color: var(--base_100);
         background-color: var(--base_400);
         border-color: var(--base_400);
     }
 
-    input[type='checkbox'] {
+    &__input {
         position: absolute;
         visibility: hidden;
     }
@@ -25,6 +26,7 @@
         padding-right: 0;
         padding-left: 0;
         width: 60px;
+        justify-content: center;
     }
 
     &--notification {
