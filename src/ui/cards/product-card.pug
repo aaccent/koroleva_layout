@@ -19,7 +19,7 @@ mixin product-card(props)
             previousPrice: '5000',
         }, props || {})
 
-    .product-card
+    .product-card&attributes(attributes)
         .product-card__top
             +anchor.product-card__images-list
                 each img in props.images
@@ -33,7 +33,7 @@ mixin product-card(props)
                     if props.isBest
                         span.product-card__tag.tag BEST
                 button.product-card__favorite-button.icon.icon--favorite(data-action='favorite')
-            button.product-card__cart-button.circle-button.circle-button--filled: .icon.icon--cart(data-action='cart')
+            button.product-card__cart-button.circle-button.circle-button--filled(data-action='cart'): .icon.icon--cart
             button.product-card__slide-button.product-card__slide-button--prev: .icon.icon--arrow-short-left
             button.product-card__slide-button.product-card__slide-button--next: .icon.icon--arrow-short-right
         +anchor.product-card__body

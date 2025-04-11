@@ -1,0 +1,18 @@
+@use 'styles/utils';
+
+.size-table-button {
+    gap: 4px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    @include utils.text-400-th-100-upper;
+    opacity: 0.7;
+
+    &::before {
+        content: '';
+        aspect-ratio: 1;
+        width: 24px;
+        background-image: url('assets/icons/rule.svg');
+        @include utils.bg-defaults;
+    }
+}

@@ -1,0 +1,60 @@
+@use 'styles/utils';
+
+.catalog-header {
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    padding-top: 22px;
+    padding-bottom: 22px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    background-color: var(--base_100);
+    @include utils.transition((opacity, visibility));
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .filter-button,
+    .selector {
+        width: 30%;
+    }
+
+    .selector {
+        width: 30%;
+        justify-content: flex-end;
+        @include utils.only-desktop(flex);
+    }
+
+    &__amount,
+    .view-switcher {
+        @include utils.only-mobile(flex);
+    }
+
+    &__scroll-top-button {
+        gap: 10px;
+        display: flex;
+        align-items: center;
+        @include utils.text-300-lg-100;
+        @include utils.only-desktop(flex);
+    }
+}
+
+@media only screen and (max-width: utils.$tablet1000) {
+    .catalog-header {
+        .filter-button,
+        .view-switcher {
+            width: 15%;
+        }
+
+        .view-switcher {
+            justify-content: flex-end;
+        }
+    }
+}

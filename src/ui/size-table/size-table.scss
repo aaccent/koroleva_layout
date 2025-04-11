@@ -1,0 +1,41 @@
+@use 'styles/utils';
+
+.size-table {
+    &__popup-button {
+    }
+
+    &__tabs-list {
+        gap: 16px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__tab {
+        gap: 16px;
+        display: flex;
+        flex-direction: column;
+
+        &.opened &-body::before {
+            background-image: url('assets/icons/minus.svg');
+        }
+
+        &-title {
+            gap: 6px;
+            display: flex;
+            align-items: center;
+            @include utils.text-400-lg-100-upper;
+
+            &::before {
+                content: '';
+                aspect-ratio: 1;
+                width: 20px;
+                background-image: url('assets/icons/plus.svg');
+                @include utils.bg-defaults;
+            }
+        }
+
+        &.opened &-body {
+            display: flex;
+        }
+    }
+}

@@ -1,0 +1,15 @@
+extends layout/page
+
+block append head
+    link(href=require('styles/catalog.scss'), rel='stylesheet')
+
+block main
+    include ui/breadcrumbs/breadcrumbs
+    +breadcrumbs(['Бюстгальтеры'])
+    include components/catalog/catalog
+
+block popups
+    include ui/popups/filter/filter
+
+block append scripts
+    script(src=require('scripts/catalog.ts'))

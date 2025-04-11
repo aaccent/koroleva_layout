@@ -1,0 +1,8 @@
+include layout/utils
+include ui/selector/selector
+
+.filter
+    include ui/buttons/filter-button/filter-button
+    span.filter__amount.text-amount 26 решений
+    include ui/buttons/view-switcher/view-switcher
+    +sort-selector

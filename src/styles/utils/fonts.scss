@@ -1,0 +1,85 @@
+// Headers
+@mixin hero() {
+    font: var(--hero);
+    letter-spacing: 0.02rem;
+    text-transform: uppercase;
+}
+@mixin header-100() {
+    font: var(--header_100);
+    letter-spacing: 0.02rem;
+    text-transform: uppercase;
+}
+@mixin header-200() {
+    font: var(--header_200);
+    letter-spacing: 0.02rem;
+    text-transform: uppercase;
+}
+@mixin header-300() {
+    font: var(--header_300);
+    letter-spacing: 0.02rem;
+    text-transform: uppercase;
+}
+
+// text-100
+@mixin text-100() {
+    font: var(--text_100);
+    letter-spacing: 0.02rem;
+}
+
+// text-200
+@mixin text-200-th-100() {
+    font: var(--text_200);
+}
+@mixin text-200-th-100-upper() {
+    font: var(--text_200);
+    letter-spacing: 0.02rem;
+    text-transform: uppercase;
+}
+@mixin text-200-lg-100() {
+    font: var(--text-lg_200);
+}
+
+// text-300
+@mixin text-300-lg-100() {
+    font: var(--text-lg_300);
+    letter-spacing: 0.01rem;
+}
+@mixin text-300-lg-100-upper() {
+    font: var(--text-lg_300);
+    letter-spacing: 0.01rem;
+    text-transform: uppercase;
+}
+@mixin text-300-th-100() {
+    font: var(--text_300);
+}
+
+// text-400
+@mixin text-400-th-100() {
+    font: var(--text_400);
+}
+@mixin text-400-th-100-upper() {
+    font: var(--text_400);
+    letter-spacing: 0.02rem;
+    text-transform: uppercase;
+}
+@mixin text-400-lg-100() {
+    font: var(--text-lg_400);
+
+    @media only screen and (max-width: 1000px) {
+        letter-spacing: 0.02rem;
+    }
+}
+@mixin text-400-lg-100-upper() {
+    font: var(--text-lg_400);
+    letter-spacing: 0.02rem;
+    text-transform: uppercase;
+}
+
+// text-500
+@mixin text-500-lg-100() {
+    font: var(--text-lg_500);
+}
+@mixin text-500-lg-100-upper() {
+    font: var(--text-lg_500);
+    text-transform: uppercase;
+}

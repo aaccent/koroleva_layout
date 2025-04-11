@@ -1,0 +1,38 @@
+include layout/utils
+include features/popup/popup
+include ui/range-slider/range-slider
+include ui/switch/switch
+include ui/tab-item/tab-item
+include ui/checkbox-list/checkbox-list
+include ui/selector/selector
+
+-
+    var typeList = [
+        'Треугольник',
+        'Пуш-ап',
+        'Бандо',
+        'балконет',
+        'бралетт',
+        'без косточек',
+        'с косточкой',
+    ]
+
++popup('filter')
+    .popup__body-wrapper
+        .popup__top
+            .popup__title фильтр
+            button.filter-popup__reset-button(type='button')
+                .icon.icon--reset
+                | сбросить всё
+        .popup__body
+            +range-slider({ name: 'price', min: 1000, max: 25000 }).filter-popup__price-slider
+            +tab-item-selector.filter-popup__sort-selector: +sort-selector
+            +tab-item--not-interactive: +switch({ name: 'new', title: 'Новинка' })
+            +tab-item--not-interactive: +switch({ name: 'sale', title: 'Sale' })
+            +tab-item('Тип изделия'): +checkbox-list({ name: 'type', list: typeList })
+            +tab-item('Размер'): include ui/size-table/size-table
+            +tab-item('Цвет'): +checkbox-list--colors
+            +tab-item('Бренды'): include ui/brands-filter/brands-filter
+            +tab-item('Материал'): +checkbox-list({ name: 'type', list: typeList })
+    .popup__bottom
+        button.button.button--arrow(type='button') показать 56 товаров

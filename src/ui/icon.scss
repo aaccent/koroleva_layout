@@ -25,16 +25,47 @@
     &--arrow-short-right {
         background-image: url('assets/icons/arrow-short-right.svg');
     }
-
+    &--arrow-short-bottom {
+        background-image: url('assets/icons/arrow-short-down.svg');
+    }
+    &--arrow-short-top {
+        background-image: url('assets/icons/arrow-short-up.svg');
+    }
+    &--filter {
+        background-image: url('assets/icons/filter.svg');
+    }
+    &--grid-view {
+        background-image: url('assets/icons/grid-view.svg');
+    }
+    &--columns-view {
+        background-image: url('assets/icons/columns-view.svg');
+    }
+    &--reset {
+        background-image: url('assets/icons/update.svg');
+    }
     &--arrow-right {
         background-image: url('assets/icons/arrow-right.svg');
     }
-
     &--star {
         background-image: url('assets/icons/star.svg');
     }
 
     &--doc {
         background-image: url('assets/icons/doc.svg');
+    }
+}
+
+@media only screen and (max-width: utils.$tablet1000) {
+    .icon {
+        &--columns-view {
+            // Перепутанные иконки - так и задумано.
+            // В мобильной версии, чтобы не менять скрипт, показывается кнопка для
+            // переключения на другой вид с иконкой текущим активным видом
+            background-image: url('assets/icons/mobile-grid-view.svg');
+        }
+        &--grid-view {
+            // Перепутанные иконки - так и задумано.
+            background-image: url('assets/icons/mobile-columns-view.svg');
+        }
     }
 }

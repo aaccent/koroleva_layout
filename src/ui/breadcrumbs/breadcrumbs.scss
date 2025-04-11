@@ -1,0 +1,41 @@
+@use 'styles/utils';
+
+.breadcrumbs {
+    margin: 32px 0 30px;
+
+    &__list {
+        display: flex;
+        align-items: center;
+
+        &-item {
+            display: flex;
+            align-items: center;
+            @include utils.text-400-th-100;
+
+            &::after {
+                content: '';
+                margin: 0 8px;
+                width: 14px;
+                height: 7px;
+                display: block;
+                filter: var(--filter-base_400);
+                background-image: url('assets/icons/arrow-right.svg');
+                @include utils.bg-defaults;
+            }
+
+            &:last-child::after {
+                display: none;
+            }
+
+            &:first-child {
+                opacity: 0.5;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: utils.$tablet1000) {
+    .breadcrumbs {
+        margin: 20px 0 38px;
+    }
+}

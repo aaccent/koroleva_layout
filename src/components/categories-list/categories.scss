@@ -48,9 +48,7 @@
         }
 
         &-name {
-            font: var(--header_300);
-            letter-spacing: 0.02rem;
-            text-transform: uppercase;
+            @include utils.header-300;
             opacity: 0.6;
         }
 

@@ -1,0 +1,13 @@
+include layout/utils
+include features/popup/popup
+include ui/tab-item/tab-item
+include ui/checkbox-list/checkbox-list
+
++popup('fast-cart')
+    .popup__title Выбор параметров
+    .popup__body-wrapper
+        form.popup__body.fast-cart-popup__form(data-check-fill)
+            +tab-item('Размер', false): include ui/size-table/size-table
+            +tab-item('Цвет', false): +checkbox-list--colors
+        .popup__bottom
+            button.fast-cart-popup__button.button--arrow.button(type='submit') добавить в корзину

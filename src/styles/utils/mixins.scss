@@ -20,8 +20,15 @@
 }
 
 @mixin custom-scroll($width, $track-color, $thumb-color, $height: initial) {
-    scrollbar-width: #{$width};
-    scrollbar-color: #{$thumb-color};
+    @if $width == 0 {
+        scrollbar-width: none;
+    } @else if ($width <= 12px) {
+        scrollbar-width: thin;
+    } @else {
+        scrollbar-width: auto;
+    }
+
+    scrollbar-color: #{$thumb-color} #{$track-color};
 
     &::-webkit-scrollbar {
         width: #{$width};
@@ -37,8 +44,21 @@
     }
 }
 
+@mixin scroll-buttons() {
+    &::-webkit-scrollbar-button:single-button:vertical:decrement {
+    }
+
+    &::-webkit-scrollbar-button:single-button:vertical:increment {
+    }
+}
+
 @mixin transparent-scroll() {
     @include custom-scroll(0, transparent, transparent, 0);
+}
+
+@mixin styled-scroll() {
+    /* @skip-scaling */
+    @include custom-scroll(2px, hsl(7, 15%, 34%, 0.2), #624c49);
 }
 
 @mixin hover() {
@@ -67,4 +87,20 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: #{$size};
+}
+
+@mixin only-mobile($display: block) {
+    display: none;
+
+    @media only screen and (max-width: $tablet1000) {
+        display: $display;
+    }
+}
+
+@mixin only-desktop($display: block) {
+    display: $display;
+
+    @media only screen and (max-width: $tablet1000) {
+        display: none;
+    }
 }

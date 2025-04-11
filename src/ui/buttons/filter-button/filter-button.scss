@@ -1,0 +1,42 @@
+@use 'styles/utils';
+
+.filter-button {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    text-transform: capitalize;
+
+    .icon {
+        --size: 18px;
+        margin-right: 10px;
+    }
+
+    &__number {
+        margin-left: 8px;
+        aspect-ratio: 1;
+        width: 21px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        @include utils.text-500-lg-100;
+        background-color: var(--base_400);
+        border-radius: 50%;
+    }
+}
+
+@media only screen and (max-width: utils.$tablet1000) {
+    .filter-button {
+        gap: 0;
+        font-size: 0;
+
+        .icon {
+            margin-right: 6px;
+        }
+
+        &__number {
+            margin-left: 0;
+            @include utils.text-400-lg-100;
+        }
+    }
+}

@@ -5,22 +5,22 @@ include layout/utils
         {
             title: 'новая коллекция нижнего белья',
             buttonText: 'перейти в каталог',
-            buttonLink: '',
+            buttonLink: '#',
             image: require('assets/content/main-hero/1.png')
         },{
             title: '-50% на вторые трусики',
             buttonText: 'перейти в каталог',
-            buttonLink: '',
+            buttonLink: '#',
             image: require('assets/content/main-hero/2.png')
         },{
             title: 'Бюстгальтер бандо с тонкой чашкой',
             buttonText: 'перейти в каталог',
-            buttonLink: '',
+            buttonLink: '#',
             image: require('assets/content/main-hero/3.png')
         },{
             title: 'Love your body by Bilingua Ladies',
             buttonText: 'перейти в каталог',
-            buttonLink: '',
+            buttonLink: '#',
             image: require('assets/content/main-hero/4.png')
         },
     ]
@@ -33,8 +33,7 @@ section.main-hero
                     +img(item.image).main-hero__slide-image
                     .main-hero__slide-content
                         .main-hero__slide-title= item.title
-                        button.main-hero__slide-button
-                            +anchor(item.buttonLink)= item.buttonText
+                        +anchor(item.buttonLink).button.button--arrow.button--outline.main-hero__slide-button= item.buttonText
         .main-hero__slider-controls
             .main-hero__thumbs-slider
                 each item, index in slides

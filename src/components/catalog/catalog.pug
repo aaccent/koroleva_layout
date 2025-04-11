@@ -1,0 +1,20 @@
+include layout/utils
+include parts
+include ui/selector/selector
+
+div.catalog-header.container(data-show-on-scroll='')
+    include ui/buttons/filter-button/filter-button
+    button.catalog-header__scroll-top-button(type='button', data-action='scroll-top')
+        .icon.icon--arrow-short-top
+        | Наверх
+    .catalog-header__amount.text-amount 26 решений
+    +sort-selector
+    include ui/buttons/view-switcher/view-switcher
+
+button.scroll-top-button(type='button', data-action='scroll-top', data-show-on-scroll='')
+
+section.section.catalog: .container
+    +catalog-title
+    +catalog-subcategories
+    include filter/filter
+    +products(data-view='grid')

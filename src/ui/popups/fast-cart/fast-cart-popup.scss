@@ -1,0 +1,31 @@
+@use 'styles/utils';
+
+.fast-cart-popup {
+    &__inner {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .popup__title {
+        margin-bottom: 48px;
+    }
+
+    &__form {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__button {
+        margin-top: auto;
+    }
+}
+
+@media only screen and (max-width: utils.$tablet1000) {
+    .fast-cart-popup {
+        .popup__title {
+            margin-bottom: 40px;
+        }
+    }
+}
