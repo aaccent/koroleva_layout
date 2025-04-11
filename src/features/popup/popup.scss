@@ -34,7 +34,7 @@
 
     &__top {
         gap: 15px;
-        margin-bottom: 24px;
+        margin-bottom: 48px;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -54,7 +54,7 @@
     }
 
     &__body {
-        padding: 24px 0;
+        padding-bottom: 24px;
         height: 1px;
         flex-grow: 1;
         overflow-y: auto;
@@ -87,6 +87,10 @@
             border-top-left-radius: 8px;
             border-bottom-right-radius: 0;
             border-bottom-left-radius: 0;
+        }
+
+        &__title {
+            font: var(--header_200);
         }
 
         &__bottom {

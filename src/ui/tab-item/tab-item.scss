@@ -106,7 +106,7 @@
 }
 
 @media only screen and (max-width: utils.$tablet1000) {
-    .tab-item:not(.tab-item--not-interactive) .tab-item {
+    .tab-item:not(.tab-item--not-interactive, .tab-item--plain) .tab-item {
         &__title-wrapper {
             .icon {
                 rotate: -90deg;
