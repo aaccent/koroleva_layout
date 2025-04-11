@@ -14,6 +14,17 @@
     background-color: var(--base_400);
     border-radius: 50px;
     border-color: var(--base_100);
+    @include utils.transition((color, background-color, border-color));
+
+    &:hover {
+        color: var(--base_400);
+        background-color: var(--base_100);
+        border-color: var(--base_400);
+
+        &::after {
+            filter: var(--filter-base_400);
+        }
+    }
 
     &:disabled {
         background-color: var(--base_300);
@@ -27,6 +38,7 @@
             filter: var(--filter-base_100);
             background-image: url('assets/icons/arrow-right.svg');
             @include utils.bg-defaults;
+            @include utils.transition((filter));
         }
     }
 
@@ -45,8 +57,18 @@
             background: transparent;
         }
 
-        &--arrow {
+        &--arrow::after {
             filter: var(--filter-base_400);
+        }
+
+        &:hover {
+            color: var(--base_100);
+            background-color: var(--base_400);
+            border-color: var(--base_100);
+
+            &::after {
+                filter: var(--filter-base_100);
+            }
         }
     }
 }

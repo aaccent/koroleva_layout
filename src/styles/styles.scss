@@ -1,14 +1,20 @@
 // Modules
 @use 'npm/swiper/swiper';
+@use 'npm/swiper/modules/navigation';
+@use 'npm/swiper/modules/pagination';
+@use 'npm/swiper/modules/effect-fade';
+@use 'npm/swiper/modules/autoplay';
+@use 'npm/swiper/modules/thumbs';
 @use '@fancyapps/ui/dist/fancybox.css';
 
+// General
 @use 'general/_preflight.css';
 @use 'general/reset';
 @use 'general/variables';
 @use 'general/fonts';
 @use 'general/global';
 
-// Popup
+// Popups
 @use 'features/popup/popup';
 @use 'ui/popups/fast-cart/fast-cart-popup';
 @use 'ui/popups/size-subscription/size-subscription-popup';
@@ -28,6 +34,9 @@
 @use 'ui/checkbox-list/checkbox-list';
 @use 'ui/buttons/size-table-button';
 @use 'ui/input/input';
+@use 'ui/cards/article-card/article-card';
+@use 'ui/cards/sale-card/sale-card';
+@use 'ui/slider/slider';
 
 // Page
 @use 'layout/header/header';

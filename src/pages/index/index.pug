@@ -1,10 +1,21 @@
 extends layout/page
+include ui/slider/slider
 
 block append head
     link(href=require('./main-page.styles.scss'), rel='stylesheet')
 
 block append main
     include components/main-hero/main-hero
+    include components/categories-list/categories
+    +slider({title: 'Новинки', cards: 'product-card', tag: 'new'})
+    include components/size/size
+    +slider({title: 'Хиты продаж', cards: 'product-card', tag: 'best'})
+    +slider({title: 'Акции', cards:'sale-card', className: 'sales'})
+    include components/about-block/about-block
+    include components/gift-card/gift-card
+    +slider({title: 'Полезные статьи', cards:'article-card', className: 'articles'})
+
+    include ui/popups/card-popup/card-popup
 
 block append scripts
     script(src=require('./main-page.ts'))

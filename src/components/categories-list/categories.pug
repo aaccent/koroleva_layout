@@ -1,0 +1,35 @@
+include layout/utils
+
+-
+    var categories = [
+        {
+            name:'Бюстгальтеры',
+            image: require('assets/static/categories/1.png')
+        },
+        {
+            name: 'Трусики',
+            image: require('assets/static/categories/2.png')
+        }, {
+            name: 'Нижнее белье',
+            image: require('assets/static/categories/3.png')
+        }, {
+            name: 'Verysexy',
+            image: require('assets/static/categories/4.png')
+        }, {
+            name: 'Аксессуары',
+            image: require('assets/static/categories/5.png')
+        }, {
+            name: 'Домашнее',
+            image: require('assets/static/categories/6.png')
+        },
+    ]
+
++section.categories
+    .icon.icon--star
+    ul.categories__list
+        each item in categories
+            li.categories__item
+                +anchor
+                    +img(item.image).categories__item-image
+                    .icon.icon--star
+                    .categories__item-name= item.name

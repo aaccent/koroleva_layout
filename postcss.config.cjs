@@ -17,7 +17,7 @@ module.exports = {
             initWidth: [
                 // prettier-ignore
                 { width: 1680 },
-                { width: 2560, mediaQuery: 'only screen and (min-width: 1920px)' },
+                { width: 1800, mediaQuery: 'only screen and (min-width: 1920px)' },
                 { width: 390, mediaQuery: 'only screen and (max-width: 1000px)' },
             ],
         }),

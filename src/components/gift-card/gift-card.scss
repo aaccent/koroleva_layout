@@ -1,0 +1,177 @@
+@use 'styles/utils';
+
+.gift-card {
+    height: 750px;
+    .container {
+        position: relative;
+        padding: 0 0 64px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        color: var(--base_100);
+        background-color: var(--base_400);
+        border-radius: 8px;
+    }
+
+    &__header {
+        border-bottom: 1px dashed hsl(0, 0%, 100%, 0.2);
+    }
+
+    &__scroll {
+        gap: 60px;
+        position: relative;
+        height: 232px;
+        display: flex;
+        align-items: center;
+        transition: transform 1s linear;
+
+        &-content {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            transition: translate 1000ms linear;
+        }
+    }
+
+    &__title {
+        margin-right: 60px;
+        font: var(--hero);
+        letter-spacing: 0.02rem;
+        text-transform: uppercase;
+        text-wrap: nowrap;
+
+        &:first-letter {
+            font-family: var(--glorai-script);
+            font-size: 15rem;
+            letter-spacing: 0.05rem;
+            line-height: 105%;
+        }
+    }
+
+    .icon {
+        min-width: 150px;
+        height: 75px;
+        filter: var(--filter-base_100);
+    }
+
+    &__image {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+    }
+
+    &__details {
+        margin-top: auto;
+        padding: 0 64px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+    }
+
+    &__list {
+        &-title {
+            margin-bottom: 24px;
+            font: var(--text_400);
+            letter-spacing: 0.02rem;
+            text-transform: uppercase;
+            opacity: 0.5;
+        }
+        ul {
+            gap: 8px;
+            display: flex;
+            align-items: center;
+            font: var(--text-lg_300);
+            letter-spacing: 0.01rem;
+        }
+
+        &-item {
+            @include utils.circle(103px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            border: 1px solid var(--base_100);
+
+            &:hover,
+            &._active {
+                background-color: hsl(0, 0%, 100%, 0.15);
+                border-color: hsl(0, 0%, 100%, 0.15);
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .gift-card {
+        padding: 0 28px;
+        height: 607px;
+
+        .container {
+            padding-bottom: 32px;
+        }
+        &__scroll {
+            height: 104px;
+        }
+        &__title {
+            margin-right: 20px;
+            font: var(--header_100);
+
+            &::first-letter {
+                font-size: 6.4rem;
+            }
+        }
+
+        .icon {
+            min-width: 60px;
+            height: 30px;
+        }
+
+        &__image {
+            top: 137px;
+            translate: -50% 0;
+            width: 85%;
+        }
+
+        &__details {
+            padding: 0 0 0 24px;
+            flex-direction: column;
+            align-items: start;
+        }
+
+        &__list {
+            width: 100%;
+            ul {
+                width: 100%;
+                overflow-x: auto;
+
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+            }
+            &-title {
+                margin-bottom: 12px;
+            }
+
+            &-item {
+                padding: 14px 18px;
+                width: fit-content;
+                height: fit-content;
+                font-family: var(--geologica);
+                font-size: 11px;
+                font-weight: 300;
+                letter-spacing: 0.01rem;
+                line-height: 120%;
+                text-wrap: nowrap;
+                border-radius: 50px;
+                border-color: hsl(0, 0%, 100%, 0.2);
+            }
+        }
+
+        &__button {
+            margin-top: 31px;
+        }
+    }
+}

@@ -1,0 +1,88 @@
+include layout/utils
+include ui/cards/product-card
+include ui/cards/sale-card/sale-card
+include ui/cards/article-card/article-card
+
+mixin slider(props)
+    -
+        props = Object.assign({
+            title: 'Новинки',
+            cards: 'product-card'|| 'sale-card'|| 'article-card',
+            tag: 'best' || 'sale' || 'new',
+            className: ''
+
+        },props || {})
+
+        var sales = [{
+            image: require('assets/content/main-hero/2.png'),
+            title: '-50% на вторые трусики',
+            dates: '20 мая — 15 июня'
+        },
+            {
+                image: require('assets/content/main-hero/3.png'),
+                title: '-30% на категорию трикотаж ',
+                dates: '20 мая — 15 июня'
+            },
+            {
+                image: require('assets/content/main-hero/1.png'),
+                title: '-50% на вторые трусики ',
+                dates: '20 мая — 15 июня'
+            }]
+
+        var articles = [
+            {
+                image: require('assets/content/articles/1.png'),
+                title: 'Как подобрать свой размер бюстгальтера?',
+                date: '12 октября 2023',
+                tag: 'МОДА'
+            },{
+                image: require('assets/content/articles/2.png'),
+                title: 'Как подобрать свой размер бюстгальтера?',
+                date: '12 октября 2023',
+                tag: 'нижнее белье'
+            },{
+                image: require('assets/content/articles/3.png'),
+                title: 'Как подобрать свой размер бюстгальтера?',
+                date: '12 октября 2023',
+                tag: 'МОДА'
+            },{
+                image: require('assets/content/articles/4.png'),
+                title: 'Как подобрать свой размер бюстгальтера?',
+                date: '12 октября 2023',
+                tag: 'нижнее белье'
+            },{
+                image: require('assets/content/articles/1.png'),
+                title: 'Как подобрать свой размер бюстгальтера?',
+                date: '12 октября 2023',
+                tag: 'МОДА'
+            },
+
+        ]
+    +section.slider(class=props.className)
+        .swiper.slider__swiper
+            h2.slider__title.section-title= props.title
+            .swiper-wrapper
+                if props.cards === 'product-card'
+                    each item in Array(10)
+                        .slider__slide.swiper-slide
+                            if props.tag === 'best'
+                                +product-card({isBest: true})
+                            else if props.tag === 'sale'
+                                +product-card({isSale: true})
+                            else if props.tag === 'new'
+                                +product-card({isNew: true})
+                            else
+                                +product-card
+                else if props.cards === 'sale-card'
+                    each card in sales
+                        .slider__slide.swiper-slide
+                            +sale-card(card)
+                else if props.cards === 'article-card'
+                    each article in articles
+                        .slider__slide.swiper-slide
+                            +article-card(article)
+            .slider__navigation
+                .slider__navigation-prev
+                    .icon.icon--arrow-right
+                .slider__navigation-next
+                    .icon.icon--arrow-right
