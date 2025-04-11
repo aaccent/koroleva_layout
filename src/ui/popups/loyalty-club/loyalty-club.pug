@@ -1,0 +1,16 @@
+include layout/utils
+include features/popup/popup
+
++popup('loyalty-club', 'loyalty-club')
+    .loyalty-club__title клуб лояльности
+    +img(require('assets/static/loyalty.png')).loyalty-club__image
+    .loyalty-club__content
+        p: b Станьте участником программы лояльности получайте выгоду от покупок!
+        p Классическая модель, которая подходит для любой формы груди. Встречается в базе и в большинстве fashion линий.
+        p: b Как это работает?
+        ol
+            li Какое-то небольшое описание №1
+            li Какое-то небольшое описание №2
+            li Какое-то небольшое описание №3
+            li Какое-то небольшое описание №4
+    +anchor.button.loyalty-club__button зарегистрироваться

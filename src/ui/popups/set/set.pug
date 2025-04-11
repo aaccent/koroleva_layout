@@ -1,0 +1,46 @@
+include layout/utils
+include features/popup/popup
+
+-
+    var set = [
+        {
+        image: require('assets/content/set/1.png'),
+        title: 'трусики бразилиано бежевые',
+        brand: 'Panama',
+        price: '5000 ₽',
+        discountPrice: '4300 ₽'
+        }, {
+            image: require('assets/content/set/2.png'),
+            title: 'трусики бразилиано черные',
+            brand: 'Iklano',
+            price: '4300 ₽',
+
+        }, {
+            image: require('assets/content/set/3.png'),
+            title: 'стринги черные',
+            brand: 'Panama',
+            price: '4300 ₽',
+            discountPrice: '5000 ₽'
+        }, {
+            image: require('assets/content/set/3.png'),
+            title: 'трусики бразилиано бежевые',
+            brand: 'Panama',
+            price: '4300 ₽',
+            discountPrice: '5000 ₽'
+        }, {
+            image: require('assets/content/set/1.png'),
+            title: 'трусики бразилиано бежевые',
+            brand: 'Panama',
+            price: '4300 ₽',
+            discountPrice: '5000 ₽'
+        },
+    ]
+
++popup('set', 'set')
+    .set__title Комплект
+        span 5
+    .set__list
+        each item in set
+            +product-item({...item, container: 'set'})
+    .set__bottom
+        .set__button.button Посмотреть каталог

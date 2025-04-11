@@ -1,32 +1,18 @@
 include layout/utils
 include features/popup/popup
 include ui/slider/slider
+include ui/product-item/product-item
 
 +popup('cart', 'cart')
     .cart__header
         .cart__title Корзина
             span 2
-        +anchor.cart__header-link клуб лояльности
-            .icon.icon--loaylity-star
+        button.cart__header-link(data-action='popup', data-popup='loyalty-club') клуб лояльности
+            .icon.icon--loyalty-star
     .cart__list
-    // разметка для товaра в корзине. Не удалять
-    .cart__item._layout
-        +img.cart__item-image(data-item='image')
-        .cart__item-main-info
-            .cart__item-title(data-item='title')
-            .cart__item-notification Нет в наличии
-                .icon.icon--notification
-            +anchor.cart__item-link похожие
-            .cart__item-size(data-item='size')
-            .cart__item-counter
-                button.cart__item-decrease -
-                .cart__item-amount-value(data-item='amount')
-                button.cart__item-increas +
-        .cart__item-price-info
-            .cart__item-discount-price(data-item='discountPrice')
-            .cart__item-price(data-item='price')
-        buttton.cart__item-close
-            .icon.icon--close
+    <!-- разметка для товара в корзине. Не удалять -->
+    +product-item({container: 'cart'})._layout
+    <!-- конец -->
     .cart__info
         .cart__price.cart__info-item(data-info='price') Итого:
             span
@@ -41,3 +27,4 @@ include ui/slider/slider
         .cart__button.button Перейти к оформлению
     .cart__empty-message В данный момент в корзине ничего нет!
     +slider({title: 'недавно смотрели', cards: 'product-card'})
+include ui/popups/loyalty-club/loyalty-club

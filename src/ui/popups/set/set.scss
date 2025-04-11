@@ -1,0 +1,53 @@
+@use 'styles/utils';
+
+.set {
+    &__title {
+        margin-bottom: 32px;
+        font: var(--header_300);
+        letter-spacing: 0.02rem;
+        text-transform: uppercase;
+
+        span {
+            margin-left: 4px;
+            font: var(--text_300);
+            vertical-align: text-top;
+        }
+    }
+
+    &__bottom {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: 32px 48px;
+        width: 100%;
+        background-color: var(--base_200);
+    }
+
+    &__list {
+        gap: 20px;
+        max-height: 75%;
+        display: flex;
+        flex-direction: column;
+        overflow: auto;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .set {
+        &__inner {
+            height: 90svh;
+            min-height: 90svh;
+        }
+        &__title {
+            font: var(--header_200);
+        }
+
+        &__bottom {
+            padding: 28px;
+        }
+    }
+}

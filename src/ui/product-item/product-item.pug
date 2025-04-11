@@ -1,0 +1,44 @@
+include layout/utils
+include features/popup/popup
+
+mixin product-item(props)
+    -
+        props = Object.assign({
+            id: 1,
+            type: 'product',
+            image: require('assets/content/products/card-2.jpg'),
+            title: 'Корсет panama черный',
+            size: 'XS/черный',
+            amount: 1,
+            price: 5000,
+            container: 'cart'
+        }, props || {})
+    .product-item&attributes(attributes)
+        +img(props.image).product-item__image(data-item='image')
+        .product-item__main-info
+            .product-item__title(data-item='title')= props.title
+            if props.container === 'cart'
+                .product-item__notification Нет в наличии
+                    .icon.icon--notification
+                +anchor.product-item__link похожие
+                .product-item__size(data-item='size')= props.size
+                .product-item__counter
+                    button.product-item__decrease -
+                    .product-item__amount-value(data-item='amount')= props.amount
+                    button.product-item__increas +
+            else
+                .product-item__brand(data-item='brand') Panama
+                button.product-item__cart В корзину
+                .product-item__counter
+                    button.product-item__decrease -
+                    .product-item__amount-value(data-item='amount') 1
+                    button.product-item__increas +
+        .product-item__price-info
+            .product-item__price(data-item='price')= props.price
+            .product-item__price.product-item__price--discount(data-item='discountPrice')= props.discountPrice
+        if props.container === 'cart'
+            buttton.product-item__close
+                .icon.icon--close
+        else
+            button.product-item__favorite
+                .icon.icon--favorite

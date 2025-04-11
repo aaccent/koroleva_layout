@@ -1,0 +1,101 @@
+@use 'styles/utils';
+
+.loyalty-club {
+    &__inner {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__title {
+        margin-bottom: 32px;
+        font: var(--header_300);
+        letter-spacing: 0.02rem;
+        text-transform: uppercase;
+    }
+
+    &__image {
+        object-fit: cover;
+        object-position: center;
+        margin-bottom: 24px;
+        height: 240px;
+        overflow: hidden;
+        border-radius: 4px;
+    }
+
+    &__content {
+        p {
+            font: var(--text_300);
+
+            & + p {
+                margin-top: 10px;
+            }
+
+            &:has(+ ol) {
+                margin-top: 24px;
+            }
+        }
+
+        ol {
+            gap: 8px;
+            margin-top: 10px;
+            margin-bottom: 24px;
+            display: flex;
+            flex-direction: column;
+            font-family: var(--geologica);
+            font-size: 1.6rem;
+            line-height: 125%;
+            opacity: 0.7;
+            list-style-position: inside;
+            list-style-type: decimal;
+        }
+    }
+
+    &__button.button {
+        margin-top: auto;
+        padding: 10px 13.5px;
+        width: fit-content;
+        font: var(--text-lg_500);
+
+        &::after {
+            content: none;
+        }
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .loyalty-club {
+        &__title {
+            margin-bottom: 24px;
+            font: var(--header_200);
+        }
+
+        &__image {
+            margin-bottom: 24px;
+            height: 176px;
+        }
+
+        &__content {
+            p + p {
+                margin-top: 8px;
+            }
+
+            p:has(+ ol) {
+                margin-top: 24px;
+            }
+
+            ol {
+                font-size: 1.4rem;
+            }
+        }
+
+        &__button.button {
+            padding: 18px 32px 16px;
+            width: 100%;
+            font: var(--text_200);
+
+            &::after {
+                content: '';
+            }
+        }
+    }
+}

@@ -3,6 +3,7 @@ import { CartInfo, ProductInfo } from 'ui/popups/cart/cart'
 export const testCartProducts: ProductInfo[] = [
     {
         id: 1,
+        type: 'product',
         image: 'assets/content/products/card-2.jpg',
         title: 'Корсет panama черный',
         size: 'XS/черный',
@@ -17,6 +18,7 @@ export const testCartProducts: ProductInfo[] = [
         size: 'XS/черный',
         amount: 0,
         price: 5000,
+        type: 'product',
     },
     {
         id: 3,
@@ -26,6 +28,7 @@ export const testCartProducts: ProductInfo[] = [
         amount: 1,
         price: 5000,
         discountPrice: 4300,
+        type: 'product',
     },
     {
         id: 4,
@@ -34,10 +37,23 @@ export const testCartProducts: ProductInfo[] = [
         size: 'XS/черный',
         amount: 1,
         price: 5000,
+        type: 'product',
+    },
+    {
+        id: 5,
+        amount: 1,
+        price: 5000,
+        type: 'gift-card',
     },
 ]
 
 export const testCartProducts2: ProductInfo[] = [
+    {
+        id: 5,
+        amount: 3,
+        price: 5000,
+        type: 'gift-card',
+    },
     {
         id: 1,
         image: 'assets/content/products/card-2.jpg',
@@ -46,6 +62,7 @@ export const testCartProducts2: ProductInfo[] = [
         amount: 1,
         price: 18000,
         discountPrice: 4300,
+        type: 'product',
     },
     {
         id: 4,
@@ -54,6 +71,7 @@ export const testCartProducts2: ProductInfo[] = [
         size: 'XS/черный',
         amount: 1,
         price: 5000,
+        type: 'product',
     },
     {
         id: 3,
@@ -63,6 +81,7 @@ export const testCartProducts2: ProductInfo[] = [
         amount: 1,
         price: 5000,
         discountPrice: 1300,
+        type: 'product',
     },
     {
         id: 5,
@@ -71,6 +90,7 @@ export const testCartProducts2: ProductInfo[] = [
         size: 'XS/черный',
         amount: 1,
         price: 5000,
+        type: 'product',
     },
 ]
 
