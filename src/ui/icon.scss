@@ -25,16 +25,22 @@
     &--arrow-short-right {
         background-image: url('assets/icons/arrow-short-right.svg');
     }
-
     &--arrow-right {
         background-image: url('assets/icons/arrow-right.svg');
     }
-
     &--star {
         background-image: url('assets/icons/star.svg');
     }
-
     &--doc {
         background-image: url('assets/icons/doc.svg');
+    }
+    &--loaylity-star {
+        background-image: url('assets/icons/loyality-star.svg');
+    }
+    &--close {
+        background-image: url('assets/icons/close.svg');
+    }
+    &--notification {
+        background-image: url('assets/icons/notification.svg');
     }
 }

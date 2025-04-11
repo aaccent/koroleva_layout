@@ -4,3 +4,4 @@ import 'features/forms'
 
 import 'ui/slider/slider'
 import 'ui/input/input.js'
+import 'ui/popups/cart/cart'

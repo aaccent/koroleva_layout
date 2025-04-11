@@ -1,4 +1,5 @@
 import { ScriptStatus, ScriptTypes } from '@/features/loadScript'
+import { CartInfo } from 'ui/popups/cart/cart'
 
 declare global {
     interface Window {
@@ -6,6 +7,23 @@ declare global {
         onYouTubeIframeAPIReady: () => void
         globalScripts: {
             [key in ScriptTypes]?: ScriptStatus
+        }
+
+        cart: {
+            /** Добавляет элементы в корзину, если элемент с таким id уже есть, то заменяет его новыми данными */
+            addItems(list: Product[]): void
+            /** Полностью обновляет корзину */
+            setItems(list: Product[]): void
+            /** Убирает элемент из корзины по id. Если элемента с таким id нет - ничего не происходит */
+            removeItem(id: Product['id']): void
+            /** Очищает корзину */
+            clear(): void
+            /** Выставляет цену в корзине */
+            setInfo(info: CartInfo): void
+            /** Общее количество товаров в корзине */
+            amount: number
+            /** Показывает уведомление добавления в корзину */
+            showNotification(props: CartNotification)
         }
     }
 }

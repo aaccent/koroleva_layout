@@ -1,0 +1,43 @@
+include layout/utils
+include features/popup/popup
+include ui/slider/slider
+
++popup('cart', 'cart')
+    .cart__header
+        .cart__title Корзина
+            span 2
+        +anchor.cart__header-link клуб лояльности
+            .icon.icon--loaylity-star
+    .cart__list
+    // разметка для товaра в корзине. Не удалять
+    .cart__item._layout
+        +img.cart__item-image(data-item='image')
+        .cart__item-main-info
+            .cart__item-title(data-item='title')
+            .cart__item-notification Нет в наличии
+                .icon.icon--notification
+            +anchor.cart__item-link похожие
+            .cart__item-size(data-item='size')
+            .cart__item-counter
+                button.cart__item-decrease -
+                .cart__item-amount-value(data-item='amount')
+                button.cart__item-increas +
+        .cart__item-price-info
+            .cart__item-discount-price(data-item='discountPrice')
+            .cart__item-price(data-item='price')
+        buttton.cart__item-close
+            .icon.icon--close
+    .cart__info
+        .cart__price.cart__info-item(data-info='price') Итого:
+            span
+        .cart__delivery.cart__info-item(data-info='delivery') Доставка:
+            span
+        .cart__discount.cart__info-item(data-info='discount') Cкидка:
+            span
+        form.cart__promo(novalidate, data-handler='path.php')
+            label.cart__promo-input
+                input(type='text', name='pomocode', placeholder='Введите промокод', required)
+                button.icon.icon--arrow-short-right(type='submit')
+        .cart__button.button Перейти к оформлению
+    .cart__empty-message В данный момент в корзине ничего нет!
+    +slider({title: 'недавно смотрели', cards: 'product-card'})
