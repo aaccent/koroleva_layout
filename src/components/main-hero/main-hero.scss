@@ -171,29 +171,7 @@
         }
 
         &-button {
-            padding: 0 32px;
-            height: 80px;
-            font: var(--text_200);
-            letter-spacing: 0.02rem;
-            text-transform: uppercase;
-            border-radius: 50px;
-            border: 1px solid var(--base_100);
-
-            a {
-                gap: 16px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-
-                &::after {
-                    content: '';
-                    width: 76px;
-                    height: 38px;
-                    @include utils.bg-defaults(cover);
-                    filter: var(--filter-base_100);
-                    background-image: url('assets/icons/arrow-right.svg');
-                }
-            }
+            width: fit-content;
         }
     }
 }
