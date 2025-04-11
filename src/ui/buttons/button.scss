@@ -12,7 +12,7 @@
     @include utils.text-200-th-100-upper;
     background-color: var(--base_400);
     border-radius: 50px;
-    border-color: var(--base_100);
+    border: 1px solid transparent;
     @include utils.transition((color, background-color, border-color));
 
     &:hover {
@@ -44,7 +44,7 @@
     &--outline {
         color: var(--base_100);
         background: transparent;
-        border-width: 1px;
+        border-color: var(--base_100);
     }
 
     &--light {
@@ -52,11 +52,11 @@
         background-color: var(--base_100);
         border-color: var(--base_400);
 
-        &--outline {
+        &.button--outline {
             background: transparent;
         }
 
-        &--arrow::after {
+        &.button--arrow::after {
             filter: var(--filter-base_400);
         }
 
