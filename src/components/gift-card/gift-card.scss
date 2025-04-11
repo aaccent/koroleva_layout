@@ -97,6 +97,10 @@
             }
         }
     }
+
+    &__button {
+        width: fit-content;
+    }
 }
 
 @media only screen and (max-width: 1000px) {
