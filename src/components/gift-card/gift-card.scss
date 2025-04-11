@@ -36,9 +36,7 @@
 
     &__title {
         margin-right: 60px;
-        font: var(--hero);
-        letter-spacing: 0.02rem;
-        text-transform: uppercase;
+        @include utils.hero;
         text-wrap: nowrap;
 
         &:first-letter {
@@ -74,17 +72,14 @@
     &__list {
         &-title {
             margin-bottom: 24px;
-            font: var(--text_400);
-            letter-spacing: 0.02rem;
-            text-transform: uppercase;
+            @include utils.text-400-th-100-upper;
             opacity: 0.5;
         }
         ul {
             gap: 8px;
             display: flex;
             align-items: center;
-            font: var(--text-lg_300);
-            letter-spacing: 0.01rem;
+            @include utils.text-300-lg-100;
         }
 
         &-item {
@@ -117,7 +112,7 @@
         }
         &__title {
             margin-right: 20px;
-            font: var(--header_100);
+            @include utils.header-100;
 
             &::first-letter {
                 font-size: 6.4rem;

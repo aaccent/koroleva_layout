@@ -14,7 +14,7 @@
 
     &__text {
         max-width: 490px;
-        font: var(--text_200);
+        @include utils.text-200-th-100;
         text-align: center;
         opacity: 0.6;
     }
@@ -58,8 +58,7 @@
         }
 
         &-item-text {
-            font: var(--text-lg_500);
-            text-transform: uppercase;
+            @include utils.text-500-lg-100-upper;
         }
     }
 
@@ -102,7 +101,7 @@
     .catalog {
         &__text {
             max-width: 100%;
-            font: var(--text_300);
+            @include utils.text-300-th-100;
         }
 
         &__subcategories-list {

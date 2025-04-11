@@ -23,8 +23,7 @@
             position: sticky;
             z-index: 1;
             top: 0;
-            font: var(--text_200);
-            text-transform: uppercase;
+            @include utils.text-200-th-100-upper;
             background-color: var(--base_200);
         }
     }

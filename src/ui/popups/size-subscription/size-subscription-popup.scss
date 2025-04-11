@@ -13,7 +13,7 @@
 
     &__text {
         margin-bottom: 40px;
-        font: var(--text_200);
+        @include utils.text-200-th-100;
     }
 
     &__form {
@@ -36,7 +36,7 @@
         }
 
         &__text {
-            font: var(--text_300);
+            @include utils.text-300-th-100;
         }
     }
 }

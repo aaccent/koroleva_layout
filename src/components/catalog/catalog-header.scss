@@ -41,7 +41,7 @@
         gap: 10px;
         display: flex;
         align-items: center;
-        font: var(--text-lg_300);
+        @include utils.text-300-lg-100;
         @include utils.only-desktop(flex);
     }
 }

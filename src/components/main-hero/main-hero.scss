@@ -30,7 +30,7 @@
             width: fit-content;
             height: fit-content;
             color: hsl(0, 0%, 100%, 0.5);
-            font: var(--text_100);
+            @include utils.text-100;
 
             .swiper-pagination-current {
                 color: var(--base_100);
@@ -159,9 +159,7 @@
 
         &-title {
             margin-bottom: 16px;
-            font: var(--header_100);
-            letter-spacing: 0.02rem;
-            text-transform: uppercase;
+            @include utils.header-100;
 
             &:first-letter {
                 font-family: var(--glorai-script);

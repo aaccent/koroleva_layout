@@ -23,8 +23,7 @@
             gap: 6px;
             display: flex;
             align-items: center;
-            font: var(--text-lg_400);
-            text-transform: uppercase;
+            @include utils.text-400-lg-100-upper;
 
             &::before {
                 content: '';

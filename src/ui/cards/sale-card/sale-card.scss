@@ -37,9 +37,7 @@
         margin-left: auto;
         padding: 13px 20px;
         width: fit-content;
-        font: var(--text_400);
-        letter-spacing: 0.02rem;
-        text-transform: uppercase;
+        @include utils.text-400-th-100-upper;
         border-radius: 50px;
         border: 1px solid hsla(0, 0%, 100%, 0.2);
     }
@@ -47,9 +45,7 @@
     &__title {
         width: 100%;
         max-width: 420px;
-        font: var(--header_300);
-        letter-spacing: 0.02rem;
-        text-transform: uppercase;
+        @include utils.header-300;
     }
 }
 

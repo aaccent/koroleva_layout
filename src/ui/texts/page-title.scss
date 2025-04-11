@@ -1,9 +1,8 @@
 @use 'styles/utils';
 
 .page-title {
-    font: var(--header_100);
+    @include utils.header-100;
     text-align: center;
-    text-transform: uppercase;
 
     &:first-letter {
         font-family: var(--gloria-script);

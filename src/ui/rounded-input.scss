@@ -10,8 +10,7 @@
     border: 1px solid var(--base_400_30);
 
     input {
-        font: var(--text_400);
-        text-transform: uppercase;
+        @include utils.text-400-th-100-upper;
 
         &::placeholder {
             color: var(--base_400_50);
@@ -26,7 +25,7 @@
         padding: 28px;
 
         input {
-            font: var(--text_300);
+            @include utils.text-300-th-100;
         }
 
         .icon {

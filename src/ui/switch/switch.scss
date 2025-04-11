@@ -8,7 +8,7 @@
     align-items: center;
 
     &__title {
-        font: var(--text-lg_200);
+        @include utils.text-200-lg-100;
     }
 
     &__input {

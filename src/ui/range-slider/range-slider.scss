@@ -7,10 +7,8 @@
 
     &__title {
         margin-bottom: 30px;
-        font-size: 1.6rem;
-        letter-spacing: 0.01rem;
         line-height: 1.3;
-        text-transform: uppercase;
+        @include utils.text-300-lg-100-upper;
     }
 
     &__inputs-wrapper {
@@ -23,7 +21,7 @@
     &__input {
         -moz-appearance: textfield;
         width: 140px;
-        font: var(--text-lg_200);
+        @include utils.text-200-lg-100;
         text-align: left;
         background-color: transparent;
 

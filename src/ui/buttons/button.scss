@@ -9,8 +9,7 @@
     justify-content: center;
     align-items: center;
     color: var(--base_100);
-    font: var(--text_200);
-    text-transform: uppercase;
+    @include utils.text-200-th-100-upper;
     background-color: var(--base_400);
     border-radius: 50px;
     border-color: var(--base_100);

@@ -5,8 +5,7 @@
     padding: 11.5px 16px;
     display: flex;
     align-items: center;
-    font: var(--text-lg_400);
-    text-transform: uppercase;
+    @include utils.text-400-lg-100-upper;
     cursor: pointer;
     border-radius: 50px;
     border: 1px solid var(--base_400_20);

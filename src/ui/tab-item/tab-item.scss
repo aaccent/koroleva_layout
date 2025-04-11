@@ -25,7 +25,7 @@
         gap: 8px;
         display: flex;
         align-items: center;
-        font: var(--text-lg_200);
+        @include utils.text-200-lg-100;
 
         span {
             opacity: 0.6;
@@ -69,8 +69,7 @@
         gap: 12px;
         display: flex;
         align-items: center;
-        font: var(--header_300);
-        text-transform: uppercase;
+        @include utils.header-300;
 
         &::before {
             content: '';
@@ -85,8 +84,7 @@
         gap: 4px;
         display: flex;
         align-items: center;
-        font: var(--text_400);
-        text-transform: uppercase;
+        @include utils.text-400-th-100-upper;
         opacity: 0.7;
 
         &::before {
