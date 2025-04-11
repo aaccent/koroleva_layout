@@ -4,6 +4,8 @@ block append head
     link(href=require('styles/catalog.scss'), rel='stylesheet')
 
 block main
+    include ui/breadcrumbs/breadcrumbs
+    +breadcrumbs(['Бюстгальтеры'])
     include components/catalog/catalog
 
 block popups
