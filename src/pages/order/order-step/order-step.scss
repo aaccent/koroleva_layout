@@ -1,0 +1,63 @@
+@use 'styles/utils';
+
+.order-step {
+    position: relative;
+    margin-left: 24px;
+    padding-left: 49px;
+    border-left: 1px dashed hsl(7, 15%, 34%, 0.25);
+
+    &__header {
+        display: flex;
+        align-items: center;
+    }
+
+    &__number {
+        aspect-ratio: 1;
+        min-width: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--base_100);
+        background-color: var(--base_400);
+        @include utils.text-200-lg-100;
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        transform: translateX(-50%);
+        border-radius: 100%;
+    }
+
+    &__title {
+        @include utils.header-300;
+    }
+
+    &__change-button,
+    &__action-button {
+        @include utils.text-400-lg-100-upper;
+        margin-left: auto;
+        opacity: 0.7;
+    }
+
+    &__change-button {
+        display: none;
+    }
+
+    &__action-button {
+        gap: 8px;
+        display: flex;
+    }
+
+    &__content {
+    }
+
+    &._valid {
+        .order-step__change-button {
+            display: block;
+        }
+
+        .order-step__action-button {
+            display: none;
+        }
+    }
+}

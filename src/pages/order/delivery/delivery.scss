@@ -1,0 +1,53 @@
+@use 'styles/utils';
+
+.delivery {
+    margin-top: 32px;
+    padding-bottom: 102px;
+
+    &__list {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        display: grid;
+    }
+
+    &__item {
+        padding: 20px;
+        width: 204px;
+        height: 180px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border-radius: 6px;
+        border: 1px solid hsla(7, 15%, 34%, 0.2);
+
+        input {
+            position: absolute;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        &-title {
+            @include utils.text-200-lg-100;
+            display: flex;
+            justify-content: space-between;
+
+            .icon {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        &__info {
+            @include utils.text-400-th-100;
+        }
+
+        &:has(input:checked) {
+            border-color: var(--base_400);
+
+            .icon {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+}

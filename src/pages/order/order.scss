@@ -1,0 +1,51 @@
+@use 'user-data/user-data';
+@use 'delivery/delivery';
+@use 'payment/payment';
+@use 'order-step/order-step';
+@use 'styles/utils';
+
+.order {
+    padding-bottom: 74px;
+    &__header {
+        position: relative;
+        padding: 24px 0 14px;
+        display: flex;
+        justify-content: center;
+        border-bottom: 1px solid hsl(7, 15%, 34%, 0.2);
+    }
+
+    &__logo {
+        object-position: center;
+        object-fit: cover;
+        width: 102px;
+        filter: var(--filter-base_400);
+    }
+
+    &__close {
+        position: absolute;
+        @include utils.square(32px);
+        @include utils.bg-defaults;
+        top: 50%;
+        right: 60px;
+        translate: 0 -50%;
+        background-image: url('assets/icons/close.svg');
+    }
+
+    &__content {
+        gap: 339px;
+        margin-top: 64px;
+        display: flex;
+    }
+
+    &__button {
+        margin-top: 48px;
+        margin-left: 79px;
+        width: fit-content;
+    }
+
+    &__info {
+        min-width: 504px;
+        height: 461px;
+        background-color: white;
+    }
+}

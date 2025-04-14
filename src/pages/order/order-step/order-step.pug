@@ -1,0 +1,19 @@
+include layout/utils
+
+mixin order-step(props)
+    -
+        props = Object.assign({
+            number: 1,
+            title: '',
+            buttonText: '',
+            data: ''
+        }, props || {})
+    .order-step(data-step=data)&attributes(attributes)
+        .order-step__header
+            .order-step__number= props.number
+            .order-step__title= props.title
+            button.order-step__change-button изменить
+            if props.buttonText
+                button.order-step__action-button= props.buttonText
+        .order-step__content
+            block

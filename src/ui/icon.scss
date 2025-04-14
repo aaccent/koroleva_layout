@@ -53,6 +53,18 @@
     &--doc {
         background-image: url('assets/icons/doc.svg');
     }
+
+    &--checkmark {
+        background-image: url('assets/icons/checkmark.svg');
+    }
+
+    &--payment-card {
+        background-image: url('assets/icons/payment-card.svg');
+    }
+
+    &--payment-cash {
+        background-image: url('assets/icons/payment-cash.svg');
+    }
 }
 
 @media only screen and (max-width: utils.$tablet1000) {

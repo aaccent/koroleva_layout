@@ -1,0 +1,59 @@
+@use 'styles/utils';
+
+.order-step:has(.payment) {
+    border-left: none;
+}
+
+.payment {
+    margin-top: 32px;
+
+    &__list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        display: grid;
+    }
+
+    &__item {
+        padding: 20px;
+        width: 100%;
+        height: 123px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border-radius: 6px;
+        border: 1px solid hsla(7, 15%, 34%, 0.2);
+
+        &-top {
+            display: flex;
+            justify-content: space-between;
+
+            .icon--payment-cash {
+                width: 30px;
+            }
+
+            .icon--payment-card {
+                width: 41px;
+            }
+        }
+
+        .icon--checkmark {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        input {
+            position: absolute;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        &:has(input:checked) {
+            border-color: var(--base_400);
+
+            .icon--checkmark {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+}

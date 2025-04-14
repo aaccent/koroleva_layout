@@ -31,6 +31,10 @@ textarea {
     @include utils.text-300-th-100;
     border-bottom: 1px solid #624c4959;
 
+    &:has(.input--half) {
+        width: 49%;
+    }
+
     input {
         &::placeholder {
             font-size: 0;
