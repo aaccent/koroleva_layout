@@ -3,7 +3,9 @@
 .order-step {
     position: relative;
     margin-left: 24px;
+    padding-bottom: 36px;
     padding-left: 49px;
+    cursor: pointer;
     border-left: 1px dashed hsl(7, 15%, 34%, 0.25);
 
     &__header {
@@ -17,8 +19,9 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        color: var(--base_100);
-        background-color: var(--base_400);
+        color: var(--base_300);
+        background-color: var(--base_200);
+        border: 1px solid var(--base_300);
         @include utils.text-200-lg-100;
         position: absolute;
         z-index: 1;
@@ -30,6 +33,7 @@
 
     &__title {
         @include utils.header-300;
+        opacity: 0.7;
     }
 
     &__change-button,
@@ -49,15 +53,73 @@
     }
 
     &__content {
+        height: 0;
+        overflow: hidden;
     }
 
-    &._valid {
-        .order-step__change-button {
-            display: block;
-        }
+    &__final {
+        gap: 8px;
+        margin-top: 20px;
+        display: none;
+        flex-direction: column;
+    }
+}
 
-        .order-step__action-button {
-            display: none;
+.order-step._opened {
+    padding-bottom: 0;
+
+    .order-step__number {
+        color: var(--base_100);
+        background-color: var(--base_400);
+        border: none;
+    }
+
+    .order-step__title {
+        opacity: 1;
+    }
+
+    .order-step__content {
+        height: fit-content;
+    }
+}
+
+.order-step._valid {
+    //padding-bottom: 48px;
+
+    .order-step__number {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--base_400);
+        background-color: var(--base_400);
+        border: none;
+
+        &::after {
+            content: '';
+            position: absolute;
+
+            width: 24px;
+            height: 24px;
+            @include utils.bg-defaults(contain);
+            filter: var(--filter-base_100);
+            background-image: url('assets/icons/checkmark.svg');
         }
+    }
+    .order-step__title {
+        opacity: 1;
+    }
+
+    .order-step__change-button {
+        display: block;
+    }
+
+    .order-step__action-button {
+        display: none;
+    }
+}
+
+.order-step._valid:not(._opened) {
+    .order-step__final {
+        display: flex;
     }
 }

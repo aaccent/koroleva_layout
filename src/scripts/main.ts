@@ -3,6 +3,7 @@ import '@/features/fancybox'
 import '@/features/fancybox'
 import '@/features/forms'
 import '@/features/check-fill'
+import '@/features/inputMask'
 
 import '@/ui/selector/selector'
 import '@/ui/size-table/size-table'

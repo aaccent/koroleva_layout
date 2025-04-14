@@ -8,12 +8,16 @@ block append main
             +img(require('assets/icons/logo.svg')).order__logo
             +anchor.order__close
         .order__content.container
-            form.order__step-list
-                +order-step({number: 1, title: 'Личные данные', buttonText: 'Войти в ЛК', data:'user-data'})
+            form.order__step-list(data-handler='path.php', novalidate)
+                +order-step({number: 1, title: 'Личные данные', buttonText: 'Войти в ЛК', final:['name', 'tel', 'email']})(
+                    data-step='user-data'
+                )
                     include user-data/user-data
-                +order-step({number: 2, title: 'способ доставки', buttonText: 'екатеринбург',data:'delivery'})
+                +order-step({number: 2, title: 'способ доставки', buttonText: 'екатеринбург'})(
+                    data-step='delivery'
+                )
                     include delivery/delivery
-                +order-step({number: 3, title: 'методы оплаты', data:'payment'})
+                +order-step({number: 3, title: 'методы оплаты'})(data-step='payment')
                     include payment/payment
                 .order__button.button(type='submit') подтвердить заказ
             .order__info

@@ -6,9 +6,9 @@ mixin order-step(props)
             number: 1,
             title: '',
             buttonText: '',
-            data: ''
+            final: []
         }, props || {})
-    .order-step(data-step=data)&attributes(attributes)
+    .order-step&attributes(attributes)
         .order-step__header
             .order-step__number= props.number
             .order-step__title= props.title
@@ -17,3 +17,6 @@ mixin order-step(props)
                 button.order-step__action-button= props.buttonText
         .order-step__content
             block
+        .order-step__final
+            each item in props.final
+                .order-step__final-item(data-final=item)
