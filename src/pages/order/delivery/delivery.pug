@@ -2,21 +2,21 @@ include layout/utils
 
 .delivery
     .delivery__list
-        label.delivery__item
+        .delivery__item(data-popup='courier')
             input(type='radio', name='delivery', value='courier')
             .delivery__item-title Курьером СДЭК
                 .icon.icon--checkmark
             .delivery__item-info
                 span.delivery__item-time 2-3 дня,
                 span.delivery__item-price от 400 ₽
-        label.delivery__item
-            input(type='radio', name='delivery', value='pick-up-point')
+        .delivery__item
+            input(type='radio', name='delivery', value='pick-up')
             .delivery__item-title СДЭК
                 .icon.icon--checkmark
             .delivery__item-info
                 span.delivery__item-time 2-3 дня,
                 span.delivery__item-price от 250 ₽
-        label.delivery__item
+        .delivery__item
             input(type='radio', name='delivery', value='self')
             .delivery__item-title Самовывоз
                 .icon.icon--checkmark

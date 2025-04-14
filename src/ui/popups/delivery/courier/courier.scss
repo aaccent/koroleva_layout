@@ -1,0 +1,68 @@
+@use 'styles/utils';
+
+.courier-popup {
+    opacity: 1;
+    visibility: visible;
+
+    &__inner {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__location {
+        margin-top: 40px;
+        @include utils.text-400-th-100-upper;
+        gap: 8px;
+        margin-bottom: 28px;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: start;
+        align-items: center;
+        opacity: 0.7;
+
+        .icon {
+            @include utils.square(18px);
+        }
+    }
+
+    &__inputs {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    &__button {
+        margin-top: auto;
+    }
+
+    &__address-wrapper {
+        position: relative;
+        width: 100%;
+    }
+    &__address-list {
+        gap: 10px;
+        padding: 20px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        &-wrapper {
+            position: absolute;
+            z-index: 1;
+            bottom: 0;
+            transform: translateY(calc(100% + 20px));
+            width: 100%;
+            min-height: 111px;
+            display: none;
+            overflow: auto;
+            background-color: var(--base_100);
+
+            &._visible {
+                display: block;
+            }
+        }
+    }
+
+    &__address-item {
+    }
+}
