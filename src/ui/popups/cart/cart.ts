@@ -42,7 +42,7 @@ interface CartInfoElement extends HTMLElement {
 }
 
 function init() {
-    const cartPopup = document.querySelector('.cart.popup')
+    const cartPopup = document.querySelector('.cart-popup')
     if (!cartPopup) return
 
     const cartButton = document.querySelector('.cart__button') as HTMLElement
@@ -111,6 +111,7 @@ function init() {
 
     const addItems = (list: ProductInfo[]) => {
         document.querySelector('.cart__inner')?.classList.remove('_empty')
+        console.log('pop')
 
         const cartList = document.querySelector<HTMLElement>('.cart__list')
         const layout = cartPopup.querySelector<HTMLElement>('.product-item._layout')
