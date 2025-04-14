@@ -1,0 +1,53 @@
+@use 'styles/utils';
+
+.switch {
+    gap: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__title {
+        @include utils.text-200-lg-100;
+    }
+
+    &__input {
+        position: absolute;
+        visibility: hidden;
+    }
+
+    &__input:checked + &__switcher {
+        border-color: var(--base_400);
+
+        &::after {
+            left: 71%;
+            background-color: var(--base_400);
+        }
+    }
+
+    &__label {
+        cursor: pointer;
+    }
+
+    &__switcher {
+        position: relative;
+        width: 44px;
+        height: 24px;
+        border-radius: 50px;
+        border: 1px solid var(--base_400_20);
+        @include utils.transition(border-color);
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 29%;
+            translate: -50% -50%;
+            aspect-ratio: 1;
+            height: 52%;
+            background-color: var(--base_400_30);
+            border-radius: 50%;
+            @include utils.transition((background-color, inset));
+        }
+    }
+}

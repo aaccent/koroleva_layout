@@ -1,0 +1,21 @@
+@use 'styles/utils';
+
+.page-title {
+    @include utils.header-100;
+    text-align: center;
+
+    &:first-letter {
+        font-family: var(--gloria-script);
+        font-size: 13rem;
+        letter-spacing: 0.05rem;
+        line-height: 1.05;
+    }
+}
+
+@media only screen and (max-width: utils.$tablet1000) {
+    .page-title {
+        &:first-letter {
+            font-size: 6.4rem;
+        }
+    }
+}

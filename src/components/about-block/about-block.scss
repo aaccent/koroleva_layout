@@ -7,12 +7,9 @@
     }
 
     &__text {
-        font-family: var(--forum);
-        font-size: 7.2rem;
-        letter-spacing: 0.02rem;
+        @include utils.header-200;
         line-height: 115%;
         text-align: center;
-        text-transform: uppercase;
 
         &::first-letter {
             font-family: var(--glorai-script);
@@ -37,11 +34,9 @@
     &__link {
         margin: 56px auto 0;
         display: block;
-        font: var(--text_400);
-        letter-spacing: 0.02rem;
+        @include utils.text-400-th-100-upper;
         text-align: center;
         text-decoration: underline;
-        text-transform: uppercase;
     }
 }
 

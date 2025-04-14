@@ -1,0 +1,55 @@
+@use 'styles/utils';
+
+.filter {
+    gap: 15px;
+    position: relative;
+    margin-top: 56px;
+    padding-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include utils.text-300-lg-100;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        /* @skip-scaling */
+        height: 1px;
+        opacity: 0.25;
+        background-image: var(--dashed-line);
+        @include utils.bg-defaults;
+    }
+
+    &__amount {
+        @include utils.only-mobile;
+    }
+
+    .selector {
+        width: 30%;
+        justify-content: flex-end;
+        @include utils.only-desktop(flex);
+    }
+}
+
+@media only screen and (max-width: utils.$tablet1000) {
+    .filter {
+        margin-top: 32px;
+        padding-top: 16px;
+
+        &__inner {
+            padding: 18px 0;
+        }
+
+        .filter-button,
+        .view-switcher {
+            width: 15%;
+        }
+
+        .view-switcher {
+            justify-content: flex-end;
+        }
+    }
+}

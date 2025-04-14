@@ -1,3 +1,5 @@
+@use 'styles/utils';
+
 .card-popup {
     &__form {
         height: 100%;
@@ -7,17 +9,13 @@
 
     &__title {
         margin-bottom: 40px;
-        font: var(--header_300);
-        letter-spacing: 0.02rem;
-        text-transform: uppercase;
+        @include utils.header-300;
     }
 
     &__values {
         &-title {
             margin-bottom: 16px;
-            font: var(--text_400);
-            letter-spacing: 0.02rem;
-            text-transform: uppercase;
+            @include utils.text-400-th-100-upper;
             opacity: 0.5;
         }
         &-list {
@@ -34,8 +32,7 @@
             position: relative;
             padding: 12.5px 24px;
             color: var(--base_400);
-            font: var(--text-lg_300);
-            letter-spacing: 0.01rem;
+            @include utils.text-300-lg-100;
             text-wrap: nowrap;
             border-radius: 50px;
 
@@ -70,8 +67,7 @@
         flex-direction: row-reverse;
         justify-content: start;
         align-items: center;
-        font: var(--text_400);
-        text-transform: uppercase;
+        @include utils.text-400-th-100-upper;
         opacity: 0.7;
     }
 
@@ -82,7 +78,7 @@
     }
 
     &__policy {
-        font: var(--text_400);
+        @include utils.text-400-th-100;
         opacity: 0.5;
 
         a {
@@ -104,7 +100,7 @@
 
         &__title {
             margin-bottom: 32px;
-            font: var(--header_200);
+            @include utils.header-200;
         }
 
         &__values {

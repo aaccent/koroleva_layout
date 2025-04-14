@@ -1,0 +1,45 @@
+include layout/utils
+include ui/checkbox-list/checkbox-list
+
+-
+    var brandsNumbers = [
+        '111 skin',
+        '12 vip',
+        '2an',
+        '3ina',
+        '3w clinic',
+        '4fresh beauty',
+    ]
+
+    var brandsA = [
+        'Askin',
+        'Avip',
+        'Aan',
+        'Aina',
+        'Aclinic',
+        'Abeauty',
+    ]
+
+    var brandsB = [
+        'Bskin',
+        'Bvip',
+        'Ban',
+        'Bina',
+        'Bclinic',
+        'Bbeauty',
+    ]
+
+.brands-filter
+    label.rounded-input.brands-filter__input
+        input(type='text', name='brand-search', placeholder='Найти бренд')
+        .icon.icon--search
+    .brands-filter__body
+        .brands-filter__body-item
+            .brands-filter__body-item-title 0-9
+            +checkbox-list({name: 'brand', list: brandsNumbers}).brands-filter__body-item-list
+        .brands-filter__body-item
+            .brands-filter__body-item-title A
+            +checkbox-list({name: 'brand', list: brandsA}).brands-filter__body-item-list
+        .brands-filter__body-item
+            .brands-filter__body-item-title B
+            +checkbox-list({name: 'brand', list: brandsB}).brands-filter__body-item-list

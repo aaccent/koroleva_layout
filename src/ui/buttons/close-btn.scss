@@ -2,18 +2,20 @@
 
 .close-btn {
     position: absolute;
-    padding-left: 50px;
-    width: 136px;
+    width: 100px;
     height: 80px;
     display: flex;
+    justify-content: center;
     align-items: center;
     background-color: var(--base_300);
-    border-radius: 50px;
+    border-radius: 50px 0 0 50px;
 
     &::before,
     &::after {
         content: '';
         position: absolute;
+        translate: 5px 0;
+        /* @skip-scaling */
         width: 1px;
         height: 32px;
         background-color: var(--base_100);
@@ -36,30 +38,16 @@
     }
 }
 
-.close-btn_bg {
-    @extend .close-btn;
-    box-shadow:
-        0 0 10px rgba(0, 0, 0, 0.08),
-        0 10px 20px rgba(0, 0, 0, 0.06);
-    background-color: #ffffff;
-    border-radius: 50%;
-
-    &::before,
-    &::after {
-        width: 2px;
-        height: 20px;
-    }
-}
-
 @media only screen and (max-width: 1000px) {
     .close-btn {
-        padding-left: 28px;
-        width: 104px;
-        height: 72px;
-        justify-content: start;
+        padding-top: 23px;
+        width: 72px;
+        height: 70px;
+        border-radius: 50px 50px 0 0;
 
         &::before,
         &::after {
+            translate: 0 -5px;
             height: 24px;
         }
     }

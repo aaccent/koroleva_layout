@@ -30,7 +30,7 @@
             width: fit-content;
             height: fit-content;
             color: hsl(0, 0%, 100%, 0.5);
-            font: var(--text_100);
+            @include utils.text-100;
 
             .swiper-pagination-current {
                 color: var(--base_100);
@@ -55,10 +55,10 @@
                 border-radius: 100%;
 
                 &::after {
-                    filter: var(--filter-base_100);
                     content: '';
                     width: 44px;
                     height: 22px;
+                    filter: var(--filter-base_100);
                     @include utils.bg-defaults;
                     background-image: url('assets/icons/arrow-right.svg');
                 }
@@ -75,8 +75,8 @@
     }
 
     &__thumbs-slide {
-        aspect-ratio: 1;
         position: relative;
+        aspect-ratio: 1;
         min-width: var(--main-hero-thumb-size);
         display: flex;
         justify-content: center;
@@ -142,9 +142,9 @@
         }
 
         &:after {
-            inset: 0;
             content: '';
             position: absolute;
+            inset: 0;
             background-color: hsla(0, 0%, 0%, 0.14);
         }
         &-content {
@@ -159,9 +159,7 @@
 
         &-title {
             margin-bottom: 16px;
-            font: var(--header_100);
-            letter-spacing: 0.02rem;
-            text-transform: uppercase;
+            @include utils.header-100;
 
             &:first-letter {
                 font-family: var(--glorai-script);
@@ -171,29 +169,7 @@
         }
 
         &-button {
-            padding: 0 32px;
-            height: 80px;
-            font: var(--text_200);
-            letter-spacing: 0.02rem;
-            text-transform: uppercase;
-            border-radius: 50px;
-            border: 1px solid var(--base_100);
-
-            a {
-                gap: 16px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-
-                &::after {
-                    content: '';
-                    width: 76px;
-                    height: 38px;
-                    @include utils.bg-defaults(cover);
-                    filter: var(--filter-base_100);
-                    background-image: url('assets/icons/arrow-right.svg');
-                }
-            }
+            width: fit-content;
         }
     }
 }

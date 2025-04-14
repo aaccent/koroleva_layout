@@ -24,10 +24,10 @@
         display: block;
 
         &-item {
-            inset: 0;
-            object-position: center;
+            object-position: top;
             object-fit: cover;
             position: absolute;
+            inset: 0;
             width: 100%;
             height: 100%;
         }
@@ -92,8 +92,7 @@
 
     &__brand-text {
         color: var(--base_400_50);
-        font: var(--text-lg_500);
-        text-transform: uppercase;
+        @include utils.text-500-lg-100-upper;
     }
 
     &__colors-list {
@@ -101,9 +100,9 @@
         align-items: center;
 
         &::before {
-            aspect-ratio: 1;
             content: '';
             margin: 0 6px;
+            aspect-ratio: 1;
             /* @skip-scaling */
             width: 3px;
             background-color: var(--base_400_50);
@@ -111,8 +110,8 @@
         }
 
         &-item {
-            aspect-ratio: 1;
             margin-left: -8px;
+            aspect-ratio: 1;
             width: 12px;
             border-radius: 50%;
 
@@ -129,14 +128,14 @@
     &__title {
         margin: 8px 0 10px;
         max-width: 280px;
-        font: var(--text_300);
+        @include utils.text-300-th-100;
     }
 
     &__price-wrapper {
         gap: 8px;
         display: flex;
         align-items: center;
-        font: var(--text_300);
+        @include utils.text-300-th-100;
     }
 
     &__price--previous {
@@ -144,7 +143,7 @@
     }
 }
 
-.catalog-list--grid .product-card {
+[data-view='columns'] .product-card {
     &__top {
         margin-bottom: 18px;
         height: 490px;
@@ -164,6 +163,16 @@
         &__favorite-button {
             opacity: 1;
             visibility: visible;
+        }
+
+        &__slide-button {
+            &--prev {
+                left: 10px;
+            }
+
+            &--next {
+                right: 10px;
+            }
         }
 
         &__favorite-button {
@@ -196,13 +205,31 @@
         }
     }
 
-    .catalog-list--grid .product-card {
+    [data-view='columns'] .product-card {
         &__top {
             --padding: 12px;
             margin-bottom: 12px;
             height: 210px;
             /* @skip-scaling */
             border-radius: 2px;
+        }
+
+        &__slide-button {
+            width: 40px;
+            height: 50px;
+
+            .icon {
+                --size: 16px;
+            }
+
+            &--prev {
+                left: 4px;
+            }
+
+            &--next {
+                right: 4px;
+                justify-items: self-end;
+            }
         }
 
         &__tag {

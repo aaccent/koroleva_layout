@@ -1,0 +1,42 @@
+@use 'styles/utils';
+
+.size-subscription-popup {
+    &__inner {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .popup__title {
+        margin-bottom: 24px;
+        max-width: 80%;
+    }
+
+    &__text {
+        margin-bottom: 40px;
+        @include utils.text-200-th-100;
+    }
+
+    &__form {
+        gap: 40px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__button {
+        margin-top: auto;
+    }
+}
+
+@media only screen and (max-width: utils.$tablet1000) {
+    .size-subscription-popup {
+        .popup__title {
+            margin-bottom: 12px;
+            max-width: 100%;
+        }
+
+        &__text {
+            @include utils.text-300-th-100;
+        }
+    }
+}

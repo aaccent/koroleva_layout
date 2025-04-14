@@ -1,0 +1,33 @@
+@use 'styles/utils';
+
+.filter-popup {
+    &__inner {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__reset-button {
+        gap: 4px;
+        height: fit-content;
+        display: flex;
+        align-items: center;
+        @include utils.text-400-th-100-upper;
+        opacity: 0.7;
+    }
+
+    &__price-slider {
+        margin-bottom: 14px;
+    }
+
+    &__sort-selector {
+        @include utils.only-mobile(flex);
+    }
+}
+
+@media only screen and (max-width: utils.$tablet1000) {
+    .filter-popup {
+        &__inner {
+            height: 100%;
+        }
+    }
+}

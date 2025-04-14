@@ -78,6 +78,6 @@ void (function () {
 
         if (!activeValue) return
 
-        openPopup('card-popup', activeValue)
+        openPopup('card', activeValue)
     })
 })()

@@ -17,8 +17,7 @@
         top: 16px;
         right: 16px;
         padding: 7px 8px 6px;
-        font: var(--text-lg_500);
-        text-transform: uppercase;
+        @include utils.text-500-lg-100-upper;
         background-color: var(--base_100);
         border-radius: 25px;
     }
@@ -27,12 +26,11 @@
         margin-bottom: 18px;
         width: 100%;
         max-width: 282px;
-        font: var(--text_200);
+        @include utils.text-200-th-100;
     }
 
     &__date {
-        font: var(--text-lg_500);
-        text-transform: uppercase;
+        @include utils.text-500-lg-100-upper;
         opacity: 0.5;
     }
 }

@@ -1,0 +1,113 @@
+@use 'styles/utils';
+
+.selector {
+    position: relative;
+
+    &.opened {
+        .selector__list-wrapper {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    &__button {
+        gap: 10px;
+        display: flex;
+        align-items: center;
+        @include utils.text-300-lg-100;
+
+        &::after {
+            content: '';
+            filter: var(--filter-base_400);
+            @include utils.square(20px);
+            background-image: url('assets/icons/arrow-short-down.svg');
+            @include utils.bg-defaults;
+        }
+    }
+
+    &--sort &__button {
+        flex-direction: row-reverse;
+
+        &::after {
+            background-image: url('assets/icons/sort.svg');
+        }
+    }
+
+    &__list-wrapper {
+        position: absolute;
+        z-index: 5;
+        top: calc(100% + 20px);
+        right: 0;
+        padding: 24px;
+        width: max-content;
+        @include utils.text-500-lg-100-upper;
+        opacity: 0;
+        visibility: hidden;
+        background-color: white;
+        border-radius: 4px;
+        @include utils.transition((visibility, opacity));
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: -10px;
+            right: 10px;
+            width: 0;
+            height: 0;
+            border-right: 6px solid transparent;
+            border-bottom: 9px solid hsl(0, 0%, 100%);
+            border-left: 6px solid transparent;
+        }
+    }
+
+    &__list,
+    &--list {
+        gap: 18px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__item {
+        gap: 10px;
+        display: flex;
+        align-items: center;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+
+    &__item-input {
+        display: none;
+    }
+
+    &__item-circle {
+        @include utils.square(20px);
+        position: relative;
+        display: flex;
+        flex-shrink: 0;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        border: 1px solid var(--base_400_20);
+        @include utils.transition((border-color, background-color));
+
+        &::after {
+            content: '';
+            position: absolute;
+            @include utils.square(30%);
+            flex-shrink: 0;
+            opacity: 0;
+            background-color: var(--base_100);
+            border-radius: 50%;
+            @include utils.transition(opacity);
+        }
+    }
+
+    &__item-input:checked + &__item-circle {
+        background-color: var(--base_400);
+        border-color: var(--base_400);
+
+        &::after {
+            opacity: 1;
+        }
+    }
+}

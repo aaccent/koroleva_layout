@@ -1,0 +1,41 @@
+include layout/utils
+
+mixin tab-item(title, mobileOverlay)
+    - mobileOverlay = typeof mobileOverlay === 'undefined' ? true : mobileOverlay
+
+    div(class={ 'tab-item': true, 'tab-item--plain': !mobileOverlay })
+        button.tab-item__title-wrapper(type='button', data-action='tab-action')
+            .tab-item__title= title
+            .icon.icon--arrow-short-bottom
+        .tab-item__body-wrapper
+            if mobileOverlay
+                .tab-item__mobile-title
+                    button.tab-item__mobile-back-button(type='button', data-action='tab-action')= title
+                    +wrapBreak:  //
+                        По идеи reset-filter должен сбрасывать поля в данном `tab-item`.
+                        Обработчик не вешал, потому что без понятия как это реализовано со стороны битры.
+                        Нужно сделать обработчик и реализовать идею дизайна
+                    button.tab-item__mobile-reset-button(type='button', data-action='reset-filter') сбросить
+            .tab-item__body: block
+        .tab-item__line
+
+mixin tab-item--not-interactive
+    .tab-item.tab-item--not-interactive
+        .tab-item__body: block
+        .tab-item__line
+
+mixin tab-item-selector
+    .tab-item&attributes(attributes)
+        button.tab-item__title-wrapper(type='button', data-action='tab-action')
+            .tab-item__title Сортировка: #[span сначала популярные]
+            .icon.icon--arrow-short-bottom
+        .tab-item__body-wrapper
+            .tab-item__mobile-title
+                button.tab-item__mobile-back-button(type='button', data-action='tab-action') Сортировка
+                +wrapBreak:  //
+                    По идеи reset-filter должен сбрасывать поля в данном `tab-item`.
+                    Обработчик не вешал, потому что без понятия как это реализовано со стороны битры.
+                    Нужно сделать обработчик и реализовать идею дизайна
+                button.tab-item__mobile-reset-button(type='button', data-action='reset-filter') сбросить
+            .tab-item__body: block
+        .tab-item__line

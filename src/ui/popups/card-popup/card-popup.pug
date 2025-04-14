@@ -2,12 +2,13 @@ include layout/utils
 include features/popup/popup
 include ui/input/input
 
-+popup('card-popup', 'card-popup')
++popup('card')
     form.card-popup__form(novalidate, data-handler='path.php')
         .card-popup__title Подарочная карта
         .card-popup__values
             .card-popup__values-title выберите номинал:
             .card-popup__values-list
+                // Значения сюда подтягиваются из gift-card секции автоматически
                 label.card-popup__values-item
                     input(type='radio', name='card-value')
                 label.card-popup__values-item

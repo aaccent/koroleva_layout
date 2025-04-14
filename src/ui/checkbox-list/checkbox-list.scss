@@ -1,0 +1,19 @@
+@use 'styles/utils';
+
+.checkbox-list {
+    gap: 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+.checkbox-list--color {
+    gap: 8px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.checkbox-list--size {
+    gap: 8px;
+    display: none;
+    flex-wrap: wrap;
+}

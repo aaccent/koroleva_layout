@@ -20,7 +20,7 @@
         &-name {
             margin-left: 10px;
             display: none;
-            font: var(--text_300);
+            @include utils.text-300-th-100;
         }
     }
 }

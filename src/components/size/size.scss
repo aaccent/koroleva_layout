@@ -26,10 +26,8 @@
 
     &__title {
         margin-bottom: 56px;
-        font: var(--header_200);
-        letter-spacing: 0.02rem;
+        @include utils.header-200;
         text-align: center;
-        text-transform: uppercase;
     }
 
     &__mini-image {
@@ -47,8 +45,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        font: var(--text_100);
-        letter-spacing: 0.02rem;
+        @include utils.text-100;
         text-transform: uppercase;
         border-radius: 100%;
         border: 1px solid hsla(7, 15%, 34%, 0.35);
@@ -80,11 +77,9 @@
     &__link {
         margin-top: 48px;
         display: block;
-        font: var(--text_400);
-        letter-spacing: 0.02rem;
+        @include utils.text-400-th-100-upper;
         text-align: center;
         text-decoration: underline;
-        text-transform: uppercase;
         opacity: 0.5;
     }
 }

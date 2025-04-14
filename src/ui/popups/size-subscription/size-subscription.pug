@@ -1,0 +1,19 @@
+include layout/utils
+include features/popup/popup
+include ui/checkbox-list/checkbox-list
+include ui/input/input
+
+-
+    var sizes = [
+        '85А(чашка а)',
+        '90А(чашка а)',
+    ]
+
++popup('size-subscription')
+    .popup__title подписаться на размер
+    .size-subscription-popup__text
+        p Мы обязательно напишем вам, когда нужный размер появится в наличии
+    form.size-subscription-popup__form(data-check-fill)
+        +checkbox-list({ name: 'size', list: sizes })
+        +input(placeholder='Ваш e-mail*', required)
+        button.button--arrow.button.size-subscription-popup__button(type='submit') подписаться
