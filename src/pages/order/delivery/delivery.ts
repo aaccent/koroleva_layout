@@ -7,10 +7,11 @@ interface CallPopupElement extends HTMLElement {
 }
 
 void (function () {
-    const callCourierPopup = document.querySelector<CallPopupElement>('.delivery__item[data-popup="courier"]')
-    callCourierPopup?.addEventListener('click', () => {
-        const popupName = callCourierPopup.dataset.popup
-
-        openPopup(popupName, callCourierPopup)
+    const callDeliveryPopupButtons = document.querySelectorAll<CallPopupElement>('.delivery__item[data-popup]')
+    callDeliveryPopupButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            const popupName = button.dataset.popup
+            openPopup(popupName, button)
+        })
     })
 })()
