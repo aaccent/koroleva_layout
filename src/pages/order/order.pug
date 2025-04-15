@@ -13,12 +13,12 @@ block append main
                     data-step='user-data'
                 )
                     include user-data/user-data
-                +order-step({number: 2, title: 'способ доставки', buttonText: 'екатеринбург'})(
+                +order-step({number: 2, title: 'способ доставки', buttonText: 'екатеринбург', final: ['method', 'address', 'info']})(
                     data-step='delivery'
                 )
                     include delivery/delivery
                 +order-step({number: 3, title: 'методы оплаты'})(data-step='payment')
                     include payment/payment
-                .order__button.button(type='submit') подтвердить заказ
+                button.order__button.button(type='submit') подтвердить заказ
             .order__info
     include ui/popups/delivery/courier/courier

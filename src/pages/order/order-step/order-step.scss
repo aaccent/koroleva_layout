@@ -62,6 +62,13 @@
         margin-top: 20px;
         display: none;
         flex-direction: column;
+
+        [data-final='method'] {
+            @include utils.text-400-lg-100-upper;
+        }
+        [data-final='info'] {
+            color: var(--system_green);
+        }
     }
 }
 
@@ -84,8 +91,6 @@
 }
 
 .order-step._valid {
-    //padding-bottom: 48px;
-
     .order-step__number {
         display: flex;
         justify-content: center;

@@ -48,18 +48,25 @@ async function submitHandler(event: SubmitEvent) {
 }
 
 /**
- * Проверяет все `required` поля в форме `form`.
+ * Проверяет все `required` поля в контейнере `container`.
  * Если есть незаполненные, то добавляет к полю класс `invalid`
- * @param form - форма, в которой необходимо провести проверку
+ * @param container - форма или контейнер, в которой необходимо провести проверку
  * @return `true` если проверка успешна, иначе `false`
  */
-function validateForm(form: HTMLFormElement): Boolean {
+export function validateForm(container: HTMLElement): Boolean {
     let valid = true
 
-    const requiredInputs = form.querySelectorAll<HTMLInputElement>('input[required]')
+    const requiredInputs = container.querySelectorAll<HTMLInputElement>('input[required]')
 
     requiredInputs.forEach((input) => {
-        if (input.value !== '') return
+        switch (input.type) {
+            case 'tel':
+                const validTelNumber = input.type === 'tel' && input.value.replaceAll(/\D/g, '').length === 11
+                if (validTelNumber) return
+                break
+            default:
+                if (input.value !== '') return
+        }
 
         valid = false
         input.classList.add('invalid')
