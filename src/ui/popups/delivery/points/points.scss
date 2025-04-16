@@ -2,6 +2,7 @@
 
 .points-popup {
     --inner-width: 546px;
+    padding: 0;
     //    opacity: 1;
     //    visibility: visible;
 
@@ -14,23 +15,83 @@
     &__inner {
         position: absolute;
         z-index: 1;
+        inset: 0;
+        padding: 24px;
+        max-width: 100%;
+        height: 100%;
+        overflow: clip;
+        background-color: transparent;
+        border-radius: 0;
+    }
+
+    &__content {
+        position: absolute;
+        z-index: 1;
         top: 15px;
         right: 15px;
         bottom: 15px;
-        min-width: var(--inner-width);
         display: none;
 
-        &::-webkit-scrollbar {
-            display: none;
+        &._visible {
+            display: flex;
         }
+
+        &-list {
+            padding: 48px 48px 48px 38px;
+            min-width: 546px;
+            overflow-x: visible;
+            overflow-y: auto;
+            background-color: var(--base_200);
+            border-radius: 0 8px 8px 8px;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+
+        &-close {
+            width: 100px;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--base_300);
+            border-radius: 50px 0 0 50px;
+
+            .icon {
+                filter: var(--filter-base_100);
+            }
+        }
+    }
+
+    &__show-list {
+        position: absolute;
+        @include utils.text-500-lg-100-upper;
+        z-index: 1;
+        right: 24px;
+        bottom: 24px;
+        padding: 13px 18.5px 12px;
+        background-color: var(--base_100);
+        border-radius: 50px;
     }
 
     .close-btn {
         position: absolute;
-        z-index: 1;
-        top: 15px;
-        right: calc(var(--inner-width) + 15px);
-        display: none;
+        z-index: 2;
+        top: 24px;
+        right: 24px;
+        width: 38px;
+        height: 38px;
+        background-color: hsla(0, 0%, 100%, 0.2);
+        border-radius: 100%;
+
+        &::after,
+        &::before {
+            top: 50%;
+            left: 50%;
+            translate: -50% -50%;
+            height: 16px;
+        }
     }
 
     &__search {
@@ -58,6 +119,13 @@
         width: 100%;
         display: flex;
         flex-direction: column;
+
+        &._empty:after {
+            content: 'Пункт выдачи не найден, попробуйте изменить запрос!';
+            width: 100%;
+            max-width: 335px;
+            @include utils.text-200-th-100;
+        }
     }
 
     &__item {
@@ -66,6 +134,10 @@
         justify-content: space-between;
         align-items: start;
         border-top: 1px solid var(--base_400_20);
+
+        &._layout {
+            display: none;
+        }
 
         &:first-child {
             padding-top: 0;
@@ -78,12 +150,12 @@
                 margin-bottom: 8px;
             }
 
-            &--delivery-price {
+            &--price {
                 @include utils.text-400-th-100;
                 margin-bottom: 4px;
             }
 
-            &--delivery-date {
+            &--date {
                 margin-bottom: 10px;
                 color: var(--system_green);
             }
@@ -104,6 +176,34 @@
             padding-bottom: 4px;
             opacity: 0.7;
             border-bottom: 1px solid var(--base_400);
+        }
+    }
+
+    &__baloon {
+        padding: 14px 0 14px 14px;
+        width: 314px;
+
+        &-image {
+            object-fit: cover;
+            object-position: center;
+            margin-bottom: 16px;
+            width: 110px;
+            height: 73px;
+            overflow: hidden;
+            border-radius: 4px;
+
+            &._hidden {
+                display: none;
+            }
+        }
+
+        &-button.button {
+            margin-top: 18px;
+            padding: 10px 0;
+            width: 100%;
+            height: fit-content;
+            justify-content: center;
+            @include utils.text-500-lg-100-upper;
         }
     }
 }

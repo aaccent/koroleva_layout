@@ -2,17 +2,22 @@ include layout/utils
 include features/popup/popup
 
 +popup('points', 'points')
-    .popup__title пункты выдачи
-    .points-popup__search
-        input(type='text', name='search', placeholder='Найти адрес пункта')
-        .icon.icon--search
-    .points-popup__list
-        each _ in Array(10)
+    button.points-popup__show-list(type='button') пункты списком
+    .points-popup__content
+        button.points-popup__content-close
+            .icon.icon--close
+        .points-popup__content-list
+            .popup__title пункты выдачи
+            .points-popup__search
+                input(type='text', name='search', placeholder='Найти адрес пункта')
+                .icon.icon--search
+            .points-popup__list._empty
             .points-popup__item._layout
                 .points-popup__item-container
-                    .points-popup__item-info.points-popup__item-info--address(data-final='point-address') пр-кт Металлургов, 56
-                    .points-popup__item-info.points-popup__item-info--delivery-price(data-final='delivery-price') Стоимость доставки — 250 ₽
-                    .points-popup__item-info.points-popup__item-info--delivery-date(data-final='delivery-date') Дата доставки — понедельник, 19 июня
-                    .points-popup__item-info.points-popup__item-info--work-hours Ежедневно: 09:00-18:00
+                    .points-popup__item-info.points-popup__item-info--address(data-point='address') пр-кт Металлургов, 56
+                    .points-popup__item-info.points-popup__item-info--price(data-point='price') Стоимость доставки — 250 ₽
+                    .points-popup__item-info.points-popup__item-info--date(data-point='date') Дата доставки — понедельник, 19 июня
+                    .points-popup__item-info.points-popup__item-info--work-hours(data-point='work-hours') Ежедневно: 09:00-18:00
                         .icon.icon--clock
-                button.points-popup__item__button(type='button')(data-action='set-pick-up-point') выбрать
+                button.points-popup__item__button(type='button') выбрать
+            .points-popup__mobile

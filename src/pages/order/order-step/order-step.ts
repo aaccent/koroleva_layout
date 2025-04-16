@@ -15,6 +15,13 @@ export function setFinalData(data: object) {
     })
 }
 
+export function validateStep(callPopupElement: HTMLElement) {
+    const callPopupStep = callPopupElement.closest('.order-step')
+    const callPopupInput = callPopupElement.querySelector('input')
+    callPopupStep?.classList.add('_valid')
+    if (callPopupInput) callPopupInput.checked = true
+}
+
 const steps = document.querySelectorAll<OrderStep>('.order-step')
 steps.forEach((step) => {
     step.addEventListener('click', () => {

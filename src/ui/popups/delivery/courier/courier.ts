@@ -1,7 +1,8 @@
 import { closeActivePopup, PopupOpenedCustomEvent } from 'features/popup/popup'
 import { getAddressList } from '@/methods/getAddressList'
 import { validateForm } from 'features/forms'
-import { setFinalData } from 'pages/order/order-step/order-step'
+import { setFinalData, validateStep } from 'pages/order/order-step/order-step'
+import { DeliveryPopup } from 'pages/order/delivery/delivery'
 
 function addHiddenInput(input: HTMLInputElement) {
     const container = document.querySelector('[data-step="delivery"]')
@@ -12,7 +13,7 @@ function addHiddenInput(input: HTMLInputElement) {
 }
 
 void (function () {
-    const courierPopup = document.querySelector('.courier-popup')
+    const courierPopup = document.querySelector<DeliveryPopup>('.courier-popup')
     if (!courierPopup) return
 
     courierPopup.addEventListener('opened', (customEvent) => {
@@ -25,10 +26,7 @@ void (function () {
             const callPopupElement = (customEvent as PopupOpenedCustomEvent).detail.trigger
             if (!callPopupElement) return
 
-            const callPopupStep = callPopupElement.closest('.order-step')
-            const callPopupInput = callPopupElement.querySelector('input')
-
-            const method = callPopupElement.querySelector<HTMLElement>('.delivery__item-title')?.textContent || ''
+            const method = courierPopup.dataset.method
             const address = addressInputsContainer.querySelector<HTMLInputElement>('input[name="street"]')?.value || ''
 
             setFinalData({
@@ -37,9 +35,8 @@ void (function () {
             })
 
             addressInputsContainer.querySelectorAll('input').forEach((input) => addHiddenInput(input))
+            validateStep(callPopupElement)
 
-            callPopupStep?.classList.add('_valid')
-            if (callPopupInput) callPopupInput.checked = true
             saveButton.removeEventListener('click', onSaveBtnClick)
             closeActivePopup()
         }

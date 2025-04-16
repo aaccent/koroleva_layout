@@ -69,6 +69,10 @@
     &--clock {
         background-image: url('assets/icons/clock.svg');
     }
+
+    &--close {
+        background-image: url('assets/icons/close.svg');
+    }
 }
 
 @media only screen and (max-width: utils.$tablet1000) {

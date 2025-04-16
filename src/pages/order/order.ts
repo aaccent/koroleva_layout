@@ -15,10 +15,11 @@ function createOrderMap() {
     mapContainer.classList.add('order__map')
     mapContainer.setAttribute('data-key', '3b0f34a6-e20f-45e6-8b4f-fa2120d7244d')
     orderPage.append(mapContainer)
-    return createYMap(mapContainer, { setPlacemark: true, ui: true })
+    //pointsPopup.append(mapContainer)
+    return createYMap(mapContainer, { setPlacemark: false, ui: false })
 }
 
-void (function () {
+void (async function () {
     const firstStep = document.querySelector('.order-step:nth-child(2)')
     firstStep?.classList.add('_opened')
     window.map = createOrderMap()
