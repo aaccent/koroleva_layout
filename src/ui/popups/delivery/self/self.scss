@@ -1,0 +1,83 @@
+@use 'styles/utils';
+
+.self-popup {
+    opacity: 1;
+    visibility: visible;
+
+    &__content {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        &-close {
+            display: none;
+        }
+    }
+
+    &__point {
+        position: absolute;
+        width: 100%;
+        opacity: 0;
+        visibility: hidden;
+
+        &._active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        &-wrapper {
+            position: relative;
+            margin-top: 32px;
+            height: 100%;
+        }
+
+        &-image {
+            object-position: center;
+            object-fit: cover;
+            margin-bottom: 32px;
+            width: 100%;
+            height: 240px;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        &-address {
+            @include utils.text-200-lg-100;
+            margin-bottom: 12px;
+        }
+
+        &-info {
+            @include utils.text-400-th-100;
+            margin-bottom: 6px;
+        }
+
+        &-tel {
+            gap: 10px;
+            display: flex;
+            align-items: center;
+            @include utils.text-300-lg-100;
+            margin-top: 24px;
+            flex-direction: row-reverse;
+            justify-content: start;
+
+            .icon {
+                background-size: auto;
+                border-radius: 100%;
+                border: 1px solid var(--base_400);
+            }
+        }
+
+        &-way {
+            padding-bottom: 4px;
+            width: fit-content;
+            display: block;
+            border-bottom: 1px solid var(--base_400);
+            @include utils.text-400-th-100-upper;
+            margin-top: 24px;
+        }
+
+        &-button {
+            margin-top: auto;
+            min-height: 80px;
+        }
+    }
+}

@@ -1,4 +1,5 @@
 import { Point } from 'ui/popups/delivery/points/points'
+import { Self } from 'ui/popups/delivery/self/self'
 
 export const testPoints: Point[] = [
     {
@@ -121,29 +122,29 @@ export const testPoints: Point[] = [
     },
 ]
 
-export const testPoints2: Point[] = [
+export const testPoints2: Self[] = [
     {
-        id: 10,
-        address: 'title2',
-        price: 'Стоимость доставки — 250 ₽',
-        date: 'Ежедневно: 09:00-18:00',
+        id: '10',
+        address: 'ул. Мамина-Сибиряка, 23',
+        info: ['ТЦ Грант — 3 этаж', 'Пн-Пт: с 09:00 до 20:00', 'Сб-Вск: выходной'],
+        image: 'assets/static/',
+        tel: '8 921 560-15-16',
         coords: [55.84196258814936, 49.07630980148478],
-        workHours: 'Ежедневно: 09:00-18:00',
     },
     {
-        id: 21,
-        address: 'title1',
-        price: 'Стоимость доставки — 250 ₽',
-        date: 'Ежедневно: 09:00-18:00',
+        id: '21',
+        address: 'ул. Мамина-Сибиряка, 23',
+        info: ['ТЦ Грант — 3 этаж', 'Пн-Пт: с 09:00 до 20:00', 'Сб-Вск: выходной'],
+        image: 'assets/static/',
+        tel: '8 921 560-15-16',
         coords: [55.8476189401467, 49.09123990019342],
-        workHours: 'Ежедневно: 09:00-18:00',
     },
     {
-        id: 32,
-        address: 'title2',
-        price: 'Стоимость доставки — 250 ₽',
-        date: 'Ежедневно: 09:00-18:00',
+        id: '32',
+        address: 'ул. Мамина-Сибиряка, 23',
+        info: ['ТЦ Грант — 3 этаж', 'Пн-Пт: с 09:00 до 20:00', 'Сб-Вск: выходной'],
+        image: 'assets/static/',
+        tel: '8 921 560-15-16',
         coords: [55.833919610570746, 49.08747702978717],
-        workHours: 'Ежедневно: 09:00-18:00',
     },
 ]
