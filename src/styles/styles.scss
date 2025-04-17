@@ -16,6 +16,7 @@
 
 // Popups
 @use 'features/popup/popup';
+@use 'ui/popups/size-table/size-table-popup';
 @use 'ui/popups/fast-cart/fast-cart-popup';
 @use 'ui/popups/size-subscription/size-subscription-popup';
 
@@ -38,6 +39,9 @@
 @use 'ui/cards/sale-card/sale-card';
 @use 'ui/slider/slider';
 @use 'ui/mobile-text';
+@use 'ui/tabs-block/tabs-block';
+@use 'ui/table/table';
+@use 'ui/video-block/video-block';
 
 // Page
 @use 'layout/header/header';

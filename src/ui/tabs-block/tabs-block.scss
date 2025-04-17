@@ -10,8 +10,11 @@
     &__list {
         gap: 20px;
         position: relative;
+        width: 100%;
         display: flex;
         justify-content: space-between;
+        overflow-x: auto;
+        @include utils.transparent-scroll;
 
         &::after {
             content: '';

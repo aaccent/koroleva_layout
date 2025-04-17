@@ -8,6 +8,8 @@ import '@/ui/selector/selector'
 import '@/ui/size-table/size-table'
 import '@/ui/tab-item/tab-item'
 import '@/ui/cards/product-card'
+import '@/ui/tabs-block/tabs-block'
+import '@/ui/video-block/video-block'
 
 import '@/ui/slider/slider'
 import '@/ui/input/input.js'
