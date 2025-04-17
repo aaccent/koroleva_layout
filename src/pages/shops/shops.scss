@@ -1,0 +1,48 @@
+@use 'styles/utils';
+
+.shops {
+    &__general {
+        margin: 24px auto 0;
+        width: fit-content;
+        text-align: center;
+    }
+
+    &__tel {
+        display: flex;
+        flex-direction: column;
+        @include utils.header-300;
+
+        span {
+            @include utils.text-300-th-100;
+            margin-top: 4px;
+            opacity: 0.5;
+        }
+    }
+
+    &__socials {
+        margin-top: 24px;
+        justify-content: center;
+    }
+
+    &__actions {
+        margin-top: -24px;
+        margin-bottom: 48px;
+        display: flex;
+        justify-content: space-between;
+    }
+    &__map {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: start;
+        @include utils.text-400-th-100-upper;
+        gap: 4px;
+        align-items: center;
+    }
+
+    &__decor {
+        margin-bottom: 56px;
+        width: 100%;
+        height: 1px;
+        background-image: var(--dashed-line);
+    }
+}
