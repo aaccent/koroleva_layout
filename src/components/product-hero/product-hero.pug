@@ -1,0 +1,60 @@
+include layout/utils
+
+-
+    var tabs = [
+        { title: 'Описание', },
+        { title: 'Состав и уход', mobileTitle: 'Состав' },
+        { title: 'О бренде', },
+        { title: 'На моделе', },
+    ]
+
+section.section.product-hero: .container
+    .product-hero__left-block
+        .product-hero__brand PANAMA
+        h1.product-hero__title корсет PANAMA черного цвета
+        .product-hero__price-wrapper
+            span.product-hero__current-price 4300 ₽
+            span.product-hero__previous-price 5000 ₽
+        +popupBtn('chose-color').product-hero__param-button
+            span.product-hero__param-button-color(data-color='#404040', style='background-color: #404040')
+            span.product-hero__param-button-text Черный
+            span.icon.icon--arrow-short-right.product-hero__param-button-icon
+        +popupBtn('chose-size').product-hero__param-button
+            span.product-hero__param-button-text Размер
+            span.icon.icon--arrow-short-right.product-hero__param-button-icon
+        +popupBtn('size-table').size-table-button таблица размеров
+        .product-hero__actions
+            button.button.button--arrow.product-hero__cart-button в корзину
+            button.product-hero__favorite-button: .icon.icon--favorite
+    .product-hero__images-wrapper
+        .product-hero__tags
+            .tag sale
+        button.product-hero__mobile-favorite-button(data-action='favorite'): .icon.icon--favorite
+        +popupBtn('set').button.button--light.button--small.button--no-border.product-hero__set-button Смотреть комплект
+        .product-hero__images-thumb
+            button.product-hero__images-thumb-button.product-hero__images-thumb-button--prev: .icon.icon--arrow-short-top
+            .product-hero__images-thumb-inner
+                +img(require('assets/content/product-hero/img-1.jpg')).product-hero__images-thumb-item
+                +img(require('assets/content/product-hero/img-2.jpg')).product-hero__images-thumb-item
+                +img(require('assets/content/product-hero/img-1.jpg')).product-hero__images-thumb-item
+            button.product-hero__images-thumb-button.product-hero__images-thumb-button--next: .icon.icon--arrow-short-bottom
+        .swiper: .product-hero__images.swiper-wrapper
+            .product-hero__images-item.swiper-slide: +img(require('assets/content/product-hero/img-1.jpg')).product-hero__images-item-img
+            .product-hero__images-item.swiper-slide: +img(require('assets/content/product-hero/img-2.jpg')).product-hero__images-item-img
+            .product-hero__images-item.swiper-slide: +img(require('assets/content/product-hero/img-1.jpg')).product-hero__images-item-img
+    .product-hero__right-block
+        include ui/tabs-block/tabs-block
+        +tabs-block
+            each tab in tabs
+                +tabs-block-item(tab)
+                    span.product-hero__article Артикул: 8728328
+                    .product-hero__text.content
+                        p Классическая модель, которая подходит для любой формы груди. Встречается в базе и в большинстве fashion линий.
+        ul.product-hero__delivery-info
+            li.product-hero__delivery-info-item СДЭК: #[span 2-3 дня, от 250 ₽]
+            li.product-hero__delivery-info-item Курьером: #[span 2-3 дня, от 250 ₽]
+            li.product-hero__delivery-info-item Самовывоз: #[span сегодня, из магазина]
+        +anchor.product-hero__link Условия возврата
+        .product-hero__loyal-program
+            .product-hero__loyal-program-title Накопите баллы с покупки!
+            .product-hero__loyal-program-body При покупке данного продукта, вам будет начислено [x] балла(ов), что равняется [x]РУБ.

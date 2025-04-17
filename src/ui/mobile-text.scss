@@ -13,7 +13,7 @@
         font-size: 0;
 
         &::after {
-            font: inherit;
+            @include utils.text-300-th-100;
         }
     }
 }

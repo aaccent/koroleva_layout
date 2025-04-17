@@ -1,0 +1,15 @@
+extends layout/page
+
+block append head
+    link(href=require('./product.scss'), rel='stylesheet')
+
+block main
+    include ui/breadcrumbs/breadcrumbs
+    +breadcrumbs(['Нижнее белье', 'Корсеты', 'Корсет panama'])
+    include components/product-hero/product-hero
+
+block popups
+    include ui/popups/filter/filter
+
+block append scripts
+    script(src=require('./product.ts'))
