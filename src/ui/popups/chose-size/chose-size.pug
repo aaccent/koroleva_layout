@@ -1,0 +1,20 @@
+include features/popup/popup
+include ui/checkbox-list/checkbox-list
+
+-
+    var sizes = ['xs', 'S', 'm', 'l', 'xl', 'xxl', 'xxxl', 'one size']
+
++popup('chose-size')
+    .popup__title выберите размер
+    .chose-size-popup__body-title Размер
+    form.chose-size-popup__form
+        .checkbox-list--size.chose-size-popup__list
+            each size in sizes
+                if ['xl', 'xxl'].includes(size)
+                    +popupBtn('size-subscription').rounded-checkbox.rounded-checkbox--notification.rounded-checkbox--size= size
+                else
+                    label.rounded-checkbox.rounded-checkbox--size
+                        input.rounded-checkbox__input(type='checkbox', name='size', value=size)
+                        | #{ size }
+        +popupBtn('size-table').size-table-button таблица размеров
+        button.button.button--arrow.chose-size-popup__button(type='submit') добавить в корзину

@@ -17,3 +17,9 @@
     display: none;
     flex-wrap: wrap;
 }
+
+:not(.size-table) .checkbox-list--size {
+    gap: 8px;
+    display: flex;
+    flex-wrap: wrap;
+}
