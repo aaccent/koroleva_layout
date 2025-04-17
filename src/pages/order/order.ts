@@ -11,11 +11,11 @@ function createOrderMap() {
     const pointsPopup = document.querySelector('.points-popup')
     if (!pointsPopup) return null
 
-    const mapContainer = document.createElement('div')
-    mapContainer.classList.add('order__map')
-    mapContainer.setAttribute('data-key', '3b0f34a6-e20f-45e6-8b4f-fa2120d7244d')
-    orderPage.append(mapContainer)
-    return createYMap(mapContainer, { setPlacemark: false, ui: false })
+    const mapElement = document.createElement('div')
+    mapElement.classList.add('delivery__map')
+    mapElement.setAttribute('data-key', '3b0f34a6-e20f-45e6-8b4f-fa2120d7244d')
+    orderPage.append(mapElement)
+    return createYMap(mapElement, { setPlacemark: false, ui: false })
 }
 
 void (async function () {

@@ -1,5 +1,5 @@
 import { Point } from 'ui/popups/delivery/points/points'
-import { Self } from 'ui/popups/delivery/self/self'
+import { Store } from 'ui/popups/delivery/store/store'
 
 export const testPoints: Point[] = [
     {
@@ -122,7 +122,7 @@ export const testPoints: Point[] = [
     },
 ]
 
-export const testPoints2: Self[] = [
+export const testPoints2: Store[] = [
     {
         id: '10',
         address: 'ул. Мамина-Сибиряка, 23',

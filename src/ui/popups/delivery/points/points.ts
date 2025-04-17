@@ -73,7 +73,7 @@ async function initPointsMap(options: InitPointMapProps) {
     const { mapContainer, points, onSetPointButtonClick } = options
 
     map.geoObjects.removeAll()
-    const mapElement = document.querySelector<HTMLElement>('.order__map')
+    const mapElement = document.querySelector<HTMLElement>('.delivery__map')
     if (!mapElement) return
     mapContainer.append(mapElement)
 

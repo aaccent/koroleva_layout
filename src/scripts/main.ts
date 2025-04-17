@@ -15,6 +15,6 @@ import '@/ui/input/input.js'
 
 import '@/ui/popups/delivery/courier/courier'
 import '@/ui/popups/delivery/points/points'
-import '@/ui/popups/delivery/self/self'
+import 'ui/popups/delivery/store/store'
 
 import '@/pages/order/order'

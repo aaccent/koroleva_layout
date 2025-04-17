@@ -1,9 +1,9 @@
 @use 'styles/utils';
 
-.self-popup {
-    opacity: 1;
-    visibility: visible;
-
+.store-popup {
+    &__inner {
+        z-index: 1;
+    }
     &__content {
         height: 100%;
         display: flex;
@@ -78,6 +78,22 @@
         &-button {
             margin-top: auto;
             min-height: 80px;
+        }
+
+        &-icon {
+            @include utils.circle(54px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--base_200);
+
+            &::after {
+                content: '';
+                @include utils.bg-defaults();
+                width: 15px;
+                height: 18px;
+                background-image: url('assets/icons/BIKINI.svg');
+            }
         }
     }
 }

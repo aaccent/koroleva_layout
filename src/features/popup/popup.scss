@@ -18,6 +18,15 @@
     transition-timing-function: ease-in-out;
     transition-duration: 0.3s;
 
+    &:is(.points-popup),
+    &:is(.store-popup) {
+        .delivery__map {
+            position: absolute;
+            inset: 0;
+            display: block;
+        }
+    }
+
     &.opened {
         opacity: 1;
         visibility: visible;

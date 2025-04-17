@@ -3,14 +3,12 @@
 .points-popup {
     --inner-width: 546px;
     padding: 0;
-    //    opacity: 1;
-    //    visibility: visible;
 
-    .order__map {
-        position: absolute;
-        inset: 0;
-        display: block;
-    }
+    //    .delivery__map {
+    //        position: absolute;
+    //        inset: 0;
+    //        display: block;
+    //    }
 
     &__inner {
         position: absolute;
@@ -39,7 +37,6 @@
         &-list {
             padding: 48px 48px 48px 38px;
             min-width: 546px;
-            overflow-x: visible;
             overflow-y: auto;
             background-color: var(--base_200);
             border-radius: 0 8px 8px 8px;
