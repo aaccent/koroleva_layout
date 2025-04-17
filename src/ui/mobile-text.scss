@@ -1,0 +1,19 @@
+@use 'styles/utils';
+
+[data-mobile-text][data-mobile-text] {
+    &::after {
+        content: attr(data-mobile-text);
+        font: inherit;
+        font-size: 0;
+    }
+}
+
+@media only screen and (max-width: utils.$tablet1000) {
+    [data-mobile-text][data-mobile-text] {
+        font-size: 0;
+
+        &::after {
+            font: inherit;
+        }
+    }
+}
