@@ -11,6 +11,7 @@
     height: 100%;
     display: flex;
     overflow: hidden;
+    pointer-events: none;
     opacity: 0;
     visibility: hidden;
     background-color: hsla(140, 100%, 2%, 0.8);
@@ -19,6 +20,7 @@
     transition-duration: 0.3s;
 
     &.opened {
+        pointer-events: auto;
         opacity: 1;
         visibility: visible;
     }
@@ -85,7 +87,7 @@
         &__inner {
             padding: 28px 28px 32px;
             height: fit-content;
-            min-height: 390px;
+            min-height: 281px;
             border-top-left-radius: 8px;
             border-bottom-right-radius: 0;
             border-bottom-left-radius: 0;

@@ -1,27 +1,29 @@
+import { ShopElement } from 'ui/popups/shops-popup/shops-popup'
+
 void (function () {
-    const activeCityValueElement = document.querySelector('.shops__selector-value')
-    if (!activeCityValueElement) return
-    const activeCity = activeCityValueElement.textContent
-
-    const activeShop = document.querySelector(`.shops__item[data-city=${activeCity}]`)
-    activeShop?.classList.add('_active')
-
     const citySelector = document.querySelector('.shops__selector')
-    if (!citySelector) return
 
-    citySelector.addEventListener('click', () => {
+    const cities = document.querySelectorAll('.shops__selector-item')
+
+    const activeCityValueElement = document.querySelector('.shops__selector-value')
+
+    const initActiveCity = cities[0].textContent
+    if (activeCityValueElement) activeCityValueElement.textContent = initActiveCity
+    const initActiveCityId = cities[0].querySelector<HTMLInputElement>('input')?.value
+    const initActiveShop = document.querySelector<ShopElement>(`.shops .shops__item[data-id='${initActiveCityId}']`)
+    initActiveShop?.classList.add('_active')
+
+    citySelector?.addEventListener('click', () => {
         citySelector.classList.toggle('_opened')
     })
 
-    document.querySelectorAll('.shops__selector-item').forEach((city) => {
+    cities.forEach((city) => {
         city.addEventListener('click', (e) => {
             if (e.target !== e.currentTarget) return
-
-            const value = city.querySelector<HTMLInputElement>('input')?.value
-            if (value) activeCityValueElement.textContent = value
             citySelector?.classList.remove('_opened')
 
-            const activeShop = document.querySelector(`.shops__item[data-city=${value}]`)
+            const id = city.querySelector<HTMLInputElement>('input')?.value
+            const activeShop = document.querySelector(`.shops__item[data-id='${id}']`)
             document.querySelector('.shops__item._active')?.classList.remove('_active')
             activeShop?.classList.add('_active')
         })

@@ -116,6 +116,11 @@
             flex-direction: row-reverse;
             justify-content: center;
             align-items: center;
+
+            .icon {
+                border-radius: 100%;
+                border: 1px solid var(--base_400);
+            }
         }
 
         &-way {

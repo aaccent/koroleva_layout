@@ -13,7 +13,8 @@ block main
                 'Сб-Вск: выходной'],
                 tel: '8 921 560-15-16',
                 coords:'54.35154455724545, 10.116644715869354',
-                city: 'Екатеринбург'
+                city: 'Екатеринбург',
+                id: '1'
             },
             {
                 image: require('assets/content/shops/2.png'),
@@ -23,7 +24,8 @@ block main
                     'Сб-Вск: выходной'],
                 tel: '8 921 560-15-16',
                 coords: '54.35236760710947, 10.091255014472004',
-                city: 'Казань'
+                city: 'Казань',
+                id: '2'
             }
         ]
     .shops
@@ -36,7 +38,7 @@ block main
             +socials.shops__socials
         .container
             .shops__actions
-                button.shops__map магазины на карте
+                button.shops__map(data-action='popup', data-popup='shops') магазины на карте
                     .icon.icon--geo
                 .shops__selector
                     .shops__selector-value= shops[0].city
@@ -44,11 +46,11 @@ block main
                     .shops__selector-list
                         each item in shops
                             label.shops__selector-item= item.city
-                                input(type='radio', name='city', value=item.city)
+                                input(type='radio', name='city', value=item.id)
             .shops__decor
             .shops__item-wrapper
                 each shop in shops
-                    .shops__item(data-city=shop.city)
+                    .shops__item(data-id=shop.id, data-coords=shop.coords)
                         .shops__item-image-wrapper
                             +img(shop.image).shops__item-image
                         .shops__item-info
