@@ -53,6 +53,10 @@
     &--doc {
         background-image: url('assets/icons/doc.svg');
     }
+
+    &--phone {
+        background-image: url('assets/icons/phone.svg');
+    }
 }
 
 @media only screen and (max-width: utils.$tablet1000) {
