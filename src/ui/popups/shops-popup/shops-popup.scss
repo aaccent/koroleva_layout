@@ -1,9 +1,6 @@
 @use 'styles/utils';
 
 .shops-popup {
-    //        opacity: 1;
-    //        visibility: visible;
-
     &__map {
         position: absolute;
         z-index: -1;
