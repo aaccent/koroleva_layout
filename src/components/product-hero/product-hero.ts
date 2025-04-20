@@ -70,3 +70,21 @@ createMqSwiper({
         },
     },
 })
+
+// Фиксированная информация на мобилке
+void (function () {
+    const cartButton = document.querySelector('.product-hero__cart-button')
+    const fixedInfo = document.querySelector('.product-hero__fixed-info')
+
+    if (!cartButton || !fixedInfo) return
+
+    const intersectionObserver = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting || entries[0].boundingClientRect.bottom > 0) {
+            fixedInfo.classList.remove('active')
+        } else {
+            fixedInfo.classList.add('active')
+        }
+    })
+
+    intersectionObserver.observe(cartButton)
+})()

@@ -9,6 +9,14 @@ include layout/utils
     ]
 
 section.section.product-hero: .container
+    .product-hero__fixed-info
+        .product-hero__fixed-info-image-wrapper: +img(require('assets/content/product-hero/img-1.jpg'))
+        .product-hero__fixed-info-body
+            .product-hero__fixed-info-title Корсет PANAMA черно...
+            .product-hero__fixed-info-price-wrapper
+                span.product-hero__fixed-info-price 4300 ₽
+                span.product-hero__fixed-info-price.product-hero__fixed-info-price--previous 5000 ₽
+        button.button.button--small.product-hero__fixed-info-button(data-action='cart') в корзину
     .product-hero__left-block
         .product-hero__brand PANAMA
         h1.product-hero__title корсет PANAMA черного цвета
@@ -24,7 +32,7 @@ section.section.product-hero: .container
             span.icon.icon--arrow-short-right.product-hero__param-button-icon
         +popupBtn('size-table').size-table-button таблица размеров
         .product-hero__actions
-            button.button.button--arrow.product-hero__cart-button в корзину
+            button.button.button--arrow.product-hero__cart-button(data-action='cart') в корзину
             button.product-hero__favorite-button: .icon.icon--favorite
     .product-hero__images-wrapper
         .product-hero__tags
