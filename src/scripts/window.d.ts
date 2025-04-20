@@ -7,6 +7,7 @@ declare global {
         globalScripts: {
             [key in ScriptTypes]?: ScriptStatus
         }
+        map: Promise<ymaps.Map> | null
     }
 }
 

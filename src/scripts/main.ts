@@ -11,3 +11,7 @@ import '@/ui/cards/product-card'
 
 import '@/ui/slider/slider'
 import '@/ui/input/input.js'
+
+import '@/pages/shops/shops'
+
+import 'ui/popups/shops-popup/shops-popup'
