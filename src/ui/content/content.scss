@@ -1,0 +1,242 @@
+@use 'styles/utils';
+
+.content {
+    *:last-child {
+        margin-bottom: 0;
+    }
+
+    h1 {
+        margin-bottom: 40px;
+        @include utils.header-200;
+    }
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin-top: 72px;
+        margin-bottom: 24px;
+        @include utils.header-300;
+
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+
+    img {
+        object-position: center;
+        object-fit: cover;
+        margin: 30px 0;
+        width: 100%;
+        height: 464px;
+        border-radius: 4px;
+    }
+
+    blockquote {
+        position: relative;
+        margin: 72px 0;
+        padding: 40px;
+        text-transform: uppercase;
+        @include utils.text-100;
+
+        &::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: var(--dashed-rounded-rect);
+        }
+    }
+
+    ul,
+    ol {
+        gap: 15px;
+        margin: 40px 0;
+        display: flex;
+        flex-direction: column;
+        @include utils.text-300-lg-100;
+    }
+
+    ol li {
+        gap: 12px;
+        display: flex;
+        align-items: center;
+        counter-increment: ol;
+
+        &::before {
+            content: counter(ol);
+            aspect-ratio: 1;
+            width: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            border: 1px solid var(--base_400_20);
+        }
+    }
+
+    ul li {
+        gap: 8px;
+        display: flex;
+
+        &::before {
+            content: '';
+            aspect-ratio: 1;
+            width: 12px;
+            flex-shrink: 0;
+            background-image: url('assets/icons/star.svg');
+            border-radius: 50%;
+            @include utils.bg-defaults;
+        }
+    }
+
+    p {
+        @include utils.text-300-th-100;
+
+        & + p {
+            margin-top: 20px;
+        }
+    }
+
+    .video-wrapper {
+        position: relative;
+        margin: 24px 0 72px;
+        padding: 40px;
+
+        &__play-button {
+            margin: auto 0 0 auto;
+            width: 66px;
+            height: 48px;
+            background-image: url('assets/icons/play.svg');
+            @include utils.bg-defaults;
+        }
+
+        video {
+            position: absolute;
+            inset: 0;
+            margin: 0;
+        }
+    }
+
+    video {
+        object-position: center;
+        object-fit: cover;
+        margin: 24px 0 72px;
+        border-radius: 4px;
+    }
+
+    .swiper,
+    .swiper-fade {
+        --button-size: 69px;
+        --button-offset: 40px;
+        position: relative;
+        margin: 40px 0;
+
+        img {
+            margin: 0;
+        }
+
+        .pagination {
+            position: absolute;
+            display: none;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            top: initial;
+            width: var(--button-size);
+            height: 46px;
+            background-color: var(--base_100);
+            border-radius: 50%;
+
+            &::after {
+                content: '';
+                width: 44px;
+                height: 22px;
+                @include utils.bg-defaults;
+            }
+        }
+
+        .swiper-button-next {
+            right: var(--button-offset);
+            bottom: var(--button-offset);
+
+            &::after {
+                background-image: url('assets/icons/arrow-right.svg');
+            }
+        }
+
+        .swiper-button-prev {
+            right: calc(var(--button-offset) + var(--button-size) + 8px);
+            bottom: var(--button-offset);
+            left: initial;
+
+            &::after {
+                background-image: url('assets/icons/arrow-left.svg');
+            }
+        }
+
+        .swiper-button-disabled {
+            opacity: 1;
+        }
+    }
+}
+
+@media only screen and (max-width: utils.$tablet1000) {
+    .content {
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin: 60px 0 16px;
+        }
+
+        p {
+            & + p {
+                margin-top: 15px;
+            }
+        }
+
+        ol,
+        ul {
+            gap: 10px;
+        }
+
+        img {
+            height: 200px;
+        }
+
+        blockquote {
+            max-width: 100%;
+            letter-spacing: 0;
+        }
+
+        .swiper,
+        .swiper-fade {
+            .swiper-button-prev,
+            .swiper-button-next {
+                display: none;
+            }
+
+            .swiper-pagination {
+                z-index: 10;
+                bottom: 18px;
+                display: flex;
+                justify-content: center;
+
+                .swiper-pagination-bullet {
+                    width: 24px;
+                    height: 1px;
+                    opacity: 0.5;
+                    background-color: var(--white);
+                    border-radius: 0;
+
+                    &-active {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}
