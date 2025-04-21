@@ -36,9 +36,7 @@ html {
 }
 
 .section-title {
-    font: var(--header_200);
-    letter-spacing: 0.02rem;
-    text-transform: uppercase;
+    @include utils.header-200;
 }
 
 .breadcrumbs + .section {
@@ -64,8 +62,8 @@ html {
 body {
     overflow-x: clip;
     color: var(--base_400);
-    font: var(--text_300);
     background-color: var(--base_200);
+    @include utils.text-300-th-100;
 }
 
 html.disable-scroll {

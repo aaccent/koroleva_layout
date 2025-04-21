@@ -11,7 +11,7 @@ body:has(.main-hero) {
 
             .header__geo-button,
             .header__logo,
-            .header__buttons button,
+            .header__buttons > :where(button, span, a),
             .header__mobile-search-button,
             .header__mobile-burger {
                 filter: var(--filter-base_100);
@@ -25,10 +25,9 @@ body:has(.main-hero) {
     z-index: 20;
     height: var(--header-height);
     color: var(--base_400);
-    font: var(--text-lg_300);
-    letter-spacing: 0.01rem;
+    @include utils.text-300-lg-100;
     background-color: var(--base_200);
-    border-bottom: 1px solid hsl(7, 15%, 34%, 0.2);
+    border-bottom: 1px solid var(--base_400_20);
 
     &__mobile {
         &-burger,
@@ -92,7 +91,7 @@ body:has(.main-hero) {
 
                 &-item {
                     color: var(--base_400);
-                    font: var(--text_400);
+                    @include utils.text-400-th-100;
                     text-wrap: nowrap;
                 }
             }
@@ -186,18 +185,17 @@ body:has(.main-hero) {
                 margin-top: 30px;
                 display: flex;
 
-                button {
+                & > :where(button, span, a) {
                     padding: 14px;
                     width: 162px;
                     height: 100px;
                     display: flex;
                     flex-direction: column;
                     justify-content: space-between;
-                    font: var(--text-lg_300);
-                    letter-spacing: 0.01rem;
+                    @include utils.text-300-lg-100;
                     filter: var(--filter-base_400);
                     border-radius: 4px;
-                    border: 1px solid hsla(7, 15%, 34%, 0.2);
+                    border: 1px solid var(--base_400_20);
 
                     &::after {
                         content: '';
@@ -219,11 +217,11 @@ body:has(.main-hero) {
                 margin-top: 32px;
                 margin-bottom: 24px;
                 display: block;
-                font: var(--text-lg_200);
+                @include utils.text-200-lg-100;
             }
             &-work-hours {
                 margin-top: 6px;
-                font: var(--text_400);
+                @include utils.text-400-th-100;
                 opacity: 0.5;
             }
             &-socials {
@@ -261,8 +259,7 @@ body:has(.main-hero) {
             &__item {
                 padding: 16.5px 0;
                 width: 100%;
-                font: var(--text-lg_200);
-                letter-spacing: 0.01rem;
+                @include utils.text-200-lg-100;
                 border-top: 1px dashed hsl(7, 15%, 34%, 0.25);
             }
         }

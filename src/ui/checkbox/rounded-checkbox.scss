@@ -23,9 +23,7 @@
     }
 
     &--size {
-        padding-right: 0;
-        padding-left: 0;
-        width: 60px;
+        min-width: 60px;
         justify-content: center;
     }
 

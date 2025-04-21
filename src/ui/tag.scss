@@ -7,7 +7,7 @@
     display: inline-block;
     align-content: center;
     color: white;
-    @include utils.text-500-lg-100;
+    @include utils.text-500-lg-100-upper;
     text-align: center;
 
     &::before {
