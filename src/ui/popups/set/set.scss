@@ -1,6 +1,12 @@
 @use 'styles/utils';
 
 .set-popup {
+    &__inner {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
     &__title {
         margin-bottom: 32px;
         @include utils.header-300;
@@ -12,40 +18,33 @@
         }
     }
 
-    &__bottom {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        padding: 32px 48px;
-        width: 100%;
-        background-color: var(--base_200);
-    }
-
     &__list {
-        gap: 20px;
-        max-height: 75%;
+        padding-bottom: 20px;
+        height: 1px;
         display: flex;
         flex-direction: column;
+        flex-grow: 1;
         overflow: auto;
+        @include utils.transparent-scroll;
+    }
 
-        &::-webkit-scrollbar {
-            display: none;
-        }
+    &__bottom {
+        margin: 0 -48px;
+        padding: 32px 48px 0;
+        background-color: var(--base_200);
+        border-top: 1px solid hsla(7, 15%, 34%, 0.2);
     }
 }
 
 @media only screen and (max-width: 1000px) {
     .set-popup {
-        &__inner {
-            height: 90svh;
-            min-height: 90svh;
-        }
         &__title {
             @include utils.header-200;
         }
 
         &__bottom {
-            padding: 28px;
+            margin: 0 -28px;
+            padding: 28px 28px 0;
         }
     }
 }
