@@ -14,10 +14,6 @@
 @use 'general/fonts';
 @use 'general/global';
 
-// Layout
-@use 'layout/header/header';
-@use 'layout/footer/footer';
-
 // Popups
 @use 'features/popup/popup';
 @use 'ui/popups/size-table/size-table-popup';
@@ -61,6 +57,10 @@
 
 // Components
 @use 'components/grid-section/grid-section';
+
+// Layout
+@use 'layout/header/header';
+@use 'layout/footer/footer';
 
 // Pages
 @use 'pages/shops/shops';
