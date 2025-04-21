@@ -14,6 +14,7 @@ import '@/ui/cards/product-card'
 import '@/ui/tabs-block/tabs-block'
 import '@/ui/video-block/video-block'
 import '@/ui/popups/shops-popup/shops-popup'
+import '@/ui/rounded-input/rounded-input'
 import '@/ui/popups/authorization/authorization'
 
 import '@/ui/slider/slider'
