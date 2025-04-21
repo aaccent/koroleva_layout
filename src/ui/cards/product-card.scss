@@ -69,6 +69,11 @@
     &__favorite-button {
         aspect-ratio: 1;
         width: 32px;
+
+        &.active {
+            opacity: 1;
+            visibility: visible;
+        }
     }
 
     &__slide-button {

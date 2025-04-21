@@ -1,5 +1,6 @@
 include layout/utils
 include ui/checkbox-list/checkbox-list
+include ui/rounded-input/rounded-input
 
 -
     var brandsNumbers = [
@@ -30,9 +31,7 @@ include ui/checkbox-list/checkbox-list
     ]
 
 .brands-filter
-    label.rounded-input.brands-filter__input
-        input(type='text', name='brand-search', placeholder='Найти бренд')
-        .icon.icon--search
+    +rounded-input({ placeholder: 'Найти бренд', name: 'brand-search' })
     .brands-filter__body
         .brands-filter__body-item
             .brands-filter__body-item-title 0-9

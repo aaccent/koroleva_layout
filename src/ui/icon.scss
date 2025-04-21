@@ -12,6 +12,11 @@
     }
     &--favorite {
         background-image: url('assets/icons/favorite.svg');
+        @include utils.transition(opacity);
+
+        &.active {
+            background-image: url('assets/icons/favorite-fill.svg');
+        }
     }
     &--cart {
         background-image: url('assets/icons/cart.svg');
