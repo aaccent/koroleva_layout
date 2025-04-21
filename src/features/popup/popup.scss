@@ -45,8 +45,7 @@
     }
 
     &__title {
-        font: var(--header_300);
-        text-transform: uppercase;
+        @include utils.header-300;
     }
 
     &__body-wrapper {
@@ -85,6 +84,7 @@
         flex-direction: column;
 
         &__inner {
+            margin-top: auto;
             padding: 28px 28px 32px;
             height: fit-content;
             min-height: 281px;
@@ -94,7 +94,7 @@
         }
 
         &__title {
-            font: var(--header_200);
+            @include utils.header-200;
         }
 
         &__bottom {

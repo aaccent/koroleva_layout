@@ -19,13 +19,13 @@
     &__list {
         &-title {
             margin-bottom: 15px;
-            font: var(--text_200);
+            @include utils.text-200-th-100;
             opacity: 0.5;
         }
 
         &-item {
             margin-top: 8px;
-            font: var(--text_300);
+            @include utils.text-300-th-100;
             opacity: 1;
         }
     }
@@ -53,24 +53,23 @@
 
     &__mail {
         margin-bottom: 16px;
-        font: var(--text_200);
+        @include utils.text-200-th-100;
     }
 
     &__tel {
         margin-bottom: 6px;
-        font: var(--text-lg_200);
+        @include utils.text-200-lg-100;
     }
 
     &__work-hours {
-        font: var(--text_400);
+        @include utils.text-400-th-100;
         opacity: 0.5;
     }
 
     &__privacy {
         padding-top: 10px;
         align-items: center;
-        font: var(--text-lg_500);
-        text-transform: uppercase;
+        @include utils.text-500-lg-100-upper;
         border-top: 1px solid hsl(0, 0%, 100%, 0.2);
         span {
             opacity: 0.5;
@@ -95,9 +94,9 @@
         img {
             object-position: center;
             object-fit: cover;
-            filter: var(--filter-base_100);
             width: 100%;
             height: 100%;
+            filter: var(--filter-base_100);
         }
     }
 }
