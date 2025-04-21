@@ -16,6 +16,7 @@ import '@/ui/video-block/video-block'
 import '@/ui/popups/shops-popup/shops-popup'
 import '@/ui/rounded-input/rounded-input'
 import '@/ui/popups/authorization/authorization'
+import '@/ui/popups/search/search-popup'
 
 import '@/ui/slider/slider'
 import '@/ui/input/input.js'

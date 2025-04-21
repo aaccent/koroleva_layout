@@ -25,7 +25,7 @@ include layout/utils
 header.header
     .container
         button.header__mobile-burger
-        button.header__mobile-search-button.icon-search(data-action='search')
+        +popupBtn('search').header__mobile-search-button.icon-search
         +popupBtn('geo').header__geo-button Екатеринбург
         nav.header-menu
             ul.header-menu--left
@@ -65,7 +65,7 @@ header.header
         +anchor('/').header__logo
             +img(require('assets/icons/logo.svg'))
         .header__buttons
-            button.header__buttons-search.icon.icon--search(data-action='search')
+            +popupBtn('search').header__buttons-search.icon.icon--search
             +popupBtn('authorization').header__buttons-user.icon.icon--user
             +anchor.header__buttons-favorite.icon.icon--favorite
             +popupBtn('cart').header__buttons-cart.icon.icon--cart
