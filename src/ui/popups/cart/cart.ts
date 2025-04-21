@@ -1,5 +1,4 @@
 import { isMobile } from 'globals/adaptive'
-import { createMutationObserver } from 'features/mutationObserver'
 
 export type ProductInfo =
     | {
@@ -29,38 +28,8 @@ export interface CartInfo {
     discount?: number
 }
 
-function stickyCardInfo() {
-    const PADDING = 48
-    const cartList = document.querySelector<HTMLElement>('.cart-popup__list')
-    const cartInfo = document.querySelector<HTMLElement>('.cart-popup__info')
-    if (!cartInfo || !cartList) return
-
-    if (cartList.childElementCount <= 2) {
-        cartList.removeAttribute('style')
-        cartInfo.classList.remove('_sticky')
-        return
-    }
-
-    cartInfo.classList.add('_sticky')
-    const cartHeader = document.querySelector<HTMLElement>('.cart-popup__header')
-    const cartInfoTop = cartInfo.getBoundingClientRect().top
-    const cartHeaderBottom = cartHeader?.getBoundingClientRect().bottom || 0
-    const cartListHeight = cartInfoTop - cartHeaderBottom - PADDING
-
-    cartList.style.height = cartListHeight + 'px'
-}
-
 function init() {
-    const cartPopup = document.querySelector('.cart-popup')
-    if (!cartPopup) return
-
     const cartButton = document.querySelector('.cart-popup__button') as HTMLElement
     cartButton.textContent = isMobile ? 'к оформлению' : 'Перейти к оформлению'
-
-    const cartList = document.querySelector('.cart-popup__list')
-
-    if (!cartList) return
-
-    createMutationObserver(cartList, stickyCardInfo)
 }
 init()

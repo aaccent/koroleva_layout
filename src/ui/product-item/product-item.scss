@@ -15,6 +15,10 @@
         background-image: var(--dashed-line);
     }
 
+    &:first-child {
+        padding-top: 0;
+    }
+
     &__image {
         object-position: center;
         object-fit: cover;
@@ -105,6 +109,7 @@
         position: absolute;
         top: 26px;
         right: 0;
+        cursor: pointer;
 
         .icon {
             width: 18px;
