@@ -6,6 +6,7 @@ mixin collection-card(props)
             img: '',
             title: '',
             tag: '',
+            date: '',
         }, props || {})
 
     .collection-card&attributes(attributes)
@@ -13,3 +14,5 @@ mixin collection-card(props)
             +img(props.img).collection-card__image
             span.collection-card__tag= props.tag
         .collection-card__title= props.title
+        if props.date
+            .collection-card__date= props.date

@@ -88,6 +88,7 @@
                 flex-direction: column;
 
                 .product-card__top {
+                    /* @skip-scaling */
                     height: 1px;
                     min-height: 490px;
                     flex-grow: 1;

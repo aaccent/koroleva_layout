@@ -20,6 +20,7 @@
 
     &__list {
         padding-bottom: 20px;
+        /* @skip-scaling */
         height: 1px;
         display: flex;
         flex-direction: column;

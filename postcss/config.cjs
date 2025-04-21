@@ -44,6 +44,8 @@ const longHandProps = [
     '--header-height',
     '--padding',
     '--offset',
+    '--button-size',
+    '--button-offset',
 ]
 
 const targetProps = [...shorthandProps, ...longHandProps, 'font', 'font-size']

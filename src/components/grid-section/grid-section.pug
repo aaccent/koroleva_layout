@@ -1,0 +1,25 @@
+include layout/utils
+include ui/collection-card/collection-card
+
+mixin grid-section(props)
+    -
+        props = Object.assign({
+           title: '',
+           tagList: [],
+           cardsList: []
+        }, props || {})
+
+    section.section.collections: .container
+        .grid-section__top
+            h1.grid-section__title.page-title= props.title
+            nav.grid-section__links-list-wrapper: .grid-section__links-list
+                each tag, index in props.tagList
+                    if index === 0
+                        +anchor.grid-section__links-list-item.active= tag
+                    else
+                        +anchor.grid-section__links-list-item= tag
+        .grid-section__body-wrapper
+            .grid-section__body
+                each card in props.cardsList
+                    +collection-card(card).grid-section__body-item
+            button.button.button--arrow.button--outline.button--light.button--fit.button--center показать ещё

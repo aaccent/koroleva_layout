@@ -1,0 +1,89 @@
+@use 'styles/utils';
+
+.content-toc {
+    position: sticky;
+    top: calc(var(--header-height) + 20px);
+    padding: 32px;
+    width: 100%;
+    max-width: 305px;
+    height: fit-content;
+
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background-image: var(--dashed-rounded-rect);
+    }
+
+    &__title {
+        margin-bottom: 20px;
+        @include utils.text-100;
+        text-transform: uppercase;
+    }
+
+    &__list {
+        gap: 15px;
+        display: flex;
+        flex-direction: column;
+
+        * {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+    }
+
+    &__list-item {
+        gap: 10px;
+        display: flex;
+        align-items: center;
+        opacity: 0.5;
+        @include utils.text-300-lg-100;
+        @include utils.transition(opacity);
+
+        &::before {
+            content: '';
+            aspect-ratio: 1;
+            width: 8px;
+            display: none;
+            flex-shrink: 0;
+            background-color: var(--base_400);
+            border-radius: 50%;
+        }
+
+        &.active {
+            opacity: 1;
+
+            &::before {
+                display: block;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: utils.$tablet1000) {
+    .content-toc {
+        position: relative;
+        top: initial;
+        padding: 28px;
+        width: 100%;
+        max-width: initial;
+
+        &__title {
+            margin-bottom: 20px;
+        }
+
+        &__list {
+            gap: 12px;
+        }
+
+        &__list-item.active {
+            opacity: 0.6;
+
+            &::before {
+                display: none;
+            }
+        }
+    }
+}

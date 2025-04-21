@@ -1,10 +1,7 @@
 @use 'styles/utils';
 
 .collection-card {
-    gap: 16px;
     width: 100%;
-    display: flex;
-    flex-direction: column;
 
     &__image-wrapper {
         position: relative;
@@ -38,18 +35,31 @@
     }
 
     &__title {
+        margin-top: 16px;
         @include utils.text-200-th-100;
+    }
+
+    &__date {
+        margin-top: 10px;
+        color: var(--base_400_50);
+        @include utils.text-500-lg-100-upper;
     }
 }
 
 @media only screen and (max-width: utils.$tablet1000) {
     .collection-card {
-        gap: 10px;
-
         &__image-wrapper {
             padding: 14px;
             min-height: 204px;
             border-radius: 2px;
+        }
+
+        &__title {
+            margin-top: 10px;
+        }
+
+        &__date {
+            margin-top: 12px;
         }
     }
 }

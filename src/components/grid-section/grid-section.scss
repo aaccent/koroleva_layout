@@ -1,6 +1,6 @@
 @use 'styles/utils';
 
-.collections {
+.grid-section {
     &__top {
         position: relative;
         margin-bottom: 56px;
@@ -14,6 +14,7 @@
             bottom: 0;
             left: 0;
             width: 100%;
+            /* @skip-scaling */
             height: 1px;
             opacity: 0.25;
             background-image: var(--dashed-line);
@@ -43,6 +44,7 @@
             position: absolute;
             bottom: 0;
             width: 100%;
+            /* @skip-scaling */
             height: 1px;
             background-color: var(--base_400_20);
         }
@@ -64,6 +66,7 @@
             bottom: 0;
             left: 0;
             width: 100%;
+            /* @skip-scaling */
             height: 1px;
             opacity: 0;
             background-color: var(--base_400);
@@ -108,18 +111,12 @@
             grid-row: span 2;
             display: flex;
             flex-direction: column;
-
-            .product-card__top {
-                height: 1px;
-                min-height: 490px;
-                flex-grow: 1;
-            }
         }
     }
 }
 
 @media only screen and (max-width: utils.$tablet1000) {
-    .collections {
+    .grid-section {
         &__top {
             margin-bottom: 32px;
             padding-bottom: 0;

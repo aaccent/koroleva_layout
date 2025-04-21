@@ -1,0 +1,37 @@
+extends layout/page
+
+block main
+    include ui/breadcrumbs/breadcrumbs
+    +breadcrumbs(['Коллекции'])
+    include components/grid-section/grid-section
+    -
+        var list = [
+            {
+                img: require('assets/content/collections/img-5.jpg'),
+                title: 'Как подобрать свой размер бюстгальтера?',
+                tag: 'нижнее белье',
+                date: '12 октября 2023',
+            },
+            {
+                img: require('assets/content/collections/img-6.jpg'),
+                title: 'Как подобрать свой размер бюстгальтера?',
+                tag: 'нижнее белье',
+                date: '12 октября 2023',
+            },
+            {
+                img: require('assets/content/collections/img-7.jpg'),
+                title: 'Как подобрать свой размер бюстгальтера?',
+                tag: 'нижнее белье',
+                date: '12 октября 2023',
+            },
+            {
+                img: require('assets/content/collections/img-8.jpg'),
+                title: 'Как подобрать свой размер бюстгальтера?',
+                tag: 'нижнее белье',
+                date: '12 октября 2023',
+            },
+        ]
+
+        var tags = ['Все статьи', 'Мода', 'Нижнее белье', 'Для дома']
+
+    +grid-section({ title: 'Блог', cardsList: list, tagList: tags })

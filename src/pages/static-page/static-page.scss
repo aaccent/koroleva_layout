@@ -1,0 +1,69 @@
+@use 'styles/utils';
+
+.static-page {
+    margin-top: 66px;
+
+    .container {
+        display: flex;
+    }
+
+    .content-toc {
+        padding: 0;
+        width: 240px;
+
+        &::after {
+            display: none;
+        }
+
+        &__title {
+            display: none;
+        }
+    }
+
+    &__content {
+        position: relative;
+        margin-left: 290px;
+        max-width: 767px;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -190px;
+            /* @skip-scaling */
+            width: 1px;
+            height: 100%;
+            opacity: 0.3;
+            background-image: var(--dashed-line-vertical);
+        }
+
+        ul li {
+            @include utils.text-300-th-100;
+        }
+
+        ol {
+            li {
+                @include utils.text-300-th-100;
+
+                &::before {
+                    translate: initial;
+                    margin-top: 0;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: utils.$tablet1000) {
+    .static-page {
+        margin-top: 48px;
+
+        .content-toc {
+            display: none;
+        }
+
+        &__content {
+            margin-left: 0;
+        }
+    }
+}
