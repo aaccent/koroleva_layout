@@ -1,0 +1,12 @@
+include layout/utils
+include parts
+include filter/filter
+include ui/selector/selector
+
++catalog-header({ textAmount: 'товаров' })
+button.scroll-top-button(type='button', data-action='scroll-top', data-show-on-scroll='')
+
+section.section.catalog: .container
+    +catalog-title({ amount: '223 товаров', title: 'Избранное', text: '' })
+    +filter({ textAmount: 'товаров', viewSwitcher: false })
+    +products(data-view='columns')

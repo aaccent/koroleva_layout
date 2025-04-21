@@ -1,6 +1,7 @@
 include layout/utils
 include parts
 include ui/selector/selector
+include filter/filter
 
 +catalog-header
 button.scroll-top-button(type='button', data-action='scroll-top', data-show-on-scroll='')
@@ -8,5 +9,5 @@ button.scroll-top-button(type='button', data-action='scroll-top', data-show-on-s
 section.section.catalog: .container
     +catalog-title
     +catalog-subcategories
-    include filter/filter
+    +filter
     +products(data-view='grid')
