@@ -51,8 +51,10 @@
 @use 'ui/video-block/video-block';
 @use 'ui/checkbox/rounded-checkbox';
 @use 'ui/breadcrumbs/breadcrumbs';
+@use 'ui/collection-card/collection-card';
 
 // Page
 @use 'layout/header/header';
 @use 'layout/footer/footer';
 @use 'pages/shops/shops';
+@use 'pages/collections/collections';

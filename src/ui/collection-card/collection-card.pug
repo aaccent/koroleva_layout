@@ -1,0 +1,15 @@
+include layout/utils
+
+mixin collection-card(props)
+    -
+        props = Object.assign({
+            img: '',
+            title: '',
+            tag: '',
+        }, props || {})
+
+    .collection-card&attributes(attributes)
+        .collection-card__image-wrapper
+            +img(props.img).collection-card__image
+            span.collection-card__tag= props.tag
+        .collection-card__title= props.title

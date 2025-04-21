@@ -80,6 +80,15 @@
     &--no-border {
         border-color: transparent;
     }
+
+    &--fit {
+        width: fit-content;
+    }
+
+    &--center {
+        margin-right: auto;
+        margin-left: auto;
+    }
 }
 
 @media only screen and (max-width: utils.$tablet1000) {
