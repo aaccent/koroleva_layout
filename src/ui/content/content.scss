@@ -6,8 +6,29 @@
     }
 
     h1 {
-        margin-bottom: 40px;
-        @include utils.header-200;
+        margin-bottom: 32px;
+        @include utils.header-100;
+    }
+
+    a[download] {
+        gap: 8px;
+        display: flex;
+        align-items: center;
+        @include utils.text-400-th-100-upper;
+
+        &::before {
+            content: '';
+            width: 24px;
+            height: 24px;
+            filter: var(--filter-base_400);
+            background-image: url('assets/icons/doc.svg');
+            @include utils.bg-defaults;
+        }
+
+        &:hover {
+            text-underline-offset: 6px;
+            text-decoration: underline;
+        }
     }
 
     h2,
@@ -60,14 +81,16 @@
     ol li {
         gap: 12px;
         display: flex;
-        align-items: center;
         counter-increment: ol;
 
         &::before {
             content: counter(ol);
-            aspect-ratio: 1;
+            translate: 0 -50%;
+            margin-top: 10px;
             width: 40px;
+            height: 40px;
             display: flex;
+            flex-shrink: 0;
             justify-content: center;
             align-items: center;
             border-radius: 50%;
@@ -81,8 +104,8 @@
 
         &::before {
             content: '';
-            aspect-ratio: 1;
             width: 12px;
+            height: 12px;
             flex-shrink: 0;
             background-image: url('assets/icons/star.svg');
             border-radius: 50%;
@@ -94,7 +117,7 @@
         @include utils.text-300-th-100;
 
         & + p {
-            margin-top: 20px;
+            margin-top: 24px;
         }
     }
 
@@ -180,6 +203,72 @@
             opacity: 1;
         }
     }
+
+    dl {
+        margin: 40px 0;
+        display: flex;
+        flex-direction: column;
+
+        dt {
+            gap: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            @include utils.text-200-lg-100;
+
+            &::after {
+                content: '';
+                aspect-ratio: 1;
+                width: 24px;
+                filter: var(--filter-base_400);
+                background-image: url('assets/icons/arrow-short-down.svg');
+                @include utils.bg-defaults;
+            }
+
+            &.active::after {
+                rotate: -180deg;
+            }
+
+            &.active + dd {
+                padding-top: 24px;
+                max-height: 100%;
+                @include utils.text-400-th-100;
+            }
+        }
+
+        dd {
+            position: relative;
+            margin-bottom: 24px;
+            padding-right: 27.5%;
+            padding-bottom: 24px;
+            width: 100%;
+            height: fit-content;
+            max-height: 0;
+            overflow: hidden;
+            font-size: 0;
+            opacity: 0.7;
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                /* @skip-scaling */
+                height: 1px;
+                background-image: var(--dashed-line);
+            }
+
+            & > * {
+                font-size: inherit;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
 }
 
 @media only screen and (max-width: utils.$tablet1000) {
@@ -190,6 +279,7 @@
         h5,
         h6 {
             margin: 60px 0 16px;
+            @include utils.header-200;
         }
 
         p {
@@ -201,9 +291,11 @@
         ol,
         ul {
             gap: 10px;
+            margin-top: 24px;
         }
 
         img {
+            margin-top: 24px;
             height: 200px;
         }
 
@@ -227,6 +319,7 @@
 
                 .swiper-pagination-bullet {
                     width: 24px;
+                    /* @skip-scaling */
                     height: 1px;
                     opacity: 0.5;
                     background-color: var(--white);
@@ -236,6 +329,20 @@
                         opacity: 1;
                     }
                 }
+            }
+        }
+
+        dl {
+            dt {
+                gap: 30%;
+
+                &.active + dd {
+                    padding-top: 16px;
+                }
+            }
+
+            dd {
+                padding-right: 0;
             }
         }
     }

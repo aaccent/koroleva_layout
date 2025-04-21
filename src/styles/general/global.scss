@@ -26,7 +26,7 @@ html {
 .section {
     margin: 160px 0;
 
-    &:first-of-type {
+    &:first-of-type:not(.article, .static-page) {
         margin-top: 35px;
     }
 
@@ -39,7 +39,7 @@ html {
     @include utils.header-200;
 }
 
-.breadcrumbs + .section {
+.breadcrumbs + .section:not(.article, .static-page) {
     margin-top: 0;
 }
 

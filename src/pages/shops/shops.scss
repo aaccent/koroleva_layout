@@ -45,6 +45,7 @@
     &__decor {
         margin-bottom: 56px;
         width: 100%;
+        /* @skip-scaling */
         height: 1px;
         background-image: var(--dashed-line);
     }

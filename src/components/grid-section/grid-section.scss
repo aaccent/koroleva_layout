@@ -14,6 +14,7 @@
             bottom: 0;
             left: 0;
             width: 100%;
+            /* @skip-scaling */
             height: 1px;
             opacity: 0.25;
             background-image: var(--dashed-line);
@@ -43,6 +44,7 @@
             position: absolute;
             bottom: 0;
             width: 100%;
+            /* @skip-scaling */
             height: 1px;
             background-color: var(--base_400_20);
         }
@@ -64,6 +66,7 @@
             bottom: 0;
             left: 0;
             width: 100%;
+            /* @skip-scaling */
             height: 1px;
             opacity: 0;
             background-color: var(--base_400);

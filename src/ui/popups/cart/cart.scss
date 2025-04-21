@@ -58,6 +58,7 @@
 
     &__list {
         width: 100%;
+        /* @skip-scaling */
         height: 1px;
         display: flex;
         flex-direction: column;
