@@ -1,6 +1,6 @@
 @use 'styles/utils';
 
-.collections {
+.grid-section {
     &__top {
         position: relative;
         margin-bottom: 56px;
@@ -108,18 +108,12 @@
             grid-row: span 2;
             display: flex;
             flex-direction: column;
-
-            .product-card__top {
-                height: 1px;
-                min-height: 490px;
-                flex-grow: 1;
-            }
         }
     }
 }
 
 @media only screen and (max-width: utils.$tablet1000) {
-    .collections {
+    .grid-section {
         &__top {
             margin-bottom: 32px;
             padding-bottom: 0;

@@ -53,8 +53,10 @@
 @use 'ui/breadcrumbs/breadcrumbs';
 @use 'ui/collection-card/collection-card';
 
+// Components
+@use 'components/grid-section/grid-section';
+
 // Page
 @use 'layout/header/header';
 @use 'layout/footer/footer';
 @use 'pages/shops/shops';
-@use 'pages/collections/collections';
