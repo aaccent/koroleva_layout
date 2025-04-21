@@ -2,10 +2,10 @@ import { ShopElement } from 'ui/popups/shops-popup/shops-popup'
 
 void (function () {
     const citySelector = document.querySelector('.shops__selector')
-
     const cities = document.querySelectorAll('.shops__selector-item')
-
     const activeCityValueElement = document.querySelector('.shops__selector-value')
+
+    if (!cities.length || !citySelector) return
 
     const initActiveCity = cities[0].textContent
     if (activeCityValueElement) activeCityValueElement.textContent = initActiveCity
