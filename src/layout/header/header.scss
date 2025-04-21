@@ -11,7 +11,7 @@ body:has(.main-hero) {
 
             .header__geo-button,
             .header__logo,
-            .header__buttons button,
+            .header__buttons > :where(button, span, a),
             .header__mobile-search-button,
             .header__mobile-burger {
                 filter: var(--filter-base_100);
@@ -185,7 +185,7 @@ body:has(.main-hero) {
                 margin-top: 30px;
                 display: flex;
 
-                button {
+                & > :where(button, span, a) {
                     padding: 14px;
                     width: 162px;
                     height: 100px;
