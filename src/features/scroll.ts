@@ -15,8 +15,8 @@ export function toggleScroll() {
  * Убирает класс `disable-scroll` с `body`
  * */
 export function enableScroll() {
-    document.documentElement.style.overflow = 'auto'
-    document.body.style.overflow = 'auto'
+    document.documentElement.style.overflow = ''
+    document.body.style.overflow = ''
     document.body.style.paddingRight = `0`
     html.classList.remove('disable-scroll')
 }

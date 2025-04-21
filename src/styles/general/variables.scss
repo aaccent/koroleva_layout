@@ -4,6 +4,16 @@
     --main-hero-thumb-size: 85px;
     --main-hero-thumb-circle-length: calc(2 * 3.14 * var(--main-hero-thumb-size));
     --header-height: 111px;
+
+    @media screen and (min-width: 1001px) {
+        &:has(.header._scrolled) {
+            --header-height: 64px;
+        }
+    }
+
+    @media screen and (max-width: 1000px) {
+        --header-height: 80px;
+    }
 }
 
 // Fonts
