@@ -25,6 +25,7 @@ declare global {
             /** Показывает уведомление добавления в корзину */
             showNotification(props: CartNotification)
         }
+        map: Promise<ymaps.Map> | null
     }
 }
 

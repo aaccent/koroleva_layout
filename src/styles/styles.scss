@@ -21,6 +21,7 @@
 @use 'ui/popups/cart/cart';
 @use 'ui/popups/set/set';
 @use 'ui/popups/loyalty-club/loyalty-club';
+@use 'ui/popups/shops-popup/shops-popup';
 
 // Ui
 @use 'ui/icon';
@@ -41,7 +42,9 @@
 @use 'ui/cards/article-card/article-card';
 @use 'ui/cards/sale-card/sale-card';
 @use 'ui/slider/slider';
+@use 'ui/breadcrumbs/breadcrumbs';
 
 // Page
 @use 'layout/header/header';
 @use 'layout/footer/footer';
+@use 'pages/shops/shops';
