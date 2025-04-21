@@ -27,7 +27,7 @@ body:has(.main-hero) {
     color: var(--base_400);
     @include utils.text-300-lg-100;
     background-color: var(--base_200);
-    border-bottom: 1px solid hsl(7, 15%, 34%, 0.2);
+    border-bottom: 1px solid var(--base_400_20);
 
     &__mobile {
         &-burger,
