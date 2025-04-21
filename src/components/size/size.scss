@@ -45,8 +45,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        @include utils.text-100;
-        text-transform: uppercase;
+        @include utils.text-400-th-100-upper;
         border-radius: 100%;
         border: 1px solid hsla(7, 15%, 34%, 0.35);
     }

@@ -24,7 +24,7 @@
         width: 100%;
         max-width: 306px;
         display: none;
-        font: var(--text_200);
+        @include utils.text-200-th-100;
     }
 
     &__header {
@@ -38,21 +38,17 @@
             display: flex;
             flex-direction: row-reverse;
             align-items: center;
-            font: var(--text_400);
-            letter-spacing: 0.02rem;
-            text-transform: uppercase;
+            @include utils.text-400-th-100-upper;
             opacity: 0.7;
         }
     }
 
     &__title {
-        font: var(--header_300);
-        letter-spacing: 0.02rem;
-        text-transform: uppercase;
+        @include utils.header-300;
 
         span {
             translate: 100% -100%;
-            font: var(--text_300);
+            @include utils.text-300-th-100;
             vertical-align: text-top;
         }
     }
@@ -83,7 +79,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font: var(--text_400);
+            @include utils.text-400-th-100;
 
             span {
                 opacity: 0.7;
@@ -114,11 +110,8 @@
 
     &__price {
         margin-bottom: 16px;
-        font-family: var(--geologica);
-        font-size: 2rem;
-        letter-spacing: 0.02rem;
-        line-height: 120%;
-        text-transform: uppercase;
+        @include utils.text-200-th-100-upper;
+        font-weight: 200;
 
         span {
             opacity: 1;
@@ -134,15 +127,13 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-family: var(--geologica);
-            font-size: 1.6rem;
-            line-height: 125%;
+            @include utils.text-300-th-100;
             text-transform: uppercase;
             border-bottom: 1px solid hsl(7, 15%, 34%, 0.25);
 
             input::placeholder {
-                line-height: 125%;
-                text-transform: uppercase;
+                line-height: inherit;
+                text-transform: inherit;
             }
         }
     }
@@ -224,7 +215,7 @@
         }
 
         &__title {
-            font: var(--header_200);
+            @include utils.header-200;
 
             span {
                 font-size: 1.4rem;

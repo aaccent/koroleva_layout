@@ -3,13 +3,11 @@
 .set {
     &__title {
         margin-bottom: 32px;
-        font: var(--header_300);
-        letter-spacing: 0.02rem;
-        text-transform: uppercase;
+        @include utils.header-300;
 
         span {
             margin-left: 4px;
-            font: var(--text_300);
+            @include utils.text-300-th-100;
             vertical-align: text-top;
         }
     }
@@ -43,7 +41,7 @@
             min-height: 90svh;
         }
         &__title {
-            font: var(--header_200);
+            @include utils.header-200;
         }
 
         &__bottom {

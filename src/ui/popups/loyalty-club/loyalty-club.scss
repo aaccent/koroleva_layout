@@ -8,9 +8,7 @@
 
     &__title {
         margin-bottom: 32px;
-        font: var(--header_300);
-        letter-spacing: 0.02rem;
-        text-transform: uppercase;
+        @include utils.header-300;
     }
 
     &__image {
@@ -24,7 +22,7 @@
 
     &__content {
         p {
-            font: var(--text_300);
+            @include utils.text-300-th-100;
 
             & + p {
                 margin-top: 10px;
@@ -54,7 +52,7 @@
         margin-top: auto;
         padding: 10px 13.5px;
         width: fit-content;
-        font: var(--text-lg_500);
+        @include utils.text-500-lg-100;
 
         &::after {
             content: none;
@@ -66,7 +64,7 @@
     .loyalty-club {
         &__title {
             margin-bottom: 24px;
-            font: var(--header_200);
+            @include utils.header-200;
         }
 
         &__image {
@@ -91,7 +89,7 @@
         &__button.button {
             padding: 18px 32px 16px;
             width: 100%;
-            font: var(--text_200);
+            @include utils.text-200-th-100;
 
             &::after {
                 content: '';
