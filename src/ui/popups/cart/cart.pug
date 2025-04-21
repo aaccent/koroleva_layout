@@ -4,26 +4,26 @@ include ui/slider/slider
 include ui/product-item/product-item
 
 +popup('cart', 'cart')
-    .cart__header
-        .cart__title Корзина
+    .cart-popup__header
+        .cart-popup__title Корзина
             span 2
-        button.cart__header-link(data-action='popup', data-popup='loyalty-club') клуб лояльности
+        button.cart-popup__header-link(data-action='popup', data-popup='loyalty-club') клуб лояльности
             .icon.icon--loyalty-star
-    .cart__list
+    .cart-popup__list
     +product-item({container: 'cart', discountPrice: 6000, price: 5000})
     +product-item({ id: 2, image: require('assets/static/gift-card-in-cart.png'), title: 'подарочная карта', size: 'Номинал: 5000 ₽', amount: 1, price: 5000, container: 'cart' })
-    .cart__info
-        .cart__price.cart__info-item(data-info='price') Итого:
+    .cart-popup__info
+        .cart-popup__price.cart-popup__info-item(data-info='price') Итого:
             span 8600 ₽
-        .cart__delivery.cart__info-item(data-info='delivery') Доставка:
+        .cart-popup__delivery.cart-popup__info-item(data-info='delivery') Доставка:
             span Рассчитывается при оформлении
-        .cart__discount.cart__info-item(data-info='discount') Cкидка:
+        .cart-popup__discount.cart-popup__info-item(data-info='discount') Cкидка:
             span -5000 ₽
-        form.cart__promo(novalidate, data-handler='path.php')
-            label.cart__promo-input
+        form.cart-popup__promo(novalidate, data-handler='path.php')
+            label.cart-popup__promo-input
                 input(type='text', name='pomocode', placeholder='Введите промокод', required)
                 button.icon.icon--arrow-short-right(type='submit')
-        .cart__button.button Перейти к оформлению
-    .cart__empty-message В данный момент в корзине ничего нет!
+        .cart-popup__button.button Перейти к оформлению
+    .cart-popup__empty-message В данный момент в корзине ничего нет!
     +slider({title: 'недавно смотрели', cards: 'product-card'})
 include ui/popups/loyalty-club/loyalty-club

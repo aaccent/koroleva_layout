@@ -31,8 +31,8 @@ export interface CartInfo {
 
 function stickyCardInfo() {
     const PADDING = 48
-    const cartList = document.querySelector<HTMLElement>('.cart__list')
-    const cartInfo = document.querySelector<HTMLElement>('.cart__info')
+    const cartList = document.querySelector<HTMLElement>('.cart-popup__list')
+    const cartInfo = document.querySelector<HTMLElement>('.cart-popup__info')
     if (!cartInfo || !cartList) return
 
     if (cartList.childElementCount <= 2) {
@@ -42,7 +42,7 @@ function stickyCardInfo() {
     }
 
     cartInfo.classList.add('_sticky')
-    const cartHeader = document.querySelector<HTMLElement>('.cart__header')
+    const cartHeader = document.querySelector<HTMLElement>('.cart-popup__header')
     const cartInfoTop = cartInfo.getBoundingClientRect().top
     const cartHeaderBottom = cartHeader?.getBoundingClientRect().bottom || 0
     const cartListHeight = cartInfoTop - cartHeaderBottom - PADDING
@@ -54,10 +54,10 @@ function init() {
     const cartPopup = document.querySelector('.cart-popup')
     if (!cartPopup) return
 
-    const cartButton = document.querySelector('.cart__button') as HTMLElement
+    const cartButton = document.querySelector('.cart-popup__button') as HTMLElement
     cartButton.textContent = isMobile ? 'к оформлению' : 'Перейти к оформлению'
 
-    const cartList = document.querySelector('.cart__list')
+    const cartList = document.querySelector('.cart-popup__list')
 
     if (!cartList) return
 
