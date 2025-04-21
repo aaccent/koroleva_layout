@@ -1,0 +1,45 @@
+@use 'styles/utils';
+
+.chose-size-popup {
+    &__inner {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .popup__title {
+        margin-bottom: 48px;
+    }
+
+    &__form {
+        height: 1px;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+
+    &__list {
+        margin-bottom: 16px;
+    }
+
+    &__body-title {
+        margin-bottom: 24px;
+        @include utils.text-200-lg-100;
+        @include utils.only-desktop;
+    }
+
+    .size-table-button {
+        margin-bottom: 32px;
+    }
+
+    &__button {
+        margin-top: auto;
+    }
+}
+
+@media only screen and (max-width: utils.$tablet1000) {
+    .chose-size-popup {
+        .popup__title {
+            margin-bottom: 30px;
+        }
+    }
+}

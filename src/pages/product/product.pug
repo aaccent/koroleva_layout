@@ -1,0 +1,21 @@
+extends layout/page
+
+block append head
+    link(href=require('./product.scss'), rel='stylesheet')
+
+block main
+    include ui/breadcrumbs/breadcrumbs
+    +breadcrumbs(['Нижнее белье', 'Корсеты', 'Корсет panama'])
+    include components/product-hero/product-hero
+    include ui/slider/slider
+    +slider({title: 'Похожие товары', cards: 'product-card', tag: 'new'})
+    +slider({title: 'Дополните образ', cards: 'product-card', tag: 'sale'})
+
+block popups
+    include ui/popups/chose-size/chose-size
+    include ui/popups/chose-color/chose-color
+    include ui/popups/images/images
+    include ui/popups/set/set
+
+block append scripts
+    script(src=require('./product.ts'))

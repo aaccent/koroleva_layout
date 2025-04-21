@@ -5,9 +5,6 @@
         margin-bottom: 32px;
     }
 
-    &__swiper {
-    }
-
     &__navigation {
         gap: 8px;
         position: absolute;
@@ -35,19 +32,14 @@
 
 @media only screen and (max-width: 1000px) {
     .slider {
-        .container {
-            padding-right: 0;
-        }
         &__title {
             margin-bottom: 24px;
         }
         &__navigation {
             display: none;
         }
-
         &__swiper {
-            top: 0;
-            padding-top: 0;
+            overflow: visible;
         }
     }
 }

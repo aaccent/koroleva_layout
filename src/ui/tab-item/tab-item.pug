@@ -1,11 +1,14 @@
 include layout/utils
 
-mixin tab-item(title, mobileOverlay)
+mixin tab-item(title, mobileOverlay, icon)
     - mobileOverlay = typeof mobileOverlay === 'undefined' ? true : mobileOverlay
 
     div(class={ 'tab-item': true, 'tab-item--plain': !mobileOverlay })
         button.tab-item__title-wrapper(type='button', data-action='tab-action')
-            .tab-item__title= title
+            .tab-item__title
+                if icon
+                    span(class={ icon: true, [icon]: true })
+                | #{ title }
             .icon.icon--arrow-short-bottom
         .tab-item__body-wrapper
             if mobileOverlay

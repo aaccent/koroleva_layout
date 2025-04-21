@@ -59,8 +59,8 @@ mixin slider(props)
 
         ]
     +section.slider(class=props.className)
+        h2.slider__title.section-title= props.title
         .swiper.slider__swiper
-            h2.slider__title.section-title= props.title
             .swiper-wrapper
                 if props.cards === 'product-card'
                     each item in Array(10)

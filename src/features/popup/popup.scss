@@ -74,6 +74,7 @@
     .close-btn {
         position: static;
         margin-left: auto;
+        flex-shrink: 0;
     }
 }
 

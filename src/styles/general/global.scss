@@ -62,8 +62,8 @@ html {
 body {
     overflow-x: clip;
     color: var(--base_400);
-    @include utils.text-300-th-100;
     background-color: var(--base_200);
+    @include utils.text-300-th-100;
 }
 
 html.disable-scroll {

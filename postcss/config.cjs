@@ -43,6 +43,7 @@ const longHandProps = [
     '--main-hero-thumb-circle-length',
     '--header-height',
     '--padding',
+    '--offset',
 ]
 
 const targetProps = [...shorthandProps, ...longHandProps, 'font', 'font-size']

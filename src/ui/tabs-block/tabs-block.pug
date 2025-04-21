@@ -1,0 +1,21 @@
+include layout/utils
+
+mixin tabs-block(props)
+    .tabs-block
+        .tabs-block__list
+        .tabs-block__body
+            block
+
+mixin tabs-block-item(props)
+    -
+        props = Object.assign({ 
+            title: 'test',
+            mobileTitle: ''
+        }, props || {})
+
+    .tabs-block__item
+        if props.mobileTitle
+            button.tabs-block__item-title(data-mobile-text=props.mobileTitle)= props.title
+        else
+            button.tabs-block__item-title= props.title
+        .tabs-block__item-body: block
