@@ -1,17 +1,14 @@
 @use 'styles/utils';
 
 .authorization-popup {
-    opacity: 1;
-    visibility: visible;
-
     &__inner {
         display: flex;
         flex-direction: column;
     }
 
     &__tel {
-        &-input {
-            margin-top: 37px;
+        .input {
+            margin: 37px 0 32px;
         }
 
         &-value {
@@ -104,13 +101,9 @@
     }
 
     &__body {
-        position: absolute;
-        width: 100%;
         height: 100%;
-        display: flex;
+        display: none;
         flex-direction: column;
-        opacity: 0;
-        visibility: visible;
 
         &-wrapper {
             position: relative;
@@ -145,9 +138,7 @@
         }
 
         &._active {
-            z-index: 1;
-            opacity: 1;
-            visibility: visible;
+            display: flex;
         }
     }
 }
@@ -155,7 +146,11 @@
 @media only screen and (max-width: 1000px) {
     .authorization-popup {
         &__inner {
-            min-height: 90svh;
+            height: 100%;
+        }
+
+        &:has(&__tel._active) &__inner {
+            height: fit-content;
         }
 
         &__body {

@@ -6,16 +6,11 @@ include features/popup/popup
     .authorization-popup__body-wrapper
         form.authorization-popup__body.authorization-popup__tel(novalidate, data-handler='path.php')
             .authorization-popup__body-text!= 'Мы отправим на номер SMS-сообщение <br>с кодом подтверждения'
-            +input.authorization-popup__tel-input(
-                placeholder='Номер телефона*',
-                name='tel',
-                type='tel',
-                required
-            )
+            +input(placeholder='Номер телефона*', name='tel', type='tel', required)
             button.authorization-popup__body-button.button--arrow.button(type='submit') Получить код
             .authorization-popup__body-privacy Нажимая на кнопку, вы подтверждаете свое согласие с публичной офертой и политикой конфиденциальности
         form.authorization-popup__body.authorization-popup__code(novalidate, data-handler='path.php')
-            .authorization-popup__body-text Код отправлен на номер
+            .authorization-popup__body-text Код отправлен на номер#{ ' ' }
                 span.authorization-popup__tel-value +7 (232) 212-32-32
             button.authorization-popup__tel-change(type='button') изменить номер
             .authorization-popup__code-inputs
