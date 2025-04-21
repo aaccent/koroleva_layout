@@ -37,7 +37,9 @@
 @use 'ui/cards/article-card/article-card';
 @use 'ui/cards/sale-card/sale-card';
 @use 'ui/slider/slider';
+@use 'ui/breadcrumbs/breadcrumbs';
 
 // Page
 @use 'layout/header/header';
 @use 'layout/footer/footer';
+@use 'pages/brands/brands';

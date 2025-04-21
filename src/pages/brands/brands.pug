@@ -1,0 +1,150 @@
+extends layout/page
+include layout/utils
+
+block append main
+    -
+        var brands = [
+        {
+            title: '0-9',
+            list: ['7Eleven', '3M', '1C', '4F', '2GIS', '5Gum']
+        },
+        {
+            title: 'A',
+            list: ['Apple', 'Adidas', 'Amazon', 'Audi', 'Asus', 'Airbnb']
+        },
+        {
+            title: 'B',
+            list: ['BMW', 'Burberry', 'Baidu', 'Bosh', 'Budweiser']
+        },
+        {
+            title: 'C',
+            list: ['Chanel', 'CocaCola', 'Canon', 'Colgate', 'Cartier', 'Citroen']
+        },
+        {
+            title: 'D',
+            list: ['Dior', 'Dell', 'Disney', 'DHL']
+        },
+        {
+            title: 'E',
+            list: ['Epson', 'Electrolux', 'Ericsson']
+        },
+        {
+            title: 'F',
+            list: ['Facebook', 'Ferrari', 'Ford', 'Fila', 'FedEx']
+        },
+        {
+            title: 'G',
+            list: ['Google', 'Gucci', 'Gillette', 'General Electric', 'Garmin']
+        },
+        {
+            title: 'H',
+            list: ['Honda', 'H&M', 'Huawei', 'Hyundai', 'Heineken']
+        },
+        {
+            title: 'I',
+            list: ['Intel', 'IKEA', 'IBM']
+        },
+        {
+            title: 'J',
+            list: ['JBL', 'Johnson & Johnson', 'Jaguar']
+        },
+        {
+            title: 'K',
+            list: ['KFC', 'Kia', 'Kodak', 'Kelloggs']
+        },
+        {
+            title: 'L',
+            list: ['LouisVuitton', 'LG', 'Lamborghini', 'Lenovo', 'LinkedIn']
+        },
+        {
+            title: 'M',
+            list: ['Microsoft', 'McDonalds', 'Mercedes', 'Mastercard', 'Motorola', 'MTV']
+        },
+        {
+            title: 'N',
+            list: ['Nike', 'Nestle', 'Nikon', 'Netflix', 'Nokia']
+        },
+        {
+            title: 'O',
+            list: ['Oracle', 'Opel', 'Oppo']
+        },
+        {
+            title: 'P',
+            list: ['Pepsi', 'Porsche', 'PayPal', 'Puma', 'Panasonic', 'Prada']
+        },
+        {
+            title: 'Q',
+            list: ['Qualcomm', 'Quiksilver', 'Qatar Airways']
+        },
+        {
+            title: 'R',
+            list: ['Rolex', 'Reebok', 'RedBull', 'Renault', 'Ralph Lauren']
+        },
+        {
+            title: 'S',
+            list: ['Samsung', 'Sony', 'Starbucks', 'Spotify', 'Subaru', 'Siemens']
+        },
+        {
+            title: 'T',
+            list: ['Tesla', 'Toyota', 'Twitter', 'TikTok', 'Toshiba', 'Tiffany']
+        },
+        {
+            title: 'U',
+            list: ['Uber', 'Unilever', 'UnderArmour', 'UPS']
+        },
+        {
+            title: 'V',
+            list: ['Volkswagen', 'Visa', 'Versace', 'Vans']
+        },
+        {
+            title: 'W',
+            list: ['Walmart', 'WhatsApp', 'Western Digital']
+        },
+        {
+            title: 'X',
+            list: ['Xiaomi', 'Xerox', 'Xbox']
+        },
+        {
+            title: 'Y',
+            list: ['YouTube', 'Yahoo', 'Yamaha']
+        },
+        {
+            title: 'Z',
+            list: ['Zara', 'Zara Home', 'Ziploc']
+        },
+        {
+            title: 'А-Я',
+            list: ['Яндекс', 'Сбербанк', 'МТС', 'Билайн', 'Лукойл', 'Газпром', 'Аэрофлот']
+        }]
+
+    include ui/breadcrumbs/breadcrumbs
+    +breadcrumbs(['Бренды'])
+    +section.brands
+        .page-title.brands__title Бренды
+        .brands__tab-list
+            include ui/tab-item/tab-item
+            +tab-item--not-interactive
+                .brands__tab-item Все бренды
+            +tab-item--not-interactive
+                .brands__tab-item Избранные
+                .counter 2
+            +tab-item--not-interactive
+                .brands__tab-item Премиум
+            +tab-item--not-interactive
+                .brands__tab-item Спорт
+            .brands__tab-list-line
+        .brands__starts-with-list
+            each start in brands
+                span(data-block=start.title)= start.title
+        .brands__decor
+        .brands__body
+            .brands__search
+                input(type='text', name='brand', placeholder='Найти бренд')
+                .icon.icon--search
+            .brands__block
+                each block in brands
+                    .brands__block-title= block.title
+                    .brands__block-list
+                        each item in block.list
+                            .brands__item= item
+                                .icon.icon--heart

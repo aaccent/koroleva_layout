@@ -1,0 +1,286 @@
+@use 'styles/utils';
+
+.brands {
+    .tab-item {
+        cursor: pointer;
+        opacity: 0.5;
+
+        &._active {
+            opacity: 1;
+        }
+
+        &__body {
+            padding: 0;
+
+            &:has(.counter) {
+                gap: 8px;
+                display: flex;
+                align-items: center;
+            }
+
+            .counter {
+                width: 21px;
+                height: 21px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                @include utils.text-500-lg-100;
+                color: var(--base_100);
+                background-color: var(--base_300);
+                border-radius: 100%;
+            }
+        }
+
+        &__line {
+            display: none;
+        }
+    }
+
+    &__tab-list {
+        gap: 24px;
+        position: relative;
+        margin: 16px auto 0;
+        padding-bottom: 15px;
+        width: fit-content;
+        display: flex;
+        justify-content: center;
+        border-bottom: 1px solid hsl(7, 15%, 34%, 50%);
+
+        &-line {
+            position: absolute;
+            bottom: 0;
+            width: 0;
+            height: 1px;
+            background-color: var(--base_400);
+            transition: left 300ms linear;
+        }
+    }
+
+    &__starts-with-list {
+        gap: 13px;
+        margin-top: 38px;
+        display: flex;
+        justify-content: center;
+        @include utils.text-200-lg-100;
+
+        span {
+            padding-bottom: 4px;
+            cursor: pointer;
+            border-bottom: 1px solid transparent;
+
+            @include utils.hover {
+                border-color: var(--base_400);
+            }
+        }
+
+        &._sticky {
+            position: fixed;
+            z-index: 101;
+            top: 0;
+            left: 0;
+            margin-top: 0;
+            padding: 20px 0;
+            width: 100%;
+            background-color: var(--base_200);
+            border-bottom: 1px solid hsla(7, 15%, 34%, 0.25);
+        }
+    }
+
+    &__decor {
+        margin-top: 36px;
+        width: 100%;
+        height: 1px;
+        background-image: var(--dashed-line);
+    }
+
+    &__body {
+        gap: 129px;
+        margin-top: 64px;
+        display: flex;
+        align-items: start;
+    }
+
+    &__search {
+        gap: 8px;
+        padding: 30.5px 28px;
+        width: 100%;
+        max-width: 637px;
+        display: flex;
+        border-radius: 50px;
+        border: 1px solid var(--base_400_30);
+
+        input {
+            font-family: var(--geologica);
+            font-size: 1.6rem;
+            letter-spacing: 0.01rem;
+            line-height: 120%;
+
+            &::placeholder {
+                text-transform: uppercase;
+                opacity: 0.5;
+            }
+        }
+
+        &._sticky {
+            position: sticky;
+            top: 124px;
+        }
+    }
+    &__block {
+        display: flex;
+        flex-direction: column;
+
+        &-title {
+            @include utils.header-300;
+            margin-top: 56px;
+            margin-bottom: 40px;
+            margin-left: 26px;
+
+            &:first-of-type {
+                margin-top: 0;
+            }
+        }
+
+        &-list {
+            grid-template-columns: repeat(4, 1fr);
+            column-gap: 90px;
+            display: grid;
+        }
+    }
+
+    &__item {
+        @include utils.text-300-th-100;
+        gap: 10px;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: start;
+        align-items: center;
+        cursor: pointer;
+
+        .icon {
+            width: 16px;
+            height: 14px;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        @include utils.only-hover {
+            .icon {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+
+        &._favorite {
+            .icon {
+                opacity: 1;
+                visibility: visible;
+                filter: var(--filter-base_400);
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .brands {
+        margin-bottom: 0;
+        &__tab-list {
+            margin-top: 12px;
+            padding-bottom: 12px;
+
+            .tab-item__body .counter {
+                @include utils.text-400-lg-100;
+            }
+        }
+
+        &__decor {
+            display: none;
+        }
+
+        &__starts-with-list {
+            gap: 2px;
+            position: sticky;
+            top: 119px;
+            margin: 0;
+            width: fit-content;
+            flex-direction: column;
+            justify-content: start;
+
+            span {
+                padding-bottom: 0;
+                font-size: 1rem;
+                letter-spacing: 0.02rem;
+                border-bottom: none;
+            }
+        }
+
+        &__search {
+            position: sticky;
+            bottom: 0;
+            left: 0;
+            padding: 28px;
+            background-color: var(--base_200);
+            border-radius: 0;
+            border: none;
+            border-top: 1px solid var(--base_400_20);
+
+            input {
+                padding: 21.5px 28px;
+                border-radius: 50px;
+                border: 1px solid var(--base_400_30);
+
+                &::placeholder {
+                    @include utils.text-300-lg-100-upper;
+                }
+            }
+
+            .icon {
+                --size: 20px;
+                position: absolute;
+                top: 50%;
+                right: 56px;
+                translate: 0 -50%;
+            }
+        }
+
+        &__body {
+            position: relative;
+            left: -28px;
+            margin-top: 32px;
+            padding: 28px;
+            width: 100svw;
+            height: 100svh;
+            display: flex;
+            justify-content: space-between;
+            overflow: auto;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+
+        &__block {
+            &-title {
+                margin: 24px 0 20px;
+                @include utils.header-200;
+
+                &:first-of-type {
+                    margin-top: 0;
+                }
+            }
+
+            &-list {
+                gap: 14px;
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        &__item {
+            .icon {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+}
