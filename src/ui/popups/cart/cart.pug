@@ -10,16 +10,15 @@ include ui/product-item/product-item
         button.cart__header-link(data-action='popup', data-popup='loyalty-club') клуб лояльности
             .icon.icon--loyalty-star
     .cart__list
-    <!-- разметка для товара в корзине. Не удалять -->
-    +product-item({container: 'cart'})._layout
-    <!-- конец -->
+    +product-item({container: 'cart', discountPrice: 6000, price: 5000})
+    +product-item({ id: 2, image: require('assets/static/gift-card-in-cart.png'), title: 'подарочная карта', size: 'Номинал: 5000 ₽', amount: 1, price: 5000, container: 'cart' })
     .cart__info
         .cart__price.cart__info-item(data-info='price') Итого:
-            span
+            span 8600 ₽
         .cart__delivery.cart__info-item(data-info='delivery') Доставка:
-            span
+            span Рассчитывается при оформлении
         .cart__discount.cart__info-item(data-info='discount') Cкидка:
-            span
+            span -5000 ₽
         form.cart__promo(novalidate, data-handler='path.php')
             label.cart__promo-input
                 input(type='text', name='pomocode', placeholder='Введите промокод', required)

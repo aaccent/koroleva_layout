@@ -1,23 +1,23 @@
 @use 'styles/utils';
 
 .cart {
+    &._empty {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        .cart__list,
+        .cart__info {
+            display: none;
+        }
+
+        .slider,
+        .cart__empty-message {
+            display: block;
+        }
+    }
+
     &__inner {
         position: relative;
-
-        &._empty {
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            .cart__list,
-            .cart__info {
-                display: none;
-            }
-
-            .slider,
-            .cart__empty-message {
-                display: block;
-            }
-        }
     }
 
     &__empty-message {
