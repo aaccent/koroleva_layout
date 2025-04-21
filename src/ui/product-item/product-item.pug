@@ -13,6 +13,8 @@ mixin product-item(props)
             container: 'cart'
         }, props || {})
 
+    //
+        Добавь класс `_out-of-stock` если нет в наличии
     .product-item&attributes(attributes)
         +img(props.image).product-item__image(data-item='image')
         .product-item__main-info

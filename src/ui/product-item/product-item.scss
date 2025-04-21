@@ -164,7 +164,8 @@
 
 @media only screen and (max-width: 1000px) {
     .product-item {
-        padding-bottom: 16px;
+        padding: 16px 0;
+
         &__image {
             margin-right: 16px;
             width: 76px;
