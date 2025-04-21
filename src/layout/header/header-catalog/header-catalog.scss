@@ -10,7 +10,7 @@
     opacity: 0;
     visibility: hidden;
     background-color: var(--base_200);
-    border-top: 1px solid hsl(7, 15%, 34%, 0.2);
+    border-top: 1px solid var(--base_400_20);
 
     &:has(.header-catalog__item:hover) {
         .header-catalog__offers {
