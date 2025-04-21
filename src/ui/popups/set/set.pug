@@ -37,10 +37,10 @@ include features/popup/popup
     ]
 
 +popup('set', 'set')
-    .set__title Комплект
+    .set-popup__title Комплект
         span 5
-    .set__list
+    .set-popup__list
         each item in set
             +product-item({...item, container: 'set'})
-    .set__bottom
-        .set__button.button Посмотреть каталог
+    .set-popup__bottom
+        .set-popup__button.button Посмотреть каталог

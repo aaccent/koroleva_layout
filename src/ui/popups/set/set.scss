@@ -1,6 +1,6 @@
 @use 'styles/utils';
 
-.set {
+.set-popup {
     &__title {
         margin-bottom: 32px;
         @include utils.header-300;
@@ -35,7 +35,7 @@
 }
 
 @media only screen and (max-width: 1000px) {
-    .set {
+    .set-popup {
         &__inner {
             height: 90svh;
             min-height: 90svh;
