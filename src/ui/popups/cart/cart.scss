@@ -100,7 +100,7 @@
     }
 
     &__list:has(.product-item:nth-child(3)) ~ &__info {
-        border-top: 1px solid hsla(7, 15%, 34%, 0.2);
+        border-top: 1px solid var(--base_400_20);
 
         .cart-popup__info-item:is(:not(.cart-popup__price)) {
             display: none;
@@ -232,7 +232,7 @@
         &__info {
             margin: 0 -28px;
             padding: 24px 28px 0;
-            border-top: 1px solid hsla(7, 15%, 34%, 0.2);
+            border-top: 1px solid var(--base_400_20);
 
             .cart-popup__info-item:is(:not(.cart-popup__price)) {
                 display: none;

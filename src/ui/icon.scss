@@ -64,6 +64,15 @@
     &--notification {
         background-image: url('assets/icons/notification.svg');
     }
+    &--bra {
+        background-image: url('assets/icons/bra.svg');
+    }
+    &--panties {
+        background-image: url('assets/icons/panties.svg');
+    }
+    &--lingerie {
+        background-image: url('assets/icons/lingerie.svg');
+    }
 }
 
 @media only screen and (max-width: utils.$tablet1000) {

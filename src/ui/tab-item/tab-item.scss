@@ -50,7 +50,7 @@
     &__title-wrapper {
         padding-bottom: 24px;
 
-        .icon {
+        & > .icon {
             rotate: -180deg;
         }
     }

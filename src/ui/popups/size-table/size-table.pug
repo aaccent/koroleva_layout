@@ -1,0 +1,83 @@
+include features/popup/popup
+include ui/tabs-block/tabs-block
+include ui/tab-item/tab-item
+include ui/table/table
+include ui/video-block/video-block
+
+-
+    var list = [
+        { title: 'Нижнее белье', },
+        { title: 'Домашнее', },
+        { title: 'Купальники', },
+        { title: 'Спорт', },
+    ]
+
+    var table1Rows = [
+        { th: '70', cells: ['82-84'] },
+        { th: '75', cells: ['82-84'] },
+        { th: '80', cells: ['82-84'] },
+        { th: '85', cells: ['82-84'] },
+        { th: '90', cells: ['82-84'] },
+    ]
+
+    var table2bodyList = ['82-84', '87-89', '92-94', '97-99', '102-104', '107-109']
+
+    var table2Rows = [
+        { th: 'А', cells: table2bodyList },
+        { th: 'B', cells: table2bodyList },
+        { th: 'C', cells: table2bodyList },
+        { th: 'D', cells: table2bodyList },
+        { th: 'E', cells: table2bodyList },
+    ]
+
+    var table3Header = [
+        'Размер',
+        'Обхват груди, см',
+        'Обхват талии, см',
+        'Обхват бедер, см',
+    ]
+
+    var table3bodyList = ['82-84', '87-89', '92-94']
+
+    var table3Rows = [
+        { th: 'XS', cells: table3bodyList },
+        { th: 'S', cells: table3bodyList },
+        { th: 'M', cells: table3bodyList },
+        { th: 'L', cells: table3bodyList },
+        { th: 'XL', cells: table3bodyList },
+        { th: 'XXL', cells: table3bodyList },
+    ]
+
+    var imagesList = [
+        { title: 'Обхват груди', img: require('assets/static/sizes/sizes-1.svg') },
+        { title: 'Обхват талии', img: require('assets/static/sizes/sizes-2.svg') },
+        { title: 'Обхват бедер', img: require('assets/static/sizes/sizes-3.svg') },
+    ]
+
++popup('size-table')
+    .popup__title Таблица размеров
+    +tabs-block
+        each tab in list
+            +tabs-block-item(tab)
+                +tab-item('Бюстгальтеры', false, 'icon--bra')
+                    .size-table-popup__body-title размер/обхват под грудью (см)
+                    +table({ rows: table1Rows })
+                    .size-table-popup__body-title Чашечка/обхват груди (см)
+                    +table({ rows: table2Rows })
+                    +video-block
+                    .size-table-popup__body-title Нюансы при выборе производителя
+                    .size-table-popup__body-content.content
+                        p Сантиметровая лента должна плотно прилегать к телу, но не перетягивать его. Измерьте обхват груди по наиболее выступающим точкам, пропустив ленту под подмышечными впадинами.
+                        p Обхват талии измеряется по самой узкой части тела, проходя через самую выступающую точку живота. Измерьте обхват бедер по наиболее выступающим точкам ягодиц.
+                +tab-item('Трусики', false, 'icon--panties')
+                +tab-item('Боди', false, 'icon--lingerie')
+                    +table({ thead: table3Header, rows: table3Rows })
+                    .size-table-popup__body-title Как определить размер?
+                    .size-table-popup__size-images
+                        each item in imagesList
+                            .size-table-popup__size-images-item
+                                +img(item.img).size-table-popup__size-images-item-img
+                                .size-table-popup__size-images-item-title= item.title
+                    .size-table-popup__body-content.content
+                        p Сантиметровая лента должна плотно прилегать к телу, но не перетягивать его. Измерьте обхват груди по наиболее выступающим точкам, пропустив ленту под подмышечными впадинами.
+                        p Обхват талии измеряется по самой узкой части тела, проходя через самую выступающую точку живота. Измерьте обхват бедер по наиболее выступающим точкам ягодиц.

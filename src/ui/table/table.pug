@@ -1,0 +1,26 @@
+include layout/utils
+
+mixin table(props)
+    -
+        props = Object.assign({
+            thead: [],
+            rows: [
+                {
+                    th: '',
+                    cells: []
+                }
+            ]
+        }, props || {})
+
+    .table-wrapper: table.table
+        if props.thead.length
+            thead
+                each th in props.thead
+                    th(scope='col')= th
+        tbody
+            each row in props.rows
+                tr
+                    if row.th
+                        th(scope='row')= row.th
+                    each cell in row.cells
+                        td= cell

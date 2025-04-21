@@ -12,8 +12,8 @@ include layout/utils
                 button.size-table__tab-title(type='button') чашка #{ size }
                 .size-table__tab-body.checkbox-list--size
                     each num in sizesNumber
-                        - var sizeText = `${num}${size}`
-                        if ['85', '90'].includes(num)
+                        - var sizeText = `${size}${size}`
+                        if ['85', '90'].includes(size)
                             +popupBtn('size-subscription').rounded-checkbox.rounded-checkbox--notification.rounded-checkbox--size= sizeText
                         else
                             label.rounded-checkbox.rounded-checkbox--size

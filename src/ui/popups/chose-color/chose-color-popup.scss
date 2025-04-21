@@ -1,0 +1,21 @@
+@use 'styles/utils';
+
+.chose-color-popup {
+    .popup__title {
+        margin-bottom: 48px;
+    }
+
+    &__body-title {
+        margin-bottom: 24px;
+        @include utils.text-200-lg-100;
+        @include utils.only-desktop;
+    }
+}
+
+@media only screen and (max-width: utils.$tablet1000) {
+    .chose-size-popup {
+        .popup__title {
+            margin-bottom: 30px;
+        }
+    }
+}

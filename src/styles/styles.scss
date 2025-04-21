@@ -16,10 +16,10 @@
 
 // Popups
 @use 'features/popup/popup';
+@use 'ui/popups/size-table/size-table-popup';
 @use 'ui/popups/fast-cart/fast-cart-popup';
 @use 'ui/popups/size-subscription/size-subscription-popup';
 @use 'ui/popups/cart/cart';
-@use 'ui/popups/set/set';
 @use 'ui/popups/loyalty-club/loyalty-club';
 @use 'ui/popups/shops-popup/shops-popup';
 @use 'ui/popups/authorization/authorization';
@@ -43,6 +43,11 @@
 @use 'ui/cards/article-card/article-card';
 @use 'ui/cards/sale-card/sale-card';
 @use 'ui/slider/slider';
+@use 'ui/mobile-text';
+@use 'ui/tabs-block/tabs-block';
+@use 'ui/table/table';
+@use 'ui/video-block/video-block';
+@use 'ui/checkbox/rounded-checkbox';
 @use 'ui/breadcrumbs/breadcrumbs';
 
 // Page
