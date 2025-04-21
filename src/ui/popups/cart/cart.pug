@@ -1,0 +1,29 @@
+include layout/utils
+include features/popup/popup
+include ui/slider/slider
+include ui/product-item/product-item
+
++popup('cart', 'cart')
+    .cart-popup__header
+        .cart-popup__title Корзина
+            span 2
+        button.cart-popup__header-link(data-action='popup', data-popup='loyalty-club') клуб лояльности
+            .icon.icon--loyalty-star
+    .cart-popup__list
+        +product-item({container: 'cart', discountPrice: 6000, price: 5000})
+        +product-item({ id: 2, image: require('assets/static/gift-card-in-cart.png'), title: 'подарочная карта', size: 'Номинал: 5000 ₽', amount: 1, price: 5000, container: 'cart' })
+    .cart-popup__info
+        .cart-popup__price.cart-popup__info-item(data-info='price') Итого:
+            span 8600 ₽
+        .cart-popup__delivery.cart-popup__info-item(data-info='delivery') Доставка:
+            span Рассчитывается при оформлении
+        .cart-popup__discount.cart-popup__info-item(data-info='discount') Cкидка:
+            span -5000 ₽
+        form.cart-popup__promo(novalidate, data-handler='path.php')
+            label.cart-popup__promo-input
+                input(type='text', name='pomocode', placeholder='Введите промокод', required)
+                button.icon.icon--arrow-short-right(type='submit')
+        .cart-popup__button.button.button--arrow Перейти к оформлению
+    .cart-popup__empty-message В данный момент в корзине ничего нет!
+    +slider({title: 'недавно смотрели', cards: 'product-card'})
+include ui/popups/loyalty-club/loyalty-club

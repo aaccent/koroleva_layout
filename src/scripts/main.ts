@@ -4,6 +4,8 @@ import '@/features/fancybox'
 import '@/features/forms'
 import '@/features/check-fill'
 
+import '@/ui/popups/cart/cart'
+import '@/ui/product-item/product-item'
 import '@/ui/selector/selector'
 import '@/ui/size-table/size-table'
 import '@/ui/tab-item/tab-item'
@@ -13,3 +15,7 @@ import '@/ui/video-block/video-block'
 
 import '@/ui/slider/slider'
 import '@/ui/input/input.js'
+
+import '@/pages/shops/shops'
+
+import 'ui/popups/shops-popup/shops-popup'
