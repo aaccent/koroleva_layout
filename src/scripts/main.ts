@@ -5,12 +5,16 @@ import '@/features/forms'
 import '@/features/check-fill'
 import '@/features/inputMask'
 
+import '@/ui/popups/cart/cart'
+import '@/ui/product-item/product-item'
 import '@/ui/selector/selector'
 import '@/ui/size-table/size-table'
 import '@/ui/tab-item/tab-item'
 import '@/ui/cards/product-card'
+import '@/ui/popups/shops-popup/shops-popup'
+import '@/ui/popups/authorization/authorization'
 
 import '@/ui/slider/slider'
 import '@/ui/input/input.js'
 
-import '@/ui/popups/authorization/authorization'
+import '@/pages/shops/shops'

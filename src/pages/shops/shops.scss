@@ -1,0 +1,249 @@
+@use 'styles/utils';
+
+.shops {
+    .container:has(.shops__item-wrapper) {
+        padding-bottom: 160px;
+    }
+    &__general {
+        margin: 24px auto 0;
+        width: fit-content;
+        text-align: center;
+    }
+
+    &__tel {
+        display: flex;
+        flex-direction: column;
+        @include utils.header-300;
+
+        span {
+            @include utils.text-300-th-100;
+            margin-top: 4px;
+            opacity: 0.5;
+        }
+    }
+
+    &__socials {
+        margin-top: 24px;
+        justify-content: center;
+    }
+
+    &__actions {
+        margin-top: -24px;
+        margin-bottom: 48px;
+        display: flex;
+        justify-content: space-between;
+    }
+    &__map {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: start;
+        @include utils.text-400-th-100-upper;
+        gap: 4px;
+        align-items: center;
+    }
+
+    &__decor {
+        margin-bottom: 56px;
+        width: 100%;
+        height: 1px;
+        background-image: var(--dashed-line);
+    }
+
+    &__item {
+        position: absolute;
+        inset: 0;
+        opacity: 1;
+        visibility: hidden;
+
+        &-image {
+            object-fit: cover;
+            object-position: center;
+            width: 100%;
+            height: 100%;
+
+            &-wrapper {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+
+                border-radius: 500px;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    inset: 0;
+                    background-image: linear-gradient(91deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%);
+                }
+            }
+        }
+
+        &-wrapper {
+            position: relative;
+            width: 100%;
+            height: 850px;
+        }
+
+        &-info {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            translate: -50% 0;
+            padding: 60px 98px;
+            width: 506px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: var(--base_100);
+            border-radius: 258px;
+
+            &-item {
+                @include utils.text-400-th-100;
+                margin-bottom: 6px;
+            }
+        }
+
+        &-address {
+            @include utils.text-200-lg-100;
+            margin-bottom: 12px;
+        }
+
+        &-tel {
+            @include utils.text-300-lg-100;
+            gap: 10px;
+            margin: 24px 0;
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: center;
+            align-items: center;
+
+            .icon {
+                border-radius: 100%;
+                border: 1px solid var(--base_400);
+            }
+        }
+
+        &-way {
+            @include utils.text-400-th-100-upper;
+            padding-bottom: 4px;
+            width: fit-content;
+            display: block;
+            border-bottom: 1px solid var(--base_400);
+        }
+
+        &._active {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    &__selector {
+        position: relative;
+        display: flex;
+        @include utils.text-200-lg-100;
+        gap: 12px;
+        cursor: pointer;
+
+        .icon {
+            rotate: 90deg;
+        }
+
+        &-list {
+            gap: 6px;
+            position: absolute;
+            z-index: 1;
+            translate: 0 50%;
+            padding: 12px;
+            width: fit-content;
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            visibility: hidden;
+            background-color: var(--base_100);
+            border-radius: 4px;
+        }
+
+        &-item {
+            gap: 10px;
+            display: flex;
+            cursor: pointer;
+
+            &::before {
+                content: '';
+                @include utils.circle(21px);
+                border: 1px solid var(--base_400);
+            }
+
+            input {
+                position: absolute;
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            &:has(input:checked) {
+                &::before {
+                    border-width: 8px;
+                }
+            }
+        }
+
+        &._opened {
+            .shops__selector-list {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .shops {
+        .container:has(.shops__item-wrapper) {
+            padding-bottom: 80px;
+        }
+        &__general {
+            margin-top: 12px;
+        }
+
+        &__actions {
+            margin-top: 40px;
+            margin-bottom: 16px;
+        }
+
+        &__selector {
+            @include utils.text-300-lg-100;
+            gap: 8px;
+
+            .icon {
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        &__item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            &-image {
+                &-wrapper {
+                    height: 220px;
+                    min-height: 220px;
+                }
+            }
+            &-wrapper {
+                height: 495px;
+                overflow: hidden;
+                background-color: var(--base_100);
+                border-radius: 110px;
+            }
+
+            &-info {
+                position: static;
+                translate: 0;
+                margin-top: 32px;
+                padding: 0;
+            }
+        }
+    }
+}
