@@ -18,7 +18,7 @@
     flex-wrap: wrap;
 }
 
-:not(.size-table) .checkbox-list--size {
+.checkbox-list--size:not(.size-table__tab-body) {
     gap: 8px;
     display: flex;
     flex-wrap: wrap;

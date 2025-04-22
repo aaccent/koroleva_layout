@@ -25,3 +25,4 @@ import '@/ui/input/input.js'
 
 import '@/pages/shops/shops'
 import '@/pages/brands/brands'
+import '@/pages/about/about'

@@ -1,0 +1,9 @@
+include layout/utils
+
+section.section.about-benefits: .container
+    ul.about-benefits__list
+        each _, index in Array(4)
+            li.about-benefits__list-item
+                .about-benefits__list-item-title Преимущество №#{ index + 1 }
+                .about-benefits__list-item-text
+                    p Шаг за шагом мы работаем над тем, чтобы каждая женщина могла подчеркнуть свою природную красоту изысканным

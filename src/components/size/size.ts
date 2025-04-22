@@ -8,7 +8,7 @@ void (function () {
 
     new Swiper(sizeSlider, {
         modules: [Navigation],
-        slidesPerView: 4.5,
+        slidesPerView: 'auto',
         spaceBetween: 10,
         navigation: {
             nextEl: '.size__list-navigation-next',
@@ -23,3 +23,15 @@ void (function () {
         },
     })
 })()
+
+const link = document.querySelector<HTMLAnchorElement>('.size__link')
+
+document.querySelectorAll<HTMLElement>('.size__item').forEach((item) => {
+    item.addEventListener('click', () => {
+        if (!link) return
+
+        document.querySelector('.size__item.active')?.classList.remove('active')
+        item.classList.add('active')
+        link.href = item.dataset.link || ''
+    })
+})

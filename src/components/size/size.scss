@@ -42,12 +42,21 @@
 
     &__item {
         aspect-ratio: 1;
+        width: 80px;
+        height: 80px;
         display: flex;
+        flex-shrink: 0;
         justify-content: center;
         align-items: center;
-        @include utils.text-400-th-100-upper;
         border-radius: 100%;
         border: 1px solid hsla(7, 15%, 34%, 0.35);
+        @include utils.text-400-th-100-upper;
+        @include utils.transition((color, background-color));
+
+        &.active {
+            color: var(--base_100);
+            background-color: var(--base_400);
+        }
     }
 
     &__list {
@@ -105,6 +114,10 @@
             margin-bottom: 28px;
         }
 
+        .swiper {
+            padding: 0 32px;
+        }
+
         &__list {
             &-navigation-prev,
             &-navigation-next {
@@ -117,11 +130,9 @@
         }
 
         &__item {
+            width: 60px;
             max-width: 60px;
             height: 60px;
-            &:first-child {
-                margin-left: 41px;
-            }
         }
 
         &__link {
