@@ -1,0 +1,93 @@
+@use 'styles/utils';
+
+.geo-popup {
+    &__auto-geolocation {
+        gap: 8px;
+        margin: 24px 0 48px;
+        display: flex;
+        align-items: center;
+        @include utils.text-400-th-100-upper;
+
+        &::before {
+            content: '';
+            width: 26px;
+            height: 26px;
+            flex-shrink: 0;
+            background-image: url('assets/icons/location.svg');
+            @include utils.bg-defaults;
+        }
+    }
+
+    &__block {
+        gap: 16px;
+        display: flex;
+        flex-direction: column;
+
+        &-title {
+            color: var(--base_400_50);
+            @include utils.text-400-th-100-upper;
+        }
+
+        &-list {
+            gap: 10px;
+            display: flex;
+            flex-direction: column;
+            @include utils.text-300-th-100;
+        }
+    }
+
+    &__result {
+        margin-top: 32px;
+    }
+
+    &__empty {
+        margin-top: 32px;
+        width: 100%;
+        max-width: 80%;
+        @include utils.text-200-th-100;
+    }
+
+    &__empty,
+    &__result {
+        display: none;
+    }
+
+    &:is([data-state='empty'], [data-state='result']) .geo-popup {
+        &__popular-cities,
+        &__auto-geolocation {
+            display: none;
+        }
+    }
+
+    &[data-state='empty'] &__empty {
+        display: block;
+    }
+
+    &[data-state='result'] &__result {
+        display: flex;
+    }
+}
+
+@media only screen and (max-width: utils.$tablet1000) {
+    .geo-popup {
+        &__inner {
+            max-height: 490px;
+        }
+
+        &__auto-geolocation {
+            margin: 20px 0 32px;
+        }
+
+        &__empty {
+            margin-top: 24px;
+        }
+
+        &__result {
+            margin-top: 24px;
+        }
+
+        &__block {
+            gap: 12px;
+        }
+    }
+}
