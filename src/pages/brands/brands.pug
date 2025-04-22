@@ -136,7 +136,7 @@ block append main
         .brands__starts-with-list
             each start in brands
                 span(data-block=start.title)= start.title
-        .brands__decor
+            .brands__decor
         .brands__body
             .brands__search
                 input(type='text', name='brand', placeholder='Найти бренд')
@@ -146,5 +146,6 @@ block append main
                     .brands__block-title= block.title
                     .brands__block-list
                         each item in block.list
-                            .brands__item= item
+                            .brands__item
                                 .icon.icon--heart
+                                +anchor.brands__item-name= item

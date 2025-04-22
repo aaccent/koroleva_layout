@@ -1,4 +1,4 @@
-import { isDesktop, isMobile } from 'globals/adaptive'
+import { isMobile } from 'globals/adaptive'
 
 interface StartWithElement extends HTMLElement {
     dataset: {
@@ -17,34 +17,53 @@ function moveLine(activeElement: HTMLElement) {
     line.setAttribute('style', `width:${width}px; left:${start}px`)
 }
 
-function stickyElementsDesktop() {
+function makeStickyBlock() {
     const observeTarget = document.querySelector('.brands__tab-list')
     if (!observeTarget) return
 
     const startWithBlock = document.querySelector('.brands__starts-with-list')
-    const search = document.querySelector('.brands__search')
 
     const observer = new IntersectionObserver(([entries]) => {
         if (!entries.isIntersecting) {
             startWithBlock?.classList.add('_sticky')
-            search?.classList.add('_sticky')
         } else {
             startWithBlock?.classList.remove('_sticky')
-            search?.classList.remove('_sticky')
         }
     })
 
     observer.observe(observeTarget)
 }
 
-function mobileLayoutChanges() {
-    changeTextOnMobile()
+function hideSearchBlock() {
     const search = document.querySelector('.brands__search')
+    const body = document.querySelector<HTMLElement>('.brands__body')
+    if (!body) return
+
+    const height = window.innerHeight
+    const observer = new IntersectionObserver(
+        ([entries]) => {
+            if (!entries.isIntersecting) {
+                search?.classList.add('_hidden')
+            } else {
+                search?.classList.remove('_hidden')
+            }
+        },
+        {
+            rootMargin: `-${height}px 0px 0px`,
+        },
+    )
+    observer.observe(body)
+}
+
+function changeMobileLayout() {
+    changeTextOnMobile()
+    const searchContainer = document.querySelector('.brands__search')
     const section = document.querySelector('.brands')
     const startWithList = document.querySelector('.brands__starts-with-list')
-    const body = document.querySelector('.brands__body')
-    if (!search || !startWithList) return
-    section?.append(search)
+    const body = document.querySelector<HTMLElement>('.brands__body')
+
+    if (!searchContainer || !startWithList || !body) return
+    section?.append(searchContainer)
     body?.append(startWithList)
 }
 
@@ -75,7 +94,18 @@ void (function () {
         })
     })
 
-    if (isDesktop) stickyElementsDesktop()
+    const hearts = document.querySelectorAll('.brands__item .icon--heart')
+    console.log(hearts)
+    hearts.forEach((heart) => {
+        heart.addEventListener('click', () => {
+            heart.closest('.brands__item')?.classList.toggle('_favorite')
+        })
+    })
 
-    if (isMobile) mobileLayoutChanges()
+    if (isMobile) {
+        changeMobileLayout()
+        hideSearchBlock()
+    } else {
+        makeStickyBlock()
+    }
 })()
