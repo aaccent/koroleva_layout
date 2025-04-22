@@ -28,6 +28,10 @@
             rotate: 180deg;
         }
     }
+
+    .product-card__top {
+        height: 640px;
+    }
 }
 
 @media only screen and (max-width: 1000px) {
@@ -35,11 +39,17 @@
         &__title {
             margin-bottom: 24px;
         }
+
         &__navigation {
             display: none;
         }
+
         &__swiper {
             overflow: visible;
+        }
+
+        .product-card__top {
+            height: 360px;
         }
     }
 }
