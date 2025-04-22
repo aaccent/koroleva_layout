@@ -11,6 +11,7 @@
     height: 100%;
     display: flex;
     overflow: hidden;
+    pointer-events: none;
     opacity: 0;
     visibility: hidden;
     background-color: hsla(140, 100%, 2%, 0.8);
@@ -28,6 +29,7 @@
     }
 
     &.opened {
+        pointer-events: auto;
         opacity: 1;
         visibility: visible;
     }

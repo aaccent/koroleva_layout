@@ -7,6 +7,13 @@
 .order {
     padding-bottom: 74px;
     height: 100svh;
+
+    &:has(.payment__item input:checked) {
+        .order__button {
+            display: flex;
+        }
+    }
+
     &__header {
         position: relative;
         padding: 24px 0 14px;
@@ -45,9 +52,106 @@
         display: none;
     }
 
-    &__info {
+    &-info {
+        padding: 42px 48px 48px 48px;
         min-width: 504px;
         height: 461px;
         background-color: white;
+
+        &__top {
+            margin-bottom: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        &__title {
+            @include utils.header-300;
+            gap: 3px;
+            display: flex;
+            align-items: start;
+            text-transform: uppercase;
+        }
+
+        &__amount {
+            @include utils.text-400-lg-100;
+        }
+
+        &__change-button {
+            @include utils.text-400-th-100-upper;
+        }
+
+        &__product-list {
+            gap: 16px;
+            margin-bottom: 32px;
+            display: flex;
+        }
+
+        &__product-image {
+            object-position: center;
+            object-fit: cover;
+            width: 90px;
+            height: 120px;
+            overflow: hidden;
+            border-radius: 140px;
+        }
+
+        &__product-rest {
+            width: 90px;
+            height: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 140px;
+            border: 1px solid var(--base_400_20);
+            @include utils.text-200-th-100;
+        }
+
+        &__promocode {
+            margin-bottom: 32px;
+            padding-bottom: 16px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--base_400_20);
+
+            input::placeholder {
+                font-family: var(--geologica);
+                font-size: 1.6rem;
+                text-transform: uppercase;
+                opacity: 0.7;
+            }
+        }
+
+        &__details {
+            display: flex;
+            flex-direction: column;
+            @include utils.text-400-th-100;
+            width: 100%;
+        }
+
+        &__item {
+            margin-bottom: 6px;
+            display: flex;
+            justify-content: space-between;
+
+            &-value {
+                opacity: 0.7;
+            }
+        }
+
+        &__price {
+            margin-top: 14px;
+            font-family: var(--geologica);
+            font-size: 2rem;
+            letter-spacing: 0.02rem;
+            line-height: 120%;
+            text-transform: uppercase;
+
+            &-value {
+                opacity: 1;
+            }
+        }
     }
 }

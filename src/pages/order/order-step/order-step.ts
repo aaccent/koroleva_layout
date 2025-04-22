@@ -28,16 +28,20 @@ steps.forEach((step) => {
         if (step.classList.contains('_opened')) {
             return
         }
-        if (step.classList.contains('_valid')) {
-            document.querySelector('.order-step._opened')?.classList.remove('_opened')
-            step.classList.add('_opened')
-            return
-        }
 
-        const prevStep = step.previousElementSibling as OrderStep
-        if (prevStep.dataset.step === 'user-data') validateUserData()
-        if (!prevStep.classList.contains('_valid')) return
-        prevStep.classList.remove('_opened')
-        step.classList.add('_opened')
+        validateSteps(step)
     })
 })
+
+function validateSteps(clickedStep: OrderStep) {
+    validateUserData()
+
+    const prevInvalidStep = document.querySelector<OrderStep>(
+        `.order-step:is(:not(._valid)):has(~[data-step='${clickedStep.dataset.step}'])`,
+    )
+    if (!prevInvalidStep) {
+        document.querySelector('.order-step._opened')?.classList.remove('_opened')
+        clickedStep.classList.add('_opened')
+        return
+    }
+}

@@ -12,9 +12,9 @@ mixin order-step(props)
         .order-step__header
             .order-step__number= props.number
             .order-step__title= props.title
-            button.order-step__change-button изменить
+            button.order-step__change-button(type='button') изменить
             if props.buttonText
-                button.order-step__action-button= props.buttonText
+                button.order-step__action-button(type='button')= props.buttonText
         .order-step__content
             block
         .order-step__final

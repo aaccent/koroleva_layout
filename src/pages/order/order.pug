@@ -3,6 +3,14 @@ include layout/utils
 include order-step/order-step
 
 block append main
+    -
+        var orderInfo = {
+            amount: 6,
+            productsPhotoList: ['assets/content/products/card-1.jpg','assets/content/products/card-2.jpg','assets/content/products/card-3.jpg','assets/content/products/card-4.jpg','assets/content/products/card-2.jpg','assets/content/products/card-3.jpg',],
+            deliveryInfo: 'Бесплатно',
+            discount: '-5000 ₽',
+            fullPrice: '8600 ₽'
+        }
     .order
         .order__header
             +img(require('assets/icons/logo.svg')).order__logo
@@ -19,8 +27,20 @@ block append main
                     include delivery/delivery
                 +order-step({number: 3, title: 'методы оплаты'})(data-step='payment')
                     include payment/payment
-                button.order__button.button(type='submit') подтвердить заказ
-            .order__info
-        include ui/popups/delivery/courier/courier
-        include ui/popups/delivery/points/points
-        include ui/popups/delivery/store/store
+                button.order__button.button.button--arrow(type='submit') подтвердить заказ
+            .order-info
+                .order-info__top
+                    .order-info__title ваш заказ
+                        .order-info__amount= orderInfo.amount
+                    button.order-info__change-button(type='button') Изменить
+                .order-info__product-list
+                .order-info__promocode
+                    input(type='text', placeholder='Введите промокод')
+                    button.icon.icon--arrow-short-right(type='button')
+                .order-info__details
+                    .order-info__item.order-info__delivery Доставка:
+                        .order-info__item-value.order-info__delivery-value= orderInfo.deliveryInfo
+                    .order-info__item.order-info__discount Cкидка:
+                        .order-info__item-value.order-info__discount-value= orderInfo.discount
+                    .order-info__item.order-info__price Итого:
+                        .order-info__item-value.order-info__price-value= orderInfo.fullPrice
