@@ -78,6 +78,10 @@
     &--lingerie {
         background-image: url('assets/icons/lingerie.svg');
     }
+
+    &--heart {
+        background-image: url('assets/icons/favorite.svg');
+    }
 }
 
 @media only screen and (max-width: utils.$tablet1000) {
