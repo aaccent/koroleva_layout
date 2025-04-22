@@ -1,4 +1,5 @@
 import { validateUserData } from 'pages/order/user-data/user-data'
+import { isMobile } from 'globals/adaptive'
 
 interface OrderStep extends HTMLElement {
     dataset: {
@@ -22,17 +23,6 @@ export function validateStep(callPopupElement: HTMLElement) {
     if (callPopupInput) callPopupInput.checked = true
 }
 
-const steps = document.querySelectorAll<OrderStep>('.order-step')
-steps.forEach((step) => {
-    step.addEventListener('click', () => {
-        if (step.classList.contains('_opened')) {
-            return
-        }
-
-        validateSteps(step)
-    })
-})
-
 function validateSteps(clickedStep: OrderStep) {
     validateUserData()
 
@@ -45,3 +35,36 @@ function validateSteps(clickedStep: OrderStep) {
         return
     }
 }
+
+function replaceButtons() {
+    const actionButtons = document.querySelectorAll('.order-step__action-button')
+    actionButtons.forEach((button) => {
+        const closestStepHeader = button.closest('.order-step__header')
+        if (!closestStepHeader) return
+
+        closestStepHeader.insertAdjacentElement('afterend', button)
+    })
+
+    const changeStepButtons = document.querySelectorAll('.order-step__change-button')
+
+    changeStepButtons.forEach((button) => {
+        const closestStep = button.closest('.order-step')
+        if (!closestStep) return
+        closestStep.insertAdjacentElement('beforeend', button)
+    })
+}
+
+void (function () {
+    const steps = document.querySelectorAll<OrderStep>('.order-step')
+    steps.forEach((step) => {
+        step.addEventListener('click', () => {
+            if (step.classList.contains('_opened')) {
+                return
+            }
+
+            validateSteps(step)
+        })
+    })
+
+    if (isMobile) replaceButtons()
+})()

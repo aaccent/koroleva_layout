@@ -1,5 +1,6 @@
 import { setFinalData } from 'pages/order/order-step/order-step'
 import { validateForm } from 'features/forms'
+import { isDesktop } from 'globals/adaptive'
 
 interface FinalUserData {
     name: string[]
@@ -46,3 +47,7 @@ export function validateUserData() {
     setFinalData(finalUserData)
     userDataStep.classList.add('_valid')
 }
+
+void (function () {
+    if (isDesktop) return
+})()

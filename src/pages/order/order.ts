@@ -3,6 +3,7 @@ import './user-data/user-data'
 import './delivery/delivery'
 import './payment/payment'
 import { createYMap } from 'features/maps/createYMap'
+import { isDesktop, isMobile } from 'globals/adaptive'
 
 const testProducts = [
     'assets/content/products/card-1.jpg',
@@ -28,12 +29,13 @@ function createOrderMap() {
 }
 
 function setOrderProducts(productImagePaths: string[]) {
-    if (productImagePaths.length <= 3) return
+    const maxImagesInView = isDesktop ? 3 : 2
+    if (productImagePaths.length <= maxImagesInView) return
 
     const productImagesContainer = document.querySelector('.order-info__product-list')
     if (!productImagesContainer) return
 
-    const restImages = productImagePaths.splice(3)
+    const restImages = productImagePaths.splice(maxImagesInView)
 
     const restImageElement = document.createElement('div')
     restImageElement.classList.add('order-info__product-rest')
@@ -48,9 +50,33 @@ function setOrderProducts(productImagePaths: string[]) {
     productImagesContainer.append(restImageElement)
 }
 
+function moveSubmitButton() {
+    const form = document.querySelector('.order form')
+    const submitButton = form?.querySelector('button[type="submit"]')
+
+    if (!submitButton) return
+    submitButton.setAttribute('disabled', 'true')
+
+    form?.insertAdjacentElement('beforeend', submitButton)
+}
+
 void (async function () {
-    const firstStep = document.querySelector('.order-step:nth-child(1)')
+    const firstStep = document.querySelector('.order-step:nth-child(3)')
     firstStep?.classList.add('_opened')
     window.map = createOrderMap()
     setOrderProducts(testProducts)
+
+    if (isMobile) {
+        moveSubmitButton()
+
+        const lastInputs = document.querySelectorAll('.order-step:last-child input[type="radio"]')
+        const submitButton = document.querySelector<HTMLButtonElement>('.order form button[type="submit"]')
+        lastInputs.forEach((input) => {
+            input.addEventListener('change', () => {
+                if (submitButton?.disabled) {
+                    submitButton?.removeAttribute('disabled')
+                }
+            })
+        })
+    }
 })()

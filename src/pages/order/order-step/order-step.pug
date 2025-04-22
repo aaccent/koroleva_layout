@@ -13,6 +13,7 @@ mixin order-step(props)
             .order-step__number= props.number
             .order-step__title= props.title
             button.order-step__change-button(type='button') изменить
+            .icon.icon--arrow-short-right
             if props.buttonText
                 button.order-step__action-button(type='button')= props.buttonText
         .order-step__content

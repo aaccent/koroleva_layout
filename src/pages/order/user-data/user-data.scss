@@ -18,3 +18,19 @@
         justify-content: space-between;
     }
 }
+
+@media only screen and (max-width: 1000px) {
+    .user-data {
+        margin-top: 28px;
+        padding-bottom: 48px;
+
+        &__form {
+            gap: 8px;
+            margin-top: 32px;
+
+            .input:has(.input--half) {
+                width: 100%;
+            }
+        }
+    }
+}
