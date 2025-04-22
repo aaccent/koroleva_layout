@@ -1,0 +1,10 @@
+include layout/utils
+include parts
+include filter/filter
+include ui/selector/selector
+
+button.scroll-top-button(type='button', data-action='scroll-top', data-show-on-scroll='')
+
+section.section.catalog._empty: .container
+    +catalog-title({ amount: '0 товаров', title: 'Избранное', text: 'В данный момент в избранном ничего нет!' })
+    +filter({ textAmount: 'товаров', viewSwitcher: false, empty: true })

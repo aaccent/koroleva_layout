@@ -1,0 +1,51 @@
+include layout/utils
+include features/popup/popup
+include ui/rounded-input/rounded-input
+
++popup('search')(data-state='default')
+    .search-popup__title.popup__title Поиск
+    .search-popup__body
+        +rounded-input({ placeholder: 'поиск товара, категории...' }).rounded-input--big.search-popup__input
+        // Чтобы показать результаты, нужно добавить аттрибут `data-state="result"` на `.search-popup`
+        .search-popup__results
+            .search-popup__results-title.search-popup__body-title популярные категории:
+            .search-popup__results-list
+                +anchor.search-popup__results-item Бюстгальтер балконет
+                +anchor.search-popup__results-item Бюстгальтер треугольник
+                +anchor.search-popup__results-item Бюстгальтер балконет
+                +anchor.search-popup__results-item Бюстгальтер треугольник
+                +anchor.search-popup__results-item Бюстгальтер балконет
+        .search-popup__empty
+            .search-popup__empty-title.search-popup__body-title 0 результатов
+            //
+                Текст в span заменяется сам, для отображения пустых результатов
+                нужно добавлять аттрибут `data-state="empty"` на `.search-popup`
+            .search-popup__empty-text К сожалению, ничего не нашлось по запросу «#[span бюстгаекыва]», попробуйте изменить запрос!
+        //
+            Чтобы вернуть отображение по-умолчанию нужно выполнять хотя-бы одно:
+            - Оставить пустым `data-state=""` у `.search-popup`.
+            - Добавить аттрибут `data-state="default"` на `.search-popup`.
+            - Вовсе убрать аттрибут data-state у `.search-popup`.
+        .search-popup__default-body
+            .search-popup__popular-categories
+                .search-popup__popular-categories-title.search-popup__body-title популярные категории:
+                .search-popup__popular-categories-list
+                    +anchor.search-popup__popular-categories-item
+                        +img(require('assets/content/search/img-1.jpg')).search-popup__popular-categories-item-img
+                        span.search-popup__popular-categories-item-title Бюстгальтеры
+                    +anchor.search-popup__popular-categories-item
+                        +img(require('assets/content/search/img-2.jpg')).search-popup__popular-categories-item-img
+                        span.search-popup__popular-categories-item-title Трусики
+                    +anchor.search-popup__popular-categories-item
+                        +img(require('assets/content/search/img-3.jpg')).search-popup__popular-categories-item-img
+                        span.search-popup__popular-categories-item-title Чулки
+            .search-popup__popular-searches
+                .search-popup__popular-searches-title.search-popup__body-title популярные запросы:
+                .search-popup__popular-searches-list
+                    +anchor.search-popup__popular-searches-item Бюстгальтер балконет
+                    +anchor.search-popup__popular-searches-item Боди
+                    +anchor.search-popup__popular-searches-item Пижамы
+                    +anchor.search-popup__popular-searches-item Корсет
+                    +anchor.search-popup__popular-searches-item Чашка А
+
+    +btn('close-popup').search-popup__close-button: .icon.icon--close

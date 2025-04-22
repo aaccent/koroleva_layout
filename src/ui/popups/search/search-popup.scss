@@ -1,0 +1,223 @@
+@use 'styles/utils';
+
+@media only screen and (min-width: utils.$tablet1000) {
+    .search-popup {
+        padding: 0;
+
+        &__inner {
+            padding-bottom: 60px;
+            max-width: 100%;
+            height: fit-content;
+            display: flex;
+            border-radius: 0 0 8px 8px;
+        }
+    }
+}
+
+.search-popup {
+    .close-btn {
+        @include utils.only-mobile(flex);
+    }
+
+    &__close-button {
+        height: fit-content;
+        @include utils.only-desktop;
+
+        .icon {
+            --size: 42px;
+        }
+    }
+
+    &__inner {
+        gap: 20px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__body {
+        gap: 48px;
+        width: 100%;
+        max-width: 1100px;
+    }
+
+    &__title {
+        @include utils.only-mobile;
+    }
+
+    &__body-title {
+        margin-bottom: 20px;
+        color: var(--base_400_50);
+        @include utils.text-400-th-100-upper;
+    }
+
+    &__empty-title {
+        margin-bottom: 16px;
+    }
+
+    &__popular-categories,
+    &__popular-searches-list,
+    &__popular-searches,
+    &__results-list,
+    &__results,
+    &__empty,
+    &__body {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__popular-searches-list,
+    &__results-list {
+        gap: 10px;
+        @include utils.text-300-th-100;
+    }
+
+    &__default-body {
+        gap: 25px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__results,
+    &__empty {
+        display: none;
+    }
+
+    &[data-state='result'] &__results {
+        display: flex;
+    }
+
+    &[data-state='empty'] &__empty {
+        display: flex;
+    }
+
+    &[data-state='default'] &__default-body {
+        display: flex;
+    }
+
+    &[data-state='result'] &__default-body {
+        display: none;
+    }
+
+    &__popular-categories {
+        width: 100%;
+
+        &-list {
+            gap: 24px;
+            width: 100%;
+            display: flex;
+        }
+
+        &-item {
+            position: relative;
+            padding: 15px;
+            width: 260px;
+            height: 360px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            border-radius: 500px;
+        }
+
+        &-item::after {
+            content: '';
+            position: absolute;
+            z-index: 1;
+            inset: 0;
+            opacity: 0.1;
+            background-color: #000;
+            @include utils.transition(opacity);
+        }
+
+        &-item:hover::after {
+            opacity: 0.25;
+        }
+
+        &-item-img {
+            object-fit: cover;
+            object-position: center;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        &-item-title {
+            position: relative;
+            z-index: 2;
+            color: var(--base_100);
+            text-transform: uppercase;
+            @include utils.text-100;
+        }
+    }
+
+    &__popular-searches {
+        width: 100%;
+        max-width: 180px;
+    }
+
+    &__empty-text {
+        max-width: 585px;
+        @include utils.text-200-th-100;
+    }
+
+    &__results-item,
+    &__popular-searches-item {
+        @include utils.transition(color);
+
+        &:hover {
+            color: var(--base_400_50);
+        }
+    }
+}
+
+@media only screen and (max-width: utils.$tablet1000) {
+    .search-popup {
+        &__inner {
+            gap: 0;
+            height: 100%;
+            flex-direction: column;
+            justify-content: initial;
+        }
+
+        &__title {
+            margin-bottom: 24px;
+        }
+
+        &__body {
+            gap: 32px;
+        }
+
+        &__default-body {
+            gap: 32px;
+            flex-direction: column-reverse;
+        }
+
+        &[data-state='empty'] &__popular-searches {
+            display: none;
+        }
+
+        &__empty-title,
+        &__results-title,
+        &__popular-searches-title {
+            margin-bottom: 12px;
+        }
+
+        &__popular-categories {
+            &-list {
+                gap: 12px;
+                margin: 0 -28px;
+                padding: 0 28px;
+                width: initial;
+                overflow: auto hidden;
+                @include utils.transparent-scroll;
+            }
+
+            &-item {
+                width: 161px;
+                height: 220px;
+                flex-shrink: 0;
+            }
+        }
+    }
+}

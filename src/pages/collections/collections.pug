@@ -1,0 +1,33 @@
+extends layout/page
+
+block main
+    include ui/breadcrumbs/breadcrumbs
+    +breadcrumbs(['Коллекции'])
+    include components/grid-section/grid-section
+    -
+        var list = [
+            {
+                img: require('assets/content/collections/img-1.jpg'),
+                title: 'Love your body by Bilingua Ladies',
+                tag: 'Базовые'
+            },
+            {
+                img: require('assets/content/collections/img-2.jpg'),
+                title: 'Have a good date by Corporelle',
+                tag: 'Для невесты'
+            },
+            {
+                img: require('assets/content/collections/img-3.jpg'),
+                title: 'Adidas by Stella McCartney',
+                tag: 'Базовые'
+            },
+            {
+                img: require('assets/content/collections/img-4.jpg'),
+                title: 'Sexy black by Agent Provocateur',
+                tag: 'Для невесты'
+            },
+        ]
+
+        var tags = ['Все коллекции', 'Невидимые', 'Базовые', 'Для невесты']
+
+    +grid-section({ title: 'Коллекции', cardsList: list, tagList: tags })

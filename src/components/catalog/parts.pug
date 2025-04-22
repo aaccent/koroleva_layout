@@ -33,10 +33,30 @@ mixin catalog-subcategories
                     +img(category.img).catalog__subcategories-list-item-img
                 span.catalog__subcategories-list-item-text= category.title
 
-mixin products
+mixin products(props)
+    -
+        props = Object.assign({
+            favorite: false
+        }, props || {})
+
     .catalog__products-list&attributes(attributes)
         if block
             block
         else
             each _ in Array(18)
-                +product-card.catalog__products-list-item
+                +product-card({isFavorite: props.favorite}).catalog__products-list-item
+
+mixin catalog-header(props)
+    -
+        props = Object.assign({
+            textAmount: 'найдено'
+        }, props || {})
+
+    .catalog-header.container(data-show-on-scroll='')
+        include ui/buttons/filter-button/filter-button
+        button.catalog-header__scroll-top-button(type='button', data-action='scroll-top')
+            .icon.icon--arrow-short-top
+            | Наверх
+        .catalog-header__amount.text-amount 26#{ props.amountText }
+        +sort-selector
+        include ui/buttons/view-switcher/view-switcher

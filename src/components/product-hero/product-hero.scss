@@ -145,6 +145,7 @@
             bottom: 0;
             left: 0;
             width: 100%;
+            /* @skip-scaling */
             height: 1px;
             opacity: 0.25;
             background-image: var(--dashed-line);

@@ -1,0 +1,13 @@
+include layout/utils
+
+mixin rounded-input(props)
+    -
+        props = Object.assign({
+            placeholder: '',
+            name: '',
+        }, props || {})
+
+    label.rounded-input&attributes(attributes)
+        input(placeholder=props.placeholder, name=props.name)
+        .rounded-input__icon.icon.icon--search
+        button.rounded-input__clear-button.icon.icon--close

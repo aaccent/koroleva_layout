@@ -76,8 +76,7 @@ void (function () {
     openGiftCardPopup?.addEventListener('click', () => {
         const activeValue = document.querySelector<HTMLElement>('.gift-card__list-item._active')
 
-        if (!activeValue) return
-
         openPopup('card', activeValue)
+        activeValue?.classList.remove('_active')
     })
 })()

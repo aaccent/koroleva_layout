@@ -23,6 +23,7 @@
 @use 'ui/popups/loyalty-club/loyalty-club';
 @use 'ui/popups/shops-popup/shops-popup';
 @use 'ui/popups/authorization/authorization';
+@use 'ui/popups/search/search-popup';
 
 // Ui
 @use 'ui/icon';
@@ -40,18 +41,29 @@
 @use 'ui/checkbox-list/checkbox-list';
 @use 'ui/buttons/size-table-button';
 @use 'ui/input/input';
+@use 'ui/rounded-input/rounded-input';
 @use 'ui/cards/article-card/article-card';
 @use 'ui/cards/sale-card/sale-card';
 @use 'ui/slider/slider';
-@use 'ui/breadcrumbs/breadcrumbs';
 @use 'ui/mobile-text';
 @use 'ui/tabs-block/tabs-block';
 @use 'ui/table/table';
 @use 'ui/video-block/video-block';
 @use 'ui/checkbox/rounded-checkbox';
+@use 'ui/breadcrumbs/breadcrumbs';
+@use 'ui/collection-card/collection-card';
+@use 'ui/content/content';
+@use 'ui/content-toc/content-toc';
 
-// Page
+// Components
+@use 'components/grid-section/grid-section';
+
+// Layout
 @use 'layout/header/header';
 @use 'layout/footer/footer';
+
+// Pages
 @use 'pages/brands/brands';
 @use 'pages/shops/shops';
+@use 'pages/article/article';
+@use 'pages/static-page/static-page';
