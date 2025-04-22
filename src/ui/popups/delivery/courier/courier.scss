@@ -77,3 +77,19 @@
         cursor: pointer;
     }
 }
+
+@media only screen and (max-width: 1000px) {
+    .courier-popup {
+        &__inner {
+            height: 90svh;
+
+            .input:has(.input--half) {
+                width: 100%;
+            }
+        }
+
+        &__location {
+            margin: 32px 0;
+        }
+    }
+}

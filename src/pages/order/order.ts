@@ -61,7 +61,7 @@ function moveSubmitButton() {
 }
 
 void (async function () {
-    const firstStep = document.querySelector('.order-step:nth-child(3)')
+    const firstStep = document.querySelector('.order-step:nth-child(2)')
     firstStep?.classList.add('_opened')
     window.map = createOrderMap()
     setOrderProducts(testProducts)
