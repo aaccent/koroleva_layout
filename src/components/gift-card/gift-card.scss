@@ -39,11 +39,11 @@
         @include utils.hero;
         text-wrap: nowrap;
 
-        &:first-letter {
+        &::first-letter {
             font-family: var(--glorai-script);
             font-size: 15rem;
             letter-spacing: 0.05rem;
-            line-height: 105%;
+            line-height: 0;
         }
     }
 
