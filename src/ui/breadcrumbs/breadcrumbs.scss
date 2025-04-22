@@ -68,4 +68,8 @@
     .breadcrumbs:has(~ .product-hero) {
         margin-bottom: 24px;
     }
+
+    .breadcrumbs:has(~ .brands:where([data-state='empty'], [data-state='result'])) {
+        display: none;
+    }
 }

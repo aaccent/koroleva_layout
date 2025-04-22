@@ -149,10 +149,7 @@
             ul {
                 width: 100%;
                 overflow-x: auto;
-
-                &::-webkit-scrollbar {
-                    display: none;
-                }
+                @include utils.transparent-scroll;
             }
             &-title {
                 margin-bottom: 12px;
