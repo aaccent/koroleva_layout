@@ -79,10 +79,7 @@
             flex-wrap: nowrap;
             justify-content: start;
             overflow-x: auto;
-
-            &::-webkit-scrollbar {
-                display: none;
-            }
+            @include utils.transparent-scroll;
         }
 
         &__item {

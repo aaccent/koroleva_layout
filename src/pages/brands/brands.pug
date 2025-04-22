@@ -118,9 +118,24 @@ block append main
             list: ['Яндекс', 'Сбербанк', 'МТС', 'Билайн', 'Лукойл', 'Газпром', 'Аэрофлот']
         }]
 
+        var resultList2 = [
+            'Hab<span>adi</span>',
+            'Hab<span>adi</span>',
+            'Hab<span>adi</span>',
+            'Ban<span>adi</span>lod',
+            'Ban<span>adi</span>lod',
+            'Ban<span>adi</span>lod',
+            'Man<span>adi</span>lome',
+            'Man<span>adi</span>lome',
+            'Man<span>adi</span>lome',
+            'Hab<span>adi</span>',
+            'Hab<span>adi</span>',
+            'Hab<span>adi</span>',
+        ]
+
     include ui/breadcrumbs/breadcrumbs
     +breadcrumbs(['Бренды'])
-    +section.brands
+    +section.brands(data-state='default')
         h1.page-title.brands__title Бренды
         .brands__tab-list
             +anchor.brands__tab-item.active Все бренды
@@ -134,7 +149,34 @@ block append main
                 span(data-block=start.title)= start.title
             .brands__decor
         .brands__body
-            .brands__search: +rounded-input({ placeholder: 'Найти бренд', name: 'brand-search' })
+            .brands__empty-mobile Бренд не найден, попробуйте изменить запрос!
+            .brands__search
+                +rounded-input({ placeholder: 'Найти бренд', name: 'brand-search' })
+                //
+                    для отображения пустых результатов нужно добавлять аттрибут `data-state="empty"` на `.brands`
+                .brands__empty Бренд не найден, попробуйте изменить запрос!
+            // Чтобы показать результаты, нужно добавить аттрибут `data-state="result"` на `.brands`
+            .brands__result
+                .brands__block-list
+                    .brands__item
+                        button.icon.icon--heart
+                        +anchor.brands__item-name #[span Adi]das
+                    .brands__item
+                        button.icon.icon--heart
+                        +anchor.brands__item-name #[span Adi]baol
+                    .brands__item
+                        button.icon.icon--heart
+                        +anchor.brands__item-name #[span ADI] 1903
+                .brands__block-list
+                    each item in resultList2
+                        .brands__item
+                            button.icon.icon--heart
+                            +anchor.brands__item-name!= item
+            //
+                Чтобы вернуть отображение по-умолчанию нужно выполнять хотя-бы одно:
+                - Оставить пустым `data-state=""` у `.brands`.
+                - Добавить аттрибут `data-state="default"` на `.brands`.
+                - Вовсе убрать аттрибут data-state у `.brands`.
             .brands__block
                 each block in brands
                     .brands__block-title= block.title
