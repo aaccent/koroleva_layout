@@ -1,7 +1,4 @@
-function getCoords(element: HTMLElement) {
-    const rect = element.getBoundingClientRect()
-    return { x: rect.left + window.scrollX, y: rect.top + window.scrollY }
-}
+import { getCoords } from 'features/page-coords'
 
 interface HeadingTocElement extends HTMLHeadingElement {
     tocListItem: HTMLElement

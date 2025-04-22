@@ -1,0 +1,78 @@
+@use 'styles/utils';
+
+.about-mission {
+    &__inner {
+        gap: 24px;
+        padding: 20px;
+        display: flex;
+        background-color: var(--base_100);
+        border-radius: 8px;
+    }
+
+    &__image {
+        object-position: center;
+        object-fit: cover;
+        width: 50%;
+        height: 710px;
+        border-radius: 8px;
+    }
+
+    &__body {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    &__title {
+        max-width: 475px;
+        @include utils.header-200;
+    }
+
+    &__logo {
+        margin: 80px 0;
+        width: 174px;
+        height: 240px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--base_400);
+        border-radius: 500px;
+
+        &-image {
+            object-fit: contain;
+            object-position: center;
+            width: 100px;
+            filter: var(--filter-base_100);
+        }
+    }
+
+    &__text {
+        max-width: 365px;
+        color: var(--base_400_50);
+        @include utils.text-300-th-100;
+    }
+}
+
+@media only screen and (max-width: utils.$tablet1000) {
+    .about-mission {
+        &__inner {
+            padding: 40px;
+        }
+
+        &__image {
+            display: none;
+        }
+
+        &__body {
+            width: 100%;
+            border-radius: 4px;
+        }
+
+        &__logo {
+            margin: 32px 0;
+        }
+    }
+}

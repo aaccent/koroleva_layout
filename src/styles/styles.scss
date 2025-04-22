@@ -49,6 +49,7 @@
 @use 'ui/tabs-block/tabs-block';
 @use 'ui/table/table';
 @use 'ui/video-block/video-block';
+@use 'ui/checkbox/checkbox';
 @use 'ui/checkbox/rounded-checkbox';
 @use 'ui/breadcrumbs/breadcrumbs';
 @use 'ui/collection-card/collection-card';
@@ -63,7 +64,9 @@
 @use 'layout/footer/footer';
 
 // Pages
+@use 'pages/brands/brands';
 @use 'pages/shops/shops';
 @use 'pages/article/article';
 @use 'pages/static-page/static-page';
+@use 'pages/about/about';
 @use 'pages/404/error-404';

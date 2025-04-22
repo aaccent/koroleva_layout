@@ -161,10 +161,10 @@
             margin-bottom: 16px;
             @include utils.header-100;
 
-            &:first-letter {
+            &::first-letter {
                 font-family: var(--glorai-script);
                 font-size: 13rem;
-                letter-spacing: 0.05rem;
+                letter-spacing: 0;
             }
         }
 
@@ -192,8 +192,9 @@
             }
             &-title {
                 margin-bottom: 24px;
+
                 &::first-letter {
-                    font-size: 6.4rem;
+                    font-size: 0;
                 }
             }
             &-button {
