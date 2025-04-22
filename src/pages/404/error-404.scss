@@ -1,0 +1,44 @@
+@use 'styles/utils';
+
+.error-404 {
+    position: relative;
+    /* @skip-scaling */
+
+    .container {
+        gap: 40px;
+        padding-top: 130px;
+        padding-bottom: 140px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__title {
+        @include utils.hero;
+        text-align: center;
+    }
+
+    &__button {
+        flex-shrink: 0;
+    }
+
+    &__bg {
+        position: absolute;
+        z-index: -1;
+        top: -30px;
+        translate: -50px 0;
+        height: 570px;
+        pointer-events: none;
+        opacity: 0.05;
+    }
+}
+
+@media only screen and (max-width: utils.$tablet1000) {
+    .error-404 {
+        &__title {
+            @include utils.header-100;
+        }
+    }
+}
