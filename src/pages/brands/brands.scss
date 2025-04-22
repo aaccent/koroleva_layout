@@ -1,58 +1,65 @@
 @use 'styles/utils';
 
 .brands {
-    .tab-item {
-        cursor: pointer;
-        opacity: 0.5;
-
-        &._active {
-            opacity: 1;
-        }
-
-        &__body {
-            padding: 0;
-
-            &:has(.counter) {
-                gap: 8px;
-                display: flex;
-                align-items: center;
-            }
-
-            .counter {
-                width: 21px;
-                height: 21px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                @include utils.text-500-lg-100;
-                color: var(--base_100);
-                background-color: var(--base_300);
-                border-radius: 100%;
-            }
-        }
-
-        &__line {
-            display: none;
-        }
-    }
-
     &__tab-list {
         gap: 24px;
         position: relative;
         margin: 16px auto 0;
-        padding-bottom: 15px;
         width: fit-content;
         display: flex;
         justify-content: center;
-        border-bottom: 1px solid hsl(7, 15%, 34%, 50%);
 
-        &-line {
+        &::after {
+            content: '';
             position: absolute;
             bottom: 0;
-            width: 0;
+            width: 100%;
+            /* @skip-scaling */
             height: 1px;
-            background-color: var(--base_400);
-            transition: left 300ms linear;
+            background-color: var(--base_400_20);
+        }
+    }
+
+    &__tab-item {
+        gap: 8px;
+        position: relative;
+        padding-bottom: 15px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        opacity: 0.5;
+
+        &::after {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            /* @skip-scaling */
+            height: 1px;
+            background-color: transparent;
+            @include utils.transition(background-color);
+        }
+
+        &.active {
+            opacity: 1;
+
+            &::after {
+                background-color: var(--base_400);
+            }
+        }
+
+        .counter {
+            width: 21px;
+            height: 21px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            @include utils.text-500-lg-100;
+            color: var(--base_100);
+            background-color: var(--base_300);
+            border-radius: 100%;
         }
     }
 
@@ -62,7 +69,7 @@
         top: 0;
         margin: 0 var(--negative-container-mx);
         margin-top: 38px;
-        padding: 20px var(--container-mx) 36px;
+        padding: 0 var(--container-mx) 36px;
         width: initial;
         display: flex;
         justify-content: center;
@@ -80,7 +87,8 @@
         }
 
         &._sticky {
-            padding-bottom: 20px;
+            padding: 20px var(--container-mx);
+
             .brands__decor {
                 width: 100%;
                 opacity: 1;
@@ -109,27 +117,10 @@
     }
 
     &__search {
-        gap: 8px;
         position: sticky;
-        top: 124px;
-        padding: 30.5px 28px;
+        top: calc(var(--header-height) + 60px);
         width: 100%;
         max-width: 637px;
-        display: flex;
-        border-radius: 50px;
-        border: 1px solid var(--base_400_30);
-
-        input {
-            font-family: var(--geologica);
-            font-size: 1.6rem;
-            letter-spacing: 0.01rem;
-            line-height: 120%;
-
-            &::placeholder {
-                text-transform: uppercase;
-                opacity: 0.5;
-            }
-        }
     }
     &__block {
         display: flex;
@@ -187,11 +178,15 @@
 @media only screen and (max-width: 1000px) {
     .brands {
         margin-bottom: 0;
+
         &__tab-list {
             margin-top: 12px;
+        }
+
+        &__tab-item {
             padding-bottom: 12px;
 
-            .tab-item__body .counter {
+            .counter {
                 @include utils.text-400-lg-100;
             }
         }
@@ -227,41 +222,15 @@
             opacity: 1;
             visibility: visible;
             background-color: var(--base_200);
-            border-radius: 0;
-            border: none;
             border-top: 1px solid var(--base_400_20);
             transition:
                 opacity 500ms linear,
                 visibility 300ms linear;
 
             &._hidden {
+                display: none;
                 opacity: 0;
                 visibility: hidden;
-                transition:
-                    opacity 500ms linear,
-                    visibility 300ms linear;
-            }
-
-            input {
-                padding: 21.5px 28px;
-                border-radius: 50px;
-                border: 1px solid var(--base_400_30);
-
-                &::placeholder {
-                    @include utils.text-300-lg-100-upper;
-                }
-            }
-
-            .icon {
-                --size: 20px;
-                position: absolute;
-                top: 50%;
-                right: 56px;
-                translate: 0 -50%;
-            }
-
-            &._hidden {
-                display: none;
             }
         }
 
@@ -269,7 +238,7 @@
             position: relative;
             left: -28px;
             margin-top: 32px;
-            padding: 28px;
+            padding: 0 28px 28px;
             width: 100svw;
             justify-content: space-between;
 

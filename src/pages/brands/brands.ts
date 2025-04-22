@@ -85,15 +85,6 @@ void (function () {
         })
     })
 
-    const tabs = document.querySelectorAll<HTMLElement>('.tab-item')
-    tabs.forEach((tab) => {
-        tab.addEventListener('click', () => {
-            document.querySelector('.tab-item._active')?.classList.remove('_active')
-            tab.classList.add('_active')
-            moveLine(tab)
-        })
-    })
-
     const hearts = document.querySelectorAll('.brands__item .icon--heart')
     console.log(hearts)
     hearts.forEach((heart) => {

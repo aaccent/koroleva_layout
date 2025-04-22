@@ -1,5 +1,6 @@
 extends layout/page
 include layout/utils
+include ui/rounded-input/rounded-input
 
 block append main
     -
@@ -120,32 +121,25 @@ block append main
     include ui/breadcrumbs/breadcrumbs
     +breadcrumbs(['Бренды'])
     +section.brands
-        .page-title.brands__title Бренды
+        h1.page-title.brands__title Бренды
         .brands__tab-list
-            include ui/tab-item/tab-item
-            +tab-item--not-interactive
-                .brands__tab-item Все бренды
-            +tab-item--not-interactive
-                .brands__tab-item Избранные
-                .counter 2
-            +tab-item--not-interactive
-                .brands__tab-item Премиум
-            +tab-item--not-interactive
-                .brands__tab-item Спорт
-            .brands__tab-list-line
+            +anchor.brands__tab-item.active Все бренды
+            +anchor.brands__tab-item
+                | Избранные
+                span.counter 2
+            +anchor.brands__tab-item Премиум
+            +anchor.brands__tab-item Спорт
         .brands__starts-with-list
             each start in brands
                 span(data-block=start.title)= start.title
             .brands__decor
         .brands__body
-            .brands__search
-                input(type='text', name='brand', placeholder='Найти бренд')
-                .icon.icon--search
+            .brands__search: +rounded-input({ placeholder: 'Найти бренд', name: 'brand-search' })
             .brands__block
                 each block in brands
                     .brands__block-title= block.title
                     .brands__block-list
                         each item in block.list
                             .brands__item
-                                .icon.icon--heart
+                                button.icon.icon--heart
                                 +anchor.brands__item-name= item
