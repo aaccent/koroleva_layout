@@ -1,0 +1,19 @@
+include layout/utils
+
+section.section.about-goals: .container
+    ul.about-goals__list
+        li.about-goals__list-item
+            .about-goals__list-item-title >1#[span к]
+            .about-goals__list-item-text человек работают в штате
+        li.about-goals__list-item
+            .about-goals__list-item-title >3#[span к]
+            .about-goals__list-item-text товаров в нашем каталоге
+        li.about-goals__list-item
+            .about-goals__list-item-title >50
+            .about-goals__list-item-text брендов в нашем каталоге
+        li.about-goals__list-item
+            .about-goals__list-item-title >5
+            .about-goals__list-item-text лет опыта на рынке нижнего белья
+    .about-goals__image-block
+        +img(require('assets/static/about-goals.jpg')).about-goals__image
+        +img(require('assets/icons/logo.svg')).about-goals__logo
