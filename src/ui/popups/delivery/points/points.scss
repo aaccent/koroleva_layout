@@ -205,9 +205,12 @@
 
 @media only screen and (max-width: 1000px) {
     .points-popup {
-        .close-btn {
-            z-index: 0;
+        &:has(.points-popup__content._visible) {
+            .close-btn {
+                z-index: 0;
+            }
         }
+
         &__balloon-mobile {
             position: absolute;
             z-index: 1;

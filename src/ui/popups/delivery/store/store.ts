@@ -19,6 +19,7 @@ interface StorePoint extends HTMLElement {
 
 void (function () {
     const storePopup = document.querySelector<DeliveryPopup>('.store-popup')
+    const storePopupInner = storePopup?.querySelector('.store-popup__inner')
 
     const mapContainer = storePopup?.querySelector<HTMLElement>('.popup__inner')
     if (!storePopup || !mapContainer) return
@@ -26,7 +27,13 @@ void (function () {
     const storePoints = storePopup.querySelectorAll<StorePoint>('.store-popup__point')
     storePoints[0].classList.add('_active')
 
+    const storePopupCloseContent = document.querySelector('.store-popup__hide-content')
+    storePopupCloseContent?.addEventListener('click', () => {
+        storePopupInner?.classList.remove('_visible')
+    })
+
     storePopup.addEventListener('opened', (e) => {
+        const popupInner = document.querySelector('.store-popup__inner')
         const callPopupElement = (e as PopupOpenedCustomEvent).detail.trigger
         initStoreMap(storePopup, storePoints)
         const saveStoreButton = document.querySelector<HTMLButtonElement>('.store-popup__point-button')
@@ -41,6 +48,7 @@ void (function () {
             })
 
             if (callPopupElement) validateStep(callPopupElement)
+            popupInner?.classList.remove('_visible')
             closeActivePopup()
         })
     })
@@ -68,9 +76,11 @@ async function initStoreMap(mapContainer: HTMLElement, points: NodeListOf<StoreP
         )
 
         placemark.events.add('click', () => {
+            const popupInner = document.querySelector('.store-popup__inner')
             const currentActiveStore = document.querySelector('.store-popup__point._active')
             currentActiveStore?.classList.remove('_active')
             point.classList.add('_active')
+            popupInner?.classList.add('_visible')
         })
 
         map.geoObjects.add(placemark)
@@ -78,5 +88,5 @@ async function initStoreMap(mapContainer: HTMLElement, points: NodeListOf<StoreP
 
     const bounds = map.geoObjects.getBounds()
     if (!bounds) return
-    setTimeout(() => map.setBounds(bounds, { checkZoomRange: true, zoomMargin: [10] }), 500)
+    setTimeout(() => map.setBounds(bounds, { checkZoomRange: true, zoomMargin: [30] }), 500)
 }
