@@ -20,3 +20,13 @@ include features/popup/popup
                     .points-popup__item-info.points-popup__item-info--work-hours(data-point='work-hours') Ежедневно: 09:00-18:00
                         .icon.icon--clock
                 button.points-popup__item__button(type='button') выбрать
+    .points-popup__balloon-mobile(data-balloon='id')
+        button.points-popup__balloon-mobile-close(type='button')
+        .points-popup__balloon-mobile-content
+            +img.points-popup__balloon-mobile-image(data-balloon='image')
+            .points-popup__balloon-mobile-address(data-balloon='address', data-point='address')
+            .points-popup__balloon-mobile-price(data-balloon='price')
+            .points-popup__balloon-mobile-date(data-balloon='date', data-point='date')
+            .points-popup__balloon-mobile-work-hours(data-balloon='work-hours')
+                .icon.icon--clock
+            button.points-popup__balloon-mobile-button.button.button--arrow(type='button') выбрать этот пункт

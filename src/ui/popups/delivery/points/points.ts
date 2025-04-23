@@ -17,7 +17,7 @@ export interface Point {
 interface InitPointMapProps {
     mapContainer: HTMLElement
     points: Point[]
-    onSetPointButtonClick?: (e: MouseEvent) => void
+    onSetPointButtonClick: (e: MouseEvent) => void
 }
 
 function camelCaseToKebab(camelCaseString: string) {
@@ -103,17 +103,43 @@ async function initPointsMap(options: InitPointMapProps) {
             },
         )
 
-        // placemark.events.add('click', () => {
-        //     Object.entries(point).forEach(([key, value]) => {
-        //         const baloonMobile = document.querySelector<HTMLElement>('.points-popup__baloon--mobile')
-        //         const baloonContent = document.querySelector(`[data-baloon-id='${key}']`)
-        //         if (!baloonContent || !baloonMobile) return
-        //
-        //         baloonContent.textContent = value
-        //         baloonMobile.classList.add('_visible')
-        //         baloonMobile.dataset.pointId = point.id.toString()
-        //     })
-        // })
+        placemark.events.add('click', () => {
+            const mobileBalloon = document.querySelector<HTMLElement>('.points-popup__balloon-mobile')
+            if (!mobileBalloon) return
+
+            const closeMobileBalloonButton = mobileBalloon.querySelector('.points-popup__balloon-mobile-close')
+            closeMobileBalloonButton?.addEventListener('click', () => {
+                mobileBalloon.classList.remove('_visible')
+            })
+
+            const setPointButton = mobileBalloon.querySelector<HTMLElement>('.points-popup__balloon-mobile-button')
+
+            setPointButton?.addEventListener('click', (e) => {
+                mobileBalloon.classList.remove('_visible')
+                onSetPointButtonClick(e)
+            })
+
+            mobileBalloon.dataset.pointId = point.id.toString()
+            mobileBalloon.classList.add('_visible')
+            const mobileBalloonImage = mobileBalloon.querySelector('img')
+
+            if (mobileBalloonImage) {
+                mobileBalloonImage.src = ''
+                mobileBalloonImage.classList.add('_hidden')
+            }
+
+            Object.entries(point).forEach(([key, value]) => {
+                const element = mobileBalloon.querySelector(`[data-balloon='${camelCaseToKebab(key)}']`)
+
+                if (element instanceof HTMLImageElement) {
+                    element.classList.remove('_hidden')
+                    element.src = value
+                    return
+                }
+
+                if (element) element.textContent = value
+            })
+        })
 
         map.geoObjects.add(placemark)
     })
@@ -165,7 +191,6 @@ function setPointList(props: Omit<InitPointMapProps, 'mapContainer'>) {
 
         const setPointButton = pointElement.querySelector<HTMLElement>('.points-popup__item__button')
 
-        if (!setPointButton || !onSetPointButtonClick) return
-        setPointButton.addEventListener('click', onSetPointButtonClick)
+        setPointButton?.addEventListener('click', onSetPointButtonClick)
     })
 }
