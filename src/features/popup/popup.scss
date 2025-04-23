@@ -54,12 +54,12 @@
     }
 
     &__title {
-        font: var(--header_300);
-        text-transform: uppercase;
+        @include utils.header-300;
     }
 
     &__body-wrapper {
         position: relative;
+        /* @skip-scaling */
         height: 1px;
         display: flex;
         flex-direction: column;
@@ -68,6 +68,7 @@
 
     &__body {
         padding-bottom: 24px;
+        /* @skip-scaling */
         height: 1px;
         flex-grow: 1;
         overflow-y: auto;
@@ -84,6 +85,7 @@
     .close-btn {
         position: static;
         margin-left: auto;
+        flex-shrink: 0;
     }
 }
 
@@ -96,14 +98,14 @@
         &__inner {
             padding: 28px 28px 32px;
             height: fit-content;
-            min-height: 390px;
+            min-height: 281px;
             border-top-left-radius: 8px;
             border-bottom-right-radius: 0;
             border-bottom-left-radius: 0;
         }
 
         &__title {
-            font: var(--header_200);
+            @include utils.header-200;
         }
 
         &__bottom {

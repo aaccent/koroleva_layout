@@ -16,8 +16,12 @@ html(lang='ru')
                 block popups
 
             include footer/footer
+            include ui/popups/cart/cart
             include ui/popups/fast-cart/fast-cart
             include ui/popups/size-subscription/size-subscription
+            include ui/popups/size-table/size-table
+            include ui/popups/authorization/authorization
+            include ui/popups/search/search
 
         block scripts
             script(src=require('scripts/main.ts'), type='module')

@@ -1,6 +1,8 @@
 @use 'styles/utils';
 
 .breadcrumbs {
+    position: relative;
+    z-index: 1;
     margin: 32px 0 30px;
 
     &__list {
@@ -9,8 +11,15 @@
 
         &-item {
             display: flex;
+            flex-shrink: 0;
             align-items: center;
+            opacity: 0.5;
             @include utils.text-400-th-100;
+            @include utils.transition(opacity);
+
+            &:hover {
+                opacity: 1;
+            }
 
             &::after {
                 content: '';
@@ -23,13 +32,25 @@
                 @include utils.bg-defaults;
             }
 
-            &:last-child::after {
-                display: none;
-            }
+            &:last-child {
+                opacity: 1;
 
-            &:first-child {
-                opacity: 0.5;
+                &::after {
+                    display: none;
+                }
             }
+        }
+    }
+}
+
+@media only screen and (min-width: utils.$tablet1000) {
+    .breadcrumbs:has(~ .product-hero) {
+        margin-top: 24px;
+        margin-bottom: -17px;
+
+        .breadcrumbs__list {
+            max-width: 400px;
+            overflow: hidden;
         }
     }
 }
@@ -37,5 +58,18 @@
 @media only screen and (max-width: utils.$tablet1000) {
     .breadcrumbs {
         margin: 20px 0 38px;
+
+        &__list {
+            width: 100%;
+            overflow: hidden;
+        }
+    }
+
+    .breadcrumbs:has(~ .product-hero) {
+        margin-bottom: 24px;
+    }
+
+    .breadcrumbs:has(~ .brands:where([data-state='empty'], [data-state='result'])) {
+        display: none;
     }
 }

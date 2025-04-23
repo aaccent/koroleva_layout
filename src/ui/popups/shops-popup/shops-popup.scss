@@ -1,0 +1,70 @@
+@use 'styles/utils';
+
+.shops-popup {
+    &__map {
+        position: absolute;
+        z-index: -1;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__inner {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .close-btn {
+        z-index: 1;
+    }
+
+    &__button {
+        margin-top: auto;
+    }
+
+    .shops__item {
+        padding: 48px 48px 38px;
+        &-image {
+            &-wrapper {
+                margin-bottom: 2px;
+                height: 240px;
+                border-radius: 4px;
+
+                &::after {
+                    content: none;
+                }
+            }
+        }
+
+        &-info {
+            position: static;
+            translate: 0;
+            margin-top: 32px;
+            padding: 0;
+            width: 100%;
+            align-items: start;
+            background-color: transparent;
+        }
+    }
+
+    &__button {
+        z-index: 1;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .shops-popup {
+        .shops__item {
+            padding: 28px;
+            &-image {
+                &-wrapper {
+                    display: none;
+                }
+            }
+
+            &-info {
+                margin-top: 0;
+            }
+        }
+    }
+}

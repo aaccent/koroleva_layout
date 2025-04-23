@@ -1,0 +1,95 @@
+@use 'styles/utils';
+
+.about-quote {
+    &__photo-block {
+        margin-bottom: 18px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &-image {
+            margin-bottom: 32px;
+            width: 265px;
+            height: 355px;
+            border-radius: 500px;
+        }
+
+        &-title {
+            margin-bottom: 4px;
+            @include utils.header-300;
+        }
+
+        &-text {
+            opacity: 0.7;
+            @include utils.text-300-th-100;
+        }
+
+        &-line {
+            margin-top: 25px;
+            /* @skip-scaling */
+            width: 1px;
+            height: 40px;
+            background-color: var(--base_400_30);
+        }
+
+        &-quote {
+            font-family: var(--forum);
+            font-size: 11.5rem;
+            letter-spacing: 0.15rem;
+            line-height: 1.15;
+        }
+    }
+
+    &__text {
+        @include utils.header-100;
+        margin: 33px auto 0;
+        max-width: 1100px;
+        text-align: center;
+
+        &:first-letter {
+            margin-right: 10px;
+            font-family: var(--gloria-script);
+            font-size: 13rem;
+            letter-spacing: 0.05rem;
+            line-height: 0;
+        }
+
+        &-image {
+            width: 136px;
+            height: 75px;
+            display: inline;
+            vertical-align: text-top;
+            border-radius: 50px;
+        }
+    }
+}
+
+@media only screen and (max-width: utils.$tablet1000) {
+    .about-quote {
+        &__photo-block {
+            margin-bottom: -20px;
+
+            &-image {
+                width: 240px;
+                height: 325px;
+            }
+
+            &-title {
+                @include utils.header-200;
+            }
+        }
+
+        &__text {
+            margin-top: 19px;
+
+            &::first-letter {
+                font-size: 6.4rem;
+            }
+
+            &-image {
+                width: 50px;
+                height: 27px;
+            }
+        }
+    }
+}

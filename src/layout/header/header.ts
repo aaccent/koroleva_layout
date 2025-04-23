@@ -7,10 +7,57 @@ interface CatalogItem extends HTMLElement {
     }
 }
 
+/** Высота и позиционирование шапки и его меню */
+void (function () {
+    const header = document.querySelector<HTMLElement>('.header')
+
+    /** Выставляет переменную в CSS с высотой шапки для позиционирования меню */
+    function setHeaderHeight() {
+        if (!header) return
+
+        const height = `${header.offsetHeight}px`
+        document.documentElement.style.setProperty('--header-height', height)
+    }
+    setHeaderHeight()
+
+    window.addEventListener('resize', setHeaderHeight)
+})()
+
+/** Высота хлебных крошек */
+void (function () {
+    const breadcrumbs = document.querySelector<HTMLElement>('.breadcrumbs')
+
+    /** Выставляет переменную в CSS с высотой шапки для позиционирования меню */
+    function setBreadcrumbsHeight() {
+        if (!breadcrumbs) return
+
+        const styles = getComputedStyle(breadcrumbs)
+        const marginTop = parseInt(styles.marginTop)
+        const marginBottom = parseInt(styles.marginBottom)
+
+        const height = breadcrumbs.offsetHeight + marginTop + marginBottom
+
+        const value = `${height}px`
+        document.documentElement.style.setProperty('--breadcrumbs-height', value)
+    }
+    setBreadcrumbsHeight()
+
+    window.addEventListener('resize', setBreadcrumbsHeight)
+})()
+
 void (function () {
     const header = document.querySelector<HTMLElement>('.header')
     const openCatalogMenuItem = document.querySelector('.header-menu__item[data-id="catalog"]')
     const menuItemWithSubMenu = document.querySelectorAll('.header-menu__item:has(.header-menu__item-submenu)')
+    if (window.scrollY) header?.classList.add('_scrolled')
+
+    document.body.onscroll = () => {
+        if (!window.scrollY) {
+            header?.classList.remove('_scrolled')
+        } else {
+            header?.classList.add('_scrolled')
+        }
+    }
 
     if (isDesktop) {
         openCatalogMenuItem?.addEventListener('mouseenter', () => {

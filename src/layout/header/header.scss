@@ -5,13 +5,13 @@ body:has(.main-hero) {
     .header {
         border-bottom: none;
 
-        &:not(._active):not(._opened) {
+        &:not(._active):not(._opened):not(._scrolled) {
             color: var(--base_100);
             background-color: transparent;
 
             .header__geo-button,
             .header__logo,
-            .header__buttons button,
+            .header__buttons > :where(button, span, a),
             .header__mobile-search-button,
             .header__mobile-burger {
                 filter: var(--filter-base_100);
@@ -21,14 +21,44 @@ body:has(.main-hero) {
 }
 
 .header {
-    position: relative;
+    position: sticky;
     z-index: 20;
-    height: var(--header-height);
+    top: 0;
     color: var(--base_400);
-    font: var(--text-lg_300);
-    letter-spacing: 0.01rem;
+    @include utils.text-300-lg-100;
     background-color: var(--base_200);
-    border-bottom: 1px solid hsl(7, 15%, 34%, 0.2);
+    border-bottom: 1px solid var(--base_400_20);
+
+    @media screen and (min-width: 1001px) {
+        &._scrolled {
+            .container {
+                padding: 16px 60px 11px;
+                justify-content: space-between;
+            }
+            .header-menu {
+                gap: 25px;
+            }
+
+            .header__logo {
+                position: static;
+                translate: 0;
+                width: 72px;
+                height: 37px;
+                order: -1;
+            }
+            .header__geo-button {
+                display: none;
+            }
+
+            .header__buttons {
+                margin: 0;
+            }
+
+            .header-menu__item {
+                padding: 0;
+            }
+        }
+    }
 
     &__mobile {
         &-burger,
@@ -92,7 +122,7 @@ body:has(.main-hero) {
 
                 &-item {
                     color: var(--base_400);
-                    font: var(--text_400);
+                    @include utils.text-400-th-100;
                     text-wrap: nowrap;
                 }
             }
@@ -137,7 +167,7 @@ body:has(.main-hero) {
 @media only screen and (max-width: 1000px) {
     .header {
         .container {
-            padding: 47px 28px 32px;
+            padding: 28px;
             max-width: 100%;
         }
 
@@ -186,18 +216,17 @@ body:has(.main-hero) {
                 margin-top: 30px;
                 display: flex;
 
-                button {
+                & > :where(button, span, a) {
                     padding: 14px;
                     width: 162px;
                     height: 100px;
                     display: flex;
                     flex-direction: column;
                     justify-content: space-between;
-                    font: var(--text-lg_300);
-                    letter-spacing: 0.01rem;
+                    @include utils.text-300-lg-100;
                     filter: var(--filter-base_400);
                     border-radius: 4px;
-                    border: 1px solid hsla(7, 15%, 34%, 0.2);
+                    border: 1px solid var(--base_400_20);
 
                     &::after {
                         content: '';
@@ -219,11 +248,11 @@ body:has(.main-hero) {
                 margin-top: 32px;
                 margin-bottom: 24px;
                 display: block;
-                font: var(--text-lg_200);
+                @include utils.text-200-lg-100;
             }
             &-work-hours {
                 margin-top: 6px;
-                font: var(--text_400);
+                @include utils.text-400-th-100;
                 opacity: 0.5;
             }
             &-socials {
@@ -261,8 +290,7 @@ body:has(.main-hero) {
             &__item {
                 padding: 16.5px 0;
                 width: 100%;
-                font: var(--text-lg_200);
-                letter-spacing: 0.01rem;
+                @include utils.text-200-lg-100;
                 border-top: 1px dashed hsl(7, 15%, 34%, 0.25);
             }
         }
@@ -271,7 +299,7 @@ body:has(.main-hero) {
             display: none;
         }
         &__logo {
-            top: 47px;
+            top: 28px;
             width: 67px;
             height: 35px;
         }

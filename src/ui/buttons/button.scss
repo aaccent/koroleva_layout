@@ -70,6 +70,25 @@
             }
         }
     }
+
+    &--small {
+        padding: 0 12px;
+        height: 33px;
+        @include utils.text-500-lg-100-upper;
+    }
+
+    &--no-border {
+        border-color: transparent;
+    }
+
+    &--fit {
+        width: fit-content;
+    }
+
+    &--center {
+        margin-right: auto;
+        margin-left: auto;
+    }
 }
 
 @media only screen and (max-width: utils.$tablet1000) {
@@ -79,6 +98,15 @@
         &--arrow::after {
             width: 53px;
             height: 27px;
+        }
+
+        &--small {
+            padding: 0 23px;
+            height: 36px;
+        }
+
+        &--fit {
+            width: 100%;
         }
     }
 }

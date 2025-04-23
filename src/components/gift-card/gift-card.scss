@@ -39,11 +39,11 @@
         @include utils.hero;
         text-wrap: nowrap;
 
-        &:first-letter {
+        &::first-letter {
             font-family: var(--glorai-script);
             font-size: 15rem;
             letter-spacing: 0.05rem;
-            line-height: 105%;
+            line-height: 0;
         }
     }
 
@@ -90,10 +90,14 @@
             cursor: pointer;
             border: 1px solid var(--base_100);
 
-            &:hover,
-            &._active {
+            &:hover {
                 background-color: hsl(0, 0%, 100%, 0.15);
                 border-color: hsl(0, 0%, 100%, 0.15);
+            }
+
+            &._active {
+                color: var(--base_400);
+                background-color: var(--base_100);
             }
         }
     }
@@ -145,10 +149,7 @@
             ul {
                 width: 100%;
                 overflow-x: auto;
-
-                &::-webkit-scrollbar {
-                    display: none;
-                }
+                @include utils.transparent-scroll;
             }
             &-title {
                 margin-bottom: 12px;

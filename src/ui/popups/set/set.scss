@@ -1,0 +1,51 @@
+@use 'styles/utils';
+
+.set-popup {
+    &__inner {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__title {
+        margin-bottom: 32px;
+        @include utils.header-300;
+
+        span {
+            margin-left: 4px;
+            @include utils.text-300-th-100;
+            vertical-align: text-top;
+        }
+    }
+
+    &__list {
+        padding-bottom: 20px;
+        /* @skip-scaling */
+        height: 1px;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        overflow: auto;
+        @include utils.transparent-scroll;
+    }
+
+    &__bottom {
+        margin: 0 -48px;
+        padding: 32px 48px 0;
+        background-color: var(--base_200);
+        border-top: 1px solid var(--base_400_20);
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .set-popup {
+        &__title {
+            @include utils.header-200;
+        }
+
+        &__bottom {
+            margin: 0 -28px;
+            padding: 28px 28px 0;
+        }
+    }
+}

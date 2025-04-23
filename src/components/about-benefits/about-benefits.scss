@@ -1,0 +1,134 @@
+@use 'styles/utils';
+
+.about-benefits {
+    &__list {
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+        position: relative;
+        display: grid;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            translate: -50% -50%;
+            width: 20px;
+            height: 20px;
+            background-image: url('assets/icons/star.svg');
+            @include utils.bg-defaults;
+        }
+    }
+
+    &__list-item {
+        gap: 24px;
+        height: 370px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+        &-title {
+            @include utils.header-300;
+        }
+
+        &-text {
+            max-width: 365px;
+            color: var(--base_400_50);
+            @include utils.text-300-th-100;
+        }
+
+        &:nth-child(1),
+        &:nth-child(4) {
+            position: relative;
+
+            &::after {
+                content: '';
+                position: absolute;
+                /* @skip-scaling */
+                width: 1px;
+                height: calc(100% - 20px);
+                background-image: var(--dashed-line-vertical);
+            }
+
+            &::before {
+                content: '';
+                position: absolute;
+                width: calc(100% - 20px);
+                /* @skip-scaling */
+                height: 1px;
+                background-image: var(--dashed-line);
+            }
+        }
+
+        &:nth-child(1) {
+            &::after {
+                top: 0;
+                right: -12px;
+            }
+
+            &::before {
+                bottom: -12px;
+                left: 0;
+            }
+        }
+
+        &:nth-child(4) {
+            &::after {
+                bottom: 0;
+                left: -12px;
+            }
+
+            &::before {
+                top: -12px;
+                right: 0;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: utils.$tablet1000) {
+    .about-benefits {
+        &__list {
+            grid-template-columns: 1fr;
+            gap: 65px;
+
+            &::after {
+                display: none;
+            }
+        }
+
+        &__list-item {
+            gap: 16px;
+            position: relative;
+            height: fit-content;
+
+            &::before {
+                display: none;
+            }
+
+            &:nth-child(1)::after,
+            &::after {
+                content: '';
+                position: absolute;
+                top: initial;
+                bottom: -32px;
+                left: 50%;
+                translate: -50%;
+                width: 70%;
+                /* @skip-scaling */
+                height: 1px;
+                background-image: var(--dashed-line);
+            }
+
+            &:last-child::after {
+                display: none;
+            }
+
+            &-title {
+                @include utils.header-200;
+            }
+        }
+    }
+}

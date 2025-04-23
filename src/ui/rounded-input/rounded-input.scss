@@ -1,0 +1,72 @@
+@use 'styles/utils';
+
+.rounded-input {
+    gap: 20px;
+    padding: 17px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 50px;
+    border: 1px solid var(--base_400);
+    @include utils.transition(border-color);
+
+    &:has(input:placeholder-shown) {
+        border-color: var(--base_400_30);
+
+        .rounded-input__clear-button {
+            display: none;
+        }
+
+        .rounded-input__icon {
+            display: block;
+        }
+    }
+
+    input {
+        @include utils.text-400-th-100-upper;
+
+        &::placeholder {
+            color: var(--base_400_50);
+        }
+    }
+
+    &__clear-button,
+    &__icon {
+        --size: 18px;
+    }
+
+    &__icon {
+        display: none;
+    }
+
+    &__clear-button {
+        display: block;
+    }
+
+    &--big {
+        padding: 27px;
+
+        input {
+            @include utils.text-300-th-100;
+        }
+
+        & :where(.rounded-input__icon, .rounded-input__clear-button) {
+            --size: 24px;
+        }
+    }
+}
+
+@media only screen and (max-width: utils.$tablet1000) {
+    .rounded-input {
+        padding: 17px 20px;
+
+        &__clear-button,
+        &__icon {
+            --size: 22px;
+        }
+
+        &--big {
+            padding: 19px 28px;
+        }
+    }
+}

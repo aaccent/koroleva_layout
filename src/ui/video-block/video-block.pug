@@ -1,0 +1,15 @@
+include layout/utils
+
+mixin video-block(props)
+    -
+        props = Object.assign({
+            title: 'как правильно снять замеры груди',
+            video: require('assets/content/header-catalog/media/video.webm'),
+            poster: require('assets/static/video-preview.png'),
+        }, props || {})
+
+    .video-block
+        .video-block__title= props.title
+        button.video-block__play-button
+        video.video-block__video(poster=props.poster)
+            source(src=props.video)

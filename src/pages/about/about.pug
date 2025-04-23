@@ -1,0 +1,19 @@
+extends layout/page
+
+block append head
+    link(href=require('styles/catalog.scss'), rel='stylesheet')
+
+block main
+    include ui/breadcrumbs/breadcrumbs
+    +breadcrumbs(['О компании'])
+    include components/about-hero/about-hero
+    include components/about-goals/about-goals
+    include components/about-benefits/about-benefits
+    include components/about-quote/about-quote
+    include components/about-mission/about-mission
+
+block popups
+    include ui/popups/filter/filter
+
+block append scripts
+    script(src=require('scripts/catalog.ts'))
