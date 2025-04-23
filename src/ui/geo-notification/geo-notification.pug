@@ -1,0 +1,8 @@
+include layout/utils
+
+// Класс `active` для появления
+.geo-notification: .geo-notification__inner
+    .geo-notification__title Ваш город — #[span Екатеринбург]?
+    .geo-notification__actions
+        button.button.button--small.button--fit.geo-notification__button-confirm(data-close-geo='') да, верно
+        +popupBtn('geo').geo-notification__button-change(data-close-geo='') нет, другой

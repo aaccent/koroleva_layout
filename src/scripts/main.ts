@@ -20,6 +20,7 @@ import '@/ui/popups/search/search-popup'
 import '@/ui/content/content.js'
 import '@/ui/content-toc/content-toc'
 import '@/ui/cookie/cookie'
+import '@/ui/geo-notification/geo-notification'
 
 import '@/ui/slider/slider'
 import '@/ui/input/input.js'

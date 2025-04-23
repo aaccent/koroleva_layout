@@ -139,9 +139,13 @@ body:has(.main-hero) {
         align-items: center;
     }
 
+    &__geo-button-wrapper {
+        position: relative;
+        margin-right: auto;
+    }
+
     &__geo-button {
         gap: 4px;
-        margin-right: auto;
         display: flex;
         align-items: center;
 

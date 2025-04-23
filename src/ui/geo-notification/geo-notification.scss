@@ -1,0 +1,99 @@
+@use 'styles/utils';
+
+.geo-notification {
+    position: absolute;
+    top: calc(100% + 26px);
+    left: 0;
+    width: max-content;
+    opacity: 0;
+    visibility: hidden;
+
+    &__inner {
+        gap: 16px;
+        z-index: 5;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        color: var(--base_400);
+        background-color: var(--base_100);
+        border-radius: 4px;
+    }
+
+    &.active &__inner {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: calc(100% - 2px);
+        left: 20px;
+        width: 0;
+        height: 0;
+        border-radius: 10px;
+        border-right: 8px solid transparent;
+        border-bottom: 12px solid var(--base_100);
+        border-left: 8px solid transparent;
+    }
+
+    &__title {
+        @include utils.text-300-lg-100;
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+    }
+
+    &__button-confirm {
+        padding: 10px 23px;
+        width: fit-content;
+    }
+
+    &__button-change {
+        margin-left: 12px;
+        flex-shrink: 0;
+        @include utils.text-500-lg-100-upper;
+    }
+}
+
+@media only screen and (max-width: utils.$tablet1000) {
+    .geo-notification {
+        position: fixed;
+        inset: 0;
+        padding: 28px;
+        width: 100%;
+        display: flex;
+        background-color: hsl(0, 0%, 0%, 0.5);
+
+        &__inner {
+            margin-top: auto;
+            width: 100%;
+        }
+
+        &::after {
+            display: none;
+        }
+
+        &__button-confirm {
+            width: 50%;
+            flex-shrink: 0;
+        }
+
+        &__button-change {
+            margin-left: 20px;
+            width: 50%;
+            flex-shrink: 0;
+            font-size: 0;
+            font-weight: 300;
+            letter-spacing: 0;
+            line-height: 1.2;
+
+            &::after {
+                content: 'нет, другой город';
+                font-size: 1rem;
+            }
+        }
+    }
+}
