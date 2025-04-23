@@ -1,8 +1,8 @@
 import { closeActivePopup, PopupOpenedCustomEvent } from 'features/popup/popup'
 import { getAddressList } from '@/methods/getAddressList'
 import { validateForm } from 'features/forms'
-import { setFinalData, validateStep } from 'pages/order/order-step/order-step'
-import { DeliveryPopup } from 'pages/order/delivery/delivery'
+import { setFinalData, validateStep } from 'components/order-step/order-step'
+import { DeliveryPopup } from 'components/delivery/delivery'
 
 function addHiddenInput(input: HTMLInputElement) {
     const container = document.querySelector('[data-step="delivery"]')

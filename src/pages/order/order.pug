@@ -1,6 +1,6 @@
 extends layout/order-page
 include layout/utils
-include order-step/order-step
+include components/order-step/order-step
 
 block append main
     -
@@ -20,13 +20,13 @@ block append main
                 +order-step({number: 1, title: 'Личные данные', buttonText: 'Войти в ЛК', final:['name', 'tel', 'email']})(
                     data-step='user-data'
                 )
-                    include user-data/user-data
+                    include components/user-data/user-data
                 +order-step({number: 2, title: 'способ доставки', buttonText: 'екатеринбург', final: ['method', 'address', 'info']})(
                     data-step='delivery'
                 )
-                    include delivery/delivery
+                    include components/delivery/delivery
                 +order-step({number: 3, title: 'методы оплаты'})(data-step='payment')
-                    include payment/payment
+                    include components/payment/payment
                 button.order__button.button.button--arrow(type='submit') подтвердить заказ
             .order-info
                 .order-info__top

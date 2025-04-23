@@ -29,7 +29,8 @@ export interface CartInfo {
 }
 
 function init() {
-    const cartButton = document.querySelector('.cart-popup__button') as HTMLElement
+    const cartButton = document.querySelector('.cart-popup__button')
+    if (!cartButton) return
     cartButton.textContent = isMobile ? 'к оформлению' : 'Перейти к оформлению'
 }
 init()

@@ -1,4 +1,4 @@
-import { validateUserData } from 'pages/order/user-data/user-data'
+import { validateUserData } from 'components/user-data/user-data'
 import { isMobile } from 'globals/adaptive'
 
 interface OrderStep extends HTMLElement {

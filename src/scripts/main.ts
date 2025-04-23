@@ -5,6 +5,11 @@ import '@/features/forms'
 import '@/features/check-fill'
 import '@/features/inputMask'
 
+import '@/components/order-step/order-step'
+import '@/components/user-data/user-data'
+import '@/components/delivery/delivery'
+import '@/components/payment/payment'
+
 import '@/ui/product-item/product-item'
 import '@/ui/selector/selector'
 import '@/ui/size-table/size-table'

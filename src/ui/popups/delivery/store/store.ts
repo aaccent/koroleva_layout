@@ -1,6 +1,6 @@
-import { DeliveryPopup } from 'pages/order/delivery/delivery'
+import { DeliveryPopup } from 'components/delivery/delivery'
 import { closeActivePopup, PopupOpenedCustomEvent } from 'features/popup/popup'
-import { setFinalData, validateStep } from 'pages/order/order-step/order-step'
+import { setFinalData, validateStep } from 'components/order-step/order-step'
 
 export interface Store {
     id: string

@@ -1,4 +1,4 @@
-import { setFinalData } from 'pages/order/order-step/order-step'
+import { setFinalData } from 'components/order-step/order-step'
 import { validateForm } from 'features/forms'
 import { isDesktop } from 'globals/adaptive'
 

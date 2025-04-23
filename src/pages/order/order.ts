@@ -1,7 +1,3 @@
-import 'pages/order/order-step/order-step'
-import './user-data/user-data'
-import './delivery/delivery'
-import './payment/payment'
 import { createYMap } from 'features/maps/createYMap'
 import { isDesktop, isMobile } from 'globals/adaptive'
 
