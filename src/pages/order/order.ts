@@ -61,10 +61,13 @@ function moveSubmitButton() {
 }
 
 void (async function () {
-    const firstStep = document.querySelector('.order-step:nth-child(2)')
+    const firstStep = document.querySelector('.order-step:nth-child(1)')
     firstStep?.classList.add('_opened')
     window.map = createOrderMap()
     setOrderProducts(testProducts)
+
+    const closeButton = document.querySelector('.order__close')
+    closeButton?.addEventListener('click', () => window.history.back())
 
     if (isMobile) {
         moveSubmitButton()
