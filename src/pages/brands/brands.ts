@@ -86,7 +86,6 @@ void (function () {
     })
 
     const hearts = document.querySelectorAll('.brands__item .icon--heart')
-    console.log(hearts)
     hearts.forEach((heart) => {
         heart.addEventListener('click', () => {
             heart.closest('.brands__item')?.classList.toggle('_favorite')

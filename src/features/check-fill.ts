@@ -8,7 +8,6 @@ function checkFormFilling(
 
     let disable = false
     for (const input of requiredInputs) {
-        console.log(input)
         if (checkedInputs.has(input.name)) continue
         if (formData.get(input.name)) continue
 
