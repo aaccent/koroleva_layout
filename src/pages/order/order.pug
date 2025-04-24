@@ -1,0 +1,46 @@
+extends layout/order-page
+include layout/utils
+include components/order-step/order-step
+
+block append main
+    -
+        var orderInfo = {
+            amount: 6,
+            productsPhotoList: ['assets/content/products/card-1.jpg','assets/content/products/card-2.jpg','assets/content/products/card-3.jpg','assets/content/products/card-4.jpg','assets/content/products/card-2.jpg','assets/content/products/card-3.jpg',],
+            deliveryInfo: 'Бесплатно',
+            discount: '-5000 ₽',
+            fullPrice: '8600 ₽'
+        }
+    .order
+        .order__header
+            +img(require('assets/icons/logo.svg')).order__logo
+            +anchor.order__close
+        form.order__content.container(data-handler='path.php', novalidate)
+            .order__step-list
+                +order-step({number: 1, title: 'Личные данные', buttonText: 'Войти в ЛК', final:['name', 'tel', 'email']})(
+                    data-step='user-data'
+                )
+                    include components/user-data/user-data
+                +order-step({number: 2, title: 'способ доставки', buttonText: 'екатеринбург', final: ['method', 'address', 'info']})(
+                    data-step='delivery'
+                )
+                    include components/delivery/delivery
+                +order-step({number: 3, title: 'методы оплаты'})(data-step='payment')
+                    include components/payment/payment
+                button.order__button.button.button--arrow(type='submit') подтвердить заказ
+            .order-info
+                .order-info__top
+                    .order-info__title ваш заказ
+                        .order-info__amount= orderInfo.amount
+                    button.order-info__change-button(type='button') Изменить
+                .order-info__product-list
+                .order-info__promocode
+                    input(type='text', placeholder='Введите промокод')
+                    button.icon.icon--arrow-short-right(type='button')
+                .order-info__details
+                    .order-info__item.order-info__delivery Доставка:
+                        .order-info__item-value.order-info__delivery-value= orderInfo.deliveryInfo
+                    .order-info__item.order-info__discount Cкидка:
+                        .order-info__item-value.order-info__discount-value= orderInfo.discount
+                    .order-info__item.order-info__price Итого:
+                        .order-info__item-value.order-info__price-value= orderInfo.fullPrice

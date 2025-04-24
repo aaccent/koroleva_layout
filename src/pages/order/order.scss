@@ -1,0 +1,218 @@
+@use 'styles/utils';
+
+.order {
+    padding-bottom: 74px;
+    height: 100svh;
+
+    &:has(.payment__item input:checked) {
+        .order__button {
+            display: flex;
+        }
+    }
+
+    &__header {
+        position: relative;
+        padding: 24px 0 14px;
+        display: flex;
+        justify-content: center;
+        border-bottom: 1px solid hsl(7, 15%, 34%, 0.2);
+    }
+
+    &__logo {
+        object-position: center;
+        object-fit: cover;
+        width: 102px;
+        filter: var(--filter-base_400);
+    }
+
+    &__close {
+        position: absolute;
+        @include utils.square(32px);
+        @include utils.bg-defaults;
+        top: 50%;
+        right: 60px;
+        translate: 0 -50%;
+        background-image: url('assets/icons/close.svg');
+    }
+
+    &__content {
+        gap: 339px;
+        margin-top: 64px;
+        display: flex;
+    }
+
+    &__button {
+        margin-top: 48px;
+        margin-left: 79px;
+        width: fit-content;
+        display: none;
+    }
+
+    &-info {
+        padding: 42px 48px 48px 48px;
+        min-width: 504px;
+        height: fit-content;
+        background-color: white;
+
+        &__top {
+            margin-bottom: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        &__title {
+            @include utils.header-300;
+            gap: 3px;
+            display: flex;
+            align-items: start;
+            text-transform: uppercase;
+        }
+
+        &__amount {
+            @include utils.text-400-lg-100;
+        }
+
+        &__change-button {
+            @include utils.text-400-th-100-upper;
+        }
+
+        &__product-list {
+            gap: 16px;
+            margin-bottom: 32px;
+            display: flex;
+        }
+
+        &__product-image {
+            object-position: center;
+            object-fit: cover;
+            width: 90px;
+            height: 120px;
+            overflow: hidden;
+            border-radius: 140px;
+        }
+
+        &__product-rest {
+            width: 90px;
+            height: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 140px;
+            border: 1px solid var(--base_400_20);
+            @include utils.text-200-th-100;
+        }
+
+        &__promocode {
+            margin-bottom: 32px;
+            padding-bottom: 16px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--base_400_20);
+
+            input::placeholder {
+                font-family: var(--geologica);
+                font-size: 1.6rem;
+                text-transform: uppercase;
+                opacity: 0.7;
+            }
+        }
+
+        &__details {
+            display: flex;
+            flex-direction: column;
+            @include utils.text-400-th-100;
+            width: 100%;
+        }
+
+        &__item {
+            margin-bottom: 6px;
+            display: flex;
+            justify-content: space-between;
+
+            &-value {
+                opacity: 0.7;
+            }
+        }
+
+        &__price {
+            margin-top: 14px;
+            font-family: var(--geologica);
+            font-size: 2rem;
+            letter-spacing: 0.02rem;
+            line-height: 120%;
+            text-transform: uppercase;
+
+            &-value {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .order {
+        height: fit-content;
+        &__header {
+            padding: 10px 0;
+        }
+
+        &__logo {
+            width: 67px;
+        }
+
+        &__close {
+            right: 28.5px;
+            width: 23px;
+            height: 23px;
+        }
+
+        &__content {
+            gap: 48px;
+            margin-top: 48px;
+            flex-direction: column;
+        }
+
+        &__button {
+            margin: 0;
+            width: 100%;
+            display: flex;
+        }
+
+        &-info {
+            padding: 28px;
+            min-width: 100%;
+            background-color: transparent;
+            border: 1px dashed var(--base_300);
+
+            &__promocode {
+                padding-bottom: 12px;
+
+                input::placeholder {
+                    font-size: 1.4rem;
+                }
+
+                .icon {
+                    width: 18px;
+                    height: 18px;
+                }
+            }
+
+            &__product-list {
+                gap: 13px;
+            }
+
+            &__product-image,
+            &__product-rest {
+                width: 84px;
+                height: 112px;
+            }
+
+            &__price {
+                font-size: 1.6rem;
+            }
+        }
+    }
+}
