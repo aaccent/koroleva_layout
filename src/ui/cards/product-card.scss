@@ -30,6 +30,18 @@
             inset: 0;
             width: 100%;
             height: 100%;
+            opacity: 0;
+            @include utils.transition(opacity);
+        }
+
+        &:not(:has(.active)) &-item:first-child {
+            z-index: 1;
+            opacity: 1;
+        }
+
+        &-item.active {
+            z-index: 2;
+            opacity: 1;
         }
     }
 
@@ -42,7 +54,7 @@
     &__cart-button,
     &__slide-button {
         position: absolute;
-        z-index: 1;
+        z-index: 3;
     }
 
     &__cart-button,

@@ -26,7 +26,9 @@ header.header
     .container
         button.header__mobile-burger
         +popupBtn('search').header__mobile-search-button.icon-search
-        +popupBtn('geo').header__geo-button Екатеринбург
+        .header__geo-button-wrapper
+            +popupBtn('geo').header__geo-button Екатеринбург
+            include ui/geo-notification/geo-notification
         nav.header-menu
             ul.header-menu--left
                 each item in menu_left

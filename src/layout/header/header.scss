@@ -28,9 +28,13 @@ body:has(.main-hero) {
     @include utils.text-300-lg-100;
     background-color: var(--base_200);
     border-bottom: 1px solid var(--base_400_20);
+    @include utils.transition(background-color);
 
     @media screen and (min-width: 1001px) {
         &._scrolled {
+            margin-bottom: 47px;
+            background-color: var(--base_100);
+
             .container {
                 padding: 16px 60px 11px;
                 justify-content: space-between;
@@ -46,7 +50,7 @@ body:has(.main-hero) {
                 height: 37px;
                 order: -1;
             }
-            .header__geo-button {
+            .header__geo-button-wrapper {
                 display: none;
             }
 
@@ -136,9 +140,13 @@ body:has(.main-hero) {
         align-items: center;
     }
 
+    &__geo-button-wrapper {
+        position: relative;
+        margin-right: auto;
+    }
+
     &__geo-button {
         gap: 4px;
-        margin-right: auto;
         display: flex;
         align-items: center;
 
@@ -166,6 +174,10 @@ body:has(.main-hero) {
 
 @media only screen and (max-width: 1000px) {
     .header {
+        &._scrolled {
+            margin-bottom: 0;
+        }
+
         .container {
             padding: 28px;
             max-width: 100%;

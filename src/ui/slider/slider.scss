@@ -1,20 +1,29 @@
 @use 'styles/utils';
 
 .slider {
+    .container {
+        position: relative;
+    }
+
     &__title {
         margin-bottom: 32px;
+    }
+
+    .swiper {
+        position: static;
     }
 
     &__navigation {
         gap: 8px;
         position: absolute;
         top: 0;
-        right: 0;
+        right: var(--container-mx);
         display: flex;
 
         &-prev,
         &-next {
             padding: 12px;
+            cursor: pointer;
             border-radius: 100%;
             border: 1px solid var(--base_400);
 
@@ -28,6 +37,10 @@
             rotate: 180deg;
         }
     }
+
+    .product-card__top {
+        height: 640px;
+    }
 }
 
 @media only screen and (max-width: 1000px) {
@@ -35,11 +48,17 @@
         &__title {
             margin-bottom: 24px;
         }
+
         &__navigation {
             display: none;
         }
+
         &__swiper {
             overflow: visible;
+        }
+
+        .product-card__top {
+            height: 360px;
         }
     }
 }

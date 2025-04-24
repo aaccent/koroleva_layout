@@ -2,10 +2,11 @@
 
 .main-hero {
     position: relative;
-    top: calc(var(--header-height) * -1);
+    margin-top: calc(var(--header-height) * -1);
+    margin-bottom: 78px;
     width: 100%;
     height: 100svh;
-    max-height: 810px;
+    max-height: 1080px;
 
     &__slider {
         height: 100%;

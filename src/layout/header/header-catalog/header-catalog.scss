@@ -1,8 +1,8 @@
 @use 'styles/utils';
 
 .header-catalog {
-    position: fixed;
-    top: var(--header-height);
+    position: absolute;
+    top: 100%;
     left: 0;
     padding: 33px 60px;
     width: 100%;
@@ -316,9 +316,10 @@
 
             &-media {
                 gap: 16px;
-                margin-top: 32px;
-                width: 100%;
+                margin: 32px var(--negative-container-mx) 0;
+                padding: 0 var(--container-mx);
                 overflow-x: scroll;
+                @include utils.transparent-scroll;
 
                 &-container {
                     width: 280px;

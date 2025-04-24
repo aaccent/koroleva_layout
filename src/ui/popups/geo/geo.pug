@@ -1,0 +1,31 @@
+include layout/utils
+include features/popup/popup
+include ui/rounded-input/rounded-input
+
+-
+    var cities = [
+        'Екатеринбург',
+        'Москва',
+        'Санкт - Петербург',
+        'Казань',
+        'Пермь',
+        'Челябинск',
+        'Омск',
+        'Оренбург',
+        'Нижний Новгород',
+    ]
+
++popup('geo')(data-state='default')
+    +rounded-input({placeholder: "Найти город", name: 'city-search'}).rounded-input--big
+    button.geo-popup__auto-geolocation определить город автоматически
+    .geo-popup__empty Город не найден, попробуйте изменить запрос!
+    .geo-popup__result.geo-popup__block
+        .geo-popup__block-title похожие города
+        .geo-popup__block-list
+            +anchor.geo-popup__block-list-item Красноярск
+            +anchor.geo-popup__block-list-item Краснодар
+    .geo-popup__popular-cities.geo-popup__block
+        .geo-popup__block-title популярные города
+        .geo-popup__block-list
+            each city in cities
+                +anchor.geo-popup__block-list-item= city

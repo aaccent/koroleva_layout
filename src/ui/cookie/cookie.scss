@@ -1,0 +1,63 @@
+@use 'styles/utils';
+
+.cookie {
+    gap: 90px;
+    position: fixed;
+    z-index: 15;
+    right: 20%;
+    bottom: 24px;
+    left: 20%;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    background-color: var(--base_200);
+    border-radius: 8px;
+    @include utils.transition((opacity, visibility));
+
+    &.showed {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &__title {
+        margin-bottom: 8px;
+        @include utils.text-100;
+        text-transform: uppercase;
+        @include utils.only-mobile;
+    }
+
+    &__text {
+        @include utils.text-400-th-100;
+
+        span {
+            @include utils.only-desktop(inline);
+        }
+
+        b {
+            font-weight: 300;
+        }
+    }
+
+    &__button {
+        padding: 10px 26px;
+    }
+}
+
+@media only screen and (max-width: utils.$tablet1000) {
+    .cookie {
+        gap: 0;
+        right: 28px;
+        bottom: 28px;
+        left: 28px;
+        flex-direction: column;
+        border-radius: 4px;
+
+        &__text {
+            margin-bottom: 20px;
+            opacity: 0.7;
+        }
+    }
+}

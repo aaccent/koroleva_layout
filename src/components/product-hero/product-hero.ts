@@ -1,7 +1,6 @@
-import { insetOnScroll } from 'features/scroll-based-animation'
 import { EffectFade, Pagination } from 'swiper/modules'
-import { isMobile } from 'globals/adaptive'
 import createMqSwiper from 'features/createMqSwiper'
+import { isMobile } from 'globals/adaptive'
 
 function getElementCoords(element: Element) {
     let rect = element.getBoundingClientRect()
@@ -14,39 +13,91 @@ function getElementCoords(element: Element) {
     }
 }
 
-// Fixed animation
+interface Config {
+    element: HTMLElement
+    relativeElement: HTMLElement
+    styleWhileIntersect: () => void
+    styleWhileNotIntersect: () => void
+}
+
+// Фиксированные элементы
+export function fixedItem(props: Config) {
+    const setStyles = (isIntersect?: boolean) => {
+        props.element.removeAttribute('style')
+
+        const _isIntersect =
+            isIntersect !== undefined ? isIntersect : !props.element.classList.contains('not-intersect')
+
+        if (_isIntersect) {
+            props.styleWhileIntersect()
+        } else {
+            props.styleWhileNotIntersect()
+        }
+    }
+
+    const firstImage = document.querySelector<HTMLElement>('.product-hero__images-item')
+
+    if (!firstImage) return
+
+    const rect = getElementCoords(firstImage)
+    const observer = new IntersectionObserver(
+        (entries) => {
+            setStyles(entries[0].isIntersecting)
+
+            props.element.classList.toggle('not-intersect', !entries[0].isIntersecting)
+        },
+        { rootMargin: `-100% 0px ${window.innerHeight - rect.bottom + 24}px 0px` },
+    )
+
+    setStyles()
+    window.addEventListener('resize', () => {
+        setStyles()
+    })
+    observer.observe(props.relativeElement)
+}
+
 void (function () {
     if (isMobile) return
 
+    const imagesList = document.querySelector<HTMLElement>('.product-hero__images-wrapper')
+    const firstImage = document.querySelector<HTMLElement>('.product-hero__images-item')
     const setButton = document.querySelector<HTMLElement>('.product-hero__set-button')
-    const thumb = document.querySelector<HTMLElement>('.product-hero__images-thumb')
-    const images = document.querySelector<HTMLElement>('.product-hero__images-wrapper')
-    const firstImage = document.querySelector<HTMLElement>('.product-hero__images-item:first-child')
+    const imagesThumb = document.querySelector<HTMLElement>('.product-hero__images-thumb')
+    if (!setButton || !imagesList || !imagesThumb || !firstImage) return
 
-    if (!setButton || !images || !firstImage || !thumb) return
-
-    const startPos = getElementCoords(firstImage).bottom - 24
-    const endPos = getElementCoords(images).bottom - 24
-
-    const startValue = `${images.offsetHeight - firstImage.offsetHeight + 24}px`
-    const endValue = `${24}px`
-
-    insetOnScroll({
+    fixedItem({
         element: setButton,
-        property: 'bottom',
-        endPos,
-        startPos,
-        endValue,
-        startValue,
+        relativeElement: imagesList,
+        styleWhileIntersect() {
+            const rect = getElementCoords(firstImage)
+
+            setButton.style.position = 'fixed'
+            setButton.style.left = '50%'
+            setButton.style.bottom = `${window.innerHeight - rect.bottom + 24}px`
+        },
+        styleWhileNotIntersect() {
+            setButton.style.position = 'absolute'
+            setButton.style.left = '50%'
+            setButton.style.bottom = `${24}px`
+        },
     })
 
-    insetOnScroll({
-        element: thumb,
-        property: 'bottom',
-        endPos,
-        startPos,
-        endValue,
-        startValue,
+    fixedItem({
+        element: imagesThumb,
+        relativeElement: imagesList,
+        styleWhileIntersect() {
+            const rect = getElementCoords(firstImage)
+
+            imagesThumb.style.position = 'fixed'
+            imagesThumb.style.translate = '-100% 0'
+            imagesThumb.style.left = `${rect.right - 24}px`
+            imagesThumb.style.bottom = `${window.innerHeight - rect.bottom + 24}px`
+        },
+        styleWhileNotIntersect() {
+            imagesThumb.style.position = 'absolute'
+            imagesThumb.style.right = '24px'
+            imagesThumb.style.bottom = `${24}px`
+        },
     })
 })()
 
