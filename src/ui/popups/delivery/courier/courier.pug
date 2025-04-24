@@ -1,0 +1,19 @@
+include layout/utils
+include features/popup/popup
+include ui/input/input
+
++popup('courier', 'courier')
+    .popup__title Адрес доставки
+    .courier-popup__location екатеринбург, свердл. обл.
+        .icon.icon--geo
+    .courier-popup__inputs
+        .courier-popup__address-wrapper
+            +input(type='text', required, placeholder='Улица и дом*', name='street')
+            .courier-popup__address-list-wrapper
+                ul.courier-popup__address-list
+        +input.input--half(type='text', required, placeholder='Квартира/Офис*', name='flat')
+        +input.input--half(type='text', placeholder='Домофон', name='intercom')
+        +input.input--half(type='text', placeholder='Подъезд', name='entrance')
+        +input.input--half(type='text', placeholder='Этаж', name='floor')
+        +input(type='text', placeholder='Комментарий к заказу', name='message')
+    button.courier-popup__button.button.button--arrow(type='button') Сохранить

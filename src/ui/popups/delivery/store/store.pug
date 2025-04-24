@@ -1,0 +1,49 @@
+include layout/utils
+include features/popup/popup
+-
+    var points = [
+        {
+            id: '10',
+            address: 'ул. Мамина-Сибиряка, 23',
+            info: ['ТЦ Грант — 3 этаж', 'Пн-Пт: с 09:00 до 20:00', 'Сб-Вск: выходной'],
+            image: require('assets/static/store-delivery-point-image.png'),
+            tel: '8 921 560-15-16',
+            coords: '55.84196258814936, 49.07630980148478',
+
+        },
+        {
+            id: '21',
+            address: 'ул. Мамина-Сибиряка, 23',
+            info: ['текст', 'текст', 'текст'],
+            image: require('assets/static/about-block.png'),
+            tel: 'телефон',
+            coords: '55.8476189401467, 49.09123990019342',
+
+        },
+        {
+            id: '32',
+            address: 'ул. Мамина-Сибиряка, 23',
+            info: ['текст', 'текст', 'текст'],
+            image: require('assets/static/point-image.png'),
+            tel: 'телефон',
+            coords: '55.833919610570746, 49.08747702978717',
+        },
+    ]
+
++popup('store', 'store')
+    button.store-popup__hide-content
+    .store-popup__content
+        button.store-popup__content-close
+            .icon.icon--close
+        .popup__title самовывоз
+        .store-popup__point-wrapper
+            each point, index in points
+                .store-popup__point(data-store-point-id=point.id, data-coords=point.coords)
+                    +img(point.image).store-popup__point-image
+                    .store-popup__point-address(data-point='address')= point.address
+                    each item in point.info
+                        .store-popup__point-info= item
+                    +anchor.store-popup__point-tel= point.tel
+                        .icon.icon--phone
+                    +anchor.store-popup__point-way Проложить маршрут
+        button.store-popup__point-button.button.button--arrow(type='button') выбрать этот магазин

@@ -24,6 +24,9 @@
 @use 'ui/popups/shops-popup/shops-popup';
 @use 'ui/popups/authorization/authorization';
 @use 'ui/popups/search/search-popup';
+@use 'ui/popups/delivery/courier/courier';
+@use 'ui/popups/delivery/points/points';
+@use 'ui/popups/delivery/store/store';
 
 // Ui
 @use 'ui/icon';
@@ -58,6 +61,10 @@
 
 // Components
 @use 'components/grid-section/grid-section';
+@use 'components/order-step/order-step';
+@use 'components/user-data/user-data';
+@use 'components/delivery/delivery';
+@use 'components/payment/payment';
 
 // Layout
 @use 'layout/header/header';
@@ -70,3 +77,4 @@
 @use 'pages/static-page/static-page';
 @use 'pages/about/about';
 @use 'pages/404/error-404';
+@use 'pages/order/order';

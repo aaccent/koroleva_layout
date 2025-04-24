@@ -43,6 +43,7 @@ const longHandProps = [
     '--main-hero-thumb-circle-length',
     '--header-height',
     '--padding',
+    '--inner-width',
     '--offset',
     '--button-size',
     '--button-offset',

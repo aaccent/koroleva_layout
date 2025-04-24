@@ -1,0 +1,36 @@
+@use 'styles/utils';
+
+.user-data {
+    margin-top: 12px;
+    padding-bottom: 100px;
+
+    &__text {
+        @include utils.text-300-th-100;
+
+        span {
+            @include utils.text-300-lg-100;
+        }
+    }
+    &__form {
+        margin-top: 40px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .user-data {
+        margin-top: 28px;
+        padding-bottom: 48px;
+
+        &__form {
+            gap: 8px;
+            margin-top: 32px;
+
+            .input:has(.input--half) {
+                width: 100%;
+            }
+        }
+    }
+}

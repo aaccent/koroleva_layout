@@ -1,0 +1,16 @@
+include ../../layout/utils
+
+.payment
+    .payment__list
+        label.payment__item
+            input(type='radio', name='payment', value='card')
+            .payment__item-top
+                .icon.icon--payment-card
+                .icon.icon--checkmark
+            .payment__title Картой онлайн
+        label.payment__item
+            input(type='radio', name='payment', value='cash')
+            .payment__item-top
+                .icon.icon--payment-cash
+                .icon.icon--checkmark
+            .payment__title Наличными

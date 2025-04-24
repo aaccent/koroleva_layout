@@ -1,0 +1,11 @@
+include ../../layout/utils
+include ../../ui/input/input
+
+.user-data
+    .user-data__text!= 'Осталось заполнить <span>5 обязательных полей</span>'
+    .user-data__form
+        +input.input--half(type='text', name='first-name', placeholder='Имя*', required)
+        +input.input--half(type='text', name='last-name', placeholder='Фамилия*', required)
+        +input.input--half(type='text', name='middle-name', placeholder='Отчество*', required)
+        +input.input--half(type='tel', name='tel', placeholder='Телефон*', required)
+        +input.input--half(type='email', name='email', placeholder='E-mail*', required)
