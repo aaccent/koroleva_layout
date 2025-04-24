@@ -1,17 +1,20 @@
-import { testPoints as points } from '@/testPoints'
 import { isDesktop } from 'globals/adaptive'
 import { closeActivePopup, PopupOpenedCustomEvent } from 'features/popup/popup'
 import { setFinalData, validateStep } from 'components/order-step/order-step'
 import { DeliveryPopup } from 'components/delivery/delivery'
 
 export interface Point {
-    id: number | string
+    id: string
     address: string
     price: string
     date: string
-    coords: [number, number]
+    coords: string
     image?: string
     workHours: string
+}
+
+interface HTMLPointElement extends HTMLElement {
+    dataset: HTMLElement['dataset'] & Point
 }
 
 interface InitPointMapProps {
@@ -50,6 +53,11 @@ void (function () {
 
     pointsPopup.addEventListener('opened', async (customEvent) => {
         callPopupElement = (customEvent as PopupOpenedCustomEvent).detail.trigger
+
+        const points: Point[] = Array.from(document.querySelectorAll<HTMLPointElement>('.points-popup__data-list')).map(
+            (i) => i.dataset,
+        )
+
         await initPointsMap({ mapContainer, points, onSetPointButtonClick })
     })
 
@@ -90,7 +98,10 @@ async function initPointsMap(options: InitPointMapProps) {
     </div>`
 
         const placemark = new ymaps.Placemark(
-            point.coords,
+            point.coords
+                .trim()
+                .split(',')
+                .map((i) => parseFloat(i.trim())),
             {
                 balloonContent: baloonContent,
             },

@@ -2,6 +2,16 @@ include layout/utils
 include features/popup/popup
 
 +popup('points', 'points')
+    .points-popup__data-list
+        div(
+            data-id='3',
+            data-address='пр-кт Металлургов, 56',
+            data-price='Стоимость доставки — 250 ₽',
+            data-date='Дата доставки — понедельник, 19 июня',
+            data-coords='55.79182659084871,49.11312580123732',
+            data-image='assets/static/point-image.png',
+            data-workHours='Ежедневно: 09:00-18:00'
+        )
     button.points-popup__show-list(type='button') пункты списком
     .points-popup__content
         button.points-popup__content-close
