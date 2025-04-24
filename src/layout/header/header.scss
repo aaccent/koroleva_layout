@@ -32,6 +32,7 @@ body:has(.main-hero) {
 
     @media screen and (min-width: 1001px) {
         &._scrolled {
+            margin-bottom: 47px;
             background-color: var(--base_100);
 
             .container {
@@ -173,6 +174,10 @@ body:has(.main-hero) {
 
 @media only screen and (max-width: 1000px) {
     .header {
+        &._scrolled {
+            margin-bottom: 0;
+        }
+
         .container {
             padding: 28px;
             max-width: 100%;

@@ -45,19 +45,18 @@ void (function () {
     window.addEventListener('resize', setBreadcrumbsHeight)
 })()
 
+const header = document.querySelector<HTMLElement>('.header')
+
+function setToggleHeader() {
+    header?.classList.toggle('_scrolled', window.scrollY > 15)
+}
+
 void (function () {
-    const header = document.querySelector<HTMLElement>('.header')
     const openCatalogMenuItem = document.querySelector('.header-menu__item[data-id="catalog"]')
     const menuItemWithSubMenu = document.querySelectorAll('.header-menu__item:has(.header-menu__item-submenu)')
-    if (window.scrollY) header?.classList.add('_scrolled')
 
-    document.body.onscroll = () => {
-        if (!window.scrollY) {
-            header?.classList.remove('_scrolled')
-        } else {
-            header?.classList.add('_scrolled')
-        }
-    }
+    setToggleHeader()
+    window.addEventListener('scroll', setToggleHeader)
 
     if (isDesktop) {
         openCatalogMenuItem?.addEventListener('mouseenter', () => {
