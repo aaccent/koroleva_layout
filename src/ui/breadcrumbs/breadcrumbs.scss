@@ -50,6 +50,7 @@
 
         .breadcrumbs__list {
             max-width: 400px;
+            flex-wrap: wrap;
             overflow: hidden;
         }
     }

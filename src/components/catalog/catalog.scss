@@ -63,7 +63,7 @@
     }
 
     &__products-list {
-        margin-top: 40px;
+        margin: 40px 0 100px;
 
         &,
         &[data-view='columns'] {
@@ -76,6 +76,10 @@
             grid-template-columns: repeat(2, 13.35%) 11.27% 1fr 11.27% repeat(2, 13.35%);
             grid-auto-rows: 660px 170px 660px;
             gap: 64px 24px;
+
+            @media screen and (min-width: 2000px) {
+                grid-auto-rows: 760px 250px 760px;
+            }
         }
 
         &[data-view='grid'] &-item {
@@ -121,7 +125,7 @@
         }
 
         &__products-list {
-            margin-top: 24px;
+            margin: 24px 0 32px;
 
             &,
             &[data-view='columns'] {

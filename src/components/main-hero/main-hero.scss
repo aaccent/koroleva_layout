@@ -84,7 +84,7 @@
         align-items: center;
 
         &::before {
-            @include utils.circle(65px);
+            @include utils.circle(80px);
             content: '';
             position: absolute;
             background-color: hsla(0, 0%, 23%, 0.6);
@@ -92,7 +92,7 @@
         }
 
         &-image {
-            @include utils.circle(65px);
+            @include utils.circle(80px);
             object-fit: cover;
             object-position: top;
         }
@@ -208,6 +208,14 @@
                 }
             }
         }
+    }
+}
+
+@media screen and (min-width: 2000px) {
+    .main-hero__slider-controls {
+        padding: 32px;
+        width: 400px;
+        height: 280px;
     }
 }
 
