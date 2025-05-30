@@ -110,3 +110,14 @@
         }
     }
 }
+
+@media screen and (min-width: 2000px) {
+    .button {
+        padding: 0 38px;
+        height: 85px;
+
+        &--small {
+            height: 40px;
+        }
+    }
+}

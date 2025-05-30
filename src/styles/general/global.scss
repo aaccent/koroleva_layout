@@ -19,7 +19,10 @@ html {
         padding: 0 var(--container-mx);
     }
 
-    @media screen and (min-width: 1920px) {
+    @media screen and (min-width: 2000px) {
+        --container-mx: 70px;
+        --negative-container-mx: -70px;
+        max-width: 1920px;
     }
 }
 

@@ -13,6 +13,10 @@
         }
     }
 
+    @media screen and (min-width: 2000px) {
+        --main-hero-thumb-size: 100px;
+    }
+
     @media screen and (max-width: 1000px) {
         --header-height: 71px;
         --breadcrumbs-height: 3px;
@@ -38,6 +42,22 @@
     --text_400: 100 1.4rem/1.2 var(--geologica);
     --text-lg_400: 300 1.4rem/1.2 var(--geologica);
     --text-lg_500: 300 1.1rem/1.2 var(--geologica);
+
+    @media screen and (min-width: 2000px) {
+        --hero: 11rem/1.05 var(--forum);
+        --header_100: 8rem/1.05 var(--forum);
+        --header_200: 5.5rem/1.05 var(--forum);
+        --header_300: 5rem/1.05 var(--forum);
+
+        --text_100: 3rem/1.05 var(--forum);
+        --text_200: 100 2.4rem/1.2 var(--geologica);
+        --text-lg_200: 300 2.4rem/1.2 var(--geologica);
+        --text-lg_300: 300 2.2rem/1.2 var(--geologica);
+        --text_300: 100 2.2rem/1.25 var(--geologica);
+        --text_400: 100 2rem/1.2 var(--geologica);
+        --text-lg_400: 300 2rem/1.2 var(--geologica);
+        --text-lg_500: 300 1.8rem/1.2 var(--geologica);
+    }
 
     @media screen and (max-width: 1000px) {
         --hero: 7rem/1.05 var(--forum);

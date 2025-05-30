@@ -146,6 +146,10 @@
         margin: 8px 0 10px;
         max-width: 280px;
         @include utils.text-300-th-100;
+
+        @media screen and (min-width: 2000px) {
+            max-width: 320px;
+        }
     }
 
     &__price-wrapper {
