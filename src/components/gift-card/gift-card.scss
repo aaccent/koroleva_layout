@@ -19,7 +19,6 @@
     }
 
     &__scroll {
-        gap: 60px;
         position: relative;
         height: 232px;
         display: flex;
@@ -35,12 +34,12 @@
     }
 
     &__title {
-        margin-right: 60px;
+        margin: 0 60px;
         @include utils.hero;
         text-wrap: nowrap;
 
         &::first-letter {
-            font-family: var(--glorai-script);
+            font-family: var(--gloria-script);
             font-size: 15rem;
             letter-spacing: 0.05rem;
             line-height: 0;
@@ -48,7 +47,7 @@
     }
 
     .icon {
-        min-width: 150px;
+        width: 150px;
         height: 75px;
         filter: var(--filter-base_100);
     }
@@ -119,7 +118,7 @@
             height: 104px;
         }
         &__title {
-            margin-right: 20px;
+            margin: 0 20px;
             @include utils.header-100;
 
             &::first-letter {
@@ -128,7 +127,8 @@
         }
 
         .icon {
-            min-width: 60px;
+            margin-right: 20px;
+            width: 60px;
             height: 30px;
         }
 

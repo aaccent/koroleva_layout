@@ -1,66 +1,64 @@
 import { openPopup } from 'features/popup/popup'
 
-void (function () {
-    /** TODO: довести до ума бесконечню строку*/
+function addScrollContent(number: number = 1) {
+    const titles = document.querySelectorAll<HTMLElement>('.gift-card__scroll-content')
     const scrollContainer = document.querySelector<HTMLElement>('.gift-card__scroll')
-    const container = document.querySelector<HTMLElement>('.gift-card .container')
-    const initialScrollContent = document.querySelector<HTMLElement>('.gift-card__scroll-content')
-    if (!container || !scrollContainer || !initialScrollContent) return
+    if (!scrollContainer) return
 
-    const containerWidth = container.offsetWidth
-    const containerEnd = container.getBoundingClientRect().right
-    const scrollContentWidth = initialScrollContent.clientWidth
-    const margin = containerWidth - scrollContentWidth
+    const titleWidth = titles[0].offsetWidth
 
-    const addTitle = (translate: number) => {
-        const scrollContent = document.createElement('div')
-        scrollContent.classList.add('gift-card__scroll-content')
+    const fullTitlesWidth = titleWidth * titles.length
 
-        const title = document.createElement('div')
-        title.textContent = 'Подарочная карта'
-        title.classList.add('gift-card__title')
+    if (scrollContainer.offsetWidth + titleWidth < fullTitlesWidth) {
+        titles.forEach((title) => {
+            let translateValue
+            if (!title.style.translate) {
+                translateValue = 0
+            } else {
+                translateValue = parseInt(title.style.translate)
+            }
 
-        const icon = document.createElement('div')
-        icon.classList.add('icon', 'icon--arrow-right')
-
-        scrollContent.append(title, icon)
-        scrollContainer.append(scrollContent)
-        const titleMarginRight = parseInt(window.getComputedStyle(title).marginRight)
-        const _translate = translate > scrollContentWidth ? scrollContentWidth * -1 : translate + titleMarginRight
-        scrollContent.style.translate = `${_translate}px`
+            title.style.translate = `${translateValue - 100}%`
+        })
+        return
     }
 
-    const checkWidth = () => {
-        const titles = document.querySelectorAll<HTMLElement>('.gift-card__scroll-content')
-        let titlesWidth = 0
-        titles.forEach((title) => (titlesWidth += title.offsetWidth))
-        const space = containerWidth - titlesWidth
+    const translate = 100 * titles.length
 
-        if (space > 0 || space > scrollContentWidth * -1) {
-            addTitle(titlesWidth)
-            checkWidth()
-        } else {
-            titles.forEach((title) => {
-                let translate = parseInt(title.style.translate) || 0
-                const titleMarginRight = parseInt(window.getComputedStyle(title).marginRight)
+    const extraTitle = titles[0].cloneNode(true) as HTMLElement
+    extraTitle.style.translate = `${translate}%`
+    extraTitle.classList.add(`${number}`)
 
-                let timeOut = setTimeout(function move() {
-                    const titleStart = title.getBoundingClientRect().left
-                    const width = title.offsetWidth
-                    if (titleStart > containerEnd) {
-                        scrollContainer.append(title)
-                        translate = -width - margin
-                        title.style.translate = `${translate}px`
-                    } else {
-                        translate += 200
-                    }
+    scrollContainer.append(extraTitle)
+    addScrollContent(number + 1)
+}
 
-                    title.style.translate = `${translate}px`
-                    timeOut = setTimeout(move, 1000)
-                }, 1000)
-            })
-        }
-    }
+void (function () {
+    addScrollContent()
+
+    const titles = document.querySelectorAll<HTMLElement>('.gift-card__scroll-content')
+    const scrollContainer = document.querySelector<HTMLElement>('.gift-card__scroll')
+    if (!scrollContainer) return
+
+    const maxTranslate = Math.round((scrollContainer.offsetWidth * 100) / titles[0].offsetWidth)
+
+    const extraTranslatePx = titles[0].offsetWidth * (titles.length - 1) - scrollContainer.offsetWidth
+    const extraTranslatePercent = Math.round((100 * extraTranslatePx) / titles[0].offsetWidth)
+
+    let timeout = setTimeout(function move() {
+        titles.forEach((title) => {
+            const translate = parseInt(title.style.translate) || 0
+
+            if (translate >= maxTranslate) {
+                title.style.translate = `-${100 + extraTranslatePercent - 10}%`
+                scrollContainer.append(title)
+            } else {
+                title.style.translate = `${translate + 10}%`
+            }
+        })
+
+        timeout = setTimeout(move, 1000)
+    }, 1000)
 
     /** Выбор номинала карты */
     const cardValues = document.querySelectorAll('.gift-card__list-item')
