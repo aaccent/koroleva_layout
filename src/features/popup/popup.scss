@@ -119,3 +119,9 @@
         }
     }
 }
+
+@media only screen and (min-width: 2000px) {
+    .popup__inner {
+        max-width: 700px;
+    }
+}

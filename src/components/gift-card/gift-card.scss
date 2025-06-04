@@ -5,6 +5,7 @@
     .container {
         position: relative;
         padding: 0 0 64px;
+        max-width: 1560px;
         height: 100%;
         display: flex;
         flex-direction: column;
@@ -172,6 +173,22 @@
 
         &__button {
             margin-top: 31px;
+        }
+    }
+}
+
+@media only screen and (min-width: 2000px) {
+    .gift-card {
+        .container {
+            max-width: 1780px;
+        }
+
+        &__image {
+            width: 38%;
+        }
+
+        &__list-item {
+            --diameter: 125px;
         }
     }
 }

@@ -35,6 +35,10 @@ body:has(.main-hero) {
             margin-bottom: 47px;
             background-color: var(--base_100);
 
+            &._active {
+                background-color: var(--base_200);
+            }
+
             .container {
                 padding: 16px 60px 11px;
                 justify-content: space-between;
@@ -322,6 +326,22 @@ body:has(.main-hero) {
             &-search,
             &-user {
                 display: none;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 2000px) {
+    .header {
+        &._scrolled {
+            .container {
+                padding-top: 20px;
+                padding-bottom: 20px;
+            }
+
+            .header__logo {
+                width: 100px;
+                height: 48px;
             }
         }
     }

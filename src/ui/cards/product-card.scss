@@ -82,6 +82,10 @@
         aspect-ratio: 1;
         width: 32px;
 
+        &:hover {
+            background-image: url('assets/icons/favorite-fill.svg');
+        }
+
         &.active {
             opacity: 1;
             visibility: visible;

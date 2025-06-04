@@ -2,15 +2,15 @@
 
 .circle-button {
     aspect-ratio: 1;
-    justify-items: center;
     width: 64px;
     flex-shrink: 0;
+    justify-items: center;
     border-radius: 50%;
 
     .icon {
         aspect-ratio: 1;
-        filter: var(--filter-base_400);
         width: 24px;
+        filter: var(--filter-base_400);
     }
 
     &--outlined {
@@ -19,6 +19,16 @@
 
     &--filled {
         background-color: white;
+        @include utils.transition(background-color);
+
+        &:hover {
+            background-color: var(--base_400);
+            @include utils.transition(background-color);
+
+            .icon {
+                filter: var(--filter-base_100);
+            }
+        }
     }
 
     &--big {

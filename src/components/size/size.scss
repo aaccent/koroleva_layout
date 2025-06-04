@@ -51,9 +51,13 @@
         justify-content: center;
         align-items: center;
         border-radius: 100%;
-        border: 1px solid hsla(7, 15%, 34%, 0.35);
+        border: 2px solid hsla(7, 15%, 34%, 0.35);
         @include utils.text-400-th-100-upper;
         @include utils.transition((color, background-color));
+
+        &:hover {
+            border-color: var(--base_400);
+        }
 
         &.active {
             color: var(--base_100);
