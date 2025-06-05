@@ -27,6 +27,10 @@
             margin-top: 8px;
             @include utils.text-300-th-100;
             opacity: 1;
+
+            &:hover {
+                opacity: 0.5;
+            }
         }
     }
 

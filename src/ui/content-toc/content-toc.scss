@@ -42,6 +42,10 @@
         @include utils.text-300-lg-100;
         @include utils.transition(opacity);
 
+        &:hover {
+            opacity: 1;
+        }
+
         &::before {
             content: '';
             aspect-ratio: 1;

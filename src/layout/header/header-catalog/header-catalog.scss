@@ -95,9 +95,13 @@
             margin-bottom: 10px;
             text-transform: uppercase;
             opacity: 0.5;
+        }
 
-            &-item {
-                margin-top: 8px;
+        &-subcategory-item {
+            margin-top: 8px;
+
+            &:hover {
+                opacity: 0.5;
             }
         }
 
@@ -228,6 +232,7 @@
     .header-catalog {
         position: fixed;
         z-index: 1;
+        top: var(--header-height);
         bottom: 0;
         padding: 50px 28px;
         height: auto;
@@ -298,6 +303,10 @@
                 margin: 0;
                 padding-bottom: 16px;
                 width: 100%;
+
+                &:first-child {
+                    padding-left: 0;
+                }
 
                 &-type {
                     margin-bottom: 0;

@@ -13,6 +13,19 @@
         align-items: center;
         @include utils.text-400-th-100-upper;
         opacity: 0.7;
+
+        .icon--reset {
+            @include utils.transition(rotate);
+            transition-duration: 0.5s;
+        }
+
+        &:hover {
+            .icon--reset {
+                rotate: 360deg;
+                @include utils.transition(rotate);
+                transition-duration: 0.5s;
+            }
+        }
     }
 
     &__price-slider {

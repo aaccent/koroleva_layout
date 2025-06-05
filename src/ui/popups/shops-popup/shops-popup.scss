@@ -68,3 +68,11 @@
         }
     }
 }
+
+@media only screen and (min-width: 2000px) {
+    .shops-popup {
+        .shops__item-image-wrapper {
+            height: 360px;
+        }
+    }
+}

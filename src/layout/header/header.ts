@@ -84,6 +84,9 @@ void (function () {
 
         burgerMenu?.addEventListener('click', () => {
             header?.classList.toggle('_opened')
+
+            header?.classList.remove('_active')
+
             toggleScroll()
         })
 
