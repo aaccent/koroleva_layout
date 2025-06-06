@@ -15,7 +15,7 @@
             left: 0;
             width: 100%;
             /* @skip-scaling */
-            height: 1px;
+            height: 2px;
             opacity: 0.25;
             background-image: var(--dashed-line);
         }
@@ -26,7 +26,7 @@
     }
 
     &__links-list-wrapper {
-        margin: 0 var(--negative-container-mx);
+        margin: 0 auto;
         padding: 0 var(--container-mx);
         overflow: auto hidden;
         @include utils.transparent-scroll;
@@ -99,7 +99,7 @@
     &__body {
         grid-template-columns: repeat(2, 13.35%) 11.27% 1fr 11.27% repeat(2, 13.35%);
         grid-auto-rows: 660px 170px 660px;
-        gap: 64px 24px;
+        gap: 100px 24px;
         display: grid;
 
         &-item {
@@ -133,6 +133,10 @@
             gap: 24px;
             display: flex;
             flex-direction: column;
+        }
+
+        &__links-list-wrapper {
+            padding: 0;
         }
     }
 }

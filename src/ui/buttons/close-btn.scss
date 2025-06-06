@@ -20,6 +20,7 @@
         height: 32px;
         background-color: var(--base_100);
         @include utils.transition(background-color);
+        transition: rotate 300ms ease-in-out;
     }
 
     &::before {
@@ -33,7 +34,9 @@
     &:hover {
         &::before,
         &::after {
+            rotate: -180deg;
             background-color: var(--base_100);
+            transition: rotate 300ms ease-in-out;
         }
     }
 }

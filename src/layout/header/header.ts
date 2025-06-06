@@ -53,6 +53,7 @@ function setToggleHeader() {
 
 void (function () {
     const openCatalogMenuItem = document.querySelector('.header-menu__item[data-id="catalog"]')
+    const headerCatalog = document.querySelector('.header-catalog')
     const menuItemWithSubMenu = document.querySelectorAll('.header-menu__item:has(.header-menu__item-submenu)')
 
     setToggleHeader()
@@ -61,12 +62,10 @@ void (function () {
     if (isDesktop) {
         openCatalogMenuItem?.addEventListener('mouseenter', () => {
             header?.classList.add('_active')
-            disableScroll()
         })
 
-        openCatalogMenuItem?.addEventListener('click', () => {
+        headerCatalog?.addEventListener('mouseleave', () => {
             header?.classList.remove('_active')
-            enableScroll()
         })
 
         menuItemWithSubMenu.forEach((item) => {
@@ -85,6 +84,9 @@ void (function () {
 
         burgerMenu?.addEventListener('click', () => {
             header?.classList.toggle('_opened')
+
+            header?.classList.remove('_active')
+
             toggleScroll()
         })
 

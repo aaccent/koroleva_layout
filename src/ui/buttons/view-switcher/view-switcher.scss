@@ -8,6 +8,12 @@
         aspect-ratio: 1;
         width: 18px;
         @include utils.transition(opacity);
+        @include utils.transition(scale);
+
+        &:hover {
+            scale: 1.2;
+            @include utils.transition(scale);
+        }
     }
 
     &:has(&__button.active) &__button:not(.active) {

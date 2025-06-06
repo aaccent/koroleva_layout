@@ -139,3 +139,51 @@ void (function () {
 
     intersectionObserver.observe(cartButton)
 })()
+
+// Навигация фотографий
+void (function () {
+    const nextButton = document.querySelector('.product-hero__images-thumb-button--next')
+    const prevButton = document.querySelector('.product-hero__images-thumb-button--prev')
+
+    const images = document.querySelectorAll('.product-hero__images-item')
+    const thumbsImages = document.querySelectorAll('.product-hero__images-thumb-item')
+
+    function setActiveThumbImage(thumbs: NodeListOf<Element>, index: number) {
+        const currentActive = document.querySelector('.product-hero__images-thumb-item.active')
+        currentActive?.classList.remove('active')
+        thumbs[index].classList.add('active')
+    }
+
+    function scrollToImage(images: NodeListOf<Element>, index: number) {
+        images[index].scrollIntoView({ block: 'center', inline: 'nearest', behavior: 'smooth' })
+    }
+
+    images.forEach((image, index) => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) setActiveThumbImage(thumbsImages, index)
+            },
+            {
+                threshold: 0.7,
+            },
+        )
+        observer.observe(image)
+    })
+    thumbsImages.forEach((thumb, index) => {
+        thumb.addEventListener('click', () => scrollToImage(images, index))
+    })
+
+    nextButton?.addEventListener('click', () => {
+        const currentActiveThumb = document.querySelector('.product-hero__images-thumb-item.active') || thumbsImages[0]
+        const currentActiveThumbIndex = Array.from(thumbsImages).indexOf(currentActiveThumb)
+        if (currentActiveThumbIndex === images.length - 1) return
+        scrollToImage(images, currentActiveThumbIndex + 1)
+    })
+
+    prevButton?.addEventListener('click', () => {
+        const currentActiveThumb = document.querySelector('.product-hero__images-thumb-item.active') || thumbsImages[0]
+        const currentActiveThumbIndex = Array.from(thumbsImages).indexOf(currentActiveThumb)
+        if (currentActiveThumbIndex === 0) return
+        scrollToImage(images, currentActiveThumbIndex - 1)
+    })
+})()

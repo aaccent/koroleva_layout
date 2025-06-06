@@ -8,6 +8,12 @@
         display: flex;
         align-items: center;
 
+        &:hover {
+            img {
+                border-color: var(--base_400);
+            }
+        }
+
         img {
             @include utils.circle(40px);
             padding: 7px;

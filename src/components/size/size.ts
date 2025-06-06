@@ -27,11 +27,15 @@ void (function () {
 const link = document.querySelector<HTMLAnchorElement>('.size__link')
 
 document.querySelectorAll<HTMLElement>('.size__item').forEach((item) => {
-    item.addEventListener('click', () => {
+    item.addEventListener('click', (e) => {
         if (!link) return
 
-        document.querySelector('.size__item.active')?.classList.remove('active')
-        item.classList.add('active')
-        link.href = item.dataset.link || ''
+        const target = e.currentTarget as HTMLElement
+        if (target.classList.contains('active')) {
+            target.classList.remove('active')
+        } else {
+            item.classList.add('active')
+            link.href = item.dataset.link || ''
+        }
     })
 })

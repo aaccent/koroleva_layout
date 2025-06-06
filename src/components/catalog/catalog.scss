@@ -39,6 +39,10 @@
             /* @skip-scaling */
             border-radius: 50px;
             border: 1px solid var(--base_400_20);
+
+            &:hover {
+                border-color: var(--base_400);
+            }
         }
 
         &-item-img-wrapper {

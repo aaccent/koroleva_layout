@@ -11,6 +11,10 @@
     border: 1px solid var(--base_400_20);
     @include utils.transition((border-color, background-color, color));
 
+    &:hover {
+        border-color: var(--base_400);
+    }
+
     &:has(&__input:checked) {
         color: var(--base_100);
         background-color: var(--base_400);

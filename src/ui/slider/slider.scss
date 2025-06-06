@@ -24,8 +24,10 @@
         &-next {
             padding: 12px;
             cursor: pointer;
+            background-color: transparent;
             border-radius: 100%;
             border: 1px solid var(--base_400);
+            transition: background-color 0.3s ease-in-out;
 
             .icon {
                 width: 44px;
@@ -40,6 +42,16 @@
 
         &-prev {
             rotate: 180deg;
+        }
+
+        &-prev:hover,
+        &-next:hover {
+            background-color: var(--base_400);
+            transition: background-color 0.3s ease-in-out;
+
+            .icon {
+                filter: var(--filter-base_100);
+            }
         }
     }
 

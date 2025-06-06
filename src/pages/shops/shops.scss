@@ -40,6 +40,9 @@
         @include utils.text-400-th-100-upper;
         gap: 4px;
         align-items: center;
+
+        &:hover {
+        }
     }
 
     &__decor {

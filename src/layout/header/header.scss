@@ -6,8 +6,17 @@ body:has(.main-hero) {
         border-bottom: none;
 
         &:not(._active):not(._opened):not(._scrolled) {
-            color: var(--base_100);
             background-color: transparent;
+
+            .header-menu--left,
+            .header-menu--right {
+                color: var(--base_100);
+                opacity: 1;
+            }
+
+            .header-menu__item:hover {
+                color: #ffffff59;
+            }
 
             .header__geo-button,
             .header__logo,
@@ -24,7 +33,6 @@ body:has(.main-hero) {
     position: sticky;
     z-index: 20;
     top: 0;
-    color: var(--base_400);
     @include utils.text-300-lg-100;
     background-color: var(--base_200);
     border-bottom: 1px solid var(--base_400_20);
@@ -34,6 +42,10 @@ body:has(.main-hero) {
         &._scrolled {
             margin-bottom: 47px;
             background-color: var(--base_100);
+
+            &._active {
+                background-color: var(--base_200);
+            }
 
             .container {
                 padding: 16px 60px 11px;
@@ -76,6 +88,7 @@ body:has(.main-hero) {
 
     &._active {
         .header-catalog {
+            color: var(--base_400);
             opacity: 1;
             visibility: visible;
         }
@@ -96,11 +109,16 @@ body:has(.main-hero) {
             gap: 30px;
             display: flex;
             align-items: center;
+            color: var(--base_400_50);
             cursor: pointer;
         }
 
         &__item {
             padding: 46px 0;
+            &:hover {
+                color: var(--base_400);
+            }
+
             &:has(.header-menu__item-submenu) {
                 position: relative;
 
@@ -184,6 +202,8 @@ body:has(.main-hero) {
         }
 
         &._opened {
+            border-bottom: none;
+
             .header-menu {
                 overflow-y: scroll;
                 opacity: 1;
@@ -293,6 +313,7 @@ body:has(.main-hero) {
                 width: 100%;
                 flex-direction: column;
                 align-items: start;
+                color: var(--base_400);
             }
 
             &--right {
@@ -322,6 +343,22 @@ body:has(.main-hero) {
             &-search,
             &-user {
                 display: none;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 2000px) {
+    .header {
+        &._scrolled {
+            .container {
+                padding-top: 20px;
+                padding-bottom: 20px;
+            }
+
+            .header__logo {
+                width: 100px;
+                height: 48px;
             }
         }
     }
