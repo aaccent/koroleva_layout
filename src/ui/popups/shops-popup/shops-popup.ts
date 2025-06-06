@@ -24,8 +24,6 @@ void (async function () {
 
     shopPopup.append(mapContainer)
 
-    function setIconImageHref() {}
-
     shopsElements.forEach((shop) => {
         const coords = shop.dataset.coords.split(',').map((i) => Number(i))
         const placemark = new ymaps.Placemark(
@@ -37,12 +35,9 @@ void (async function () {
                 iconImageSize: wideScreen ? [80, 80] : [54, 54],
             },
         )
-        placemark.events.add('click', (e) => {
+        placemark.events.add('click', () => {
             shopPopup.querySelector('.shops__item._active')?.classList.remove('_active')
             shop.classList.add('_active')
-
-            placemark.options.set('iconImageHref', 'assets/icons/store-placemark-dark.svg')
-            console.log(placemark.options)
         })
 
         map.geoObjects.add(placemark)
