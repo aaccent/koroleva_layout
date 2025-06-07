@@ -97,7 +97,7 @@
     }
 }
 
-@mixin only-desktop($display: block) {
+@mixin only-desktop($display: flex) {
     display: $display;
 
     @media only screen and (max-width: $tablet1000) {

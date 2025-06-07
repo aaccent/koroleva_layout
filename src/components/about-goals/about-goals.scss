@@ -33,18 +33,14 @@
         &-item-title {
             margin-bottom: 16px;
             text-align: center;
-            @include utils.hero;
+            @include utils.header-100;
             line-height: 1.05;
-
-            span {
-                @include utils.header-100;
-            }
         }
 
         &-item-text {
             width: 190px;
+            font-weight: 300;
             text-align: center;
-            opacity: 0.6;
             @include utils.text-200-th-100;
         }
     }

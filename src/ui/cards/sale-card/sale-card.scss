@@ -7,8 +7,10 @@
     overflow: hidden;
     border-radius: 8px;
 
-    .icon--arrow-right {
-        @include utils.transition(scale);
+    svg {
+        position: absolute;
+        right: 40px;
+        bottom: 40px;
     }
 
     &:hover {
@@ -17,9 +19,11 @@
             @include utils.transition(scale);
         }
 
-        .icon--arrow-right {
-            scale: 1.3;
-            @include utils.transition(scale);
+        svg {
+            path {
+                -webkit-animation: path2 0.8s forwards;
+                animation: path2 0.8s forwards;
+            }
         }
     }
     &__image {
@@ -38,16 +42,6 @@
         flex-direction: column;
         justify-content: space-between;
         color: var(--base_100);
-
-        .icon {
-            position: absolute;
-            right: 40px;
-            bottom: 40px;
-            width: 150px;
-            height: 50px;
-            filter: var(--filter-base_100);
-            background-size: cover;
-        }
     }
 
     &__dates {
@@ -89,5 +83,21 @@
         &__title {
             max-width: 168px;
         }
+    }
+}
+
+@keyframes path2 {
+    from {
+        stroke-dashoffset: 400;
+        stroke-dasharray: 200;
+        -webkit-animation-timing-function: ease-out;
+        animation-timing-function: ease-out;
+    }
+
+    to {
+        stroke-dashoffset: 100;
+        stroke-dasharray: 400;
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
     }
 }

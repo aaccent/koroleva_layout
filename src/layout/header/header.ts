@@ -55,6 +55,7 @@ void (function () {
     const openCatalogMenuItem = document.querySelector('.header-menu__item[data-id="catalog"]')
     const headerCatalog = document.querySelector('.header-catalog')
     const menuItemWithSubMenu = document.querySelectorAll('.header-menu__item:has(.header-menu__item-submenu)')
+    const headerMenuItems = document.querySelectorAll('.header-menu__item')
 
     setToggleHeader()
     window.addEventListener('scroll', setToggleHeader)
@@ -66,6 +67,13 @@ void (function () {
 
         headerCatalog?.addEventListener('mouseleave', () => {
             header?.classList.remove('_active')
+        })
+
+        headerMenuItems.forEach((item) => {
+            if (item === openCatalogMenuItem) return
+            item.addEventListener('mouseover', () => {
+                header?.classList.remove('_active')
+            })
         })
 
         menuItemWithSubMenu.forEach((item) => {

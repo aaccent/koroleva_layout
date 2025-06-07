@@ -5,7 +5,10 @@ document.querySelectorAll('.selector').forEach((selector) => {
 
     if (!button) return
 
-    button.addEventListener('click', () => selector.classList.toggle('opened'))
+    button.addEventListener('mouseover', () => {
+        selector.classList.toggle('opened')
+    })
+
     closeButton?.addEventListener('click', () => selector.classList.remove('opened'))
     selector.addEventListener('click', (event) => {
         if (event.target !== selector) return

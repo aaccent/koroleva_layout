@@ -26,9 +26,17 @@
     }
     &--arrow-short-left {
         background-image: url('assets/icons/arrow-short-left.svg');
+
+        &:hover {
+            filter: var(--filter-black);
+        }
     }
     &--arrow-short-right {
         background-image: url('assets/icons/arrow-short-right.svg');
+
+        &:hover {
+            filter: var(--filter-black);
+        }
     }
     &--arrow-short-bottom {
         background-image: url('assets/icons/arrow-short-down.svg');

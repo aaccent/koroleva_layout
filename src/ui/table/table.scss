@@ -39,7 +39,7 @@ table,
             width: fit-content;
             text-align: right;
             white-space: nowrap;
-            @include utils.text-400-lg-100;
+            @include utils.text-400-th-100;
 
             &:last-child {
                 padding-right: 0;

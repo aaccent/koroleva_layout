@@ -11,7 +11,7 @@
         flex-direction: column;
         overflow: hidden;
         color: var(--base_100);
-        background-color: var(--base_400);
+        background-color: #60514f;
         border-radius: 8px;
     }
 
@@ -21,7 +21,7 @@
 
     &__scroll {
         position: relative;
-        height: 232px;
+        height: 247px;
         display: flex;
         align-items: center;
         transition: transform 1s linear;
@@ -55,9 +55,10 @@
 
     &__image {
         position: absolute;
-        top: 50%;
+        top: 52%;
         left: 50%;
         translate: -50% -50%;
+        width: 640px;
     }
 
     &__details {
@@ -89,10 +90,12 @@
             align-items: center;
             cursor: pointer;
             border: 1px solid var(--base_100);
+            @include utils.transition(all);
 
             &:hover {
                 background-color: hsl(0, 0%, 100%, 0.15);
                 border-color: hsl(0, 0%, 100%, 0.15);
+                @include utils.transition(all);
             }
 
             &._active {

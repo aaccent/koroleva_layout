@@ -9,6 +9,12 @@
             scale: 1.1;
             @include utils.transition(scale);
         }
+
+        .article-card__title:after {
+            opacity: 1;
+            visibility: visible;
+            @include utils.transition(all);
+        }
     }
     &__image {
         object-position: center;
@@ -34,8 +40,24 @@
     &__title {
         margin-bottom: 18px;
         width: 100%;
-        max-width: 282px;
         @include utils.text-200-th-100;
+        position: relative;
+        padding-right: 95px;
+
+        &::after {
+            content: '';
+            position: absolute;
+            @include utils.bg-defaults(cover);
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            width: 25px;
+            height: 15px;
+            opacity: 0;
+            visibility: hidden;
+            background-image: url('assets/icons/arrow-right.svg');
+            @include utils.transition(all);
+        }
     }
 
     &__date {

@@ -104,19 +104,28 @@ body:has(.main-hero) {
         display: flex;
         align-items: center;
 
+        &:has(.header-menu__item:hover) {
+            .header-menu__item:not(:hover) {
+                color: var(--base_400_50);
+            }
+        }
+
         &--left,
         &--right {
             gap: 30px;
             display: flex;
             align-items: center;
-            color: var(--base_400_50);
+            color: var(--base_400);
             cursor: pointer;
         }
 
         &__item {
             padding: 46px 0;
+            @include utils.transition(all);
+
             &:hover {
                 color: var(--base_400);
+                @include utils.transition(all);
             }
 
             &:has(.header-menu__item-submenu) {
@@ -156,6 +165,10 @@ body:has(.main-hero) {
         margin-left: auto;
         display: flex;
         align-items: center;
+
+        button:hover {
+            opacity: 0.5;
+        }
     }
 
     &__geo-button-wrapper {
@@ -187,6 +200,10 @@ body:has(.main-hero) {
         left: 50%;
         translate: -50% 0;
         filter: var(--filter-base_400);
+
+        &:hover {
+            opacity: 0.7;
+        }
     }
 }
 

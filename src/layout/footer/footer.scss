@@ -2,8 +2,9 @@
 
 .footer {
     padding: 60px 0 10px;
+    height: 467px;
     color: var(--base_100);
-    background-color: var(--base_400);
+    background-color: #60514f;
 
     .container {
         display: flex;
@@ -20,6 +21,7 @@
         &-title {
             margin-bottom: 15px;
             @include utils.text-200-th-100;
+            font-weight: 400;
             opacity: 0.5;
         }
 
@@ -40,11 +42,23 @@
 
         .socials__item {
             border-color: var(--base_100);
+            @include utils.transition(all);
+
             img {
                 filter: var(--filter-base_100);
             }
             &-name {
                 display: block;
+                font-weight: 400;
+            }
+
+            &:hover {
+                opacity: 0.5;
+                @include utils.transition(all);
+
+                img {
+                    border-color: var(--base_400_20);
+                }
             }
         }
     }
@@ -58,11 +72,23 @@
     &__mail {
         margin-bottom: 16px;
         @include utils.text-200-th-100;
+        font-weight: 400;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 0.6;
+        }
     }
 
     &__tel {
         margin-bottom: 6px;
         @include utils.text-200-lg-100;
+        font-weight: 400;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 0.6;
+        }
     }
 
     &__work-hours {
@@ -87,6 +113,10 @@
 
             a:first-child {
                 margin-right: 88px;
+            }
+
+            a:hover {
+                opacity: 0.6;
             }
         }
     }

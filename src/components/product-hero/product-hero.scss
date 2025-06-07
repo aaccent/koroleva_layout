@@ -72,6 +72,10 @@
         translate: -50% 0;
         width: fit-content;
         @include utils.transition(bottom, 150ms);
+
+        &:hover {
+            border-color: transparent;
+        }
     }
 
     &__images-thumb {
@@ -150,6 +154,17 @@
         display: flex;
         align-items: center;
 
+        &:hover {
+            .product-hero__param-button-text {
+                font-weight: 900;
+            }
+
+            .product-hero__param-button-icon {
+                margin-right: 5px;
+                @include utils.transition(all);
+            }
+        }
+
         &::after {
             content: '';
             position: absolute;
@@ -177,12 +192,17 @@
 
         &-icon {
             margin-left: auto;
+            @include utils.transition(all);
         }
     }
 
     .size-table-button {
         margin-top: 24px;
         margin-bottom: 0;
+
+        &:hover {
+            text-decoration: underline;
+        }
     }
 
     &__actions {
@@ -204,8 +224,7 @@
         @include utils.only-desktop(flex);
 
         &:hover {
-            background-color: var(--base_100);
-            border-color: var(--base_100);
+            border-color: var(--base_400);
         }
     }
 
@@ -232,11 +251,28 @@
     }
 
     &__link {
-        text-decoration-color: var(--base_400);
-        text-underline-offset: 6px;
+        gap: 4px;
         margin-bottom: 32px;
-        text-decoration: underline;
+        width: fit-content;
+        display: flex;
+        flex-direction: column;
         @include utils.text-400-th-100-upper;
+
+        &::after {
+            content: '';
+            width: 100%;
+            height: 0.5px;
+            background-color: var(--base_400);
+        }
+
+        &:hover {
+            opacity: 1;
+
+            &::after {
+                width: 0;
+                @include utils.transition(all);
+            }
+        }
     }
 
     &__loyal-program {

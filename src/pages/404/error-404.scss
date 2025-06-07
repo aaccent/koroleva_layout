@@ -21,15 +21,16 @@
     }
 
     &__button {
+        width: 326px;
         flex-shrink: 0;
     }
 
     &__bg {
         position: absolute;
         z-index: -1;
-        top: -30px;
-        translate: -50px 0;
-        height: 570px;
+        top: 12px;
+        translate: -10px;
+        height: 500px;
         pointer-events: none;
         opacity: 0.05;
     }
