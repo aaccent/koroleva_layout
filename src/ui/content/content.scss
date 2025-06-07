@@ -148,6 +148,26 @@
         border-radius: 4px;
     }
 
+    .video-container {
+        position: relative;
+
+        svg {
+            position: absolute;
+            right: 40px;
+            bottom: 40px;
+        }
+
+        &:hover {
+            opacity: 0.7;
+            @include utils.transition(all);
+
+            svg rect {
+                -webkit-animation: path 0.8s forwards;
+                animation: path 0.8s forwards;
+            }
+        }
+    }
+
     .swiper,
     .swiper-fade {
         --button-size: 69px;
@@ -169,34 +189,36 @@
             top: initial;
             width: var(--button-size);
             height: 46px;
-            background-color: var(--base_100);
+            background-color: rgb(255, 255, 255, 0.15);
             border-radius: 50%;
 
-            &::after {
-                content: '';
+            &:after {
+                content: none;
+            }
+
+            svg {
                 width: 44px;
                 height: 22px;
-                @include utils.bg-defaults;
+
+                &:hover {
+                    path {
+                        -webkit-animation: path 1s forwards;
+                        animation: path 1s forwards;
+                    }
+                }
             }
         }
 
         .swiper-button-next {
             right: var(--button-offset);
             bottom: var(--button-offset);
-
-            &::after {
-                background-image: url('assets/icons/arrow-right.svg');
-            }
         }
 
         .swiper-button-prev {
             right: calc(var(--button-offset) + var(--button-size) + 8px);
             bottom: var(--button-offset);
             left: initial;
-
-            &::after {
-                background-image: url('assets/icons/arrow-left.svg');
-            }
+            rotate: 180deg;
         }
 
         .swiper-button-disabled {
@@ -345,5 +367,20 @@
                 padding-right: 0;
             }
         }
+    }
+}
+
+@keyframes path {
+    0% {
+        stroke-dashoffset: 400;
+        stroke-dasharray: 200;
+        -webkit-animation-timing-function: ease-out;
+        animation-timing-function: ease-out;
+    }
+    100% {
+        stroke-dashoffset: 100;
+        stroke-dasharray: 300;
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
     }
 }

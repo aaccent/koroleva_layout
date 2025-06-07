@@ -17,10 +17,6 @@
             @include utils.text-400-th-100;
             @include utils.transition(opacity);
 
-            &:hover {
-                opacity: 1;
-            }
-
             &::after {
                 content: '';
                 margin: 0 8px;

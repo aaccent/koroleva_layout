@@ -18,6 +18,14 @@
             height: 1px;
             background-color: var(--base_400_20);
         }
+
+        .line {
+            position: absolute;
+            bottom: 0;
+            height: 1px;
+            background-color: var(--base_400);
+            @include utils.transition(all);
+        }
     }
 
     &__tab-item {
@@ -29,25 +37,8 @@
         cursor: pointer;
         opacity: 0.5;
 
-        &::after {
-            content: '';
-            position: absolute;
-            z-index: -1;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            /* @skip-scaling */
-            height: 1px;
-            background-color: transparent;
-            @include utils.transition(background-color);
-        }
-
         &.active {
             opacity: 1;
-
-            &::after {
-                background-color: var(--base_400);
-            }
         }
 
         .counter {
@@ -190,7 +181,17 @@
         gap: 10px;
         display: flex;
         align-items: center;
+        font-weight: 300;
         cursor: pointer;
+
+        &._favorite {
+            .icon {
+                opacity: 1;
+                visibility: visible;
+                background-image: url('assets/icons/favorite-fill.svg');
+                @include utils.transition(all);
+            }
+        }
 
         span {
             @include utils.text-300-lg-100;
@@ -200,10 +201,12 @@
             --size: 16px;
             opacity: 0;
             visibility: hidden;
+            @include utils.transition(all);
 
             &.active {
                 opacity: 1;
                 visibility: visible;
+                @include utils.transition(all);
             }
         }
 

@@ -29,7 +29,7 @@
     --geologica: 'Geologica', var(--sans);
     --gloria-script: 'Gloria script', sans-serif;
 
-    --hero: 10rem/1.5 var(--forum);
+    --hero: 10rem/1.05 var(--forum);
     --header_100: 7.2rem/1.05 var(--forum);
     --header_200: 4.8rem/1.05 var(--forum);
     --header_300: 4rem/1.05 var(--forum);
@@ -98,6 +98,8 @@
     --filter-base_100: brightness(0) saturate(100%) invert(100%);
     --filter-base_200: brightness(0) saturate(100%) invert(92%) sepia(12%) saturate(422%) hue-rotate(321deg)
         brightness(107%) contrast(91%);
+    --filter-black: brightness(0) saturate(100%) invert(0%) sepia(93%) saturate(30%) hue-rotate(80deg) brightness(104%)
+        contrast(107%);
 }
 
 // Others

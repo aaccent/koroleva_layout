@@ -34,6 +34,10 @@
             opacity: 0.6;
         }
 
+        &:nth-of-type(3)::after {
+            content: '';
+        }
+
         a {
             display: flex;
             align-items: center;
@@ -62,7 +66,7 @@
             content: none;
         }
 
-        &:nth-child(n + 3) {
+        &:nth-child(n + 4) {
             a {
                 flex-direction: row-reverse;
                 .categories__item-image {

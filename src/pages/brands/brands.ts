@@ -6,17 +6,6 @@ interface StartWithElement extends HTMLElement {
     }
 }
 
-function moveLine(activeElement: HTMLElement) {
-    const line = document.querySelector<HTMLElement>('.brands__tab-list-line')
-    const lineContainer = document.querySelector<HTMLElement>('.brands__tab-list')
-    if (!line || !lineContainer) return
-
-    const width = activeElement.offsetWidth
-    const start = activeElement.getBoundingClientRect().left - lineContainer.getBoundingClientRect().left
-
-    line.setAttribute('style', `width:${width}px; left:${start}px`)
-}
-
 function makeStickyBlock() {
     const observeTarget = document.querySelector('.brands__tab-list')
     if (!observeTarget) return
@@ -85,10 +74,10 @@ void (function () {
         })
     })
 
-    const hearts = document.querySelectorAll('.brands__item .icon--heart')
-    hearts.forEach((heart) => {
-        heart.addEventListener('click', () => {
-            heart.closest('.brands__item')?.classList.toggle('_favorite')
+    const items = document.querySelectorAll('.brands__item')
+    items.forEach((item) => {
+        item.addEventListener('click', () => {
+            item.classList.toggle('_favorite')
         })
     })
 

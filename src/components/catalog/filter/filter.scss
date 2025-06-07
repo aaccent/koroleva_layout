@@ -1,9 +1,14 @@
 @use 'styles/utils';
 
+.catalog:has(.catalog__subcategories-list-wrapper) {
+    .filter {
+        margin-top: 56px;
+    }
+}
+
 .filter {
     gap: 15px;
     position: relative;
-    margin-top: 56px;
     padding-top: 25px;
     display: flex;
     justify-content: space-between;

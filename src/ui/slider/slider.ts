@@ -26,3 +26,11 @@ void (function () {
         })
     })
 })()
+
+void (function () {
+    const articleSliderNavigation = document.querySelector<HTMLElement>('.articles .slider__navigation')
+    if (!articleSliderNavigation) return
+
+    articleSliderNavigation.classList.add('articles__more')
+    articleSliderNavigation.innerHTML = `<a href='#' class="articles__more-link">смотреть все</a>`
+})()

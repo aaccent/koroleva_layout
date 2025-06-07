@@ -19,7 +19,7 @@ html {
         padding: 0 var(--container-mx);
     }
 
-    @media screen and (min-width: 2000px) {
+    @media screen and (min-width: 1920px) {
         --container-mx: 70px;
         --negative-container-mx: -70px;
         max-width: 1920px;
@@ -81,6 +81,10 @@ html.disable-scroll {
 .swiper-wrapper,
 .swiper-slide {
     box-sizing: border-box !important;
+}
+
+.swiper-button-disabled {
+    opacity: 0.5;
 }
 
 .content {

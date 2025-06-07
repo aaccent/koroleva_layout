@@ -6,18 +6,18 @@ block main
     -
         var shops = [
             {
-                image: require('assets/content/shops/1.png'),
+                images: [require('assets/content/shops/1.png'), require('assets/content/shops/2.png')],
                 address: 'ул. Мамина-Сибиряка, 23',
                 info: ['ТЦ Грант — 3 этаж',
                 'Пн-Пт: с 09:00 до 20:00',
                 'Сб-Вск: выходной'],
                 tel: '8 921 560-15-16',
-                coords:'54.35154455724545, 10.116644715869354',
+                coords:'56.833212, 60.607765',
                 city: 'Екатеринбург',
                 id: '1'
             },
             {
-                image: require('assets/content/shops/2.png'),
+                images: [require('assets/content/shops/2.png'), require('assets/content/shops/1.png')],
                 address: 'ул. Мамина-Сибиряка, 3',
                 info: ['ТЦ Грант — 3 этаж',
                     'Пн-Пт: с 09:00 до 20:00',
@@ -48,18 +48,23 @@ block main
                             label.shops__selector-item= item.city
                                 input(type='radio', name='city', value=item.id)
             .shops__decor
-            .shops__item-wrapper
-                each shop in shops
-                    .shops__item(data-id=shop.id, data-coords=shop.coords)
-                        .shops__item-image-wrapper
-                            +img(shop.image).shops__item-image
-                        .shops__item-info
-                            .shops__item-address= shop.address
-                            each item in shop.info
-                                .shops__item-info-item= item
-                            .shops__item-tel= shop.tel
-                                .icon.icon--phone
-                            +anchor.shops__item-way Проложить маршрут
+            each shop, index in shops
+                .shops-slider.swiper(data-id=shop.id, data-coords=shop.coords)
+                    .shops__item-wrapper.swiper-wrapper
+                        each image in shop.images
+                            .shops__item.swiper-slide
+                                .shops__item-image-wrapper
+                                    +img(image).shops__item-image
+                    .shops__item-info
+                        .shops__item-address= shop.address
+                        each item in shop.info
+                            .shops__item-info-item= item
+                        .shops__item-tel= shop.tel
+                            .icon.icon--phone
+                        +anchor.shops__item-way Проложить маршрут
+                    .shops-slider__navigation
+                        .shops-slider__navigation-prev
+                        .shops-slider__navigation-next
 
 block popups
     include ui/popups/shops-popup/shops-popup

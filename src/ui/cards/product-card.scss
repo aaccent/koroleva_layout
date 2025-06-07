@@ -3,6 +3,12 @@
 .product-card {
     width: 100%;
 
+    &:hover {
+        .product-card__body {
+            color: black;
+        }
+    }
+
     &:hover :is(&__cart-button, &__slide-button, &__favorite-button) {
         opacity: 1;
         visibility: visible;
@@ -79,16 +85,12 @@
     }
 
     &__favorite-button {
-        aspect-ratio: 1;
         width: 32px;
-
+        height: 32px;
         &:hover {
+            opacity: 0.5 !important;
             background-image: url('assets/icons/favorite-fill.svg');
-        }
-
-        &.active {
-            opacity: 1;
-            visibility: visible;
+            transition: none;
         }
     }
 
@@ -165,6 +167,7 @@
 
     &__price--previous {
         color: var(--base_400_50);
+        text-decoration: line-through;
     }
 }
 
