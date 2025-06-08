@@ -380,6 +380,10 @@
             flex-direction: column;
         }
 
+        &__fixed-info-button {
+            font-size: 1rem;
+        }
+
         &__left-block,
         &__right-block {
             position: static;

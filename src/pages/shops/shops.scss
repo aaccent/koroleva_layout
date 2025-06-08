@@ -311,6 +311,12 @@
                 width: 20px;
                 height: 20px;
             }
+
+            &-list {
+                z-index: 2;
+                left: -100%;
+                min-width: 180px;
+            }
         }
 
         &-slider {

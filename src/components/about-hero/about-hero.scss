@@ -27,6 +27,7 @@
         font-size: 2rem;
         text-align: center;
         opacity: 0.7;
+        @include utils.text-400-th-100;
     }
 
     &__bg {
@@ -62,6 +63,11 @@
         &__title {
             margin-bottom: 20px;
             max-width: 100%;
+            font-size: 3.2rem;
+
+            &:first-letter {
+                font-size: 6.4rem;
+            }
         }
 
         &__bg {

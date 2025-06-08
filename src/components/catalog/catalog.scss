@@ -124,6 +124,9 @@
 
 @media only screen and (max-width: utils.$tablet1000) {
     .catalog {
+        &__title-block:not(:has(~ .catalog__subcategories-list-wrapper)):after {
+            content: none;
+        }
         &__text {
             max-width: 100%;
             @include utils.text-300-th-100;
