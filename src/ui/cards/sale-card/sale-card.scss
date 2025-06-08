@@ -83,21 +83,12 @@
         &__title {
             max-width: 168px;
         }
-    }
-}
 
-@keyframes path2 {
-    from {
-        stroke-dashoffset: 400;
-        stroke-dasharray: 200;
-        -webkit-animation-timing-function: ease-out;
-        animation-timing-function: ease-out;
-    }
-
-    to {
-        stroke-dashoffset: 100;
-        stroke-dasharray: 400;
-        -webkit-animation-timing-function: ease-in;
-        animation-timing-function: ease-in;
+        svg {
+            right: 16px;
+            bottom: 16px;
+            width: 60px;
+            height: 30px;
+        }
     }
 }

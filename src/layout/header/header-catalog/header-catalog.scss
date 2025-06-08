@@ -26,7 +26,7 @@
     &__list {
         position: relative;
         width: 100%;
-        @include utils.text-400-th-100;
+        @include utils.text-300-th-100;
     }
 
     &__item {
@@ -47,6 +47,22 @@
                 opacity: 1;
                 visibility: visible;
             }
+
+            &::before {
+                opacity: 1;
+                visibility: visible;
+                @include utils.transition(all);
+            }
+        }
+
+        &::before {
+            content: '';
+            @include utils.bg-defaults(cover);
+            width: 20px;
+            height: 10px;
+            opacity: 1;
+            visibility: hidden;
+            background-image: url('assets/icons/arrow-right.svg');
         }
 
         &:last-child {
@@ -116,6 +132,20 @@
                 height: 243px;
                 overflow: hidden;
                 border-radius: 8px;
+                @include utils.transition(all);
+
+                &:hover {
+                    opacity: 0.6;
+                    @include utils.transition(all);
+
+                    svg {
+                        path,
+                        rect {
+                            -webkit-animation: path 0.8s forwards;
+                            animation: path 0.8s forwards;
+                        }
+                    }
+                }
 
                 &::after {
                     content: '';
@@ -131,18 +161,11 @@
                     height: 100%;
                 }
 
-                &:before {
-                    content: '';
+                svg {
                     position: absolute;
-                    width: 106px;
-                    height: 53px;
-                    display: block;
-                    @include utils.bg-defaults(cover);
                     z-index: 1;
                     right: 18px;
                     bottom: 18px;
-                    filter: var(--filter-base_100);
-                    background-image: url('assets/icons/arrow-right.svg');
                 }
 
                 &[data-fancybox='video']:before {
