@@ -1,5 +1,5 @@
 import { isDesktop, isMobile } from 'globals/adaptive'
-import { disableScroll, enableScroll, toggleScroll } from 'features/scroll'
+import { enableScroll, toggleScroll } from 'features/scroll'
 
 interface CatalogItem extends HTMLElement {
     dataset: {
@@ -87,8 +87,24 @@ void (function () {
     if (isMobile) {
         const burgerMenu = document.querySelector('.header__mobile-burger')
         const catalogBack = document.querySelector<HTMLElement>('.header-catalog__back')
+        const itemSubmenu = document.querySelectorAll('.header-menu__item:has(.header-menu__item-submenu)')
+        const submenuBack = document.querySelectorAll<HTMLElement>('.header-menu__item-submenu-back')
         const catalogItems = document.querySelectorAll<CatalogItem>('.header-catalog__item')
         const subcategories = document.querySelectorAll('.header-catalog__item-subcategory')
+
+        itemSubmenu.forEach((item) => {
+            item.addEventListener('click', () => {
+                item.classList.add('_active')
+            })
+        })
+
+        submenuBack.forEach((back) => {
+            back.addEventListener('click', (e) => {
+                e.stopPropagation()
+                const item = back.closest('.header-menu__item')
+                item?.classList.remove('_active')
+            })
+        })
 
         burgerMenu?.addEventListener('click', () => {
             header?.classList.toggle('_opened')

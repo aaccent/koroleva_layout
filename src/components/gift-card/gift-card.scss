@@ -62,6 +62,8 @@
     }
 
     &__details {
+        position: relative;
+        z-index: 2;
         margin-top: auto;
         padding: 0 64px;
         width: 100%;

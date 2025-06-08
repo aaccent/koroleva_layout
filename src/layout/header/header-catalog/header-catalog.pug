@@ -207,10 +207,31 @@ include layout/utils
                                     +anchor(item.link || 'https://www.youtube.com/watch?v=LAM1mtphC-k').header-catalog__item-media-container(
                                         data-fancybox='video'
                                     )
+                                        svg(
+                                            width='66',
+                                            height='48',
+                                            viewBox='0 0 66 48',
+                                            fill='none',
+                                            xmlns='http://www.w3.org/2000/svg'
+                                        )
+                                            rect(x='0.5', y='0.5', width='65', height='47', rx='23.5', stroke='white')
+                                            path(d='M42 24L28.5 31.7942L28.5 16.2058L42 24Z', fill='white')
                                         +img(item.image || require('assets/static/video-preview.png'))
                                         .header-catalog__item-media-title= item.title
                                 else
                                     +anchor(item.link).header-catalog__item-media-container
+                                        svg(
+                                            width='108',
+                                            height='56',
+                                            viewBox='0 0 108 56',
+                                            fill='none',
+                                            xmlns='http://www.w3.org/2000/svg'
+                                        )
+                                            path(
+                                                d='M0 27.9866H107.445C97.894 28.9417 78.7928 24.8349 78.7928 0.767288M107.445 28.1113C97.894 27.1562 78.7928 31.263 78.7928 55.3306',
+                                                stroke='white',
+                                                stroke-width='2.5'
+                                            )
                                         +img(item.image)
                                         .header-catalog__item-media-title= item.title
     .header-catalog__offers
