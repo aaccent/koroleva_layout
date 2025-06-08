@@ -34,11 +34,15 @@
 
     &__button {
         margin-top: auto;
+        padding: 29px 0 27px;
     }
 }
 
 @media only screen and (max-width: utils.$tablet1000) {
     .chose-size-popup {
+        &__inner {
+            min-height: 337px;
+        }
         .popup__title {
             margin-bottom: 30px;
         }

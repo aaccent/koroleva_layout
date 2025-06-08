@@ -29,7 +29,7 @@
     }
 
     &__amount {
-        @include utils.only-mobile;
+        @include utils.only-mobile(flex);
     }
 
     .selector {
