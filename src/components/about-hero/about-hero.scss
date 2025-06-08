@@ -18,7 +18,7 @@
         max-width: 1130px;
 
         &:first-letter {
-            font-size: 150px;
+            font-size: 15rem;
         }
     }
 
@@ -68,6 +68,19 @@
             top: 50%;
             translate: 0 -75%;
             width: 85%;
+        }
+    }
+}
+
+@media only screen and (min-width: 2000px) {
+    .about-hero {
+        &__title {
+            max-width: 1680px;
+        }
+
+        &__text {
+            max-width: 550px;
+            font-size: 2.4rem;
         }
     }
 }
