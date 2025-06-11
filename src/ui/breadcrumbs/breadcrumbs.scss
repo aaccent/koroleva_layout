@@ -3,7 +3,7 @@
 .breadcrumbs {
     position: relative;
     z-index: 1;
-    margin: 32px 0 30px;
+    margin: calc(var(--header-height) + 32px) 0 30px;
 
     &__list {
         display: flex;

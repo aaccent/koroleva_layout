@@ -8,6 +8,6 @@ button.scroll-top-button(type='button', data-action='scroll-top', data-show-on-s
 
 section.section.catalog: .container
     +catalog-title({ amount: '223 найдено', title: 'результаты поиска', text: 'Найдено по запросу «бюстгальтер»', })
-    +filter
+    +filter({viewSwitcher: false})
     +products(data-view='grid')
     button.button.button--center.button--fit.button--arrow.button--outline.button--light показать ещё

@@ -111,3 +111,25 @@
         }
     }
 }
+
+@media only screen and (max-width: 1000px) {
+    .filter-popup__sort-selector.opened {
+        .selector {
+            &__button {
+                display: none;
+            }
+
+            &__list-wrapper {
+                position: static;
+                padding: 0;
+                opacity: 1;
+                visibility: visible;
+                background-color: transparent;
+            }
+
+            &__item {
+                @include utils.text-400-lg-100-upper;
+            }
+        }
+    }
+}

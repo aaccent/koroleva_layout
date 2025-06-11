@@ -1,6 +1,7 @@
 import { ShopElement } from 'ui/popups/shops-popup/shops-popup'
 import Swiper from 'swiper'
 import { EffectFade, Navigation } from 'swiper/modules'
+import { isMobile } from 'globals/adaptive'
 
 void (function () {
     const citySelector = document.querySelector('.shops__selector')
@@ -53,4 +54,9 @@ void (function () {
             },
         })
     })
+
+    if (isMobile) {
+        const mapButton = document.querySelector<HTMLElement>('.shops__map')
+        if (mapButton) mapButton.innerText = 'на карте'
+    }
 })()

@@ -38,6 +38,7 @@ void (function () {
         const height = breadcrumbs.offsetHeight + marginTop + marginBottom
 
         const value = `${height}px`
+
         document.documentElement.style.setProperty('--breadcrumbs-height', value)
     }
     setBreadcrumbsHeight()

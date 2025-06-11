@@ -18,7 +18,8 @@ mixin tab-item(title, mobileOverlay, icon)
                         По идеи reset-filter должен сбрасывать поля в данном `tab-item`.
                         Обработчик не вешал, потому что без понятия как это реализовано со стороны битры.
                         Нужно сделать обработчик и реализовать идею дизайна
-                    button.tab-item__mobile-reset-button(type='button', data-action='reset-filter') сбросить
+                    - var text = title.toLowerCase().trim() === 'бренды' ? 'сбросить все' : 'сбросить'
+                        button.tab-item__mobile-reset-button(type='button', data-action='reset-filter')= text
             .tab-item__body: block
         .tab-item__line
 

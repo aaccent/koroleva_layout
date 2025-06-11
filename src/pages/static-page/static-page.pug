@@ -5,7 +5,7 @@ block append head
 
 block main
     include ui/breadcrumbs/breadcrumbs
-    +breadcrumbs(['Блог', 'Как подобрать свой размер бюстгальтера?'])
+    +breadcrumbs(['Возврат'])
     section.section.static-page: .container
         include ui/content-toc/content-toc
         .static-page__content.content.content-with-toc
@@ -71,8 +71,6 @@ block main
                         td 82-84
                             td 87-89
                             td 92-94
-    include ui/slider/slider
-    +slider({title: 'Полезные статьи', cards:'article-card', className: 'articles'})
 
 block append scripts
     script(src=require('scripts/catalog.ts'))

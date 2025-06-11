@@ -1,3 +1,5 @@
+import { isMobile } from 'globals/adaptive'
+
 document.querySelectorAll('.selector').forEach((selector) => {
     const itemInputs = selector.querySelectorAll<HTMLInputElement>('.selector__item-input')
     const button = selector.querySelector<HTMLElement>('.selector__button')
@@ -37,3 +39,23 @@ document.querySelectorAll('.selector-list').forEach((selectorList) => {
         })
     })
 })
+
+const sortSelectorValue = document.querySelector<HTMLElement>('.filter-popup__sort-selector .tab-item__title span')
+const sortInputs = document.querySelectorAll('.filter-popup__sort-selector .selector__item-input')
+sortInputs.forEach((input) => {
+    input?.addEventListener('change', () => {
+        if (sortSelectorValue) {
+            sortSelectorValue.textContent = input.closest('.selector__item')?.textContent || ''
+        }
+    })
+})
+
+if (isMobile) {
+    const selectorButtons = document.querySelectorAll('.selector__button')
+    selectorButtons.forEach((button) => {
+        const popup = button.closest('.filter-popup__sort-selector')
+        if (popup) return
+
+        button.textContent = ''
+    })
+}

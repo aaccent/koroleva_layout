@@ -42,9 +42,10 @@ body:has(.main-hero) {
 }
 
 .header {
-    position: sticky;
+    position: fixed;
     z-index: 20;
     top: 0;
+    width: 100%;
     @include utils.text-300-lg-100;
     background-color: var(--base_200);
     border-bottom: 1px solid var(--base_400_20);
@@ -121,6 +122,7 @@ body:has(.main-hero) {
 
     &-menu {
         gap: 375px;
+        margin-left: 30px;
         display: flex;
         align-items: center;
 
@@ -464,6 +466,10 @@ body:has(.main-hero) {
                 width: 100px;
                 height: 48px;
             }
+        }
+
+        &__geo-button-wrapper {
+            margin-right: 80px;
         }
     }
 }
