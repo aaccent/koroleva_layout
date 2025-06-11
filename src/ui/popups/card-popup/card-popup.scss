@@ -117,7 +117,7 @@
 
             &-item {
                 padding: 14px 18px;
-                font-size: 11px;
+                font-size: 1.1rem;
                 border-radius: 50px;
                 border: 1px solid hsla(7, 15%, 34%, 0.3);
 
@@ -134,6 +134,8 @@
         &__button {
             margin-top: 32px;
             margin-bottom: 16px;
+            padding-top: 21.5px;
+            padding-bottom: 19.5px;
         }
     }
 }

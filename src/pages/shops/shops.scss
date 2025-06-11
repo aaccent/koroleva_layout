@@ -51,7 +51,11 @@
         gap: 4px;
         align-items: center;
 
-        &:hover {
+        &::after {
+            content: '';
+            background-image: url('assets/icons/geo.svg');
+            @include utils.square(24px);
+            @include utils.bg-defaults();
         }
     }
 

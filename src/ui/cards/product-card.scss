@@ -193,6 +193,16 @@
             visibility: visible;
         }
 
+        &__cart-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &__slide-button {
+            display: none;
+        }
+
         &__slide-button {
             &--prev {
                 left: 10px;

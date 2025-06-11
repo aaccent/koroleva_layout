@@ -1,4 +1,5 @@
 import { createYMap } from 'features/maps/createYMap'
+import { isMobile } from 'globals/adaptive'
 
 export interface ShopElement extends HTMLElement {
     dataset: {
@@ -46,5 +47,8 @@ void (async function () {
     const bounds = map.geoObjects.getBounds()
     if (!bounds) return
     const rightMargin = window.innerWidth / 2
-    setTimeout(() => map.setBounds(bounds, { zoomMargin: [0, rightMargin, 0, 0] }), 500)
+    setTimeout(() => {
+        map.setBounds(bounds, { zoomMargin: [0, rightMargin, 0, 0] })
+        if (isMobile) map.setZoom(13)
+    }, 500)
 })()

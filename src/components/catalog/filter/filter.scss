@@ -34,8 +34,8 @@
 
     .selector {
         width: 30%;
+        display: flex;
         justify-content: flex-end;
-        @include utils.only-desktop(flex);
     }
 }
 
@@ -55,6 +55,10 @@
 
         .view-switcher {
             justify-content: flex-end;
+        }
+
+        .view-switcher + .selector {
+            display: none;
         }
     }
 }

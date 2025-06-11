@@ -234,10 +234,6 @@
             margin: 0 -28px;
             padding: 24px 28px 0;
             border-top: 1px solid var(--base_400_20);
-
-            .cart-popup__info-item:is(:not(.cart-popup__price)) {
-                display: none;
-            }
         }
 
         &__promo {
@@ -246,6 +242,11 @@
             &-input {
                 padding-bottom: 12px;
                 font-size: 1.4rem;
+
+                input::placeholder {
+                    font-size: 1.4rem;
+                    text-transform: uppercase;
+                }
             }
 
             input::placeholder {
@@ -253,7 +254,7 @@
             }
         }
 
-        &__button {
+        &__button.button {
             justify-content: space-between;
         }
     }
