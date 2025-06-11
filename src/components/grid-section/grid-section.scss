@@ -99,7 +99,8 @@
     &__body {
         grid-template-columns: repeat(2, 13.35%) 11.27% 1fr 11.27% repeat(2, 13.35%);
         grid-auto-rows: 550px 170px 550px;
-        gap: 100px 24px;
+        column-gap: 24px;
+        row-gap: 100px;
         display: grid;
 
         &-item {
@@ -109,8 +110,21 @@
         &-item:where(:nth-child(5n + 2), :nth-child(5n + 3)) {
             grid-column: span 3;
             grid-row: span 2;
+            height: 860px;
             display: flex;
             flex-direction: column;
+
+            @media only screen and (max-width: utils.$tablet1000) {
+                height: 278px;
+            }
+
+            &:has(.collection-card__date) {
+                height: 885px;
+
+                @media only screen and (max-width: utils.$tablet1000) {
+                    height: 278px;
+                }
+            }
         }
     }
 }

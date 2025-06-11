@@ -237,6 +237,7 @@ include layout/utils
     .header-catalog__offers
         each offer in catalog.offers
             +anchor(offer.link).header-catalog__offers-item
-                +img(offer.image).header-catalog__offers-item-image
+                .header-catalog__offers-item-image-wrapper
+                    +img(offer.image).header-catalog__offers-item-image
                 .header-catalog__offers-item-title= offer.title
                 .header-catalog__offers-item-price= offer.price
