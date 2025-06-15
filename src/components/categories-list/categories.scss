@@ -14,6 +14,12 @@
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
+
+        @media screen and (min-width: 2000px) {
+            margin-right: auto;
+            margin-left: auto;
+            max-width: calc(1680 * var(--screen-delta) + 1680px);
+        }
     }
 
     &__item {
