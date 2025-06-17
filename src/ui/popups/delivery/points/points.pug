@@ -8,9 +8,18 @@ include features/popup/popup
             data-address='пр-кт Металлургов, 56',
             data-price='Стоимость доставки — 250 ₽',
             data-date='Дата доставки — понедельник, 19 июня',
-            data-coords='55.79182659084871,49.11312580123732',
+            data-coords='55.820857, 49.101188',
             data-image='assets/static/point-image.png',
-            data-workHours='Ежедневно: 09:00-18:00'
+            data-hours='Ежедневно: 09:00-18:00'
+        )
+        div(
+            data-id='8',
+            data-address='пр-кт Победы, 56',
+            data-price='Стоимость доставки — 900 ₽',
+            data-date='Дата доставки — понедельник, 29 июня',
+            data-coords='55.835683, 49.133112',
+            data-image='assets/static/point-image.png',
+            data-hours='Ежедневно: 09:00-18:00'
         )
     button.points-popup__show-list(type='button') пункты списком
     .points-popup__content
@@ -37,6 +46,6 @@ include features/popup/popup
             .points-popup__balloon-mobile-address(data-balloon='address', data-point='address')
             .points-popup__balloon-mobile-price(data-balloon='price')
             .points-popup__balloon-mobile-date(data-balloon='date', data-point='date')
-            .points-popup__balloon-mobile-work-hours(data-balloon='work-hours')
+            .points-popup__balloon-mobile-work-hours(data-balloon='hours')
                 .icon.icon--clock
             button.points-popup__balloon-mobile-button.button.button--arrow(type='button') выбрать этот пункт

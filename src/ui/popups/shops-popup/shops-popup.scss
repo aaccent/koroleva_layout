@@ -64,6 +64,33 @@
     &__button {
         z-index: 1;
     }
+
+    &__marker {
+        width: 54px;
+        height: 54px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--base_100);
+        border-radius: 100%;
+
+        &::after {
+            content: '';
+            @include utils.bg-defaults();
+            width: 14.55px;
+            height: 17.89px;
+            filter: var(--filter-base_400);
+            background-image: url('assets/icons/B.svg');
+        }
+
+        &._active {
+            background-color: var(--base_400);
+
+            &::after {
+                filter: var(--base_100);
+            }
+        }
+    }
 }
 
 @media only screen and (max-width: 1000px) {

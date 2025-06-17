@@ -1,6 +1,7 @@
 import { DeliveryPopup } from 'components/delivery/delivery'
 import { closeActivePopup, PopupOpenedCustomEvent } from 'features/popup/popup'
 import { setFinalData, validateStep } from 'components/order-step/order-step'
+import { determineCoordinates, getCoordsFromDataset, setMapBounds } from 'features/maps/createYMap'
 
 export interface Store {
     id: string
@@ -55,27 +56,30 @@ void (function () {
 })()
 
 async function initStoreMap(mapContainer: HTMLElement, points: NodeListOf<StorePoint>) {
-    const map = await window.map
+    const map = window.map
     const mapElement = document.querySelector<HTMLElement>('.delivery__map')
     if (!map || !mapElement) return
 
-    map.geoObjects.removeAll()
+    /*map.geoObjects.removeAll()*/
     mapContainer.append(mapElement)
 
+    const { YMapDefaultSchemeLayer, YMapMarker } = ymaps3
+
+    map.children.forEach((child) => {
+        // @ts-ignore
+        if (child.element) map.removeChild(child)
+    })
+
     points.forEach((point) => {
-        const coords = point.dataset.coords.split(',').map((coord) => Number(coord))
+        const coords = determineCoordinates(point.dataset.coords.split(',').map((coord) => Number(coord)))
+        const markerEl = document.createElement('div')
+        markerEl.classList.add('store-popup__marker', 'shops-popup__marker')
 
-        const placemark = new ymaps.Placemark(
-            coords,
-            {},
-            {
-                iconLayout: 'default#image',
-                iconImageSize: [54, 54],
-                iconImageHref: './assets/icons/store-placemark.svg',
-            },
-        )
+        markerEl.addEventListener('click', () => {
+            const activeMarker = document.querySelector('.store-popup__marker._active')
+            activeMarker?.classList.remove('_active')
+            markerEl.classList.add('_active')
 
-        placemark.events.add('click', () => {
             const popupInner = document.querySelector('.store-popup__inner')
             const currentActiveStore = document.querySelector('.store-popup__point._active')
             currentActiveStore?.classList.remove('_active')
@@ -83,10 +87,13 @@ async function initStoreMap(mapContainer: HTMLElement, points: NodeListOf<StoreP
             popupInner?.classList.add('_visible')
         })
 
-        map.geoObjects.add(placemark)
+        const marker = new YMapMarker({ coordinates: coords }, markerEl)
+
+        map.addChild(new YMapDefaultSchemeLayer({}))
+        map.addChild(marker)
     })
 
-    const bounds = map.geoObjects.getBounds()
-    if (!bounds) return
-    setTimeout(() => map.setBounds(bounds, { checkZoomRange: true, zoomMargin: [30] }), 500)
+    const coords = getCoordsFromDataset(Array.from(points))
+
+    setMapBounds(map, coords)
 }

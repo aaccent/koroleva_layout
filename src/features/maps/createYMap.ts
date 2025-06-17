@@ -1,128 +1,86 @@
 import { loadScript } from '@/features/loadScript'
-import { IPlacemarkOptions } from 'yandex-maps'
-import { defaultConfig, getMapCenter, getMapContainer, MapConfig } from '@/features/maps/mapGeneral'
-import { isMobile } from 'globals/adaptive'
+import { getMapCenter, getMapContainer, MapConfig } from '@/features/maps/mapGeneral'
+import { YMap, YMapProps } from '@yandex/ymaps3-types'
+import * as turf from '@turf/turf'
 
-export interface YMapConfig extends MapConfig {
-    /**
-     * Настройки метки взяты из АПИ яндекса.
-     * @default { preset: 'islands#redIcon' }
-     *  */
-    placemarkOptions?: IPlacemarkOptions
-}
-
-const defaultYConfig: Required<YMapConfig> = {
-    ...defaultConfig,
-    placemarkOptions: {
-        preset: 'islands#redIcon',
-    },
+export interface ElementWithCoords extends HTMLElement {
+    dataset: {
+        coords: string
+    }
 }
 
 export async function loadYMap(apikey: string): Promise<void> {
     if (window.ymaps !== undefined) return
 
-    const script = `https://api-maps.yandex.ru/2.1/?apikey=${apikey}&lang=ru_RU`
+    const script = `https://api-maps.yandex.ru/v3/?apikey=${apikey}&lang=ru_RU`
     await loadScript(script, 'yaMap')
 
-    await ymaps.ready()
+    await ymaps3.ready
 }
 
-/**
- * Для мобильных устройств выводит сообщения на карте о том,
- * что карту нужно перемещать двумя пальцами.
- * */
-function turnOffDragByOneFinger(map: ymaps.Map) {
-    if (!isMobile) return
+export function setMapBounds(map: YMap, markersCoords: [number, number][]) {
+    const bounds = turf.points(markersCoords)
+    const center = turf.center(bounds)
+    const result = center.geometry.coordinates as [number, number]
 
-    const eventsPaneEl = map.panes.get('events')?.getElement()
-    if (!eventsPaneEl) return
+    map.setLocation({ center: result })
+}
 
-    const mobilePanelStyles = {
-        alignItems: 'center',
-        boxSizing: 'border-box',
-        color: 'white',
-        display: 'flex',
-        justifyContent: 'center',
-        fontSize: '22px',
-        fontFamily: 'Arial,sans-serif',
-        opacity: '0.0',
-        padding: '25px',
-        textAlign: 'center',
-        transition: 'opacity .3s',
-        touchAction: 'auto',
-    } as const satisfies {
-        [Key in keyof CSSStyleDeclaration]?: CSSStyleDeclaration[Key]
+export function determineCoordinates(coords: number[]): [number, number] {
+    if (coords.length !== 2) {
+        throw new Error(`Массив ${coords} должен содержать ровно 2 числа`)
     }
 
-    Object.keys(mobilePanelStyles).forEach(function (name) {
-        const cssProp = name as keyof typeof mobilePanelStyles
+    const [a, b] = coords
 
-        eventsPaneEl.style[cssProp] = mobilePanelStyles[cssProp]
-    })
+    // Проверяем, какое число может быть широтой, а какое - долготой
+    const aIsLat = a >= -90 && a <= 90
+    const bIsLat = b >= -90 && b <= 90
+    const aIsLon = a >= -180 && a <= 180
+    const bIsLon = b >= -180 && b <= 180
 
-    map.behaviors.disable('drag')
-
-    // @ts-ignore
-    ymaps.domEvent.manager.add(eventsPaneEl, 'touchmove', function (event) {
-        if (event.get('touches').length === 1) {
-            eventsPaneEl.style.transition = 'opacity .3s'
-            eventsPaneEl.style.background = 'rgba(0, 0, 0, .45)'
-            eventsPaneEl.textContent = 'Чтобы переместить карту проведите по ней двумя пальцами'
-            eventsPaneEl.style.opacity = '1'
-        }
-    })
-
-    // @ts-ignore
-    ymaps.domEvent.manager.add(eventsPaneEl, 'touchend', function () {
-        eventsPaneEl.style.transition = 'opacity .8s'
-        eventsPaneEl.style.opacity = '0'
-    })
+    if (aIsLat && bIsLon) {
+        return [b, a] //{ latitude: a, longitude: b };
+    } else if (bIsLat && aIsLon) {
+        return [a, b]
+    } else {
+        // Если оба числа подходят под оба диапазона (например, 45 и 90)
+        // или если числа выходят за допустимые диапазоны
+        throw new Error(`Невозможно определить широту и долготу. Проверьте значения ${coords}.`)
+    }
 }
 
-/**
- * Создаёт яндекс карту в `container` элементе.
- *
- * ```html
- * <div class="map" data-key="123asd123" data-coords="123.123,123.22"></div>
- * ```
- * ```js
- * createYMap('.map', { createPlacemark: false })
- * ```
- * @param container - Принимает CSS селектор или {@link HTMLElement}.
- *
- * Элемент должен быть с атрибутом `data-key`.
- * В значении атрибута должен быть передан АПИ ключ к Я.Картам.
- *
- * Центр карты выставляется по `data-coords` атрибуту на элементе карты
- * @param props - Конфиг карты. Описан в {@link MapConfig} и в {@link YMapConfig}
- */
-export async function createYMap(container: string | HTMLElement, props?: YMapConfig) {
-    const config = Object.assign(defaultYConfig, props)
+export function getCoordsFromDataset(elements: ElementWithCoords[]) {
+    const rawCoords = elements.map((element) => element.dataset.coords.split(',').map((i) => Number(i)))
+    return rawCoords.map((coords) => determineCoordinates(coords))
+}
 
+export async function createYMap(
+    container: string | HTMLElement,
+    props?: {
+        zoom?: number
+        theme?: YMapProps['theme']
+        margin?: YMapProps['margin']
+    },
+) {
     let mapEl = getMapContainer(container)
     const mapCenter = getMapCenter(mapEl)
 
     await loadYMap(mapEl.dataset.key)
 
-    const map = new ymaps.Map(
+    const { YMap, YMapDefaultSchemeLayer, YMapDefaultFeaturesLayer } = ymaps3
+
+    const map = new YMap(
         mapEl,
         {
-            center: mapCenter,
-            zoom: config.zoom,
-            controls: [],
+            location: {
+                center: mapCenter,
+                zoom: props?.zoom || 15,
+            },
+            theme: props?.theme || 'light',
         },
-        { suppressMapOpenBlock: true },
+        [new YMapDefaultSchemeLayer({}), new YMapDefaultFeaturesLayer({})],
     )
-
-    if (!config.zoomByWheel) map.behaviors.disable('scrollZoom')
-
-    if (config.setPlacemark) {
-        const placemark = new ymaps.Placemark(map.getCenter(), {}, config.placemarkOptions)
-
-        map.geoObjects.add(placemark)
-    }
-
-    turnOffDragByOneFinger(map)
 
     // Необходимо для безопасной инициализации карты
     window.globalScripts.yaMap = 'created'

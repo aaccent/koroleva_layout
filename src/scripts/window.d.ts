@@ -1,4 +1,5 @@
 import { ScriptStatus, ScriptTypes } from '@/features/loadScript'
+import { YMap } from '@yandex/ymaps3-types'
 
 declare global {
     interface Window {
@@ -7,7 +8,7 @@ declare global {
         globalScripts: {
             [key in ScriptTypes]?: ScriptStatus
         }
-        map: Promise<ymaps.Map> | null
+        map: YMap | null
     }
 }
 

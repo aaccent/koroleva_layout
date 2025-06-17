@@ -10,7 +10,7 @@ const testProducts = [
     'assets/content/products/card-3.jpg',
 ]
 
-function createOrderMap() {
+async function createOrderMap() {
     const orderPage = document.querySelector<HTMLElement>('.order')
     if (!orderPage) return null
 
@@ -21,7 +21,7 @@ function createOrderMap() {
     mapElement.classList.add('delivery__map')
     mapElement.setAttribute('data-key', '3b0f34a6-e20f-45e6-8b4f-fa2120d7244d')
     orderPage.append(mapElement)
-    return createYMap(mapElement, { setPlacemark: false, ui: false })
+    return await createYMap(mapElement, { theme: 'dark' })
 }
 
 function setOrderProducts(productImagePaths: string[]) {
@@ -57,9 +57,9 @@ function moveSubmitButton() {
 }
 
 void (async function () {
-    const firstStep = document.querySelector('.order-step:nth-child(1)')
+    const firstStep = document.querySelector('.order-step:nth-child(2)')
     firstStep?.classList.add('_opened')
-    window.map = createOrderMap()
+    window.map = await createOrderMap()
     setOrderProducts(testProducts)
 
     const closeButton = document.querySelector('.order__close')

@@ -60,5 +60,5 @@ export function parseCoords(str: string): [number, number] {
 }
 
 export function getMapCenter(mapContainer: MapContainer): [number, number] {
-    return !mapContainer.dataset.coords ? [55.796951, 49.210983] : parseCoords(mapContainer.dataset.coords)
+    return !mapContainer.dataset.coords ? [49.106414, 55.796127] : parseCoords(mapContainer.dataset.coords)
 }
