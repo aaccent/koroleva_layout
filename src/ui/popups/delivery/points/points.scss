@@ -4,6 +4,18 @@
     --inner-width: 546px;
     padding: 0;
 
+    &__marker {
+        width: 54px;
+        height: 54px;
+        @include utils.bg-defaults();
+        position: relative;
+        background-image: url('assets/icons/SDEK.svg');
+
+        &:has(.points-popup__balloon._opened) {
+            background-image: url('assets/icons/SDEK__dark.svg');
+        }
+    }
+
     &__inner {
         position: absolute;
         z-index: 1;
@@ -36,9 +48,14 @@
         &-list {
             padding: 48px 48px 48px 38px;
             min-width: 546px;
+            min-height: 100%;
             overflow-y: auto;
             background-color: var(--base_200);
             border-radius: 0 8px 8px 8px;
+
+            @media only screen and (min-width: 2000px) {
+                min-width: 700px;
+            }
 
             &::-webkit-scrollbar {
                 display: none;
@@ -175,9 +192,29 @@
         }
     }
 
-    &__baloon {
-        padding: 14px 0 14px 14px;
+    &__balloon {
+        position: absolute;
+        padding: 24px;
         width: 314px;
+        display: none;
+        background-color: var(--base_100);
+
+        &-close {
+            width: 20px;
+            height: 20px;
+            @include utils.bg-defaults();
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-image: url('assets/icons/close.svg');
+        }
+
+        &._opened {
+            bottom: -25px;
+            left: 0;
+            translate: 0 100%;
+            display: block;
+        }
 
         &-image {
             object-fit: cover;

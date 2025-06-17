@@ -1,7 +1,8 @@
-import { isDesktop } from 'globals/adaptive'
 import { closeActivePopup, PopupOpenedCustomEvent } from 'features/popup/popup'
 import { setFinalData, validateStep } from 'components/order-step/order-step'
 import { DeliveryPopup } from 'components/delivery/delivery'
+import { determineCoordinates, setMapBounds } from 'features/maps/createYMap'
+import { isMobile } from 'globals/adaptive'
 
 export interface Point {
     id: string
@@ -10,7 +11,7 @@ export interface Point {
     date: string
     coords: string
     image?: string
-    workHours: string
+    hours: string
 }
 
 interface HTMLPointElement extends HTMLElement {
@@ -19,7 +20,7 @@ interface HTMLPointElement extends HTMLElement {
 
 interface InitPointMapProps {
     mapContainer: HTMLElement
-    points: Point[]
+    dataPoints: Point[]
     onSetPointButtonClick: (e: MouseEvent) => void
 }
 
@@ -54,11 +55,11 @@ void (function () {
     pointsPopup.addEventListener('opened', async (customEvent) => {
         callPopupElement = (customEvent as PopupOpenedCustomEvent).detail.trigger
 
-        const points: Point[] = Array.from(document.querySelectorAll<HTMLPointElement>('.points-popup__data-list')).map(
-            (i) => i.dataset,
-        )
+        const dataPoints: Point[] = Array.from(
+            document.querySelectorAll<HTMLPointElement>('.points-popup__data-list div'),
+        ).map((i) => i.dataset)
 
-        await initPointsMap({ mapContainer, points, onSetPointButtonClick })
+        initPointsMap({ mapContainer, dataPoints, onSetPointButtonClick })
     })
 
     const showListButton = pointsPopup.querySelector('.points-popup__show-list')
@@ -74,109 +75,97 @@ void (function () {
     })
 })()
 
-async function initPointsMap(options: InitPointMapProps) {
-    const map = await window.map
+function createMarkerBalloon(pointInfo: Point, onButtonClick: (e: MouseEvent) => void) {
+    const hiddenClass = pointInfo.image ? '' : '_hidden'
+    const balloon = document.createElement('div')
+    balloon.classList.add('points-popup__balloon')
+    balloon.dataset.pointId = pointInfo.id
+
+    const closeBalloonButton = document.createElement('button')
+    closeBalloonButton.classList.add('points-popup__balloon-close')
+    closeBalloonButton.onclick = () => balloon.classList.remove('_visible')
+
+    balloon.innerHTML = `<img class='points-popup__balloon-image ${hiddenClass}' src="${pointInfo.image}">
+                               <div class="points-popup__item-info--address" data-point='address'>${pointInfo.address}</div>
+                               <div class="points-popup__item-info--price">${pointInfo.price}</div>
+                               <div class="points-popup__item-info--date" data-point='date'>${pointInfo.date}</div>
+                               <div class="points-popup__item-info--work-hours">${pointInfo.hours}</div>
+                               <button class="points-popup__balloon-button button" type="button">выбрать пункт</button>`
+
+    balloon.append(closeBalloonButton)
+
+    const setPointButton = balloon.querySelector<HTMLElement>('.points-popup__balloon-button')
+    setPointButton?.addEventListener('click', onButtonClick)
+
+    return balloon
+}
+
+function initPointsMap(options: InitPointMapProps) {
+    const map = window.map
     if (!map) return
 
-    const { mapContainer, points, onSetPointButtonClick } = options
+    const { mapContainer, dataPoints, onSetPointButtonClick } = options
 
-    map.geoObjects.removeAll()
     const mapElement = document.querySelector<HTMLElement>('.delivery__map')
     if (!mapElement) return
     mapContainer.append(mapElement)
 
-    points.forEach((point) => {
-        const hiddenClass = point.image ? '' : '_hidden'
-        const baloonContent = `
-    <div class="points-popup__baloon" data-point-id="${point.id}">
-        <img class='points-popup__baloon-image ${hiddenClass}' src="${point.image}">
-        <div class="points-popup__item-info--address" data-point='address'>${point.address}</div>
-        <div class="points-popup__item-info--price">${point.price}</div>
-        <div class="points-popup__item-info--date" data-point='date'>${point.date}</div>
-        <div class="points-popup__item-info--work-hours">${point.workHours}</div>
-        <button class="points-popup__baloon-button button" type="button">выбрать пункт</button>
-    </div>`
+    const { YMapDefaultSchemeLayer, YMapMarker } = ymaps3
 
-        const placemark = new ymaps.Placemark(
-            point.coords
-                .trim()
-                .split(',')
-                .map((i) => parseFloat(i.trim())),
-            {
-                balloonContent: baloonContent,
+    map.children.forEach((child) => {
+        // @ts-ignore
+        if (child.element) map.removeChild(child)
+    })
+
+    if (isMobile) {
+        map.update({
+            location: {
+                zoom: 12,
             },
-            {
-                iconLayout: 'default#image',
-                iconImageSize: [54, 54],
-                iconImageHref: './assets/icons/SDEK.svg',
-                hideIconOnBalloonOpen: false,
-                hasBalloon: isDesktop,
-            },
-        )
-
-        placemark.events.add('click', () => {
-            const mobileBalloon = document.querySelector<HTMLElement>('.points-popup__balloon-mobile')
-            if (!mobileBalloon) return
-
-            const closeMobileBalloonButton = mobileBalloon.querySelector('.points-popup__balloon-mobile-close')
-            closeMobileBalloonButton?.addEventListener('click', () => {
-                mobileBalloon.classList.remove('_visible')
-            })
-
-            const setPointButton = mobileBalloon.querySelector<HTMLElement>('.points-popup__balloon-mobile-button')
-
-            setPointButton?.addEventListener('click', (e) => {
-                mobileBalloon.classList.remove('_visible')
-                onSetPointButtonClick(e)
-            })
-
-            mobileBalloon.dataset.pointId = point.id.toString()
-            mobileBalloon.classList.add('_visible')
-            const mobileBalloonImage = mobileBalloon.querySelector('img')
-
-            if (mobileBalloonImage) {
-                mobileBalloonImage.src = ''
-                mobileBalloonImage.classList.add('_hidden')
-            }
-
-            Object.entries(point).forEach(([key, value]) => {
-                const element = mobileBalloon.querySelector(`[data-balloon='${camelCaseToKebab(key)}']`)
-
-                if (element instanceof HTMLImageElement) {
-                    element.classList.remove('_hidden')
-                    element.src = value
-                    return
-                }
-
-                if (element) element.textContent = value
-            })
         })
+    }
 
-        map.geoObjects.add(placemark)
+    dataPoints.forEach((point) => {
+        const coords = determineCoordinates(point.coords.split(',').map((i) => Number(i)))
+
+        const markerEl = document.createElement('div')
+        markerEl.classList.add('points-popup__marker')
+
+        markerEl.append(createMarkerBalloon(point, onSetPointButtonClick))
+
+        markerEl.onclick = (e) => {
+            e.stopPropagation()
+            if (e.target !== e.currentTarget) {
+                const activeBalloon = document.querySelector('.points-popup__balloon._opened')
+                activeBalloon?.classList.remove('_opened')
+            } else {
+                const activeBalloon = document.querySelector('.points-popup__balloon._opened')
+                activeBalloon?.classList.remove('_opened')
+                const balloon = markerEl.querySelector('.points-popup__balloon')
+                balloon?.classList.add('_opened')
+            }
+        }
+
+        const marker = new YMapMarker({ coordinates: coords }, markerEl)
+        map.addChild(new YMapDefaultSchemeLayer({}))
+        map.addChild(marker)
     })
 
-    const bounds = map.geoObjects.getBounds()
-    if (!bounds) return
-    setTimeout(() => map.setBounds(bounds, { checkZoomRange: true, zoomMargin: [10] }), 500)
+    const markersCoords = dataPoints.map((point) => determineCoordinates(point.coords.split(',').map((i) => Number(i))))
 
-    map.balloon.events.add('open', () => {
-        const setPointButton = document.querySelector<HTMLElement>('.points-popup__baloon-button')
+    setMapBounds(map, markersCoords)
 
-        if (!setPointButton || !onSetPointButtonClick) return
-        setPointButton.addEventListener('click', onSetPointButtonClick)
-    })
-
-    setPointList({ points, onSetPointButtonClick })
+    setPointList({ dataPoints, onSetPointButtonClick })
 }
 
 function setPointList(props: Omit<InitPointMapProps, 'mapContainer'>) {
-    const { points, onSetPointButtonClick } = props
+    const { dataPoints, onSetPointButtonClick } = props
     const pointListElement = document.querySelector<HTMLElement>('.points-popup__list')
     if (!pointListElement) return
     pointListElement.classList.remove('_empty')
     pointListElement.innerHTML = ''
 
-    if (!points.length) {
+    if (!dataPoints.length) {
         pointListElement.classList.add('_empty')
         return
     }
@@ -187,7 +176,7 @@ function setPointList(props: Omit<InitPointMapProps, 'mapContainer'>) {
         return
     }
 
-    points.forEach((point) => {
+    dataPoints.forEach((point) => {
         const pointElement = layout.cloneNode(true) as HTMLElement
         pointElement.classList.remove('_layout')
         pointElement.setAttribute('data-point-id', point.id.toString())
