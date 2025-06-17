@@ -41,9 +41,7 @@
 
 @media only screen and (min-width: utils.$tablet1000) {
     .breadcrumbs:has(~ .product-hero) {
-        margin-top: 24px;
-        margin-bottom: -17px;
-
+        margin: calc(var(--header-height) + 32px) 0 30px;
         .breadcrumbs__list {
             max-width: 400px;
             flex-wrap: wrap;
@@ -68,5 +66,11 @@
 
     .breadcrumbs:has(~ .brands:where([data-state='empty'], [data-state='result'])) {
         display: none;
+    }
+}
+
+@media only screen and (min-width: 2000px) {
+    .breadcrumbs:has(~ .product-hero) .breadcrumbs__list {
+        max-width: 600px;
     }
 }
