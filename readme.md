@@ -14,7 +14,7 @@
 - [О нас](https://aaccent.github.io/koroleva_layout/about.html)
 - [Магазины](https://aaccent.github.io/koroleva_layout/shops.html)
 - [Типовая](https://aaccent.github.io/koroleva_layout/static-page.html)
-- [Бренды]((https://aaccent.github.io/koroleva_layout/brands.html)
+- [Бренды](https://aaccent.github.io/koroleva_layout/brands.html)
 
 ## Стек
 
