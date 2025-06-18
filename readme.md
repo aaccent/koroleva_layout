@@ -1,4 +1,20 @@
-# Набор для верстки сайтов
+# Верстка Bikini
+
+## Страницы
+
+- [Главная](https://aaccent.github.io/koroleva_layout/)
+- [Каталог](https://aaccent.github.io/koroleva_layout/catalog.html)
+- [Коллекция](https://aaccent.github.io/koroleva_layout/collections.html)
+- [Продукт](https://aaccent.github.io/koroleva_layout/product.html)
+- [Избранное](https://aaccent.github.io/koroleva_layout/favorites.html)
+- [Оформление](https://aaccent.github.io/koroleva_layout/order.html)
+- [Блог](https://aaccent.github.io/koroleva_layout/blog.html)
+- [Статья](https://aaccent.github.io/koroleva_layout/article.html)
+- [Результат поиска](https://aaccent.github.io/koroleva_layout/search-results.html)
+- [О нас](https://aaccent.github.io/koroleva_layout/about.html)
+- [Магазины](https://aaccent.github.io/koroleva_layout/shops.html)
+- [Типовая](https://aaccent.github.io/koroleva_layout/static-page.html)
+- [Бренды]((https://aaccent.github.io/koroleva_layout/brands.html))
 
 ## Стек
 
