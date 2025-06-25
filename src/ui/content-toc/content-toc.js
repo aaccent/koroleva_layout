@@ -1,0 +1,43 @@
+import { getCoords } from 'features/page-coords'
+const intersectionObserver = new IntersectionObserver(
+    (entries) => {
+        const entry = entries.at(-1)
+        if (!entry) return
+        const target = entry.target
+        if (entry.isIntersecting) {
+            document.querySelector('.content-toc__list-item.active')?.classList.remove('active')
+            target.tocListItem.classList.add('active')
+        } else if (!target.isFirstItem && entry.intersectionRect.top !== 0) {
+            document.querySelector('.content-toc__list-item.active')?.classList.remove('active')
+            target.tocListItem.previousElementSibling?.classList.add('active')
+        }
+    },
+    {
+        root: null,
+        rootMargin: '0% 0% -50% 0%',
+        threshold: 1,
+    },
+)
+void (function () {
+    const tocList = document.querySelector('.content-toc__list')
+    const PERCENT_15_WINDOW = window.innerWidth * 0.1
+    if (!tocList) return
+    const headings = document.querySelectorAll('.content-with-toc :is(h1, h2)')
+    headings.forEach((headingItem, index) => {
+        intersectionObserver.observe(headingItem)
+        const coords = getCoords(headingItem)
+        const scrollToCoords = { left: 0, top: coords.y - PERCENT_15_WINDOW }
+        const listItem = document.createElement('li')
+        listItem.className = 'content-toc__list-item'
+        headingItem.tocListItem = listItem
+        headingItem.isFirstItem = index === 0
+        const button = document.createElement('button')
+        const text = headingItem.innerText.toLowerCase()
+        button.innerText = text[0].toUpperCase() + text.slice(1)
+        button.onclick = () => window.scrollTo(scrollToCoords)
+        listItem.append(button)
+        tocList.append(listItem)
+    })
+    headings[0]?.tocListItem.classList.add('active')
+})()
+//# sourceMappingURL=content-toc.js.map
