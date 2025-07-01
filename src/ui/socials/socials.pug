@@ -6,26 +6,30 @@ mixin socials(props)
             {
                 icon: require('assets/icons/tg.svg'),
                 link: '',
-                name:'Telegram'
+                name:'Telegram',
+                id: 'tg'
             },
             {
                 icon: require('assets/icons/vk.svg'),
                 link: '',
-                name: 'Вконтакте'
+                name: 'Вконтакте',
+                id: 'vk'
             },
             {
                 icon: require('assets/icons/ok.svg'),
                 link: '',
-                name: 'Одноклассники'
+                name: 'Одноклассники',
+                id: 'ok'
             },
             {
                 icon: require('assets/icons/youtube.svg'),
                 link: '',
-                name: 'Youtube'
+                name: 'Youtube',
+                id: 'youtube'
             },
         ]
     .socials&attributes(attributes)
         each item in props
-            +anchor(item.link).socials__item
+            +anchor(item.link).socials__item(id=item.id)
                 +img(item.icon)
                 span.socials__item-name= item.name

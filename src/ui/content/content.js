@@ -76,6 +76,44 @@ void (function () {
             }
         })
     })
+
+    const shareLinks = document.querySelectorAll('main .socials__item')
+    const url = encodeURIComponent(window.location.href)
+
+    shareLinks.forEach((link) => {
+        let onCLick
+        const id = link.id
+
+        switch (id) {
+            case 'tg':
+                onCLick = () => {
+                    const text = encodeURIComponent(document.title)
+                    window.open(`https://t.me/share/url?url=${url}&text=${text}`, '_blank', 'width=550,height=400')
+                }
+                break
+            case 'vk':
+                onCLick = () => {
+                    const title = encodeURIComponent(document.title)
+                    window.open(`https://vk.com/share.php?url=${url}&title=${title}`, '_blank', 'width=550,height=400')
+                }
+                break
+            case 'ok':
+                onCLick = () => {
+                    window.open(`https://connect.ok.ru/offer?url=${url}`, '_blank', 'width=550,height=400')
+                }
+                break
+            case 'youtube':
+                onCLick = () => window.open('https://www.youtube.com', '_blank')
+                break
+            default:
+                onCLick = () => false
+        }
+
+        link.addEventListener('click', (e) => {
+            e.preventDefault()
+            onCLick()
+        })
+    })
 })()
 
 document.querySelectorAll('dl').forEach((list) => {
