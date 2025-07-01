@@ -33,8 +33,6 @@ export function createContentSwiper() {
 }
 
 void (function () {
-    if (!document.querySelector('.article')) return
-
     createContentSwiper()
 
     const contentSwiperButtons = document.querySelectorAll(
@@ -77,7 +75,7 @@ void (function () {
         })
     })
 
-    const shareLinks = document.querySelectorAll('main .socials__item')
+    const shareLinks = document.querySelectorAll('.article__top .socials__item')
     const url = encodeURIComponent(window.location.href)
 
     shareLinks.forEach((link) => {
