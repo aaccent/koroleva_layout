@@ -58,11 +58,23 @@ void (function () {
 
         videoContainer.insertAdjacentHTML(
             'beforeend',
-            `<svg width="66" height="48" viewBox="0 0 66 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            `<svg class="video-container__play-icon" width="66" height="48" viewBox="0 0 66 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <rect x="0.5" y="0.5" width="65" height="47" rx="23.5" stroke="white"></rect>
                             <path d="M42 24L28.5 31.7942L28.5 16.2058L42 24Z" fill="white"></path>
                         </svg>`,
         )
+
+        const svg = videoContainer.querySelector('.video-container__play-icon')
+
+        video.addEventListener('click', (e) => {
+            e.preventDefault()
+            const isVideoPlaying = !!(video.currentTime > 0 && !video.paused && !video.ended && video.readyState > 2)
+            if (!isVideoPlaying) {
+                svg.classList.add('_hidden')
+                video.play()
+                setTimeout(() => video.setAttribute('controls', 'true'), 500)
+            }
+        })
     })
 })()
 
