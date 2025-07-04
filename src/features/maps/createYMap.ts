@@ -19,11 +19,14 @@ export async function loadYMap(apikey: string): Promise<void> {
 }
 
 export function setMapBounds(map: YMap, markersCoords: [number, number][]) {
-    const bounds = turf.points(markersCoords)
-    const center = turf.center(bounds)
-    const result = center.geometry.coordinates as [number, number]
+    const points = turf.points(markersCoords)
+    const center = turf.center(points).geometry.coordinates as [number, number]
+    const bbox = turf.bbox(points)
+    const distance = turf.distance([bbox[0], bbox[1]], [bbox[2], bbox[3]], { units: 'miles' })
 
-    map.setLocation({ center: result })
+    const zoom = Math.min(14, 15 - Math.log2(distance))
+    map.setLocation({ center, zoom })
+    map.setMargin([0, 250, 0, 0])
 }
 
 export function determineCoordinates(coords: number[]): [number, number] {
