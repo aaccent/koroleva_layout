@@ -51,6 +51,10 @@ body:has(.main-hero) {
     border-bottom: 1px solid var(--base_400_20);
     @include utils.transition(background-color);
 
+    &__buttons-cart {
+        position: relative;
+    }
+
     @media screen and (min-width: 1001px) {
         &._scrolled {
             margin-bottom: 47px;

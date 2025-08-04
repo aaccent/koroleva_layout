@@ -32,5 +32,12 @@ void (function () {
     if (!articleSliderNavigation) return
 
     articleSliderNavigation.classList.add('articles__more')
-    articleSliderNavigation.innerHTML = `<a href='#' class="articles__more-link">смотреть все</a>`
+    const linkElement =
+        articleSliderNavigation.querySelector<HTMLElement>('.articles__more-link') || document.createElement('a')
+    linkElement.classList.add('articles__more-link')
+    linkElement.textContent = 'смотреть все'
+    articleSliderNavigation.innerHTML = ''
+    articleSliderNavigation.append(linkElement)
+    const link = linkElement.dataset.link
+    linkElement.setAttribute('href', link || '#')
 })()
