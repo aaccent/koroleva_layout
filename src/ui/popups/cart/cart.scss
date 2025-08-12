@@ -2,9 +2,6 @@
 
 .cart-popup {
     &._empty {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
         .cart-popup__list,
         .cart-popup__info {
             display: none;
@@ -13,6 +10,18 @@
         .slider,
         .cart-popup__empty-message {
             display: block;
+        }
+
+        .slider {
+            margin-top: auto;
+
+            .container {
+                padding: 0;
+            }
+
+            &__navigation {
+                right: 0;
+            }
         }
     }
 
