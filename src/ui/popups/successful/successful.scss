@@ -1,0 +1,78 @@
+@use 'styles/utils';
+
+.successful-popup {
+    &__inner {
+        position: relative;
+        margin: auto;
+        padding: 90px;
+        max-width: 659px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow: hidden;
+
+        .close-btn._inner {
+            display: block;
+            @include utils.square(24px);
+            top: 24px;
+            right: 24px;
+            background-color: transparent;
+            border-radius: 0;
+
+            &::before,
+            &::after {
+                translate: 0;
+                height: 24px;
+                background-color: var(--base_400);
+            }
+        }
+    }
+
+    .close-btn {
+        position: absolute;
+        display: none;
+    }
+
+    &__title {
+        position: relative;
+        z-index: 1;
+        margin-bottom: 32px;
+        font: var(--header_300);
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    &__button {
+        position: relative;
+        z-index: 1;
+        max-width: 373px;
+    }
+
+    &__image {
+        position: absolute;
+        top: 32px;
+        opacity: 0.05;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .successful-popup {
+        justify-content: end;
+        &__inner {
+            margin: 0;
+            padding: 28px;
+            min-height: 214px;
+
+            .close-btn._inner {
+                display: none;
+            }
+        }
+
+        &__title {
+            margin-bottom: 40px;
+            max-width: 320px;
+            font-size: 2.6rem;
+            text-align: left;
+        }
+    }
+}
