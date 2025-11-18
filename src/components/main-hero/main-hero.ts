@@ -1,12 +1,6 @@
 import Swiper from 'swiper'
 import { Autoplay, EffectFade, Navigation, Pagination } from 'swiper/modules'
 
-interface SwiperSlideElement extends HTMLElement {
-    dataset: {
-        swiperSlideIndex: string
-    }
-}
-
 function createSVGCircle(container: Element) {
     const innerSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
     innerSvg.setAttribute('viewBox', '0 0 85 85')
@@ -36,6 +30,8 @@ void (function () {
     const mainHeroSlider = document.querySelector<HTMLElement>('.main-hero__slider')
     if (!mainHeroSlider) return
 
+    const firstSlideDelay = document.querySelectorAll<HTMLElement>('.main-hero__slide')[0].dataset.delay || '3'
+
     const mainSwiper = new Swiper(mainHeroSlider, {
         modules: [Autoplay, EffectFade, Navigation, Pagination],
         effect: 'fade',
@@ -45,7 +41,7 @@ void (function () {
             crossFade: true,
         },
         autoplay: {
-            delay: 3000,
+            delay: parseInt(firstSlideDelay) * 1000,
         },
 
         allowTouchMove: false,
@@ -60,28 +56,48 @@ void (function () {
     })
 
     const circlesPreview = document.querySelectorAll<HTMLElement>('.main-hero__thumbs-slide')
-    circlesPreview[0].classList.add('_active')
+    const mainSlides = document.querySelectorAll<HTMLElement>('.main-hero__slide')
+
+    const circlesCount = circlesPreview.length
+    const translate = circlesCount <= 5 ? 50 : 70
 
     /** Позиционирует круглые превью и создает SVG вокруг них */
     circlesPreview.forEach((item, index) => {
-        const translate = index * 50
-        item.style.translate = `-${translate}%`
+        if (index === 0) {
+            item.classList.add('_active')
+        }
+
+        item.style.translate = `-${translate * index}%`
         item.style.zIndex = `-${index}`
+
+        const delay = mainSlides[index].dataset.delay || '3'
+        item.style.setProperty('--delay', `${parseInt(delay) * 2}s`)
         createSVGCircle(item)
     })
 
-    function activateCirclePreview() {
-        const activeSlide = document.querySelector('.swiper-slide-active') as SwiperSlideElement
-        const activeIndex = parseInt(activeSlide.dataset.swiperSlideIndex)
+    function activateCirclePreview(swiper: Swiper) {
+        const activeIndex = swiper.activeIndex
 
         const activeCircle = circlesPreview[activeIndex]
         const currentActiveCircle = document.querySelector('.main-hero__thumbs-slide._active') as HTMLElement
 
         currentActiveCircle.classList.remove('_active')
+        currentActiveCircle.style.zIndex = `${-activeIndex}`
+
         activeCircle.classList.add('_active')
         activeCircle.style.zIndex = `${activeIndex}`
-        currentActiveCircle.style.zIndex = `${-activeIndex}`
+    }
+
+    function setDelayFromSlide(swiper: Swiper) {
+        const currentSlide = swiper.slides[swiper.activeIndex]
+        const delay = currentSlide.dataset.delay || '2'
+
+        swiper.autoplay.stop()
+        // @ts-ignore
+        swiper.params.autoplay.delay = parseInt(delay) * 1000
+        swiper.autoplay.start()
     }
 
     mainSwiper.on('slideChangeTransitionStart', activateCirclePreview)
+    mainSwiper.on('slideChange', setDelayFromSlide)
 })()

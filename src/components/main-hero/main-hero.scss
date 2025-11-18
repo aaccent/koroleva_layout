@@ -101,6 +101,7 @@
         }
 
         &._active {
+            --delay: 12s;
             &::before {
                 content: none;
             }
@@ -111,7 +112,9 @@
             }
 
             .outer circle {
-                animation: circle 6s linear;
+                animation-name: circle;
+                animation-duration: var(--delay);
+                animation-timing-function: linear;
             }
         }
 
