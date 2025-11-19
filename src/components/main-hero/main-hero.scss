@@ -101,7 +101,7 @@
         }
 
         &._active {
-            --delay: 12s;
+            --delay: none;
             &::before {
                 content: none;
             }
