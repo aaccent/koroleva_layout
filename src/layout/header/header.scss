@@ -22,7 +22,7 @@ body:has(.main-hero) {
 
             .header__geo-button,
             .header__logo,
-            .header__buttons > :where(button, span, a),
+            .header__buttons > :where(button, span, a, svg),
             .header__mobile-search-button,
             .header__mobile-burger {
                 filter: var(--filter-base_100);
